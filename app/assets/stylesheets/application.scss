@@ -1,20 +1,69 @@
 //= require angular-ng-dialog
 //= require angular-ng-dialog-theme-default
+//= require font-awesome
 //= require_tree .
 //= require_self
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+body{
+  font-size: 16px;
+}
+
+.localization{
+  font-size: 12px;
+  margin-top: 20px;
+}
 
 .header{
   .gallery{
+    margin-top: -20px;
+    color: white;
     background-image: url('pet1.jpg');
-    min-height: 462px;
+    min-height: 502px;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    .logo{
+      font-family: 'PT Serif Caption', serif;
+      .span1{
+        font-size: 65px;
+      }
+      .span2{
+        font-size: 43.7px;
+      }
+      .span3{
+        font-size: 46.9px;
+      }
+    }
+    .logo-text{
+      line-height: 1.7em;
+      margin-top: 10px;
+      padding-left: 52px;
+    }
   }
+
+  .header-menu{
+    text-align: right;
+    margin-top: 40px;
+    line-height: 2.3em;
+    .header-menu-column{
+      display: inline-block;
+      text-align: left;
+      list-style-type: none;
+      a {
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+        border-bottom: 1px dashed white;
+        &:hover{
+          border: 0;
+        }
+      }
+    }
+  }
+
   .wave{
     height: 10px;
     background-image: url('wave.svg');
@@ -25,4 +74,29 @@
     background-color: #FFD800;
     min-height: 100px;
   }
+}
+
+.yellow-btn{
+  background-color: #FFD800;
+  text-decoration: none;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 8px 14px;
+  border: 0 !important;
+  color: black !important;
+  &:hover{
+    color: white !important;
+  }
+}
+
+.global-search{
+  background-color: transparent;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 0 20px;
+  border: 1px solid white;
+  outline: none;
+  position: relative;
 }

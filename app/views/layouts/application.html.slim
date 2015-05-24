@@ -2,11 +2,63 @@ html(lang="en")
   head
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
+    link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption&subset=latin,cyrillic' rel='stylesheet' type='text/css'
     = csrf_meta_tags
   body ng-app="petModeApp"
     .header
       .gallery
         .container
+          .row
+            .col-xs-12.col-sm-12.col-md-12.col-lg-12.text-right.localization
+              | RU | EN
+          .row-fluid
+            .col-xs-4.col-sm-4.col-md-4.col-lg-4.logo
+              = image_tag 'logo.svg', style: "margin-top: 20px; width: 320px; "
+              br
+              br
+              .logo-text
+                .span1
+                  b
+                    | Сервис
+                br
+                .span2
+                  | домашних
+                br
+                .span3
+                  | питомцев
+            .col-xs-8.col-sm-8.col-md-8.col-lg-8.header-menu
+              ul.header-menu-column
+                li
+                  a Продажа
+                li
+                  a Случка
+                li
+                  a Новости
+                li
+                  a Зоомагазин
+              ul.header-menu-column
+                li
+                  a В добрые руки
+                li
+                  a Специалисты
+                li
+                  a Конкурсы
+                li
+                  a Выставки
+              .header-menu-column style="text-align: right; width: 300px"
+                a.yellow-btn
+                  | Вход
+                br
+                i.fa.fa-key
+                | &nbsp;
+                | &nbsp;
+                a
+                  | Регистрация
+                br
+                br
+                input.global-search style="position: relative; right: -30px"
+                | &nbsp;
+                i.fa.fa-search
       .wave
       .nav-menu
         .container
