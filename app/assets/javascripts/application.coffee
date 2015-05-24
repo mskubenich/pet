@@ -3,8 +3,8 @@
 #= require bootstrap
 #= require bootstrap-sprockets
 #= require angular
-#= require angular-ui-router
 #= require angular-rails-templates
+#= require angular-ui-router
 #= require angular-ng-dialog
-#= require_tree ./templates
+#= require_tree ./client_app/templates
 #= require_tree .

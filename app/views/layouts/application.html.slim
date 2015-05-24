@@ -12,7 +12,8 @@ html(lang="en")
             | RU | EN
           .header-row
             .logo
-              = image_tag 'logo.svg', style: "margin-top: 20px; width: 320px; "
+              a href="#"
+                = image_tag 'logo.svg', style: "margin-top: 20px; width: 320px; "
               br
               br
               .logo-text
@@ -28,18 +29,24 @@ html(lang="en")
             .header-menu
               ul.header-menu-column
                 li
-                  a Продажа
+                  a href="#sale"
+                    | Продажа
                 li
-                  a Случка
+                  a href="#copulation"
+                    | Случка
                 li
-                  a Новости
+                  a href="#news"
+                    | Новости
                 li
-                  a Зоомагазин
+                  a href="#pet-shop"
+                    | Зоомагазин
               ul.header-menu-column
                 li
-                  a В добрые руки
+                  a href="#good-hands"
+                    | В добрые руки
                 li
-                  a Специалисты
+                  a href="#experts"
+                    | Специалисты
                 li
                   a Конкурсы
                 li
@@ -51,7 +58,7 @@ html(lang="en")
                 i.fa.fa-key
                 | &nbsp;
                 | &nbsp;
-                a
+                a href="#registration"
                   | Регистрация
                 br
                 br
@@ -86,8 +93,7 @@ html(lang="en")
               li
                 a
                   | Игрушки
-    .container.content
-      | content
+    .container.content ui-view=true
     footer
       .container
         | Petmode.ru | "Петмод" @2015

@@ -14,6 +14,8 @@ gem 'bootstrap-sass-extras'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem "font-awesome-rails"
 
+gem 'sprockets', '2.12.3' # For fucking angular-rails-templates. Don't remove
+
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

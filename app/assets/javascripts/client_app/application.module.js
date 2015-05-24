@@ -11,12 +11,43 @@
         $stateProvider
             .state('home',{
                 url: '',
-                templateUrl: 'templates/admin/pages/index.html'
+                templateUrl: 'client_app/templates/home/index.html',
+                controller: 'HomeController'
             })
-            .state('workers',{
-                url: '/workers',
-                templateUrl: 'application/templates/admin/workers/index.html',
-                controller: 'AdminWorkersController'
+            .state('registration',{
+                url: '/registration',
+                templateUrl: 'client_app/templates/users/new.html',
+                controller: 'UsersController'
+            })
+            .state('sale',{
+                url: '/sale',
+                templateUrl: 'client_app/templates/sale/index.html',
+                controller: 'SaleController'
+            })
+            .state('copulation',{
+                url: '/copulation',
+                templateUrl: 'client_app/templates/copulation/index.html',
+                controller: 'CopulationController'
+            })
+            .state('pet-shop',{
+                url: '/pet-shop',
+                templateUrl: 'client_app/templates/shop/index.html',
+                controller: 'ShopController'
+            })
+            .state('good-hands',{
+                url: '/good-hands',
+                templateUrl: 'client_app/templates/hands/index.html',
+                controller: 'HandsController'
+            })
+            .state('experts',{
+                url: '/experts',
+                templateUrl: 'client_app/templates/experts/index.html',
+                controller: 'ExpertsController'
+            })
+            .state('news',{
+                url: '/news',
+                templateUrl: 'client_app/templates/news/index.html',
+                controller: 'NewsController'
             });
     }]);
 
