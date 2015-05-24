@@ -124,6 +124,18 @@ body{
   width: 200px;
 }
 
+input.pet-input{
+  background-color: transparent;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  padding: 0 20px;
+  border: 1px solid white;
+  outline: none;
+  position: relative;
+  width: 100%;
+}
+
 
 .nav-menu{
   ul{

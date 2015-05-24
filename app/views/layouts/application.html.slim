@@ -5,7 +5,7 @@ html(lang="en")
     link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption&subset=latin,cyrillic' rel='stylesheet' type='text/css'
     = csrf_meta_tags
   body ng-app="petModeApp"
-    .header
+    .header ng-controller="HomeController"
       .gallery
         .container
           .localization
@@ -52,7 +52,7 @@ html(lang="en")
                 li
                   a Выставки
               .header-menu-column style="text-align: right"
-                a.yellow-btn
+                a.yellow-btn ng-click="showLoginForm()"
                   | Вход
                 br
                 i.fa.fa-key
