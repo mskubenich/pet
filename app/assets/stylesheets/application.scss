@@ -19,6 +19,7 @@ body{
 
 .header{
   .gallery{
+    overflow: hidden;
     margin-top: -20px;
     color: white;
     background-image: url('pet1.jpg');
@@ -26,6 +27,7 @@ body{
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    position:relative;
     .header-row{
       position:relative;
     }
@@ -64,6 +66,17 @@ body{
           }
         }
       }
+    }
+    .header-text{
+      position: absolute;
+      bottom: 40px;
+      border: 2px dotted white;
+      border-radius: 100px;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px;
+      width: 660px;
+      padding: 20px 70px 20px 50px;
+      right: -60px;
     }
     .logo-text{
       line-height: 1.7em;
