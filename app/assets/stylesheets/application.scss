@@ -11,19 +11,18 @@
   .gallery{
     background-image: url('pet1.jpg');
     min-height: 462px;
-    border: 1px solid red;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
   .wave{
-    height: 20px;
+    height: 10px;
     background-image: url('wave.svg');
 //    background-size: 100px 200px;
-    margin-top: -20px;
+    margin-top: -10px;
   }
   .nav-menu{
-    background-color: yellow;
+    background-color: #FFD800;
     min-height: 100px;
   }
 }
