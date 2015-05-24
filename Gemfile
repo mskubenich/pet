@@ -6,11 +6,12 @@ gem 'mysql2'
 gem 'slim'
 gem "slim-rails"
 
+gem 'angularjs-rails'
+gem 'angular-rails-templates'
 
-group :assets do
-  gem 'coffee-rails', '~> 4.1.0'
-  gem 'sass-rails', '~> 5.0'
-end
+gem 'bootstrap-sass'
+gem 'bootstrap-sass-extras'
+gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets

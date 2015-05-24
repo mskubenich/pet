@@ -1,0 +1,29 @@
+//= require angular-ng-dialog
+//= require angular-ng-dialog-theme-default
+//= require_tree .
+//= require_self
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.header{
+  .gallery{
+    background-image: url('pet1.jpg');
+    min-height: 462px;
+    border: 1px solid red;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+  .wave{
+    height: 20px;
+    background-image: url('wave.svg');
+//    background-size: 100px 200px;
+    margin-top: -20px;
+  }
+  .nav-menu{
+    background-color: yellow;
+    min-height: 100px;
+  }
+}
