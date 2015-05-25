@@ -185,3 +185,54 @@ input.pet-input{
   font-size: 11px;
   color: red;
 }
+
+footer{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+.rounded-one{
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 50px;
+  input[type=checkbox], input[type=radio]{
+    display: none;
+  }
+  .rounded-two{
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    display: none;
+    border-radius: 50px;
+  }
+  &.checked .rounded-two{
+    display: block;
+  }
+}
+
+span.black-budget{
+  background-color: black;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  color: white;
+  font-weight: normal;
+  font-size: 13px;
+  padding: 4px 7px;
+}
+
+.vertical-align-table{
+  tr td{
+    vertical-align: middle;
+    text-align: left;
+    padding-right: 10px;
+  }
+}

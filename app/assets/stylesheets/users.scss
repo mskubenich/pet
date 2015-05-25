@@ -1,3 +1,38 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.registration-form{
+  padding: 34px;
+  input[type=text], input[type=password]{
+    border: 1.5px solid #DDDDDD;
+    cursor: pointer;
+    &:hover{
+      border-color: #BABABA;
+    }
+  }
+  .gray{
+    color: #CDCDCD;
+    font-size: 11px;
+  }
+}
+
+.gray-block{
+  background-color: #F8F8F8;
+}
+
+.avatar-droppable{
+  cursor: pointer;
+  background-image: url('avatar.svg');
+  background-size: cover !important;
+  background-position: center;
+  height: 90px;
+  width: 90px;
+  border: 1px solid #DDDDDD;
+  table{
+    width: 100%;
+    height: 100%;
+    td{
+      text-align: center !important;
+      vertical-align: middle !important;
+      padding: 0 !important;
+      font-size: 30px;
+    }
+  }
+}
