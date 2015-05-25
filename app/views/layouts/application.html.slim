@@ -52,19 +52,28 @@ html(lang="en")
                 li
                   a Выставки
               .header-menu-column style="text-align: right"
-                a.yellow-btn ng-click="showLoginForm()"
-                  | Вход
-                br
-                i.fa.fa-key
-                | &nbsp;
-                | &nbsp;
-                a href="#registration"
-                  | Регистрация
-                br
-                br
-                input.global-search style="position: relative; right: -30px"
-                | &nbsp;
-                i.fa.fa-search
+                div ng-show="current_user"
+                  | {{ current_user.full_name }}
+                  br
+                  a.yellow-btn ng-click="logout()"
+                    | Выход
+                  br
+                  br
+                  br
+                div ng-hide="current_user"
+                  a.yellow-btn ng-click="showLoginForm()"
+                    | Вход
+                  br
+                  i.fa.fa-key
+                  | &nbsp;
+                  | &nbsp;
+                  a href="#registration"
+                    | Регистрация
+                  br
+                  br
+                  input.global-search style="position: relative; right: -30px"
+                  | &nbsp;
+                  i.fa.fa-search
           .header-text
             | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
       .wave

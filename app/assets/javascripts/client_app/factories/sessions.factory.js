@@ -4,6 +4,9 @@
         return {
             create: function(session) {
                 return $http.post('sessions', {session: session});
+            },
+            currentUser: function() {
+                return $http.get('sessions/current_user_info');
             }
         };
     }])
