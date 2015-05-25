@@ -49,7 +49,6 @@ body{
     .header-menu{
       text-align: right;
       padding-left: 320px;
-      text-align: right;
       margin-top: 40px;
       line-height: 2.3em;
       .header-menu-column{
@@ -140,6 +139,25 @@ input.pet-input{
   width: 100%;
 }
 
+.footer-routes{
+  ul{
+    list-style-type: none;
+    a {
+      color: black;
+      cursor: pointer;
+      text-decoration: none;
+      border-bottom: 1px dashed black;
+      &:hover{
+        border: 0;
+      }
+    }
+    li{
+      height: 60px;
+      width: 117px;
+      margin-right: 14px;
+    }
+  }
+}
 
 .nav-menu{
   ul{
