@@ -7,6 +7,9 @@
             },
             currentUser: function() {
                 return $http.get('sessions/current_user_info');
+            },
+            destroy: function() {
+                return $http.delete('sessions');
             }
         };
     }])

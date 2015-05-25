@@ -27,8 +27,8 @@
                         $scope.login = function(){
                             session.create($scope.session)
                                 .success(function(){
-                                    console.log('here');
                                     $scope.closeThisDialog();
+                                    $scope.getCurrentUserInfo();
                                 })
                                 .error(function(data){
                                     $scope.error = data.error;
@@ -36,7 +36,18 @@
                         };
                     }]
                 });
-            }
+            };
+
+            $scope.logout = function(){
+                session.destroy()
+                    .success(function(){
+                        $scope.current_user = null;
+                        $state.go('home');
+                    })
+                    .error(function(data){
+
+                    })
+            };
 
         }])
 }());

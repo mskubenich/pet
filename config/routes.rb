@@ -14,9 +14,10 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :sessions, only: [:create, :destroy] do
+  resources :sessions, only: [:create] do
     collection do
       get :current_user_info
+      delete :destroy
     end
   end
 end
