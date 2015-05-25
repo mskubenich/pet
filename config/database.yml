@@ -48,4 +48,4 @@ test:
 #
 production:
   <<: *default
-  database: pet_production
+  database: pet_development
