@@ -10,7 +10,7 @@ class Session < ActiveRecord::Base
   private
 
   def encrypt
-    secure_hash("#{Time.now.utc - (rand(1000).hours)}--#{self.user.user_email}--#{self.user.user_salt}")
+    secure_hash("#{Time.now.utc - (rand(1000).hours)}--#{self.user.email}--#{self.user.salt}")
   end
 
   def secure_hash(string)

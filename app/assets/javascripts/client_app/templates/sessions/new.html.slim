@@ -1,15 +1,17 @@
 .text-center
   h2
     | Вход
-form
+form ng-submit="login()"
   .form-group
     label
       | Логин или Email
-    input.form-control.pet-input
+    input.form-control.pet-input ng-model="session.login"
   .form-group
     label
       | Пароль
-    input.form-control.pet-input type="password"
+    input.form-control.pet-input type="password" ng-model="session.password"
+  .error ng-show="error"
+    | {{ error }}
   .text-center
     button.yellow-btn type="submit"
       | Вход

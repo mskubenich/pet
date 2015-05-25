@@ -124,6 +124,10 @@ body{
   width: 200px;
 }
 
+input, button{
+  outline: none;
+}
+
 input.pet-input{
   background-color: transparent;
   border-radius: 4px;
@@ -157,4 +161,9 @@ input.pet-input{
       }
     }
   }
+}
+
+.error{
+  font-size: 11px;
+  color: red;
 }

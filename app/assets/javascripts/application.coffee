@@ -7,4 +7,6 @@
 #= require angular-ui-router
 #= require angular-ng-dialog
 #= require_tree ./client_app/templates
+#= require ./client_app/application.module.js
+#= require_tree ./client_app/factories
 #= require_tree .

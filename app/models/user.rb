@@ -13,8 +13,10 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password, :downcase_email
 
+  has_many :sessions
+
   def authenticate(password)
-    self.user_encrypted_password == encrypt(password)
+    self.encrypted_password == encrypt(password)
   end
 
   def admin?
@@ -33,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def encrypt(string)
-    secure_hash("#{string}--#{self.user_salt}")
+    secure_hash("#{string}--#{self.salt}")
   end
 
   def make_salt

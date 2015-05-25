@@ -1,5 +1,6 @@
 module SessionsHelper
   def sign_in(user)
+    @current_session = user.sessions.create
     cookies.permanent[:session_token] = @current_session.token
     self.current_user = user
     current_session
@@ -18,8 +19,7 @@ module SessionsHelper
   end
 
   def current_session
-    ::Finicity
-    @current_session ||= Session.not_temp.find_by_token([cookies[:session_token], params[:session_token], request.headers['Session-Token']].compact)
+    @current_session ||= Session.find_by_token([cookies[:session_token], params[:session_token], request.headers['Session-Token']].compact)
   end
 
   def sign_out
