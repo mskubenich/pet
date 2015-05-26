@@ -1,26 +1,46 @@
 .container
   .row
     .col-md-6.col-md-offset-3.gray-block
-      form.registration-form ng-submit="submitUserData()"
+      form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=true
         .row
           .col-md-6
             .form-group
-              input.form-control type="text" placeholder="Имя"
+              input.form-control type="text" placeholder="Имя" required=true class="{{ userForm.first_name.$invalid && submited ? 'validation-error' : ''}}" name="first_name" ng-model="userData.first_name"
+              .error ng-show="userForm.first_name.$invalid && submited"
+                | can't be blank
           .col-md-6
             .form-group
-              input.form-control type="text" placeholder="Фамилия"
+              input.form-control type="text" placeholder="Фамилия" required=true class="{{ userForm.last_name.$invalid && submited ? 'validation-error' : ''}}" name="last_name" ng-model="userData.last_name"
+              .error ng-show="userForm.last_name.$invalid && submited"
+                | can't be blank
         .form-group
-          input.form-control type="text" placeholder="Адрес электронной почты"
+
+          input.form-control type="text" placeholder="Адрес электронной почты" email-available=true required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
+          .error ng-show="userForm.email.$error.required && submited"
+            | can't be blank
+          .error ng-show="userForm.email.$error.emailBlank && submited"
+            | can't be blank
+          .error ng-show="userForm.email.$error.emailAvailable"
+            | has already been taken
+          .error ng-show="userForm.email.$error.emailValid && submited"
+            | is invalid
           span.gray
             | На этот адрес будет отправлено сообщение с подтверждением регистрации.
+
         .form-group
           input.form-control type="text" placeholder="Контактный телефон"
         .form-group
-          input.form-control type="text" placeholder="Ваш логин"
+          input.form-control type="text" placeholder="Ваш логин" required=true class="{{ userForm.login.$invalid && submited ? 'validation-error' : ''}}" name="login" ng-model="userData.login"
+          .error ng-show="userForm.login.$invalid && submited"
+            | can't be blank
         .form-group
-          input.form-control type="password" placeholder="Придумайте пароль"
+          input.form-control type="password" placeholder="Придумайте пароль" required=true class="{{ userForm.password.$invalid && submited? 'validation-error' : ''}}" name="password" ng-model="userData.password"
+          .error ng-show="userForm.password.$invalid && submited"
+            | can't be blank
         .form-group
-          input.form-control type="password" placeholder="Повторите пароль"
+          input.form-control type="password" placeholder="Повторите пароль" match="userData.password" ng-model="userData.password_confirmation" class="{{ userForm.password_confirmation.$error.match ? 'validation-error' : ''}}" name="password_confirmation"
+          .error ng-show="userForm.password_confirmation.$error.match && submited"
+            | don't match password
         br
         .form-group
           label

@@ -1,6 +1,9 @@
 .registration-form{
   padding: 34px;
   input[type=text], input[type=password]{
+    &.validation-error{
+      border-color: red !important;
+    }
     border: 1.5px solid #DDDDDD;
     cursor: pointer;
     &:hover{

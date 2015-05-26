@@ -3,7 +3,9 @@
     var petModeApp = angular.module('petModeApp', [
         'ui.router',
         'templates',
-        'ngDialog'
+        'ngDialog',
+        'validation.match',
+        'petModeApp.directives'
     ]);
 
     petModeApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {

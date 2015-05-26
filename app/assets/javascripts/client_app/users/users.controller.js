@@ -5,11 +5,13 @@
     angular.module('petModeApp')
         .controller('UsersController', ['$scope', '$state', 'ngDialog', function ($scope, $state, ngDialog) {
             $scope.userData = {};
+            $scope.submited = false;
 
             $scope.submitUserData = function () {
-                //if($scope.userDataForm.$invalid){
-                //    return false;
-                //}
+                $scope.submited = true;
+                if($scope.userForm.$invalid){
+                    return false;
+                }
                 //
                 //$loading.start('setup');
                 //isup.submitUserData($scope.userData).success(function(data, status, headers, config){

@@ -6,6 +6,8 @@
 #= require angular-rails-templates
 #= require angular-ui-router
 #= require angular-ng-dialog
+#= require angular-input-match
+#= require angular-email-available
 #= require_tree ./client_app/templates
 #= require ./client_app/application.module.js
 #= require_tree ./client_app/factories
