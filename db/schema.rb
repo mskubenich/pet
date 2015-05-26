@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524170357) do
+ActiveRecord::Schema.define(version: 20150526141928) do
 
   create_table "sessions", force: :cascade do |t|
     t.string  "token",   limit: 255
@@ -26,8 +26,10 @@ ActiveRecord::Schema.define(version: 20150524170357) do
     t.string   "phone",              limit: 255
     t.string   "salt",               limit: 255
     t.string   "encrypted_password", limit: 255
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+    t.boolean  "rkf",                limit: 1,   default: false
+    t.boolean  "scorp",              limit: 1,   default: false
   end
 
 end

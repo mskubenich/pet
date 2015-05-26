@@ -2,6 +2,7 @@
   .row
     .col-md-6.col-md-offset-3.gray-block
       form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=true
+
         .row
           .col-md-6
             .form-group
@@ -13,12 +14,11 @@
               input.form-control type="text" placeholder="Фамилия" required=true class="{{ userForm.last_name.$invalid && submited ? 'validation-error' : ''}}" name="last_name" ng-model="userData.last_name"
               .error ng-show="userForm.last_name.$invalid && submited"
                 | can't be blank
-        .form-group
 
-          input.form-control type="text" placeholder="Адрес электронной почты" email-available=true required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
+        .form-group
+          input.form-control type="text" placeholder="Адрес электронной почты" emailvalidate=true required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
+
           .error ng-show="userForm.email.$error.required && submited"
-            | can't be blank
-          .error ng-show="userForm.email.$error.emailBlank && submited"
             | can't be blank
           .error ng-show="userForm.email.$error.emailAvailable"
             | has already been taken
@@ -29,18 +29,22 @@
 
         .form-group
           input.form-control type="text" placeholder="Контактный телефон"
+
         .form-group
           input.form-control type="text" placeholder="Ваш логин" required=true class="{{ userForm.login.$invalid && submited ? 'validation-error' : ''}}" name="login" ng-model="userData.login"
           .error ng-show="userForm.login.$invalid && submited"
             | can't be blank
+
         .form-group
           input.form-control type="password" placeholder="Придумайте пароль" required=true class="{{ userForm.password.$invalid && submited? 'validation-error' : ''}}" name="password" ng-model="userData.password"
           .error ng-show="userForm.password.$invalid && submited"
             | can't be blank
+
         .form-group
           input.form-control type="password" placeholder="Повторите пароль" match="userData.password" ng-model="userData.password_confirmation" class="{{ userForm.password_confirmation.$error.match ? 'validation-error' : ''}}" name="password_confirmation"
           .error ng-show="userForm.password_confirmation.$error.match && submited"
             | don't match password
+
         br
         .form-group
           label
@@ -49,10 +53,11 @@
                 td
                   .rounded-one class="{{ checked1 ? 'checked' : ''}}"
                     .rounded-two
-                    input.form-control type="checkbox" ng-click="checked1 = !checked1"
+                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="userData.scorp"
                 td
                   span.black-budget style="margin-top: 13px"
                     | СКОРП
+
         .form-group
           label
             table.vertical-align-table
@@ -60,7 +65,7 @@
                 td
                   .rounded-one class="{{ checked2 ? 'checked' : ''}}"
                     .rounded-two
-                    input.form-control type="checkbox" ng-click="checked2 = !checked2"
+                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.rkf"
                 td
                   span.black-budget
                     | РКФ
@@ -68,12 +73,13 @@
           br
           span.gray
             | Поставте отметку, если Вы представляете одну из организаций.
+
         .form-group
           table.vertical-align-table
             tr
               td
                 label
-                  input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');"
+                  input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" ng-model="userData.avatar"
                   .avatar-droppable#avatar-preview
                     table
                       tr
@@ -84,5 +90,4 @@
                   | Ваше фото.
 
         .text-center
-          button.yellow-btn type="submit"
-            | РЕГИСТРАЦИЯ
+          input.yellow-btn type="submit" value="РЕГИСТРАЦИЯ"

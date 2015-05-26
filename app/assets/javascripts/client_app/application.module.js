@@ -5,7 +5,7 @@
         'templates',
         'ngDialog',
         'validation.match',
-        'petModeApp.directives'
+        'validation.email'
     ]);
 
     petModeApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {

@@ -9,6 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :salt
       t.string :encrypted_password
       t.timestamps null: false
+
     end
   end
 end
