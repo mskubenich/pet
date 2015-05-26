@@ -8,7 +8,6 @@
             $scope.submited = false;
 
             $scope.submitUserData = function () {
-                console.log('s');
                 $scope.submited = true;
 
                 if($scope.userForm.$invalid && !_.isEqual($scope.userForm.email.$error , {parse: true})){

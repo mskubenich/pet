@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_many :roles
-
   validates :email, uniqueness: { case_sensitive: false, message: "has already been taken." },
             format: { with: /.*\@.*\..*/, message: "is incorrect"},
             presence: true
@@ -12,8 +10,10 @@ class User < ActiveRecord::Base
   validates :login, presence: true
 
   before_save :encrypt_password, :downcase_email
+  after_create :set_default_role
 
   has_many :sessions
+  has_and_belongs_to_many :roles
 
   def authenticate(password)
     self.encrypted_password == encrypt(password)
@@ -28,6 +28,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def set_default_role
+    self.roles << Role.user
+  end
 
   def encrypt_password
     self.salt = make_salt if new_record?
