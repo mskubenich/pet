@@ -9,6 +9,8 @@ html(lang="en")
       .gallery
         .container
           .localization
+            a.white-link href="/admin" ng-show="current_user.is_admin"
+              | Admin
             | RU | EN
           .header-row
             .logo

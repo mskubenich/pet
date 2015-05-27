@@ -21,4 +21,6 @@ Rails.application.routes.draw do
       delete :destroy
     end
   end
+
+  get '/admin', to: 'admin/pages#index'
 end

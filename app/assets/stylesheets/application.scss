@@ -236,3 +236,14 @@ span.black-budget{
     padding-right: 10px;
   }
 }
+
+a.white-link{
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px dashed white;
+  &:hover{
+    border: 0;
+  }
+  padding-right: 10px;
+}

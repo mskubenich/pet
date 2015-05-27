@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    self.roles.map(&:name).include == 'admin'
+    self.roles.map(&:name).include? 'admin'
   end
 
   def full_name
