@@ -11,6 +11,7 @@
 #= require underscore
 #= require_tree ./client_app/templates
 #= require ./client_app/application.module.js
+#= require ./client_app/admin.module.js
 #= require_tree ./client_app/factories
 #= require_tree .
 

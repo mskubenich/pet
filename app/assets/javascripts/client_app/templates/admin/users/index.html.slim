@@ -1,0 +1,43 @@
+div
+  h2 Users
+  table.table.table-striped.table-responsive
+    thead
+      tr
+        th
+          | Email
+        th
+          | First Name
+        th
+          | Last Name
+        th
+          | Login
+        th
+          | Phone
+        th
+          | Organizations
+        th
+          | Created At
+        th
+          | Actions
+    tbody
+      tr ng-repeat="user in users"
+        td
+          | {{ user.email }}
+        td
+          | {{ user.first_name }}
+        td
+          | {{ user.last_name }}
+        td
+          | {{ user.login }}
+        td
+          | {{ user.phone }}
+        td
+          span.black-budget ng-show="user.scorp"
+            | СКОРП
+          span.black-budget ng-show="user.rkf"
+            | РКФ
+        td
+          | {{ user.created_at }}
+        td
+          a
+            .i.fa.fa-close ng-click="$parent.destroyInvite(invite)"

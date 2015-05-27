@@ -16,7 +16,7 @@
                 | can't be blank
 
         .form-group
-          input.form-control type="text" placeholder="Адрес электронной почты" emailvalidate=true required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
+          input.form-control type="text" placeholder="Адрес электронной почты" emailvalidate='' required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
 
           .error ng-show="userForm.email.$error.required && submited"
             | can't be blank

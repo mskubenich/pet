@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
     self.roles.map(&:name).include? 'admin'
   end
 
+  def user?
+    self.roles.map(&:name).include? 'user'
+  end
+
   def full_name
     "#{ first_name } #{ last_name }"
   end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   include SessionsHelper
+  skip_before_filter :authenticate_user, except: [:profile]
 
   def create
     @user = User.new user_params

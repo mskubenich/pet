@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
-
-  get 'sessions/destroy'
-
-  get 'users/create'
 
   root to: 'pages#index'
+
+  namespace :admin do
+    get '/', to: 'pages#index'
+    resources :users, only: [:index]
+  end
+
   resources :pages, only: [:index]
 
   resources :users, only: [:create] do
@@ -21,6 +22,4 @@ Rails.application.routes.draw do
       delete :destroy
     end
   end
-
-  get '/admin', to: 'admin/pages#index'
 end
