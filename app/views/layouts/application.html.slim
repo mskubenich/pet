@@ -55,13 +55,12 @@ html(lang="en")
                   a Выставки
               .header-menu-column style="text-align: right"
                 div ng-show="current_user"
+                  img ng-src="{{current_user.avatar_url}}" style="width: 50px; height: 50px;"
+                  br
                   | {{ current_user.full_name }}
                   br
                   a.yellow-btn ng-click="logout()"
                     | Выход
-                  br
-                  br
-                  br
                 div ng-hide="current_user"
                   a.yellow-btn ng-click="showLoginForm()"
                     | Вход

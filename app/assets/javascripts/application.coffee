@@ -8,6 +8,7 @@
 #= require angular-ng-dialog
 #= require angular-input-match
 #= require angular-email-available
+#= require angular-file-input
 #= require underscore
 #= require_tree ./client_app/templates
 #= require ./client_app/application.module.js

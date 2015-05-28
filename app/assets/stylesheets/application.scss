@@ -55,13 +55,15 @@ body{
         display: inline-block;
         text-align: left;
         list-style-type: none;
-        a {
-          color: white;
-          cursor: pointer;
-          text-decoration: none;
-          border-bottom: 1px dashed white;
-          &:hover{
-            border: 0;
+        li{
+          a {
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            border-bottom: 1px dashed white;
+            &:hover{
+              border: 0;
+            }
           }
         }
       }

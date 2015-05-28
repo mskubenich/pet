@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       get :profile
       post :email_available
+      post :avatar
     end
   end
 

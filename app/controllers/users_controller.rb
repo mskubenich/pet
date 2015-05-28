@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def avatar
+    current_user.update_attributes({avatar: params[:file]})
+    render nothing: true
+  end
+
   def profile
     @user = current_user
   end

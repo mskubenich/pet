@@ -4,11 +4,8 @@ div
     thead
       tr
         th
+        th
           | Email
-        th
-          | First Name
-        th
-          | Last Name
         th
           | Login
         th
@@ -22,11 +19,9 @@ div
     tbody
       tr ng-repeat="user in users"
         td
+          img ng-src="{{user.avatar_url}}" style="width: 50px;"
+        td
           | {{ user.email }}
-        td
-          | {{ user.first_name }}
-        td
-          | {{ user.last_name }}
         td
           | {{ user.login }}
         td

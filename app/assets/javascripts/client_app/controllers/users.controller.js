@@ -10,12 +10,15 @@
             $scope.submitUserData = function () {
                 $scope.submited = true;
 
-                if($scope.userForm.$invalid && !_.isEqual($scope.userForm.email.$error , {parse: true})){
+                if($scope.userForm.$invalid ){
                     return false;
                 }
 
                 users.create($scope.userData)
                     .success(function(data, status, headers, config){
+                        if($scope.user_avatar){
+                            users.uploadAvatar($scope.user_avatar);
+                        }
                         $state.go('home');
                         ngDialog.open({
                             className: 'ngdialog-theme-default',

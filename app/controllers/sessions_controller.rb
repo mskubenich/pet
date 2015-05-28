@@ -5,7 +5,13 @@ class SessionsController < ApplicationController
 
   def current_user_info
     if current_user
-      render json: {current_user: {full_name: current_user.full_name, is_admin: current_user.admin?}}
+      render json: {
+                 current_user: {
+                     full_name: current_user.full_name,
+                     is_admin: current_user.admin?,
+                     avatar_url: current_user.avatar.url(:thumb)
+                 }
+             }
     else
       render json: {}, status: :unprocessable_entity
     end

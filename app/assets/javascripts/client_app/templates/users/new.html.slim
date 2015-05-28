@@ -28,7 +28,7 @@
             | На этот адрес будет отправлено сообщение с подтверждением регистрации.
 
         .form-group
-          input.form-control type="text" placeholder="Контактный телефон"
+          input.form-control type="text" placeholder="Контактный телефон" name="phone" ng-model="userData.phone"
 
         .form-group
           input.form-control type="text" placeholder="Ваш логин" required=true class="{{ userForm.login.$invalid && submited ? 'validation-error' : ''}}" name="login" ng-model="userData.login"
@@ -79,7 +79,7 @@
             tr
               td
                 label
-                  input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" ng-model="userData.avatar"
+                  input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" file-model="user_avatar"
                   .avatar-droppable#avatar-preview
                     table
                       tr

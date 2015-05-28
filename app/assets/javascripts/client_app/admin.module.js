@@ -5,7 +5,8 @@
         'templates',
         'ngDialog',
         'validation.match',
-        'validation.email'
+        'validation.email',
+        'fileread'
     ]);
 
     petModeAdminApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
