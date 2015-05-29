@@ -33,6 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'cancancan', '~> 1.10'
 gem "paperclip", "~> 4.2"
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

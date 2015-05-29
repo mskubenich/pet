@@ -5,8 +5,8 @@
             create: function(news){
                 return $http.post('admin/news', {news: news});
             },
-            all: function(){
-                return $http.get('admin/news');
+            all: function(params){
+                return $http.get('admin/news.json?page=' + params.page);
             }
         };
     }])

@@ -4,21 +4,22 @@ div
   button type="submit" class="btn btn--primary btn--sm" ui-sref="create_news"
     | New
 
+  #news-pagination ng-hide="news_count < 11"
   table.table.table-striped.table-responsive
     thead
       tr
         th
           | Title
-        th
-          | Body
+        /th
+        /  | Body
         th
         th
     tbody
       tr ng-repeat="article in news"
         td
           | {{ article.title }}
-        td
-          div ng-bind-html="getHtml(article.body)"
+        /td
+        /  div ng-bind-html="getHtml(article.body)"
         td
           span.black-budget ng-show="article.scorp"
             | СКОРП

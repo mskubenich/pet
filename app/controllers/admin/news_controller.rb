@@ -2,7 +2,8 @@ class Admin::NewsController < AdminController
   load_and_authorize_resource :news
 
   def index
-    @news = News.all
+    @news = News.paginate page: params[:page], per_page: 10
+    render json: {news: @news, news_count: News.count}
   end
 
   def create

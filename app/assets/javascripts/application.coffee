@@ -11,6 +11,7 @@
 #= require angular-file-input
 #= require underscore
 #= require_tree ../../../vendor/assets/javascripts/redactor
+#= require twbs-pagination.js
 #= require_tree ./client_app/templates
 #= require ./client_app/application.module.js
 #= require ./client_app/admin.module.js
