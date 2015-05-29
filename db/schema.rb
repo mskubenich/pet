@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150528103307) do
+ActiveRecord::Schema.define(version: 20150529134049) do
+
+  create_table "news", force: :cascade do |t|
+    t.string   "title",                      limit: 255
+    t.text     "body",                       limit: 65535
+    t.boolean  "rkf",                        limit: 1
+    t.boolean  "scorp",                      limit: 1
+    t.integer  "user_id",                    limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "preview_image_file_name",    limit: 255
+    t.string   "preview_image_content_type", limit: 255
+    t.integer  "preview_image_file_size",    limit: 4
+    t.datetime "preview_image_updated_at"
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name", limit: 255

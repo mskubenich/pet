@@ -8,18 +8,26 @@ div
     thead
       tr
         th
+          | Title
         th
-          | Email
+          | Body
         th
-          | Login
         th
-          | Phone
-        th
-          | Organizations
-        th
-          | Created At
-        th
-          | Actions
     tbody
-      tr ng-repeat="article in articles"
+      tr ng-repeat="article in news"
         td
+          | {{ article.title }}
+        td
+          div ng-bind-html="getHtml(article.body)"
+        td
+          span.black-budget ng-show="article.scorp"
+            | СКОРП
+          | &nbsp;
+          span.black-budget ng-show="article.rkf"
+            | РКФ
+        td style="width: 50px"
+          a
+            i.fa.fa-pencil
+          | &nbsp;
+          a
+            i.fa.fa-close

@@ -5,28 +5,26 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
   .form-group
     label Title
     br
-    input.form-control name="title"
-    .error-container ng-show="submitted && newsForm.title.$invalid"
+    input.form-control name="title" ng-model="processedNews.title" required=true
+    .error-container ng-show="submited && newsForm.title.$invalid"
       small.error ng-show="newsForm.title.$error.required" Can't be blank
 
   .form-group
-    table.vertical-align-table
-      tr
-        td
-          label
-            input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" file-model="user_avatar"
-            .avatar-droppable#avatar-preview
-              table
-                tr
-                  td
-                    i.fa.fa-plus-circle
-        td
-          span.gray
-            | Ваше фото.
+    label Preview Image
+    br
+    label
+      input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" file-model="user_avatar"
+      .avatar-droppable#avatar-preview
+        table
+          tr
+            td
+              i.fa.fa-plus-circle
 
   .form-group
     label Body
-    textarea#redactor ng-model="content" redactor='' cols="30" rows="50"
+    textarea#redactor redactor='' name="body" ng-model="processedNews.body" required=true
+    .error-container ng-show="submited && newsForm.body.$invalid"
+      small.error ng-show="newsForm.body.$error.required" Can't be blank
 
   .form-group
     label
@@ -35,7 +33,7 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
           td
             .rounded-one class="{{ checked1 ? 'checked' : ''}}"
               .rounded-two
-              input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="userData.scorp"
+              input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="processedNews.scorp"
           td
             span.black-budget style="margin-top: 13px"
               | СКОРП
@@ -47,11 +45,11 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
           td
             .rounded-one class="{{ checked2 ? 'checked' : ''}}"
               .rounded-two
-              input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.rkf"
+              input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="processedNews.rkf"
           td
             span.black-budget
               | РКФ
   div style="text-align: center"
-    button class="btn btn--primary btn--sm" ng-disabled="workerProcessing"
-      i.fa.fa-spinner.fa-pulse ng-show="workerProcessing"
+    button class="btn btn--primary btn--sm" ng-disabled="newsProcessing" type="submit"
+      i.fa.fa-spinner.fa-pulse ng-show="newsProcessing"
       | Create
