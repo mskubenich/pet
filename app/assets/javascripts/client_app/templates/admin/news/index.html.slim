@@ -9,13 +9,18 @@ div
     thead
       tr
         th
+        th
           | Title
         /th
         /  | Body
         th
         th
+          | Created At
+        th
     tbody
       tr ng-repeat="article in news"
+        td
+          img ng-src="{{article.preview_image_url}}" style="height: 30px"
         td
           | {{ article.title }}
         /td
@@ -26,6 +31,8 @@ div
           | &nbsp;
           span.black-budget ng-show="article.rkf"
             | РКФ
+        td
+          | {{ article.created_at }}
         td style="width: 50px"
           a
             i.fa.fa-pencil

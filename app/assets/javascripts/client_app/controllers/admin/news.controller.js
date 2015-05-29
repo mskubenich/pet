@@ -19,7 +19,7 @@
                     plugins: ['table', 'video']
                 });
 
-                $scope.processedNews = {};
+                $scope.processedNews = {scorp: false, rkf: false};
                 $scope.upsertNews = function(){
                     $scope.processedNews.body = $('#redactor').redactor('code.get');
                     $scope.submited = true;
@@ -28,7 +28,7 @@
                     }
 
                     $scope.newsProcessing = true;
-                    news.create($scope.processedNews)
+                    news.create($scope.processedNews, $scope.preview_image)
                         .success(function(){
                             $scope.newsProcessing = false;
                             ngDialog.open({
@@ -36,7 +36,6 @@
                                 template: "News successfully saved.",
                                 plain: true
                             });
-                        //    TODO redirect to edit
                         })
                         .error(function(data){
                             $scope.newsProcessing = false;
@@ -46,7 +45,7 @@
                                 plain: true
                             });
                         })
-                }
+                };
             }
 
             if($state.current.name == 'news'){
@@ -78,38 +77,5 @@
                 };
                 $scope.retrieveNews();
             }
-
-            //$scope.userData = {};
-            //$scope.submited = false;
-            //
-            //$scope.submitUserData = function () {
-            //    $scope.submited = true;
-            //
-            //    if($scope.userForm.$invalid ){
-            //        return false;
-            //    }
-            //
-            //    users.create($scope.userData)
-            //        .success(function(data, status, headers, config){
-            //            if($scope.user_avatar){
-            //                users.uploadAvatar($scope.user_avatar);
-            //            }
-            //            $state.go('home');
-            //            ngDialog.open({
-            //                className: 'ngdialog-theme-default',
-            //                template: "Регистрация прошла успешно. Можете войти.",
-            //                plain: true
-            //            });
-            //        })
-            //        .error(function (data, status, headers, config) {
-            //            if(data.errors){
-            //                ngDialog.open({
-            //                    className: 'ngdialog-theme-default',
-            //                    template: JSON.stringify(data.errors),
-            //                    plain: true
-            //                });
-            //            }
-            //        });
-            //};
         }])
 }());

@@ -13,7 +13,7 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
     label Preview Image
     br
     label
-      input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" file-model="user_avatar"
+      input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');"  file-model="preview_image"
       .avatar-droppable#avatar-preview
         table
           tr
@@ -49,6 +49,7 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
           td
             span.black-budget
               | РКФ
+
   div style="text-align: center"
     button class="btn btn--primary btn--sm" ng-disabled="newsProcessing" type="submit"
       i.fa.fa-spinner.fa-pulse ng-show="newsProcessing"

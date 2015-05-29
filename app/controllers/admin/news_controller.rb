@@ -3,7 +3,6 @@ class Admin::NewsController < AdminController
 
   def index
     @news = News.paginate page: params[:page], per_page: 10
-    render json: {news: @news, news_count: News.count}
   end
 
   def create
@@ -22,6 +21,6 @@ class Admin::NewsController < AdminController
   private
 
   def news_params
-    params.require(:news).permit(:title, :body, :scorp, :rkf)
+    params.require(:news).permit(:title, :body, :scorp, :rkf, :preview_image)
   end
 end
