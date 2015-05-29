@@ -21,9 +21,12 @@ html(lang="en")
           .well
             ul.sidebar-nav style="padding: 0"
               ul.nav.nav-pills.nav-stacked
-                li role="presentation" class="active"
+                li role="presentation" ng-class="{'active' : $state.current.name == 'users' }"
                   a href="#users"
                     | Users
+                li role="presentation" ng-class="{'active' : $state.current.name == 'news' }"
+                  a href="#news"
+                    | News
         .col-md-9
           div ui-view=true
 

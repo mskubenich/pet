@@ -1,0 +1,52 @@
+(function () {
+
+    "use strict";
+
+    angular.module('petModeAdminApp')
+        .controller('AdminNewsController', ['$scope', '$state', 'ngDialog', function ($scope, $state, ngDialog) {
+
+            if($state.current.name == 'create_news'){
+                $('#redactor').redactor({
+                    buttonSource: true,
+                    imageUpload: '/webUpload/redactor/uploadImage/',
+                    fileUpload: '/webUpload/redactor/fileUpload/',
+                    plugins: ['table', 'video']
+                });
+
+                $scope.processedNews = {};
+            }
+
+            //$scope.userData = {};
+            //$scope.submited = false;
+            //
+            //$scope.submitUserData = function () {
+            //    $scope.submited = true;
+            //
+            //    if($scope.userForm.$invalid ){
+            //        return false;
+            //    }
+            //
+            //    users.create($scope.userData)
+            //        .success(function(data, status, headers, config){
+            //            if($scope.user_avatar){
+            //                users.uploadAvatar($scope.user_avatar);
+            //            }
+            //            $state.go('home');
+            //            ngDialog.open({
+            //                className: 'ngdialog-theme-default',
+            //                template: "Регистрация прошла успешно. Можете войти.",
+            //                plain: true
+            //            });
+            //        })
+            //        .error(function (data, status, headers, config) {
+            //            if(data.errors){
+            //                ngDialog.open({
+            //                    className: 'ngdialog-theme-default',
+            //                    template: JSON.stringify(data.errors),
+            //                    plain: true
+            //                });
+            //            }
+            //        });
+            //};
+        }])
+}());

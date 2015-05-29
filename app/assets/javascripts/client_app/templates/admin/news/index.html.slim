@@ -1,0 +1,25 @@
+div
+  h2 News
+
+  button type="submit" class="btn btn--primary btn--sm" ui-sref="create_news"
+    | New
+
+  table.table.table-striped.table-responsive
+    thead
+      tr
+        th
+        th
+          | Email
+        th
+          | Login
+        th
+          | Phone
+        th
+          | Organizations
+        th
+          | Created At
+        th
+          | Actions
+    tbody
+      tr ng-repeat="article in articles"
+        td

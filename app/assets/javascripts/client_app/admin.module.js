@@ -21,6 +21,16 @@
                 url: '/users',
                 templateUrl: 'client_app/templates/admin/users/index.html',
                 controller: 'AdminUsersController'
+            })
+            .state('news',{
+                url: '/news',
+                templateUrl: 'client_app/templates/admin/news/index.html',
+                controller: 'AdminNewsController'
+            })
+            .state('create_news',{
+                url: '/create_news',
+                templateUrl: 'client_app/templates/admin/news/new.html',
+                controller: 'AdminNewsController'
             });
     }]);
 
