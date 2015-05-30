@@ -5,14 +5,12 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'pages#index'
     resources :users, only: [:index]
-    resources :news, only: [:index, :create, :update, :destroy] do
-      scope do
-        post :upload_preview_image
-      end
-    end
+    resources :news, only: [:index, :create, :update, :destroy]
   end
 
   resources :pages, only: [:index]
+
+  resources :attachments, only: [:create]
 
   resources :users, only: [:create] do
     collection do

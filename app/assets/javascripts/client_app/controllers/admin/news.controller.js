@@ -14,8 +14,8 @@
 
                 $('#redactor').redactor({
                     buttonSource: true,
-                    imageUpload: '/webUpload/redactor/uploadImage/',
-                    fileUpload: '/webUpload/redactor/fileUpload/',
+                    imageUpload: '/attachments',
+                    fileUpload: '/attachments',
                     plugins: ['table', 'video']
                 });
 
