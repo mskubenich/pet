@@ -3,13 +3,32 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminNewsController', ['$sce', '$scope', '$state', 'ngDialog', 'NewsFactory', function ($sce, $scope, $state, ngDialog, news) {
+        .controller('AdminNewsController', ['$sce', '$scope', '$state', 'ngDialog', 'NewsFactory', '$stateParams', '$rootScope',
+            function ($sce, $scope, $state, ngDialog, news, $stateParams, $rootScope) {
+            $rootScope.$state = $state;
 
             $scope.getHtml = function(html){
                 return $sce.trustAsHtml(html);
             };
 
-            if($state.current.name == 'create_news'){
+            if($state.current.name == 'create_news' || $state.current.name == 'edit_news'){
+
+                if($state.current.name == 'create_news'){
+                    $scope.processedNews = {scorp: false, rkf: false};
+                }
+
+                if($state.current.name == 'edit_news'){
+                    news.show($stateParams.id)
+                        .success(function(data){
+                            $scope.processedNews = data.news;
+                            $('#redactor').redactor('code.set', $scope.processedNews.body);
+
+                            if($scope.processedNews.preview_image_url){
+                                $('#avatar-preview').css('background-image', 'url(' + $scope.processedNews.preview_image_url + ')');
+                            }
+                        })
+                }
+
                 $scope.submitted = false;
 
                 $('#redactor').redactor({
@@ -19,7 +38,6 @@
                     plugins: ['table', 'video']
                 });
 
-                $scope.processedNews = {scorp: false, rkf: false};
                 $scope.upsertNews = function(){
                     $scope.processedNews.body = $('#redactor').redactor('code.get');
                     $scope.submited = true;
@@ -28,7 +46,7 @@
                     }
 
                     $scope.newsProcessing = true;
-                    news.create($scope.processedNews, $scope.preview_image)
+                    news.upsert($scope.processedNews, $scope.preview_image)
                         .success(function(){
                             $scope.newsProcessing = false;
                             ngDialog.open({

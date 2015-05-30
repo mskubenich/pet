@@ -31,6 +31,11 @@
                 url: '/create_news',
                 templateUrl: 'client_app/templates/admin/news/new.html',
                 controller: 'AdminNewsController'
+            })
+            .state('edit_news',{
+                url: '/news/:id/edit',
+                templateUrl: 'client_app/templates/admin/news/new.html',
+                controller: 'AdminNewsController'
             });
     }]);
 

@@ -14,7 +14,15 @@ class Admin::NewsController < AdminController
     end
   end
 
-  def upload_preview_image
+  def update
+    if @news.update_attributes news_params
+      render json: {id: @news.id}
+    else
+      render json: {errors: @news.errors}, status: :unprocessable_entity
+    end
+  end
+
+  def show
 
   end
 

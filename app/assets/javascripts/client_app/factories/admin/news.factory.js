@@ -2,7 +2,7 @@
     'use strict';
     angular.module('petModeAdminApp').factory('NewsFactory', ['$http', function($http){
         return {
-            create: function(news, file){
+            upsert: function(news, file){
                 var fd = new FormData();
                 if(file){
                     fd.append('news[preview_image]', file);
@@ -12,11 +12,20 @@
                 fd.append('news[scorp]', news.scorp);
                 fd.append('news[rkf]', news.rkf);
 
-
-                return $http.post('admin/news', fd, {
-                    transformRequest: angular.identity,
+                if(news.id){
+                    return $http.put('admin/news/' + news.id, fd, {
+                        transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
-                });
+                    });
+                }else{
+                    return $http.post('admin/news', fd, {
+                        transformRequest: angular.identity,
+                        headers: {'Content-Type': undefined}
+                    });
+                }
+            },
+            show: function(news_id){
+                return $http.get('admin/news/' + news_id)
             },
             all: function(params){
                 return $http.get('admin/news.json?page=' + params.page);

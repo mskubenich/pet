@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
     get '/', to: 'pages#index'
     resources :users, only: [:index]
-    resources :news, only: [:index, :create, :update, :destroy]
+    resources :news, only: [:index, :create, :update, :destroy, :show]
   end
 
   resources :pages, only: [:index]
