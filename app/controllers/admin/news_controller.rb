@@ -26,6 +26,11 @@ class Admin::NewsController < AdminController
 
   end
 
+  def destroy
+    @news.destroy
+    render nothing: true
+  end
+
   private
 
   def news_params

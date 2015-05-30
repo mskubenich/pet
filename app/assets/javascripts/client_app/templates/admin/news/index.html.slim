@@ -37,5 +37,5 @@ div
           a href="#news/{{article.id}}/edit"
             i.fa.fa-pencil
           | &nbsp;
-          a
+          a ng-click="destroyNews(article.id)"
             i.fa.fa-close

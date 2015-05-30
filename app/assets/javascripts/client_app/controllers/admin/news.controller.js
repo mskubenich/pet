@@ -93,6 +93,13 @@
 
                     });
                 };
+
+                $scope.destroyNews = function(news_id){
+                    news.destroy(news_id).success(function(){
+                        $scope.retrieveNews();
+                    })
+                };
+
                 $scope.retrieveNews();
             }
         }])

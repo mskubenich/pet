@@ -29,6 +29,9 @@
             },
             all: function(params){
                 return $http.get('admin/news.json?page=' + params.page);
+            },
+            destroy: function(news_id){
+                return $http.delete('admin/news/' + news_id)
             }
         };
     }])
