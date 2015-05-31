@@ -4,6 +4,7 @@ html(lang="en")
     = javascript_include_tag "application"
     link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption&subset=latin,cyrillic' rel='stylesheet' type='text/css'
     = csrf_meta_tags
+    = include_gon
   body ng-app="petModeApp"
     .header ng-controller="HomeController"
       .gallery

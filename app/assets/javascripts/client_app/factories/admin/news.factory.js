@@ -15,25 +15,25 @@
                 fd.append('news[rkf]', news.rkf);
 
                 if(news.id){
-                    return $http.put('admin/news/' + news.id, fd, {
+                    return $http.put('/admin/news/' + news.id, fd, {
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
                     });
                 }else{
-                    return $http.post('admin/news', fd, {
+                    return $http.post('/admin/news', fd, {
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
                     });
                 }
             },
             show: function(news_id){
-                return $http.get('admin/news/' + news_id)
+                return $http.get('/admin/news/' + news_id)
             },
             all: function(params){
-                return $http.get('admin/news.json?page=' + params.page);
+                return $http.get('/admin/news.json?page=' + params.page);
             },
             destroy: function(news_id){
-                return $http.delete('admin/news/' + news_id)
+                return $http.delete('/admin/news/' + news_id)
             }
         };
     }])

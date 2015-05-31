@@ -27,3 +27,9 @@ en:
   login: 'Login'
   menu:
     news: 'News'
+  datetime:
+    ago: 'ago'
+    at: 'at'
+  users:
+    created_by: 'added by'
+

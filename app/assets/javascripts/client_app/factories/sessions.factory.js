@@ -3,13 +3,13 @@
     angular.module('petModeApp').factory('SessionsFactory', ['$http', function($http){
         return {
             create: function(session) {
-                return $http.post('sessions', {session: session});
+                return $http.post('/sessions', {session: session});
             },
             currentUser: function() {
-                return $http.get('sessions/current_user_info');
+                return $http.get('/sessions/current_user_info');
             },
             destroy: function() {
-                return $http.delete('sessions');
+                return $http.delete('/sessions');
             }
         };
     }])

@@ -1,27 +1,33 @@
 .container
   .row
     .col-md-9
-      .news
+      #news-pagination ng-hide="news_count < 11"
+      .news ng-repeat="article in news"
         table.news-header
           tr
             td
               span.news-title
-                | Lorem ipsum dolor sit amet
-            td
-              span.black-budget
-                | СКОР
+                | {{ article.title }}
+              | &nbsp;
+              span.black-budget ng-show="article.scorp"
+                | СКОРП
+              | &nbsp;
+              span.black-budget ng-show="article.rkf"
+                | РКФ
             td style="text-align: right"
               span.news-gray-text
-                | сегодня 12:55 добавил
+                | {{ article.created_at }}
+                | &nbsp;
+                span
+                  = I18n.t 'users.created_by'
               span.news-author-profile-link
-                | dog_sale
-              img.news-author-avatar src="/assets/pet1.jpg"
+                | {{ article.author }}
+              img.news-author-avatar ng-src="{{article.author_avatar_url}}"
         table.news-preview
           tr
             td.news-image rowspan="2"
               img src="/assets/pet1.jpg"
-            td.news-text
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            td.news-text ng-bind-html="getHtml(article.body)"
           tr
             td.news-meta
               a
@@ -32,38 +38,6 @@
                 | 15
               a
                 i.fa.fa-eye
-                | 125
-              a.dashed_text
-                | Оставить отзыв
-      .news
-        table.news-header
-          tr
-            td
-              span.news-title
-                | Lorem ipsum dolor sit amet
-            td
-            td style="text-align: right"
-              span.news-gray-text
-                | сегодня 12:55 добавил
-              span.news-author-profile-link
-                | dog_sale
-        table.news-preview
-          tr
-            td.news-text colspan="2" style="padding-left: 0"
-              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          tr
-            td.news-meta
-              a
-                i.fa.fa-heart
-                | &nbsp;
-                | 255
-              a
-                i.fa.fa-repeat
-                | &nbsp;
-                | 15
-              a
-                i.fa.fa-eye
-                | &nbsp;
                 | 125
               a.dashed_text
                 | Оставить отзыв

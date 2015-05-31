@@ -6,3 +6,24 @@ ru:
   login: 'Вход'
   menu:
     news: 'Новости'
+  datetime:
+    ago: 'назад'
+    at: 'в'
+    distance_in_words:
+      less_than_x_minutes:
+        one: "меньше минуты"
+        other: "меньше чем %{count} минут"
+      x_minutes:
+        one: "1 минуту"
+        other: "%{count} минут"
+      x_days:
+        one: "1 день"
+        two: "2 дня"
+        tree: "3 дня"
+        four: "4 дня"
+        other: "%{count} дней"
+      about_x_hours:
+        one: "около 1 часа"
+        other: "около %{count} часов"
+  users:
+    created_by: 'добавил'

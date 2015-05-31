@@ -29,6 +29,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :news, only: [:index, :show]
+
   end
 
   get '/:locale' => 'pages#index'
