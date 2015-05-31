@@ -21,7 +21,8 @@
                     news.show($stateParams.id)
                         .success(function(data){
                             $scope.processedNews = data.news;
-                            $('#redactor').redactor('code.set', $scope.processedNews.body);
+                            $('#redactor_ru').redactor('code.set', $scope.processedNews.body_ru);
+                            $('#redactor_en').redactor('code.set', $scope.processedNews.body_en);
 
                             if($scope.processedNews.preview_image_url){
                                 $('#avatar-preview').css('background-image', 'url(' + $scope.processedNews.preview_image_url + ')');
@@ -31,7 +32,14 @@
 
                 $scope.submitted = false;
 
-                $('#redactor').redactor({
+                $('#redactor_ru').redactor({
+                    buttonSource: true,
+                    imageUpload: '/attachments',
+                    fileUpload: '/attachments',
+                    plugins: ['table', 'video']
+                });
+
+                $('#redactor_en').redactor({
                     buttonSource: true,
                     imageUpload: '/attachments',
                     fileUpload: '/attachments',
@@ -39,7 +47,8 @@
                 });
 
                 $scope.upsertNews = function(){
-                    $scope.processedNews.body = $('#redactor').redactor('code.get');
+                    $scope.processedNews.body_ru = $('#redactor_ru').redactor('code.get');
+                    $scope.processedNews.body_en = $('#redactor_en').redactor('code.get');
                     $scope.submited = true;
                     if($scope.newsForm.$invalid ){
                         return false;

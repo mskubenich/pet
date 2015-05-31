@@ -7,8 +7,10 @@
                 if(file){
                     fd.append('news[preview_image]', file);
                 }
-                fd.append('news[title]', news.title);
-                fd.append('news[body]', news.body);
+                fd.append('news[title_ru]', news.title_ru);
+                fd.append('news[title_en]', news.title_en);
+                fd.append('news[body_ru]', news.body_ru);
+                fd.append('news[body_en]', news.body_en);
                 fd.append('news[scorp]', news.scorp);
                 fd.append('news[rkf]', news.rkf);
 

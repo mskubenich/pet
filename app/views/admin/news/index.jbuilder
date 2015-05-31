@@ -1,7 +1,7 @@
 json.news @news.each do |news|
   json.id                news.id
-  json.title             news.title
-  json.body              news.body[0..40] + '...'
+  json.title             news.title_ru
+  json.body              news.body_ru.to_s[0..40] + '...'
   json.rkf               news.rkf
   json.scorp             news.scorp
   json.created_at        "#{ time_ago_in_words(news.created_at) } ago at #{ news.created_at.strftime "%H:%M"}"

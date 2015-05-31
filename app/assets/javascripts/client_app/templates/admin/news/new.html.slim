@@ -4,10 +4,22 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
 
   .form-group
     label Title
+    div role="tabpanel"
+      ul.nav.nav-tabs role="tablist"
+        li role="presentation" class="active"
+          a data-target="#ru-title" role="tab" data-toggle="tab"
+            | Ru
+        li role="presentation"
+          a data-target="#en-title" role="tab" data-toggle="tab"
+            | En
+      .tab-content
+        div role="tabpanel" class="tab-pane active" id="ru-title"
+          input.form-control name="title_en" ng-model="processedNews.title_ru" required=true
+        div role="tabpanel" class="tab-pane" id="en-title"
+          input.form-control name="title_ru" ng-model="processedNews.title_en" required=true
     br
-    input.form-control name="title" ng-model="processedNews.title" required=true
-    .error-container ng-show="submited && newsForm.title.$invalid"
-      small.error ng-show="newsForm.title.$error.required" Can't be blank
+    .error-container ng-show="submited && (newsForm.title_ru.$invalid || newsForm.title_en.$invalid)"
+      small.error Can't be blank
 
   .form-group
     label Preview Image
@@ -22,7 +34,20 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
 
   .form-group
     label Body
-    textarea#redactor redactor='' name="body" ng-model="processedNews.body" required=true
+    div role="tabpanel"
+      ul.nav.nav-tabs role="tablist"
+        li role="presentation" class="active"
+          a data-target="#ru-body" role="tab" data-toggle="tab"
+            | Ru
+        li role="presentation"
+          a data-target="#en-body" role="tab" data-toggle="tab"
+            | En
+      .tab-content
+        div role="tabpanel" class="tab-pane active" id="ru-body"
+          textarea#redactor_ru redactor='' name="body" ng-model="processedNews.body_ru" required=true
+        div role="tabpanel" class="tab-pane" id="en-body"
+          textarea#redactor_en redactor='' name="body" ng-model="processedNews.body_en" required=true
+    br
     .error-container ng-show="submited && newsForm.body.$invalid"
       small.error ng-show="newsForm.body.$error.required" Can't be blank
 
