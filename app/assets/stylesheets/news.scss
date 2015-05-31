@@ -1,5 +1,23 @@
 .news{
   padding-top: 40px;
+  .news-image-original{
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+  .news-meta{
+    a{
+      margin-right: 20px;
+      color: lightgray;
+      cursor: pointer;
+      text-decoration: none;
+      border-color: lightgray;
+      &:hover{
+        color: black;
+        border-color: black;
+      }
+    }
+  }
   table.news-header{
     font-size: 14px;
     line-height: 1.7em;
@@ -11,6 +29,8 @@
           font-size: 21px;
           text-transform: uppercase;
           text-decoration: underline;
+          cursor: pointer;
+          color: #000000;
         }
         .news-gray-text{
           color: gray;
@@ -39,20 +59,6 @@
         }
         &.news-text{
           padding-left: 30px;
-        }
-        &.news-meta{
-          padding-left: 30px;
-          a{
-            margin-right: 20px;
-            color: lightgray;
-            cursor: pointer;
-            text-decoration: none;
-            border-color: lightgray;
-            &:hover{
-              color: black;
-              border-color: black;
-            }
-          }
         }
       }
     }

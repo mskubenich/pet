@@ -51,6 +51,11 @@
                 url: '/news',
                 templateUrl: 'client_app/templates/news/index.html',
                 controller: 'NewsController'
+            })
+            .state('show_news',{
+                url: '/news/:id',
+                templateUrl: 'client_app/templates/news/show.html',
+                controller: 'NewsController'
             });
     }]);
 

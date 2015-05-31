@@ -6,7 +6,7 @@
         table.news-header
           tr
             td
-              span.news-title
+              a.news-title href="#news/{{article.id}}"
                 | {{ article.title }}
               | &nbsp;
               span.black-budget ng-show="article.scorp"
@@ -26,7 +26,7 @@
         table.news-preview
           tr
             td.news-image rowspan="2"
-              img src="/assets/pet1.jpg"
+              img ng-src="{{ article.preview_image_url }}"
             td.news-text ng-bind-html="getHtml(article.body)"
           tr
             td.news-meta

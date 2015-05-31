@@ -6,5 +6,5 @@ json.news do
   json.body_en           @news.body_en
   json.rkf               @news.rkf
   json.scorp             @news.scorp
-  json.preview_image_url @news.preview_image.url
+  json.preview_image_url @news.preview_image.url(:thumb)
 end
