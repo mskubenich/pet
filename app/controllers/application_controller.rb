@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   rescue_from Exception, with: :catch_exceptions
 
+  before_filter :set_locale
+
   private
 
   def catch_exceptions(e)
@@ -37,4 +39,13 @@ class ApplicationController < ActionController::Base
   def bad_request(errors, options, status = 200)
     redirect_to root_path and return
   end
+
+  def set_locale
+    I18n.locale = params[:locale] || 'ru'
+  end
+
+  def default_url_options(options={})
+    { locale: I18n.locale }
+  end
+
 end

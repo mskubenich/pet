@@ -9,9 +9,15 @@ html(lang="en")
       .gallery
         .container
           .localization
-            a.white-link href="/admin" ng-show="current_user.is_admin"
-              | Admin
-            | RU | EN
+            table
+              tr
+                td
+                  = link_to admin_path, 'ng-show' => "current_user.is_admin" do
+                    | Admin
+                td
+                  = link_to 'en', '/en', class: "#{ 'active' if params[:locale] == :en }"
+                td
+                  = link_to 'ru', '/ru', class: "#{ 'active' if params[:locale] == :ru }"
           .header-row
             .logo
               a href="#"
@@ -21,13 +27,13 @@ html(lang="en")
               .logo-text
                 .span1
                   b
-                    | Сервис
+                    = t 'logo.service'
                 br
                 .span2
-                  | домашних
+                  = t 'logo.home'
                 br
                 .span3
-                  | питомцев
+                  = t 'logo.pets'
             .header-menu
               ul.header-menu-column
                 li
@@ -38,7 +44,7 @@ html(lang="en")
                     | Случка
                 li
                   a href="#news"
-                    | Новости
+                    = t 'menu.news'
                 li
                   a href="#pet-shop"
                     | Зоомагазин
@@ -63,7 +69,7 @@ html(lang="en")
                     | Выход
                 div ng-hide="current_user"
                   a.yellow-btn ng-click="showLoginForm()"
-                    | Вход
+                    = t 'login'
                   br
                   i.fa.fa-key
                   | &nbsp;

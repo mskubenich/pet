@@ -1,0 +1,8 @@
+ru:
+  logo:
+    service: 'Cервис'
+    home: 'домашних'
+    pets: 'питомцев'
+  login: 'Вход'
+  menu:
+    news: 'Новости'
