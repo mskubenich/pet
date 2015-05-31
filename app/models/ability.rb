@@ -20,5 +20,6 @@ class Ability
         entity.new_record?
       end
     end
+    can :read, News
   end
 end

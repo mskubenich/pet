@@ -104,18 +104,18 @@ body{
       padding-left: 52px;
     }
   }
+}
 
-  .wave{
-    height: 10px;
-    background-image: url('wave.svg');
-//    background-size: 100px 200px;
-    margin-top: -10px;
-    position: relative;
-  }
-  .nav-menu{
-    background-color: #FFD800;
-    min-height: 100px;
-  }
+.wave{
+  height: 10px;
+  background-image: url('wave.svg');
+  //    background-size: 100px 200px;
+  margin-top: -10px;
+  position: relative;
+}
+.nav-menu{
+  background-color: #FFD800;
+  min-height: 100px;
 }
 
 .yellow-btn{
