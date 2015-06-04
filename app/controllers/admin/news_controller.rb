@@ -36,7 +36,7 @@ class Admin::NewsController < AdminController
   private
 
   def update_attachments
-    Attachment.where(entity_id: nil).each do |attachment|
+    Attachment.where(entity_id: nil, entity_type: 'news').each do |attachment|
       if @news.body_ru.include?(attachment.file.url) || @news.body_en.include?(attachment.file.url)
         attachment.update_attribute :entity_id, @news.id
       end

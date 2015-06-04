@@ -5,7 +5,7 @@ class AttachmentsController < ApplicationController
 
   def create
     params.permit!
-    @attachment = Attachment.create file: params[:file]
+    @attachment = Attachment.create file: params[:file], entity_type: params[:entity_type]
 
     render json: {filelink: @attachment.file.url}
   end

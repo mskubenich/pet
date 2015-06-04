@@ -1,0 +1,17 @@
+div
+  h2
+    | {{ I18n.t('admin.static_pages.title') }}
+  table.table.table-striped.table-responsive
+    thead
+      tr
+        th
+          | {{ I18n.t('entities.name') }}
+        th
+          | {{ I18n.t('entities.actions') }}
+    tbody
+      tr ng-repeat="page in pages"
+        td
+          | {{ I18n.t('pages.' + page) }}
+        td
+          a href="#static_pages/{{ page }}/edit"
+            .i.fa.fa-pencil

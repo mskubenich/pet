@@ -4,7 +4,7 @@
 
     angular.module('petModeApp')
         .controller('HomeController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', function ($scope, $state, ngDialog, session) {
-
+            $scope.I18n = I18n;
             $scope.closeDialog = function(){
                 ngDialog.close();
             };

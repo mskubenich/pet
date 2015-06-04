@@ -1,0 +1,8 @@
+.wave
+.nav-menu
+  .container
+    div style="height: 100px; text-align: center; padding: 20px"
+      b
+        h3
+          | {{ I18n.t('pages.' + $state.current.name) }}
+.container ng-bind-html="getHtml(page)"

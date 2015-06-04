@@ -51,5 +51,23 @@ en:
   fathers_photo: 'Fathers photo'
   description: 'Description'
   publish: 'PUBLISH'
-
-
+  pages:
+    help: 'Help'
+    rules: 'Rules'
+    team: 'Team'
+    contacts: 'Contacts'
+  admin:
+    static_pages:
+      title: 'Static Pages'
+      titles:
+        edit:
+          page:
+            help: 'Edit Help Page'
+            rules: 'Edit Rules Page'
+            team: 'Edit Team Page'
+            contacts: 'Edit Contacts Page'
+  entities:
+    name: 'Name'
+    actions: 'Actions'
+  actions:
+    update: 'Update'

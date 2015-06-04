@@ -46,3 +46,23 @@ ru:
   fathers_photo: 'Фото папы'
   description: 'Описаниие'
   publish: 'ОПУБЛИКОВАТЬ'
+  pages:
+    help: 'Помощь'
+    rules: 'Правила'
+    team: 'Команда'
+    contacts: 'Контакты'
+  admin:
+    static_pages:
+      title: 'Статические Страницы'
+      titles:
+        edit:
+          page:
+            help: "Редактирование Страницы 'Помощь'"
+            rules: "Редактирование страницы 'Правила'"
+            team: "Редактирование страницы 'Команда'"
+            contacts: "Редактирование страницы 'Контакты'"
+  entities:
+    name: 'Имя'
+    actions: 'Действия'
+  actions:
+    update: 'Обновить'

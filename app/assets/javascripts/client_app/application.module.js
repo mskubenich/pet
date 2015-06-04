@@ -61,6 +61,26 @@
                 url: '/news/:id',
                 templateUrl: 'client_app/templates/news/show.html',
                 controller: 'NewsController'
+            })
+            .state('help',{
+                url: '/help',
+                templateUrl: 'client_app/templates/pages/dynamic.html',
+                controller: 'PagesController'
+            })
+            .state('rules',{
+                url: '/rules',
+                templateUrl: 'client_app/templates/pages/dynamic.html',
+                controller: 'PagesController'
+            })
+            .state('team',{
+                url: '/team',
+                templateUrl: 'client_app/templates/pages/dynamic.html',
+                controller: 'PagesController'
+            })
+            .state('contacts',{
+                url: '/contacts',
+                templateUrl: 'client_app/templates/pages/dynamic.html',
+                controller: 'PagesController'
             });
     }]);
 

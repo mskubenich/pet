@@ -36,6 +36,16 @@
                 url: '/news/:id/edit',
                 templateUrl: 'client_app/templates/admin/news/new.html',
                 controller: 'AdminNewsController'
+            })
+            .state('static_pages',{
+                url: '/static_pages',
+                templateUrl: 'client_app/templates/admin/static_pages/index.html',
+                controller: 'AdminStaticPagesController'
+            })
+            .state('static_page',{
+                url: '/static_pages/:name/edit',
+                templateUrl: 'client_app/templates/admin/static_pages/edit.html',
+                controller: 'AdminStaticPagesController'
             });
     }]);
 

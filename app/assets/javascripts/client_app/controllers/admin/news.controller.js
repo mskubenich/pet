@@ -34,15 +34,15 @@
 
                 $('#redactor_ru').redactor({
                     buttonSource: true,
-                    imageUpload: '/attachments',
-                    fileUpload: '/attachments',
+                    imageUpload: '/attachments/news',
+                    fileUpload: '/attachments/news',
                     plugins: ['table', 'video']
                 });
 
                 $('#redactor_en').redactor({
                     buttonSource: true,
-                    imageUpload: '/attachments',
-                    fileUpload: '/attachments',
+                    imageUpload: '/attachments/news',
+                    fileUpload: '/attachments/news',
                     plugins: ['table', 'video']
                 });
 

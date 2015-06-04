@@ -1,0 +1,24 @@
+form ng-submit="updatePage()" name="pageForm" novalidate=true
+  h3
+    | {{ I18n.t('admin.static_pages.titles.edit.page.' + page.name) }}
+
+  .form-group
+    div role="tabpanel"
+      ul.nav.nav-tabs role="tablist"
+        li role="presentation" class="active"
+          a data-target="#ru-body" role="tab" data-toggle="tab"
+            | Ru
+        li role="presentation"
+          a data-target="#en-body" role="tab" data-toggle="tab"
+            | En
+      .tab-content
+        div role="tabpanel" class="tab-pane active" id="ru-body"
+          textarea#redactor_ru redactor='' name="body_en" ng-model="page.body_ru"
+        div role="tabpanel" class="tab-pane" id="en-body"
+          textarea#redactor_en redactor='' name="body_ru" ng-model="page.body_en"
+
+  div style="text-align: center"
+    button class="btn btn--primary btn--sm" ng-disabled="processing" type="submit"
+      i.fa.fa-spinner.fa-pulse ng-show="processing"
+      span
+        | {{ I18n.t('actions.update') }}
