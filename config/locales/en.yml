@@ -32,4 +32,24 @@ en:
     at: 'at'
   users:
     created_by: 'added by'
+  copulation:
+    title: 'Copulation'
+    new: 'New Copulation'
+    dog:
+      name: 'Name'
+      age: 'Age'
+      breed: 'Breed'
+  sale:
+    title: 'Sale'
+  choose_from_list: 'Choose from list'
+  organization_flag: 'Check this box if you represent one of the organizations.'
+  bloodline_flag: "Add your pet's pedigree."
+  bloodline: "Pedigree"
+  prize: 'Prize'
+  prize_flag: 'Add reward your pet.'
+  mothers_photo: 'Mothers photo'
+  fathers_photo: 'Fathers photo'
+  description: 'Description'
+  publish: 'PUBLISH'
+
 

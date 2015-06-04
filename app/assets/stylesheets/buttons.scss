@@ -1,0 +1,30 @@
+.yellow-btn{
+  background-color: #FFD800;
+  text-decoration: none;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 8px 14px;
+  border: 0 !important;
+  color: black !important;
+  &:hover{
+    color: white !important;
+  }
+}
+
+.yellow-black-btn{
+  background-color: #FFD800;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 6px 14px;
+  color: black !important;
+  cursor: pointer;
+  &:hover{
+    color: white !important;
+    border-color: #ffffff;
+    text-decoration: none;
+  }
+}

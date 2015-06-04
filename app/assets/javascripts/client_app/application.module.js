@@ -32,6 +32,11 @@
                 templateUrl: 'client_app/templates/copulation/index.html',
                 controller: 'CopulationController'
             })
+            .state('new_copulation',{
+                url: '/copulation/new',
+                templateUrl: 'client_app/templates/copulation/new.html',
+                controller: 'CopulationController'
+            })
             .state('pet-shop',{
                 url: '/pet-shop',
                 templateUrl: 'client_app/templates/shop/index.html',

@@ -10,6 +10,8 @@
 #= require angular-email-available
 #= require angular-file-input
 #= require underscore
+#= require i18n
+#= require i18n/translations
 #= require_tree ../../../vendor/assets/javascripts/redactor
 #= require twbs-pagination.js
 #= require_tree ./client_app/templates
@@ -17,9 +19,6 @@
 #= require ./client_app/admin.module.js
 #= require_tree ./client_app/factories
 #= require_tree .
-
-
-
 
 window.previewAvatar = (input, selector) ->
   if input.files && input.files[0]

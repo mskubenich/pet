@@ -115,20 +115,13 @@ body{
 }
 .nav-menu{
   background-color: #FFD800;
-  min-height: 100px;
-}
-
-.yellow-btn{
-  background-color: #FFD800;
-  text-decoration: none;
-  border-radius: 100px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  padding: 8px 14px;
-  border: 0 !important;
-  color: black !important;
-  &:hover{
-    color: white !important;
+  .container{
+    table{
+      border: 0;
+      height: 100%;
+      vertical-align: middle;
+      width: 100%;
+    }
   }
 }
 
@@ -240,6 +233,7 @@ footer{
 }
 
 span.black-budget{
+  text-transform: uppercase;
   background-color: black;
   border-radius: 100px;
   -moz-border-radius: 100px;
@@ -253,6 +247,9 @@ span.black-budget{
 .vertical-align-table{
   tr td{
     vertical-align: middle;
+    span{
+      vertical-align: middle;
+    }
     text-align: left;
     padding-right: 10px;
   }
@@ -275,4 +272,9 @@ a.white-link{
 
 .dashed_text{
   border-bottom: 1px dashed black;
+}
+
+.horizontal-list{
+  display: table-cell;
+  vertical-align: middle;
 }

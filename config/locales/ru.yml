@@ -27,3 +27,22 @@ ru:
         other: "около %{count} часов"
   users:
     created_by: 'добавил'
+  copulation:
+    title: 'Случка'
+    new: 'Добавить Случку'
+    dog:
+      name: 'Кличка'
+      age: 'Возраст'
+      breed: 'Порода'
+  sale:
+    title: 'Продажа'
+  choose_from_list: 'Выберите из списка'
+  organization_flag: 'Поставте отметку, если Вы представляете одну из организаций.'
+  bloodline_flag: 'Добавьте родословную Вашего питомца.'
+  bloodline: "Родословная"
+  prize: 'Награда'
+  prize_flag: 'Добавьте награды Вашего питомца.'
+  mothers_photo: 'Фото мамы'
+  fathers_photo: 'Фото папы'
+  description: 'Описаниие'
+  publish: 'ОПУБЛИКОВАТЬ'

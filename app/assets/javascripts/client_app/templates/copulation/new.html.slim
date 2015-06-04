@@ -1,0 +1,161 @@
+.nav-menu
+  .container style="height: 80px;"
+    table
+      tr
+        td
+          b
+            h3
+              = I18n.t 'copulation.new'
+.container
+  .row
+    .col-md-6.col-md-offset-3.gray-block
+      form.registration-form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
+        .row
+          .col-md-3
+            .form-group
+              a
+                = image_tag 'cat-icon.png', style: "margin-left: 8px; width: 40px"
+              a
+                = image_tag 'dog-icon.png', style: "margin-left: 8px; width: 40px"
+          .col-md-6
+            .form-group
+              input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.name') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="name" ng-model="announcement.name"
+              .error ng-show="announcementForm.name.$invalid && submited"
+                | can't be blank
+          .col-md-3
+            .form-group
+              input.form-control type="number" placeholder="{{ I18n.t('copulation.dog.age') }}" required=true class="{{ announcementForm.age.$invalid && submited ? 'validation-error' : ''}}" name="age" ng-model="announcement.age"
+              .error ng-show="announcementForm.age.$invalid && submited"
+                | can't be blank
+        br
+        .form-group
+          select.form-control name="breed" ng-model="announcement.breed"
+            option value='' disabled=true selected=true
+              | {{ I18n.t('copulation.dog.breed') }} ({{ I18n.t('choose_from_list')}})
+        br
+        .form-group
+          table.vertical-align-table
+            tr
+              td
+                label style="padding-right: 30px;"
+                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo1-preview');" file-model="photo1"
+                  .avatar-droppable#photo1-preview
+                    table
+                      tr
+                        td
+                          i.fa.fa-plus-circle
+              td
+                label style="padding-right: 30px;"
+                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo2-preview');" file-model="photo2"
+                  .avatar-droppable#photo2-preview
+                    table
+                      tr
+                        td
+                          i.fa.fa-plus-circle
+              td
+                label style="padding-right: 30px;"
+                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo3-preview');" file-model="photo3"
+                  .avatar-droppable#photo3-preview
+                    table
+                      tr
+                        td
+                          i.fa.fa-plus-circle
+              td
+                label style="padding-right: 30px;"
+                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo4-preview');" file-model="photo4"
+                  .avatar-droppable#photo4-preview
+                    table
+                      tr
+                        td
+                          i.fa.fa-plus-circle
+        br
+        .form-group
+          label
+            table.vertical-align-table
+              tr
+                td
+                  span.rounded-one class="{{ checked1 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="userData.scorp"
+                td
+                  span.black-budget
+                    | СКОРП
+                td
+                  span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.rkf"
+                td
+                  span.black-budget
+                    | РКФ
+          br
+          span.gray
+            | {{ I18n.t('organization_flag') }}
+        .form-group
+          table.vertical-align-table
+            tr
+              td
+                span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                  .rounded-two
+                  input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.scorp"
+              td
+                span.black-budget
+                  | {{ I18n.t('bloodline') }}
+              td
+                span
+                  i.fa.fa-plus-circle.add-file-icon
+              td
+                span.selected-file-text
+                  | rodoslovnaya.jpg (15kb)
+          br
+          span.gray
+            | {{ I18n.t('bloodline_flag') }}
+        .form-group
+          table.vertical-align-table
+            tr
+              td
+                span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                  .rounded-two
+                  input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.scorp"
+              td
+                span.black-budget
+                  | {{ I18n.t('prize') }}
+              td
+                span
+                  i.fa.fa-plus-circle.add-file-icon
+              td
+                span.selected-file-text
+                  | nagrada.jpg (15kb)
+              td
+                = image_tag 'badge.svg', style: "width: 35px;"
+          br
+          span.gray
+            | {{ I18n.t('prize_flag') }}
+        .form-group
+          table.vertical-align-table
+            tr
+              td
+                span
+                  i.fa.fa-plus-circle.add-file-icon
+              td
+                span.selected-file-text
+                  | {{ I18n.t('mothers_photo') }}
+              td
+                span
+                  i.fa.fa-plus-circle.add-file-icon
+              td
+                span.selected-file-text
+                  | {{ I18n.t('fathers_photo') }}
+        .form-group
+          textarea.form-control placeholder="{{ I18n.t('description') }}"
+        .form-group
+          table.vertical-align-table
+            tr
+              td
+                span
+                  input.form-control type="number"
+              td
+                span
+                  i.fa.fa-ruble
+
+        .text-center
+          input.yellow-btn type="submit" value="{{ I18n.t('publish') }}"
