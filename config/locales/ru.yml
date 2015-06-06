@@ -6,6 +6,13 @@ ru:
   login: 'Вход'
   menu:
     news: 'Новости'
+    sale: 'Продажа'
+    in_good_hands: 'В добрые руки'
+    competitions: 'Конкурсы'
+    copulation: 'Copulation'
+    pet_shop: 'Зоомагазин'
+    experts: 'Специалисты'
+    exhibitions: 'Выставки'
   datetime:
     ago: 'назад'
     at: 'в'

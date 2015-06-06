@@ -1,5 +1,7 @@
 class Admin::StaticPagesController < AdminController
 
+  skip_before_filter :authenticate_user, only: [:show]
+
   def update
     @page = StaticPage.send(params[:name])
     @page.update_attributes page_params

@@ -49,5 +49,7 @@
                     })
             };
 
+            $scope.header_url = 'client_app/templates/layouts/yellow-header.html';
+
         }])
 }());

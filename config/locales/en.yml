@@ -27,6 +27,13 @@ en:
   login: 'Login'
   menu:
     news: 'News'
+    sale: 'Sale'
+    in_good_hands: 'In Good Hands'
+    competitions: 'Competitions'
+    copulation: 'Copulation'
+    pet_shop: 'Pet Shop'
+    experts: 'Experts'
+    exhibitions: 'Exhibitions'
   datetime:
     ago: 'ago'
     at: 'at'

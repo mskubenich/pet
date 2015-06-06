@@ -7,6 +7,8 @@
             $scope.userData = {};
             $scope.submited = false;
 
+            $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+
             $scope.submitUserData = function () {
                 $scope.submited = true;
 

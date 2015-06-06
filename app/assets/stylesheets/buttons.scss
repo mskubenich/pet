@@ -28,3 +28,13 @@
     text-decoration: none;
   }
 }
+
+a.white-dashed-link{
+  color: white;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px dashed white;
+  &:hover{
+    border: 0;
+  }
+}

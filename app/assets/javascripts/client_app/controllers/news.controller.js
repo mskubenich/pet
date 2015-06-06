@@ -5,6 +5,8 @@
     angular.module('petModeApp')
         .controller('NewsController', ['$scope', '$state', 'ngDialog', 'NewsFactory', '$sce', '$stateParams', function ($scope, $state, ngDialog, news, $sce, $stateParams) {
 
+            $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+
             if($state.current.name == 'show_news'){
                 $scope.news = {};
 
@@ -15,7 +17,6 @@
             }
 
             if($state.current.name == 'news'){
-
                 $scope.news = [];
 
                 $scope.page = 1;

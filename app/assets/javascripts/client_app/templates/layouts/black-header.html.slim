@@ -1,0 +1,78 @@
+.black-header
+  .container
+    .localization
+      table
+        tr
+          td
+            a href="/{{ I18n.locale }}/admin" ng-show="current_user.is_admin"
+              | Admin
+          td
+            a href="/en"
+              | EN
+          td
+            a href="/ru"
+              | RU
+    .row.header-row
+      .col-md-2.col-sm-2.logo
+        a href="#"
+          img src="assets/logo.png"
+      .col-md-1.col-sm-1
+      .col-md-6.col-sm-6
+        table.table
+          tr
+            td
+              a.white-dashed-link href="#sale"
+                | {{ I18n.t('menu.sale') }}
+            td
+              a.white-dashed-link href="#news"
+                | {{ I18n.t('menu.news') }}
+            td
+              a.white-dashed-link href="#good-hands"
+                | {{ I18n.t('menu.in_good_hands') }}
+            td
+              a.white-dashed-link href="#competitions"
+                | {{ I18n.t('menu.competitions') }}
+          tr
+            td
+              a.white-dashed-link href="#copulation"
+                | {{ I18n.t('menu.copulation') }}
+            td
+              a.white-dashed-link href="#pet-shop"
+                | {{ I18n.t('menu.pet_shop') }}
+            td
+              a.white-dashed-link href="#experts"
+                | {{ I18n.t('menu.experts') }}
+            td
+              a.white-dashed-link href="#exhibitions"
+                | {{ I18n.t('menu.exhibitions') }}
+        input.global-search style="position: relative; right: -30px; width: 96%"
+        | &nbsp;
+        i.fa.fa-search
+
+        br
+        br
+        br
+      .col-md-1.col-sm-1
+      .col-md-2.col-sm-2.text-right
+        div ng-show="current_user"
+          img ng-src="{{current_user.avatar_url}}" style="width: 50px; height: 50px;"
+          br
+          br
+          | {{ current_user.full_name }}
+          br
+          br
+          a.yellow-btn ng-click="logout()"
+            | Выход
+        div ng-hide="current_user"
+          br
+          a.yellow-btn ng-click="showLoginForm()"
+            | {{ I18n.t('login') }}
+          br
+          br
+          i.fa.fa-key
+          | &nbsp;
+          | &nbsp;
+          a.white-dashed-link href="#registration"
+            | Регистрация
+          br
+          br

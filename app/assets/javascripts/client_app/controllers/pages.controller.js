@@ -4,6 +4,9 @@
 
     angular.module('petModeApp')
         .controller('PagesController', ['$sce', '$scope', '$state', 'ngDialog', 'StaticPagesFactory', function ($sce, $scope, $state, ngDialog, pages) {
+
+            $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+
             $scope.$state = $state;
 
             $scope.getHtml = function(html){

@@ -1,0 +1,79 @@
+.gallery
+  .container
+    .localization
+      table
+        tr
+          td
+            a href="/admin" ng-show="current_user.is_admin"
+              | Admin
+          td
+            a href="/en"
+              | EN
+          td
+            a href="/ru"
+              | RU
+    .header-row
+      .logo
+        a href="#"
+          img src="assets/logo.png" style="margin-top: 20px; width: 320px; "
+        br
+        br
+        .logo-text
+          .span1
+            b
+              | {{ I18n.t('logo.service') }}
+          br
+          .span2
+            | {{ I18n.t('logo.home') }}
+          br
+          .span3
+            | {{ I18n.t('logo.pets') }}
+      .header-menu
+        ul.header-menu-column
+          li
+            a href="#sale"
+              | Продажа
+          li
+            a href="#copulation"
+              | Случка
+          li
+            a href="#news"
+              | {{ I18n.t('menu.news') }}
+          li
+            a href="#pet-shop"
+              | Зоомагазин
+        ul.header-menu-column
+          li
+            a href="#good-hands"
+              | В добрые руки
+          li
+            a href="#experts"
+              | Специалисты
+          li
+            a Конкурсы
+          li
+            a Выставки
+        .header-menu-column style="text-align: right"
+          div ng-show="current_user"
+            img ng-src="{{current_user.avatar_url}}" style="width: 50px; height: 50px;"
+            br
+            | {{ current_user.full_name }}
+            br
+            a.yellow-btn ng-click="logout()"
+              | Выход
+          div ng-hide="current_user"
+            a.yellow-btn ng-click="showLoginForm()"
+              | {{ I18n.t('login') }}
+            br
+            i.fa.fa-key
+            | &nbsp;
+            | &nbsp;
+            a href="#registration"
+              | Регистрация
+            br
+            br
+            input.global-search style="position: relative; right: -30px"
+            | &nbsp;
+            i.fa.fa-search
+    .header-text
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
