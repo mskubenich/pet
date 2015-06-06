@@ -5,4 +5,7 @@ class Copulation < ActiveRecord::Base
   validates :breed, presence: true
   validates :description, presence: true
 
+  def attachments
+    Attachment.where(entity_id: self.id, entity_type: Copulation)
+  end
 end

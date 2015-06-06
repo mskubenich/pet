@@ -1,8 +1,9 @@
-class Admin::CopulationsController < AdminController
+class CopulationsController < ApplicationController
 
   load_and_authorize_resource :copulation
 
   def create
+    attachments_params = params[:copulation][:photos]
     @copulation = Copulation.new copulation_params
     if @copulation.save
       attachments_params.each do |attachment|
@@ -17,10 +18,6 @@ class Admin::CopulationsController < AdminController
   private
 
   def copulation_params
-    params.require(:copulation).permit(:family, :name, :age, :breed, :skorp, :rkf, :description, :price)
-  end
-
-  def attachments_params
-    params.require(:copulation).permit(:photos)
+    params.require(:copulation).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos)
   end
 end

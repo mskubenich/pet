@@ -36,7 +36,7 @@
                     }
 
                     $scope.processing = true;
-                    copulations.upsert($scope.announcement)
+                    copulations.upsert($scope.announcement, $scope.photo1, $scope.photo2, $scope.photo3, $scope.photo4)
                         .success(function(){
                             $scope.processing = false;
                             ngDialog.open({
