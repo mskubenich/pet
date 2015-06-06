@@ -301,3 +301,17 @@ a.white-link{
   display: table-cell;
   vertical-align: middle;
 }
+
+.family-select{
+  img{
+    opacity: 0.5;
+  }
+  &.active{
+    img{
+      opacity: 1;
+    }
+  }
+  input{
+    display: none;
+  }
+}

@@ -9,29 +9,38 @@
 .container
   .row
     .col-md-6.col-md-offset-3.gray-block
+      | {{ announcement }}
       form.registration-form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
         .row
-          .col-md-3
+          .col-md-3.col-sm-3
             .form-group
-              a
-                = image_tag 'cat-icon.png', style: "margin-left: 8px; width: 40px"
-              a
-                = image_tag 'dog-icon.png', style: "margin-left: 8px; width: 40px"
-          .col-md-6
+              label.family-select class="{{ announcement.family == 'cat' ? 'active' : '' }}"
+                = image_tag 'cat-icon.png', style: "margin-left: 8px; width: 36px;"
+                input type="radio" name="family" value="cat" ng-model="announcement.family" required=true
+              label.family-select class="{{ announcement.family == 'dog' ? 'active' : '' }}"
+                = image_tag 'dog-icon.png', style: "margin-left: 8px; width: 43px; margin-top:3px;"
+                input type="radio" name="family" value="dog" ng-model="announcement.family" required=true
+            .error ng-show="announcementForm.family.$invalid && submitted"
+              | can't be blank
+          .col-md-6.col-sm-3
             .form-group
               input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.name') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="name" ng-model="announcement.name"
-              .error ng-show="announcementForm.name.$invalid && submited"
+              .error ng-show="announcementForm.name.$invalid && submitted"
                 | can't be blank
-          .col-md-3
+          .col-md-3.col-sm-3
             .form-group
               input.form-control type="number" placeholder="{{ I18n.t('copulation.dog.age') }}" required=true class="{{ announcementForm.age.$invalid && submited ? 'validation-error' : ''}}" name="age" ng-model="announcement.age"
-              .error ng-show="announcementForm.age.$invalid && submited"
+              .error ng-show="announcementForm.age.$invalid && submitted"
                 | can't be blank
         br
         .form-group
-          select.form-control name="breed" ng-model="announcement.breed"
+          select.form-control name="breed" ng-model="announcement.breed" required=true
             option value='' disabled=true selected=true
               | {{ I18n.t('copulation.dog.breed') }} ({{ I18n.t('choose_from_list')}})
+            option ng-repeat="breed in breeds" value="{{ breed }}"
+              | {{ breed }}
+          .error ng-show="announcementForm.breed.$invalid && submitted"
+            | can't be blank
         br
         .form-group
           table.vertical-align-table
@@ -76,14 +85,17 @@
                 td
                   span.rounded-one class="{{ checked1 ? 'checked' : ''}}"
                     .rounded-two
-                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="userData.scorp"
+                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="announcement.scorp"
                 td
                   span.black-budget
                     | СКОРП
+          label
+            table.vertical-align-table
+              tr
                 td
                   span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
                     .rounded-two
-                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.rkf"
+                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="announcement.rkf"
                 td
                   span.black-budget
                     | РКФ
@@ -94,9 +106,9 @@
           table.vertical-align-table
             tr
               td
-                span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                span.rounded-one class="{{ checked3 ? 'checked' : ''}}"
                   .rounded-two
-                  input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.scorp"
+                  input.form-control type="checkbox" ng-click="checked3 = !checked3" ng-model="announcement.bloodline"
               td
                 span.black-budget
                   | {{ I18n.t('bloodline') }}
@@ -146,16 +158,19 @@
                 span.selected-file-text
                   | {{ I18n.t('fathers_photo') }}
         .form-group
-          textarea.form-control placeholder="{{ I18n.t('description') }}"
+          textarea.form-control placeholder="{{ I18n.t('description') }}" ng-model="announcement.description"
         .form-group
           table.vertical-align-table
             tr
               td
                 span
-                  input.form-control type="number"
+                  input.form-control type="number" ng-model="announcement.price" required=true
               td
                 span
                   i.fa.fa-ruble
+          .error ng-show="announcementForm.age.$invalid && submitted"
+            | can't be blank
 
         .text-center
           input.yellow-btn type="submit" value="{{ I18n.t('publish') }}"
+          i.fa.fa-spinner.fa-pulse ng-show="processing"
