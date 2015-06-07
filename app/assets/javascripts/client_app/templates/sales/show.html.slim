@@ -1,0 +1,104 @@
+.wave
+.nav-menu
+  .container
+    | test
+.container
+  .row.copulation-drilldown
+    .col-md-3.col-sm-3
+      img.copulation-preview-image ng-src="{{ preview_image }}"
+      br
+      br
+      .row
+        .col-xs-6.col-md-4 ng-repeat="image in sale.preview_images"
+          a class="thumbnail"
+            img ng-src="{{ image }}" ng-click="updatePreview(image)"
+    .col-md-9.col-sm-9
+      .row
+        .col-md-8.col-sm-8
+          span.copulation-title
+            | {{ sale.name }}
+          | &nbsp;
+          | &nbsp;
+          span.black-budget ng-show="sale.scorp"
+            | СКОРП
+          | &nbsp;
+          | &nbsp;
+          span.black-budget ng-show="sale.rkf"
+            | РКФ
+          br
+          | Russian Federation, Moskow
+          | &nbsp;
+          | &nbsp;
+          img src="assets/ru.png" style="width: 20px"
+          br
+          br
+          table.short-table
+            tr
+              td style="width: 100px"
+                | {{ I18n.t('sale.dog.breed') }} >
+              td
+                | {{ sale.breed }}
+            tr
+              td
+                | {{ I18n.t('sale.dog.age') }} >
+              td
+                | {{ sale.age }}
+            tr
+              td
+                | Цвет >
+              td
+                | черный
+            tr
+              td
+                | Вес >
+              td
+                | 320 г
+          br
+          br
+          .price
+            | {{ sale.price }}
+            | &nbsp;
+            i.fa.fa-ruble
+        .col-md-4.col-sm-4.text-right
+          span.rating
+            span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly"
+              | {{percent}}%
+            rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+          | (150)
+          br
+          br
+          br
+          br
+          br
+          br
+          span style="color: gray"
+            | владелец &nbsp;&nbsp;
+          span style="color: blue"
+            | {{ sale.owner }}
+          br
+          span style="color: red; font-size: 26px"
+            | {{ phone }}
+          br
+          span.black-budget.connect ng-click="phone = sale.owner_phone"
+            | Связаться
+        .col-md-12.col-sm-12
+          h4
+            b
+              | {{ I18n.t('description') }}:
+          | {{ sale.description }}
+          h4
+            b
+              | Документы:
+          .row
+            .col-xs-6.col-md-3 ng-show="sale.prize_image_url"
+              a href="#" class="thumbnail"
+                img ng-src="{{ sale.prize_image_url }}" alt="Призы"
+            .col-xs-6.col-md-3 ng-show="sale.bloodline_image_url"
+              a href="#" class="thumbnail"
+                img ng-src="{{ sale.bloodline_image_url }}" alt="Родословная"
+            .col-xs-6.col-md-3 ng-show="sale.mothers_image_url"
+              a href="#" class="thumbnail"
+                img ng-src="{{ sale.mothers_image_url }}" alt="Фото мамы"
+            .col-xs-6.col-md-3 ng-show="sale.fathers_image_url"
+              a href="#" class="thumbnail"
+                img ng-src="{{ sale.fathers_image_url }}" alt="Фото папы"

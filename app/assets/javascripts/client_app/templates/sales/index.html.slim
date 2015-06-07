@@ -1,0 +1,55 @@
+.wave
+.nav-menu
+  .container style="height: 80px;"
+    table
+      tr
+        td
+          b
+            h3
+              | {{ I18n.t('sale.title') }}
+        td.text-right
+          a.yellow-black-btn ui-sref="new_sale" ng-show="current_user"
+            | {{ I18n.t('sale.new') }}
+.container
+  #sales-pagination ng-hide="count < 10"
+  .col-group
+    div ng-repeat="sale in sales"
+      table.sale-item
+        tr
+          td
+            .img style="background-image: url({{ sale.preview_image_url }})"
+            .prize ng-show="sale.has_prize"
+          td
+            b
+              a href="#sale/{{sale.id}}" style="color: black"
+                | {{ sale.name }}
+            | &nbsp;
+            | &nbsp;
+            span.black-budget ng-show="sale.scorp"
+              | СКОРП
+            | &nbsp;
+            | &nbsp;
+            span.black-budget ng-show="sale.rkf"
+              | РКФ
+            br
+            div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
+              | ({{ sale.breed }})
+            span
+              | {{ sale.description }}
+        tr
+          td
+            .yellow-btn style="width: 100%; text-align: center"
+              | {{ sale.price }}
+              | &nbsp;
+              | &nbsp;
+              i.fa.fa-ruble
+          td.stat-meta style="vertical-align: middle"
+            a
+              i.fa.fa-heart
+              | 255
+            a
+              i.fa.fa-repeat
+              | 15
+            a
+              i.fa.fa-eye
+              | 125

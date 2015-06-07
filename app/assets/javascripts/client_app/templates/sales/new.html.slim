@@ -5,7 +5,7 @@
         td
           b
             h3
-              | {{ I18n.t('copulation.new') }}
+              | {{ I18n.t('sale.new') }}
 .container
   .row
     .col-md-6.col-md-offset-3.gray-block
@@ -23,19 +23,19 @@
               | can't be blank
           .col-md-6.col-sm-3
             .form-group
-              input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.name') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="name" ng-model="announcement.name"
+              input.form-control type="text" placeholder="{{ I18n.t('sale.dog.name') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="name" ng-model="announcement.name"
               .error ng-show="announcementForm.name.$invalid && submitted"
                 | can't be blank
           .col-md-3.col-sm-3
             .form-group
-              input.form-control type="number" placeholder="{{ I18n.t('copulation.dog.age') }}" required=true class="{{ announcementForm.age.$invalid && submited ? 'validation-error' : ''}}" name="age" ng-model="announcement.age"
+              input.form-control type="number" placeholder="{{ I18n.t('sale.dog.age') }}" required=true class="{{ announcementForm.age.$invalid && submited ? 'validation-error' : ''}}" name="age" ng-model="announcement.age"
               .error ng-show="announcementForm.age.$invalid && submitted"
                 | can't be blank
         br
         .form-group
           select.form-control name="breed" ng-model="announcement.breed" required=true
             option value='' disabled=true selected=true
-              | {{ I18n.t('copulation.dog.breed') }} ({{ I18n.t('choose_from_list')}})
+              | {{ I18n.t('sale.dog.breed') }} ({{ I18n.t('choose_from_list')}})
             option ng-repeat="breed in breeds" value="{{ breed }}"
               | {{ breed }}
           .error ng-show="announcementForm.breed.$invalid && submitted"

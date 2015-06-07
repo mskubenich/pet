@@ -23,21 +23,6 @@
                 templateUrl: 'client_app/templates/users/new.html',
                 controller: 'UsersController'
             })
-            .state('sale',{
-                url: '/sale',
-                templateUrl: 'client_app/templates/sale/index.html',
-                controller: 'SaleController'
-            })
-            .state('copulation',{
-                url: '/copulation',
-                templateUrl: 'client_app/templates/copulation/index.html',
-                controller: 'CopulationController'
-            })
-            .state('new_copulation',{
-                url: '/copulation/new',
-                templateUrl: 'client_app/templates/copulation/new.html',
-                controller: 'CopulationController'
-            })
             .state('pet-shop',{
                 url: '/pet-shop',
                 templateUrl: 'client_app/templates/shop/index.html',
@@ -83,10 +68,35 @@
                 templateUrl: 'client_app/templates/pages/dynamic.html',
                 controller: 'PagesController'
             })
+            .state('copulation',{
+                url: '/copulation',
+                templateUrl: 'client_app/templates/copulation/index.html',
+                controller: 'CopulationController'
+            })
+            .state('new_copulation',{
+                url: '/copulation/new',
+                templateUrl: 'client_app/templates/copulation/new.html',
+                controller: 'CopulationController'
+            })
             .state('show_copulation',{
                 url: '/copulation/:id',
                 templateUrl: 'client_app/templates/copulation/show.html',
                 controller: 'CopulationController'
+            })
+            .state('sale',{
+                url: '/sale',
+                templateUrl: 'client_app/templates/sales/index.html',
+                controller: 'SalesController'
+            })
+            .state('new_sale',{
+                url: '/sale/new',
+                templateUrl: 'client_app/templates/sales/new.html',
+                controller: 'SalesController'
+            })
+            .state('show_sale',{
+                url: '/sale/:id',
+                templateUrl: 'client_app/templates/sales/show.html',
+                controller: 'SalesController'
             });
     }]);
 

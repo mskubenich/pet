@@ -48,6 +48,11 @@ en:
       breed: 'Breed'
   sale:
     title: 'Sale'
+    new: 'New Sale'
+    dog:
+      name: 'Name'
+      age: 'Age'
+      breed: 'Breed'
   choose_from_list: 'Choose from list'
   organization_flag: 'Check this box if you represent one of the organizations.'
   bloodline_flag: "Add your pet's pedigree."
