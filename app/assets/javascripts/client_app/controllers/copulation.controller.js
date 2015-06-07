@@ -7,6 +7,36 @@
             function ($scope, $state, ngDialog, copulations) {
             $scope.I18n = I18n;
 
+            if($state.current.name == 'copulation'){
+                $scope.copulation = [];
+
+                $scope.page = 1;
+                $scope.retrieveCopulations = function(){
+                    copulations.all({page: $scope.page}).success(function (data) {
+                        $scope.copulations = data.copulations;
+                        $scope.count = data.count;
+
+                        var pagination = $('#copulations-pagination');
+                        pagination.empty();
+                        pagination.removeData('twbs-pagination');
+                        pagination.unbind('page');
+
+                        pagination.twbsPagination({
+                            totalPages: Math.ceil($scope.count / 9),
+                            startPage: $scope.page,
+                            visiblePages: 9,
+                            onPageClick: function (event, page) {
+                                $scope.page = page;
+                                $scope.retrieveCopulations();
+                            }
+                        });
+                    }).error(function (data) {
+
+                    });
+                };
+
+                $scope.retrieveCopulations();
+            }
             if($state.current.name == 'new_copulation'){
                 $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
                 $scope.announcement = {};

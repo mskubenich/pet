@@ -1,0 +1,30 @@
+table.sale-item{
+  &:hover{
+    background-color: #F3F3F3;
+  }
+  width: 100%;
+  line-height: 20px;
+  font-size: 13px;
+  tr{
+    border: 0;
+    td{
+      padding: 8px;
+      vertical-align: top;
+      border: 0 !important;
+    }
+  }
+  tr:nth-child(1){
+    td:nth-child(1){
+      width: 135px;
+      .img{
+        width: 135px;
+        height: 135px;
+        border-radius: 6px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+}

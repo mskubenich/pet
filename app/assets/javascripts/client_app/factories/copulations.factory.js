@@ -36,7 +36,11 @@
                         headers: {'Content-Type': undefined}
                     });
                 //}
+            },
+            all: function(options){
+                return $http.get('/copulations.json?page=' + options.page);
             }
-        };
+        }
+        ;
     }])
 }());

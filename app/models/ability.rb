@@ -21,5 +21,6 @@ class Ability
       end
     end
     can :read, News
+    can :read, Copulation
   end
 end

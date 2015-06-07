@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope "(:locale)" do
+  scope "(:locale)", locale: /en|ru/ do
 
     root to: 'pages#index'
 

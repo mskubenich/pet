@@ -8,4 +8,12 @@ class Copulation < ActiveRecord::Base
   def attachments
     Attachment.where(entity_id: self.id, entity_type: Copulation)
   end
+
+  def preview_image_url
+    if attachments.any?
+      attachments.first.file.url
+    else
+      Attachment.new.file.url
+    end
+  end
 end

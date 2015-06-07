@@ -1,6 +1,7 @@
 class CopulationsController < ApplicationController
 
   load_and_authorize_resource :copulation
+  skip_before_filter :authenticate_user, only: [:index]
 
   def create
     attachments_params = params[:copulation][:photos]
@@ -13,6 +14,11 @@ class CopulationsController < ApplicationController
     else
       render json: {errors: @copulation.errors}
     end
+  end
+
+  def index
+    @copulations = Copulation.order('created_at DESC').paginate page: params[:page], per_page: 9
+    @count = Copulation.count
   end
 
   private

@@ -6,10 +6,48 @@
         td
           b
             h3
-              = I18n.t 'copulation.title'
+              | {{ I18n.t('copulation.title') }}
         td.text-right
           a.yellow-black-btn ui-sref="new_copulation"
-            = I18n.t 'copulation.new'
+            | {{ I18n.t('copulation.new') }}
 .container
-  .row
-    .col-md-6.col-md-offset-3.gray-block
+  #copulations-pagination ng-hide="count < 10"
+  .col-group
+    div ng-repeat="copulation in copulations"
+      table.sale-item
+        tr
+          td
+            .img style="background-image: url({{ copulation.preview_image_url }})"
+          td
+            b
+              | {{ copulation.name }}
+            | &nbsp;
+            | &nbsp;
+            span.black-budget ng-show="copulation.scorp"
+              | СКОРП
+            | &nbsp;
+            | &nbsp;
+            span.black-budget ng-show="copulation.rkf"
+              | РКФ
+            br
+            div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
+              | ({{ copulation.breed }})
+            span
+              | {{ copulation.description }}
+        tr
+          td
+            .yellow-btn style="width: 100%; text-align: center"
+              | {{ copulation.price }}
+              | &nbsp;
+              | &nbsp;
+              i.fa.fa-ruble
+          td.stat-meta style="vertical-align: middle"
+            a
+              i.fa.fa-heart
+              | 255
+            a
+              i.fa.fa-repeat
+              | 15
+            a
+              i.fa.fa-eye
+              | 125

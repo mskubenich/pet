@@ -315,3 +315,17 @@ a.white-link{
     display: none;
   }
 }
+
+.stat-meta{
+  a{
+    margin-right: 20px;
+    color: lightgray;
+    cursor: pointer;
+    text-decoration: none;
+    border-color: lightgray;
+    &:hover{
+      color: black;
+      border-color: black;
+    }
+  }
+}
