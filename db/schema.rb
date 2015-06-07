@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150606180938) do
+ActiveRecord::Schema.define(version: 20150607132636) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -25,16 +25,32 @@ ActiveRecord::Schema.define(version: 20150606180938) do
   end
 
   create_table "copulations", force: :cascade do |t|
-    t.string   "family",      limit: 255
-    t.string   "name",        limit: 255
-    t.integer  "age",         limit: 4
-    t.string   "breed",       limit: 255
-    t.boolean  "scorp",       limit: 1
-    t.boolean  "rkf",         limit: 1
-    t.text     "description", limit: 65535
-    t.integer  "price",       limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "family",                     limit: 255
+    t.string   "name",                       limit: 255
+    t.integer  "age",                        limit: 4
+    t.string   "breed",                      limit: 255
+    t.boolean  "scorp",                      limit: 1
+    t.boolean  "rkf",                        limit: 1
+    t.text     "description",                limit: 65535
+    t.integer  "price",                      limit: 4
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.string   "prize_file_name",            limit: 255
+    t.string   "prize_content_type",         limit: 255
+    t.integer  "prize_file_size",            limit: 4
+    t.datetime "prize_updated_at"
+    t.string   "bloodline_file_name",        limit: 255
+    t.string   "bloodline_content_type",     limit: 255
+    t.integer  "bloodline_file_size",        limit: 4
+    t.datetime "bloodline_updated_at"
+    t.string   "mothers_photo_file_name",    limit: 255
+    t.string   "mothers_photo_content_type", limit: 255
+    t.integer  "mothers_photo_file_size",    limit: 4
+    t.datetime "mothers_photo_updated_at"
+    t.string   "fathers_photo_file_name",    limit: 255
+    t.string   "fathers_photo_content_type", limit: 255
+    t.integer  "fathers_photo_file_size",    limit: 4
+    t.datetime "fathers_photo_updated_at"
   end
 
   create_table "news", force: :cascade do |t|

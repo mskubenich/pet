@@ -2,7 +2,7 @@
     'use strict';
     angular.module('petModeApp').factory('CopulationsFactory', ['$http', function($http){
         return {
-            upsert: function(copulation, photo1, photo2, photo3, photo4){
+            upsert: function(copulation, photo1, photo2, photo3, photo4, prize, bloodline, mothers_photo, fathers_photo){
                 var fd = new FormData();
                 fd.append('copulation[family]', copulation.family);
                 fd.append('copulation[name]', copulation.name);
@@ -23,6 +23,18 @@
                 }
                 if(photo4){
                     fd.append('copulation[photos][]', photo4);
+                }
+                if(prize){
+                    fd.append('copulation[prize]', prize);
+                }
+                if(bloodline){
+                    fd.append('copulation[bloodline]', bloodline);
+                }
+                if(mothers_photo){
+                    fd.append('copulation[mothers_photo]', mothers_photo);
+                }
+                if(fathers_photo){
+                    fd.append('copulation[fathers_photo]', fathers_photo);
                 }
 
                 //if(news.id){

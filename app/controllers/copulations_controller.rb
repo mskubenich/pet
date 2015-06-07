@@ -24,6 +24,6 @@ class CopulationsController < ApplicationController
   private
 
   def copulation_params
-    params.require(:copulation).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos)
+    params.require(:copulation).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
   end
 end

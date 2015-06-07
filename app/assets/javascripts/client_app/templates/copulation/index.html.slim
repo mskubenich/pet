@@ -18,6 +18,7 @@
         tr
           td
             .img style="background-image: url({{ copulation.preview_image_url }})"
+            .prize ng-show="copulation.has_prize"
           td
             b
               | {{ copulation.name }}

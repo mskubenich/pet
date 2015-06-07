@@ -1,6 +1,16 @@
 table.sale-item{
+  position: relative;
   &:hover{
     background-color: #F3F3F3;
+  }
+  .prize{
+    background-image: url('badge.svg');
+    width: 50px;
+    height: 55px;
+    position: absolute;
+    top: -12px;
+    left: -18px;
+    background-size: cover;
   }
   width: 100%;
   line-height: 20px;

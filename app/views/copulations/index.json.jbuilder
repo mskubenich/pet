@@ -8,5 +8,6 @@ json.copulations @copulations.each do |copulation|
   json.description       copulation.description.to_s[0..100] + '...'
   json.price             copulation.price
   json.preview_image_url copulation.preview_image_url
+  json.has_prize         copulation.prize.exists?
 end
 json.count @count
