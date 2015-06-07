@@ -27,4 +27,12 @@ class Copulation < ActiveRecord::Base
       [Attachment.new.file.url]
     end
   end
+
+  def preview_image_url
+    if attachments.any?
+      attachments.first.file.url
+    else
+      Attachment.new.file.url
+    end
+  end
 end

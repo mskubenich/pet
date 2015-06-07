@@ -8,3 +8,14 @@
   font-size: 27px;
   margin-top: 4px;
 }
+
+.file-select{
+  position: relative;
+  .file-remove{
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -2px;
+    right: 36px;
+  }
+}

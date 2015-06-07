@@ -42,40 +42,16 @@
             | can't be blank
         br
         .form-group
-          table.vertical-align-table
-            tr
-              td
-                label style="padding-right: 30px;"
-                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo1-preview');" file-model="photo1"
-                  .avatar-droppable#photo1-preview
-                    table
-                      tr
-                        td
-                          i.fa.fa-plus-circle
-              td
-                label style="padding-right: 30px;"
-                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo2-preview');" file-model="photo2"
-                  .avatar-droppable#photo2-preview
-                    table
-                      tr
-                        td
-                          i.fa.fa-plus-circle
-              td
-                label style="padding-right: 30px;"
-                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo3-preview');" file-model="photo3"
-                  .avatar-droppable#photo3-preview
-                    table
-                      tr
-                        td
-                          i.fa.fa-plus-circle
-              td
-                label style="padding-right: 30px;"
-                  input type="file" style="display: none" onchange="previewAvatar(this, '#photo4-preview');" file-model="photo4"
-                  .avatar-droppable#photo4-preview
-                    table
-                      tr
-                        td
-                          i.fa.fa-plus-circle
+          .file-select ng-repeat="i in _.range(0, attachments.length + 1)" ng-hide="attachments[i] == 'null'"
+            .file-remove ng-click="removeAttachment(i, $event)" ng-show="attachments[{{ i }}]"
+              i.fa.fa-close
+            label style="padding-right: 30px;"
+              input type="file" style="display: none" file-model="attachments[{{ i }}]" onchange="previewAvatar2(this);"
+              .avatar-droppable id="preview-{{ i }}"
+                table
+                  tr
+                    td
+                      i.fa.fa-plus-circle
         br
         .form-group
           label

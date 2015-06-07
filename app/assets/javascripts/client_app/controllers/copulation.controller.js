@@ -6,6 +6,7 @@
         .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams',
             function ($scope, $state, ngDialog, copulations, $stateParams) {
             $scope.I18n = I18n;
+            $scope._ = _;
 
             if($state.current.name == 'copulation'){
                 $scope.copulation = [];
@@ -71,8 +72,15 @@
 
             }
             if($state.current.name == 'new_copulation'){
+                $scope.attachments = [];
+                $scope.attachments_previews = [];
                 $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
                 $scope.announcement = {};
+
+                $scope.removeAttachment = function(i, event){
+                    $scope.attachments[i] = 'null';
+                    $(event.target).parents('.file-select').remove();
+                };
 
                 $scope.breeds = [
                     "Акита-ину",
@@ -99,7 +107,7 @@
                     }
 
                     $scope.processing = true;
-                    copulations.upsert($scope.announcement, $scope.photo1, $scope.photo2, $scope.photo3, $scope.photo4, $scope.prize, $scope.bloodline, $scope.mothers_photo, $scope.fathers_photo)
+                    copulations.upsert($scope.announcement, $scope.attachments, $scope.prize, $scope.bloodline, $scope.mothers_photo, $scope.fathers_photo)
                         .success(function(){
                             $scope.processing = false;
                             ngDialog.open({
