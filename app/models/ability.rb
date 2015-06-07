@@ -17,6 +17,9 @@ class Ability
         can :manage, Copulation do |copulation|
           copulation.new_record? || copulation.owner.id == user.id
         end
+        can :manage, Sale do |sale|
+          sale.new_record? || sale.owner.id == user.id
+        end
       end
     else
       can :manage, User do |entity|
@@ -25,5 +28,6 @@ class Ability
     end
     can :read, News
     can :read, Copulation
+    can :read, Sale
   end
 end
