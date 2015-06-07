@@ -9,6 +9,8 @@ class CreateCopulations < ActiveRecord::Migration
       t.boolean :rkf
       t.text :description
       t.integer :price
+      t.references :user
+      t.boolean :approved
 
       t.timestamps null: false
     end

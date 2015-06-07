@@ -9,7 +9,7 @@ html(lang="en")
     javascript:
       I18n.defaultLocale = "#{ I18n.default_locale }";
       I18n.locale = "#{ I18n.locale }";
-  body ng-app="petModeApp" ng-controller="HomeController"
+  body ng-app="petModeApp" ng-controller="HomeController as home_ctrl"
     .header
       div ng-include=true src="header_url"
     .content ui-view=true

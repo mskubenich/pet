@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory',
-            function ($scope, $state, ngDialog, copulations) {
+        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams',
+            function ($scope, $state, ngDialog, copulations, $stateParams) {
             $scope.I18n = I18n;
 
             if($state.current.name == 'copulation'){
@@ -36,6 +36,39 @@
                 };
 
                 $scope.retrieveCopulations();
+            }
+            if($state.current.name == 'show_copulation'){
+                $scope.copulation = {};
+
+                $scope.rate = 4;
+                $scope.max = 5;
+                $scope.isReadonly = false;
+
+                $scope.hoveringOver = function(value) {
+                    $scope.overStar = value;
+                    $scope.percent = 100 * (value / $scope.max);
+                };
+
+                $scope.ratingStates = [
+                    {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
+                    {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
+                    {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
+                    {stateOn: 'glyphicon-heart'},
+                    {stateOff: 'glyphicon-off'}
+                ];
+
+                copulations.show($stateParams.id).success(function (data) {
+                   $scope.copulation = data.copulation;
+                   $scope.phone = $scope.copulation.owner_phone_hashed;
+                   $scope.preview_image = $scope.copulation.preview_images[0];
+                }).error(function (data) {
+
+                });
+
+                $scope.updatePreview = function(image){
+                    $scope.preview_image = image;
+                }
+
             }
             if($state.current.name == 'new_copulation'){
                 $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';

@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(version: 20150607132636) do
     t.boolean  "rkf",                        limit: 1
     t.text     "description",                limit: 65535
     t.integer  "price",                      limit: 4
+    t.integer  "user_id",                    limit: 4
+    t.boolean  "approved",                   limit: 1
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.string   "prize_file_name",            limit: 255

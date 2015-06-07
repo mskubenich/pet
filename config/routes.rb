@@ -37,7 +37,7 @@ Rails.application.routes.draw do
     end
 
     resources :news, only: [:index, :show]
-    resources :copulations, only: [:index, :create, :update]
+    resources :copulations, only: [:index, :create, :update, :show]
 
   end
 

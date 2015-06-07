@@ -14,6 +14,9 @@ class Ability
         can :manage, Session do |session|
           session.user.id == user.id
         end
+        can :manage, Copulation do |copulation|
+          copulation.new_record? || copulation.owner.id == user.id
+        end
       end
     else
       can :manage, User do |entity|

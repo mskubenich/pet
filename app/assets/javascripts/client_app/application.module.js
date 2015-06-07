@@ -6,7 +6,8 @@
         'ngDialog',
         'validation.match',
         'validation.email',
-        'fileread'
+        'fileread',
+        'ui.bootstrap'
     ]);
 
     petModeApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
@@ -81,6 +82,11 @@
                 url: '/contacts',
                 templateUrl: 'client_app/templates/pages/dynamic.html',
                 controller: 'PagesController'
+            })
+            .state('show_copulation',{
+                url: '/copulation/:id',
+                templateUrl: 'client_app/templates/copulation/show.html',
+                controller: 'CopulationController'
             });
     }]);
 

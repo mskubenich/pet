@@ -14,6 +14,7 @@
 #= require i18n/translations
 #= require_tree ../../../vendor/assets/javascripts/redactor
 #= require twbs-pagination.js
+#= require ui-bootstrap-tpls-0.13.0.min
 #= require_tree ./client_app/templates
 #= require ./client_app/application.module.js
 #= require ./client_app/admin.module.js

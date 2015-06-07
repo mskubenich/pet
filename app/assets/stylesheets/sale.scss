@@ -38,3 +38,32 @@ table.sale-item{
     }
   }
 }
+
+.copulation-drilldown{
+  margin-top: 50px;
+  .copulation-title{
+    font-size: 21px;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  .copulation-preview-image{
+    width: 100%;
+  }
+  .rating{
+    color: gold;
+    font-size: 21px;
+  }
+  .short-table{
+    font-size: 14px;
+    color: gray;
+  }
+  .price{
+    color: red;
+    font-size: 35px;
+    font-weight: bolder;
+  }
+  .connect{
+    padding: 6px 25px;
+    cursor: pointer;
+  }
+}

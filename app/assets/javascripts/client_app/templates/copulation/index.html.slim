@@ -8,7 +8,7 @@
             h3
               | {{ I18n.t('copulation.title') }}
         td.text-right
-          a.yellow-black-btn ui-sref="new_copulation"
+          a.yellow-black-btn ui-sref="new_copulation" ng-show="current_user"
             | {{ I18n.t('copulation.new') }}
 .container
   #copulations-pagination ng-hide="count < 10"
@@ -21,7 +21,8 @@
             .prize ng-show="copulation.has_prize"
           td
             b
-              | {{ copulation.name }}
+              a href="#copulation/{{copulation.id}}" style="color: black"
+                | {{ copulation.name }}
             | &nbsp;
             | &nbsp;
             span.black-budget ng-show="copulation.scorp"

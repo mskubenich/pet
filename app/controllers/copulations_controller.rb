@@ -1,11 +1,11 @@
 class CopulationsController < ApplicationController
 
   load_and_authorize_resource :copulation
-  skip_before_filter :authenticate_user, only: [:index]
+  skip_before_filter :authenticate_user, only: [:index, :show]
 
   def create
     attachments_params = params[:copulation][:photos]
-    @copulation = Copulation.new copulation_params
+    @copulation = Copulation.new copulation_params.merge({user_id: current_user.id})
     if @copulation.save
       attachments_params.each do |attachment|
         Attachment.create entity_id: @copulation.id, entity_type: Copulation, file: attachment
@@ -19,6 +19,10 @@ class CopulationsController < ApplicationController
   def index
     @copulations = Copulation.order('created_at DESC').paginate page: params[:page], per_page: 9
     @count = Copulation.count
+  end
+
+  def show
+
   end
 
   private

@@ -51,6 +51,9 @@
             },
             all: function(options){
                 return $http.get('/copulations.json?page=' + options.page);
+            },
+            show: function(id){
+                return $http.get('/copulations/' + id + '.json');
             }
         }
         ;
