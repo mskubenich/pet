@@ -21,7 +21,10 @@
         td style="width: 300px"
           .btn-group dropdown=true style="width: 100%"
             button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
-              | {{ I18n.t('sale.filters.choose_breed') }}
+              span ng-show="filters.breed == ''"
+                | {{ I18n.t('sale.filters.choose_breed') }}
+              span ng-show="filters.breed != ''"
+                | {{ filters.breed }}
               span.caret
             ul.dropdown-menu role="menu"
               li
