@@ -38,6 +38,12 @@ html(lang="en")
                 li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
                   a href="#static_pages"
                     | {{ I18n.t('admin.static_pages.title') }}
+                li role="presentation" ng-class="{'active' : $state.current.name == 'copulations' }"
+                  a href="#copulations"
+                    | {{ I18n.t('menu.copulation') }}
+                li role="presentation" ng-class="{'active' : $state.current.name == 'sales' }"
+                  a href="#sales"
+                    | {{ I18n.t('menu.sale') }}
         .col-md-9
           div ui-view=true
 

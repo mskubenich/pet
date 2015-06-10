@@ -6,7 +6,9 @@
         'ngDialog',
         'validation.match',
         'validation.email',
-        'fileread'
+        'fileread',
+        'ui.bootstrap',
+        'ui-rangeSlider'
     ]);
 
     petModeAdminApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {
@@ -46,6 +48,16 @@
                 url: '/static_pages/:name/edit',
                 templateUrl: 'client_app/templates/admin/static_pages/edit.html',
                 controller: 'AdminStaticPagesController'
+            })
+            .state('copulations',{
+                url: '/copulations',
+                templateUrl: 'client_app/templates/admin/copulations/index.html',
+                controller: 'AdminCopulationsController'
+            })
+            .state('sales',{
+                url: '/sales',
+                templateUrl: 'client_app/templates/admin/sales/index.html',
+                controller: 'AdminSalesController'
             });
     }]);
 
