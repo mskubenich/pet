@@ -7,6 +7,7 @@
             function ($scope, $state, ngDialog, sales, $stateParams, $timeout) {
                 $scope.I18n = I18n;
                 $scope._ = _;
+                $scope.$state = $state;
 
                 $scope.breeds = [
                     "Акита-ину",
@@ -26,7 +27,7 @@
                     "Бладхаунд"
                 ];
 
-                if($state.current.name == 'sale'){
+                if($state.current.name == 'sales'){
                     $scope.filters = {
                         family: 'all',
                         sex: 'all',
@@ -77,45 +78,34 @@
                     };
 
                     $scope.retrievesales();
-                }
-                if($state.current.name == 'show_sale'){
-                    $scope.sale = {};
 
-                    $scope.rate = 4;
-                    $scope.max = 5;
-                    $scope.isReadonly = false;
-
-                    $scope.hoveringOver = function(value) {
-                        $scope.overStar = value;
-                        $scope.percent = 100 * (value / $scope.max);
+                    $scope.destroy = function(id){
+                        sales.destroy(id).success(function(){
+                            $scope.retrievesales();
+                        })
                     };
+                }
 
-                    $scope.ratingStates = [
-                        {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
-                        {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
-                        {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-                        {stateOn: 'glyphicon-heart'},
-                        {stateOff: 'glyphicon-off'}
-                    ];
-
-                    sales.show($stateParams.id).success(function (data) {
-                        $scope.sale = data.sale;
-                        $scope.phone = $scope.sale.owner_phone_hashed;
-                        $scope.preview_image = $scope.sale.preview_images[0];
-                    }).error(function (data) {
-
-                    });
-
-                    $scope.updatePreview = function(image){
-                        $scope.preview_image = image;
+                if($state.current.name == 'new_sale' || $state.current.name == 'edit_sale'){
+                    if($state.current.name == 'new_sale'){
+                        $scope.announcement = {scorp: false, rkf: false};
                     }
 
-                }
-                if($state.current.name == 'new_sale'){
+                    if($state.current.name == 'edit_sale'){
+                        sales.show($stateParams.id)
+                            .success(function(data){
+                                $scope.announcement = data.sale;
+                            })
+                    }
+
                     $scope.attachments = [];
                     $scope.attachments_previews = [];
-                    $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
-                    $scope.announcement = {};
+                    $scope.removed_attachments_previews = [];
+
+                    $scope.removeExistingAttachment = function(id){
+                        $scope.removed_attachments_previews.push(id);
+                        $(event.target).parents('.file-select').remove();
+                    };
 
                     $scope.removeAttachment = function(i, event){
                         $scope.attachments[i] = 'null';

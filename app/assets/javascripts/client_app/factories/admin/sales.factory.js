@@ -38,14 +38,14 @@
                 //        headers: {'Content-Type': undefined}
                 //    });
                 //}else{
-                    return $http.post('/sales', fd, {
+                    return $http.post('/admin/sales', fd, {
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
                     });
                 //}
             },
             all: function(options){
-                return $http.get('/sales.json?page=' + options.page +
+                return $http.get('/admin/sales.json?page=' + options.page +
                                             '&family=' + options.query.family +
                                             '&sex=' + options.query.sex +
                                             '&price_min=' + options.query.price.min +
@@ -56,7 +56,10 @@
                                             '&rkf=' + options.query.rkf);
             },
             show: function(id){
-                return $http.get('/sales/' + id + '.json');
+                return $http.get('/admin/sales/' + id + '.json');
+            },
+            destroy: function(id){
+                return $http.delete('/admin/sales/' + id)
             }
         }
         ;

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
       get 'static_pages/:name', to: 'static_pages#show', constraints: { name: /#{ StaticPage::NAMES.join('|')}/ }
       put 'static_pages/:name', to: 'static_pages#update', constraints: { name: /#{ StaticPage::NAMES.join('|')}/ }
       resources :copulations, except: [:new, :edit]
+      resources :sales, except: [:new, :edit]
     end
 
     resources :pages, only: [:index]

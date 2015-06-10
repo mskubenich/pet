@@ -5,13 +5,13 @@
 .container
   .row.copulation-drilldown
     .col-md-3.col-sm-3
-      img.copulation-preview-image ng-src="{{ preview_image }}"
+      img.copulation-preview-image ng-src="{{ preview_image.url }}"
       br
       br
       .row
         .col-xs-6.col-md-4 ng-repeat="image in copulation.preview_images"
           a class="thumbnail"
-            img ng-src="{{ image }}" ng-click="updatePreview(image)"
+            img ng-src="{{ image.url }}" ng-click="updatePreview(image)"
     .col-md-9.col-sm-9
       .row
         .col-md-8.col-sm-8

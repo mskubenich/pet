@@ -68,6 +68,16 @@
                 url: '/sales',
                 templateUrl: 'client_app/templates/admin/sales/index.html',
                 controller: 'AdminSalesController'
+            })
+            .state('new_sale',{
+                url: '/sales/new',
+                templateUrl: 'client_app/templates/admin/sales/new.html',
+                controller: 'AdminSalesController'
+            })
+            .state('edit_sale',{
+                url: '/sales/:id/edit',
+                templateUrl: 'client_app/templates/admin/sales/new.html',
+                controller: 'AdminSalesController'
             });
     }]);
 

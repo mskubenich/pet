@@ -1,7 +1,6 @@
 class Admin::CopulationsController < AdminController
 
   load_and_authorize_resource :copulation
-  skip_before_filter :authenticate_user, only: [:index, :show]
 
   def create
     attachments_params = params[:copulation][:photos] || []
