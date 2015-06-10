@@ -62,6 +62,9 @@
             },
             show: function(id){
                 return $http.get('/admin/copulations/' + id + '.json');
+            },
+            destroy: function(id){
+                return $http.delete('/admin/copulations/' + id)
             }
         }
         ;

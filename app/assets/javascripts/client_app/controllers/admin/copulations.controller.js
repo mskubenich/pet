@@ -80,6 +80,12 @@
                     };
 
                     $scope.retrieveCopulations();
+
+                    $scope.destroy = function(id){
+                        copulations.destroy(id).success(function(){
+                            $scope.retrieveCopulations();
+                        })
+                    };
                 }
                 if($state.current.name == 'show_copulation'){
                     $scope.copulation = {};

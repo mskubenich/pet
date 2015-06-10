@@ -47,6 +47,11 @@ class Admin::CopulationsController < AdminController
 
   end
 
+  def destroy
+    @copulation.destroy
+    render nothing: true
+  end
+
   private
 
   def copulation_params
