@@ -22,9 +22,9 @@ class Copulation < ActiveRecord::Base
 
   def preview_images_url
     if attachments.any?
-      attachments.map{|a| a.file.url }
+      attachments.map{|a| {id: a.id, url: a.file.url} }
     else
-      [Attachment.new.file.url]
+      [{id: mil, url: Attachment.new.file.url}]
     end
   end
 

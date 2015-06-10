@@ -42,6 +42,7 @@ en:
   copulation:
     title: 'Copulation'
     new: 'New Copulation'
+    edit: 'Edit Copulation'
     dog:
       name: 'Name'
       age: 'Age'

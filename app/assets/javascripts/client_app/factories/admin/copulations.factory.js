@@ -2,7 +2,7 @@
     'use strict';
     angular.module('petModeAdminApp').factory('CopulationsFactory', ['$http', function($http){
         return {
-            upsert: function(copulation, attachments, prize, bloodline, mothers_photo, fathers_photo){
+            upsert: function(copulation, attachments, prize, bloodline, mothers_photo, fathers_photo, removed_attachments_previews){
                 var fd = new FormData();
                 fd.append('copulation[family]', copulation.family);
                 fd.append('copulation[name]', copulation.name);
@@ -11,7 +11,12 @@
                 fd.append('copulation[scorp]', copulation.scorp);
                 fd.append('copulation[rkf]', copulation.rkf);
                 fd.append('copulation[description]', copulation.description);
-                fd.append('copulation[price]', copulation.price);
+                fd.append('copulation[price]', copulation.price);;
+                var i = 0;
+                while(i < removed_attachments_previews.length){
+                    fd.append('copulation[removed_photos][]', removed_attachments_previews[i]);
+                    i++
+                }
                 var i = 0;
                 while(i < attachments.length){
                     if(attachments[i] != 'null'){
@@ -32,17 +37,17 @@
                     fd.append('copulation[fathers_photo]', fathers_photo);
                 }
 
-                //if(news.id){
-                //    return $http.put('/admin/news/' + news.id, fd, {
-                //        transformRequest: angular.identity,
-                //        headers: {'Content-Type': undefined}
-                //    });
-                //}else{
+                if(copulation.id){
+                    return $http.put('/admin/copulations/' + copulation.id, fd, {
+                        transformRequest: angular.identity,
+                        headers: {'Content-Type': undefined}
+                    });
+                }else{
                     return $http.post('/admin/copulations', fd, {
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
                     });
-                //}
+                }
             },
             all: function(options){
                 return $http.get('/admin/copulations.json?page=' + options.page +

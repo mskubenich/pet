@@ -17,7 +17,7 @@ class Sale < ActiveRecord::Base
   belongs_to :owner, class_name: User, foreign_key: 'user_id'
 
   def attachments
-    Attachment.where(entity_id: self.id, entity_type: Copulation)
+    Attachment.where(entity_id: self.id, entity_type: Sale)
   end
 
   def preview_images_url

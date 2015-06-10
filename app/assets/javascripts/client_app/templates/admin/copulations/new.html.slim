@@ -35,6 +35,16 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
       | can't be blank
   br
   .form-group
+    .file-select ng-repeat="image in announcement.preview_images "
+      .file-remove ng-click="removeExistingAttachment(image.id, $event)"
+        i.fa.fa-close
+      label style="padding-right: 30px;"
+        .avatar-droppable style="background-image: url({{ image.url }})"
+          table
+            tr
+              td
+                i.fa.fa-plus-circle
+
     .file-select ng-repeat="i in _.range(0, attachments.length + 1)" ng-hide="attachments[i] == 'null'"
       .file-remove ng-click="removeAttachment(i, $event)" ng-show="attachments[{{ i }}]"
         i.fa.fa-close
@@ -51,7 +61,7 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
       table.vertical-align-table
         tr
           td
-            span.rounded-one class="{{ checked1 ? 'checked' : ''}}"
+            span.rounded-one class="{{ announcement.scorp ? 'checked' : ''}}"
               .rounded-two
               input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="announcement.scorp"
           td
@@ -61,7 +71,7 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
       table.vertical-align-table
         tr
           td
-            span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+            span.rounded-one class="{{ announcement.rkf ? 'checked' : ''}}"
               .rounded-two
               input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="announcement.rkf"
           td

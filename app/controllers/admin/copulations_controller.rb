@@ -16,6 +16,19 @@ class Admin::CopulationsController < AdminController
     end
   end
 
+  def update
+    attachments_params = params[:copulation][:photos] || []
+    if @copulation.update_attributes copulation_params
+      attachments_params.each do |attachment|
+        Attachment.create entity_id: @copulation.id, entity_type: Copulation, file: attachment
+      end
+      @copulation.attachments.where(id: params[:copulation][:removed_photos]).destroy_all
+      render json: {ok: true}
+    else
+      render json: {errors: @copulation.errors}
+    end
+  end
+
   def index
     query = Copulation.all
     query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'

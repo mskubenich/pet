@@ -7,6 +7,7 @@
             function ($scope, $state, ngDialog, copulations, $stateParams, $timeout) {
                 $scope.I18n = I18n;
                 $scope._ = _;
+                $scope.$state = $state;
 
                 $scope.breeds = [
                     "Акита-ину",
@@ -113,11 +114,27 @@
                     }
 
                 }
-                if($state.current.name == 'new_copulation'){
+                if($state.current.name == 'new_copulation' || $state.current.name == 'edit_copulation'){
+
+                    if($state.current.name == 'new_copulation'){
+                        $scope.announcement = {scorp: false, rkf: false};
+                    }
+
+                    if($state.current.name == 'edit_copulation'){
+                        copulations.show($stateParams.id)
+                            .success(function(data){
+                                $scope.announcement = data.copulation;
+                            })
+                    }
+
                     $scope.attachments = [];
                     $scope.attachments_previews = [];
-                    $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
-                    $scope.announcement = {};
+                    $scope.removed_attachments_previews = [];
+
+                    $scope.removeExistingAttachment = function(id){
+                        $scope.removed_attachments_previews.push(id);
+                        $(event.target).parents('.file-select').remove();
+                    };
 
                     $scope.removeAttachment = function(i, event){
                         $scope.attachments[i] = 'null';
@@ -149,7 +166,7 @@
                         }
 
                         $scope.processing = true;
-                        copulations.upsert($scope.announcement, $scope.attachments, $scope.prize, $scope.bloodline, $scope.mothers_photo, $scope.fathers_photo)
+                        copulations.upsert($scope.announcement, $scope.attachments, $scope.prize, $scope.bloodline, $scope.mothers_photo, $scope.fathers_photo, $scope.removed_attachments_previews)
                             .success(function(){
                                 $scope.processing = false;
                                 ngDialog.open({

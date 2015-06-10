@@ -59,6 +59,11 @@
                 templateUrl: 'client_app/templates/admin/copulations/new.html',
                 controller: 'AdminCopulationsController'
             })
+            .state('edit_copulation',{
+                url: '/copulations/:id/edit',
+                templateUrl: 'client_app/templates/admin/copulations/new.html',
+                controller: 'AdminCopulationsController'
+            })
             .state('sales',{
                 url: '/sales',
                 templateUrl: 'client_app/templates/admin/sales/index.html',
