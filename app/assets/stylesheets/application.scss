@@ -1,16 +1,11 @@
+//= require bootstrap_and_overrides
 //= require angular-ng-dialog
 //= require angular-ng-dialog-theme-default
 //= require font-awesome
 //= require redactor/redactor
+//= require angular-range-slider
 //= require_tree .
-//= require_self
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
-body{
-  font-size: 16px;
-}
 
 .localization{
   font-size: 12px;
@@ -269,7 +264,8 @@ span.black-budget{
 
 .vertical-align-table{
   tr td{
-    vertical-align: middle;
+    vertical-align: middle !important;
+    border: 0 !important;
     span{
       vertical-align: middle;
     }

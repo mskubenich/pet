@@ -7,7 +7,8 @@
         'validation.match',
         'validation.email',
         'fileread',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ui-rangeSlider'
     ]);
 
     petModeApp.config(['$urlRouterProvider', '$stateProvider', function ($urlRouterProvider, $stateProvider) {

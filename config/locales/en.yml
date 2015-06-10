@@ -53,6 +53,11 @@ en:
       name: 'Name'
       age: 'Age'
       breed: 'Breed'
+    filters:
+      choose_country: 'Choose Country'
+      choose_city: 'Choose City'
+      choose_breed: 'Choose Breed'
+      with_bloodline: 'with bloodline'
   choose_from_list: 'Choose from list'
   organization_flag: 'Check this box if you represent one of the organizations.'
   bloodline_flag: "Add your pet's pedigree."

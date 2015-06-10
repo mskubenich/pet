@@ -38,3 +38,59 @@ a.white-dashed-link{
     border: 0;
   }
 }
+
+.yellow-cat-radio{
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  background-image: url('cat-icon.png');
+  &.active{
+    background-image: url('cat-icon-white.png');
+  }
+}
+
+.yellow-dog-radio{
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+  background-image: url('dog-icon.png');
+  &.active{
+    background-image: url('dog-icon-white.png');
+  }
+}
+
+.ngrs-range-slider{
+  overflow: hidden;
+  padding: 0 !important;
+  height: 15px;
+  margin: 0 !important;
+  border: 1px solid #000000 !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+  -moz-border-radius: 20px !important;
+  -webkit-border-radius: 20px !important;
+  .ngrs-runner{
+    margin: 0 !important;
+    height: auto !important;
+    .ngrs-handle{
+      margin: -1px 0 0 0 !important;
+      width: 15px !important;
+      height: 15px !important;
+      border-radius: 20px !important;
+      -moz-border-radius: 20px !important;
+      -webkit-border-radius: 20px !important;
+      background-color: #000000 !important;
+      border: 0 !important;
+    }
+    .ngrs-join{
+      margin: -1px -15px 0 0 !important;
+      background-color: #000000 !important;
+      background-image: none !important;
+      height: 15px !important;
+      border-radius: 20px !important;
+      -moz-border-radius: 20px !important;
+      -webkit-border-radius: 20px !important;
+    }
+  }
+}

@@ -48,6 +48,11 @@ ru:
       name: 'Кличка'
       age: 'Возраст'
       breed: 'Порода'
+    filters:
+      choose_country: 'Выберите Страну'
+      choose_city: 'Выберите Город'
+      choose_breed: 'Выберите Породу'
+      with_bloodline: 'с родословной'
   choose_from_list: 'Выберите из списка'
   organization_flag: 'Поставте отметку, если Вы представляете одну из организаций.'
   bloodline_flag: 'Добавьте родословную Вашего питомца.'

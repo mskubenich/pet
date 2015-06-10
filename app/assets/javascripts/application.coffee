@@ -12,6 +12,7 @@
 #= require underscore
 #= require i18n
 #= require i18n/translations
+#= require angular-range-slider
 #= require_tree ../../../vendor/assets/javascripts/redactor
 #= require twbs-pagination.js
 #= require ui-bootstrap-tpls-0.13.0.min

@@ -45,7 +45,15 @@
                 //}
             },
             all: function(options){
-                return $http.get('/sales.json?page=' + options.page);
+                return $http.get('/sales.json?page=' + options.page +
+                                            '&family=' + options.query.family +
+                                            '&sex=' + options.query.sex +
+                                            '&price_min=' + options.query.price.min +
+                                            '&price_max=' + options.query.price.max +
+                                            '&scorp=' + options.query.scorp +
+                                            '&breed=' + options.query.breed +
+                                            '&bloodline=' + options.query.bloodline +
+                                            '&rkf=' + options.query.rkf);
             },
             show: function(id){
                 return $http.get('/sales/' + id + '.json');

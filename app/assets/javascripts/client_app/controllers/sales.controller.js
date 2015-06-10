@@ -3,17 +3,57 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams',
-            function ($scope, $state, ngDialog, sales, $stateParams) {
+        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout',
+            function ($scope, $state, ngDialog, sales, $stateParams, $timeout) {
             $scope.I18n = I18n;
             $scope._ = _;
 
+            $scope.breeds = [
+                "Акита-ину",
+                "Алабай или среднеазиатская овчарка",
+                "Аляскинский маламут",
+                "Американский бульдог",
+                "Американский питбуль терьер",
+                "Английский бульдог",
+                "Английский кокер-спаниель",
+                "Английский Мастиф",
+                "Аргентинский дог",
+                "Афганская борзая",
+                "Басенджи",
+                "Бассет-хаунд",
+                "Бернский Зенненхунд",
+                "Бигль",
+                "Бладхаунд"
+                ];
+
             if($state.current.name == 'sale'){
+                $scope.filters = {
+                    family: 'all',
+                    sex: 'all',
+                    price: {
+                        min: 0,
+                        max: 1000000
+                    },
+                    breed: '',
+                    scorp: false,
+                    rkf: false,
+                    bloodline: false
+                };
                 $scope.sale = [];
+
+                var timer = false;
+                $scope.$watch('filters', function(){
+                    if(timer){
+                        $timeout.cancel(timer)
+                    }
+                    timer= $timeout(function(){
+                        $scope.retrievesales();
+                    }, 500)
+                }, true);
 
                 $scope.page = 1;
                 $scope.retrievesales = function(){
-                    sales.all({page: $scope.page}).success(function (data) {
+                    sales.all({page: $scope.page, query: $scope.filters}).success(function (data) {
                         $scope.sales = data.sales;
                         $scope.count = data.count;
 
@@ -81,24 +121,6 @@
                     $scope.attachments[i] = 'null';
                     $(event.target).parents('.file-select').remove();
                 };
-
-                $scope.breeds = [
-                    "Акита-ину",
-                    "Алабай или среднеазиатская овчарка",
-                    "Аляскинский маламут",
-                    "Американский бульдог",
-                    "Американский питбуль терьер",
-                    "Английский бульдог",
-                    "Английский кокер-спаниель",
-                    "Английский Мастиф",
-                    "Аргентинский дог",
-                    "Афганская борзая",
-                    "Басенджи",
-                    "Бассет-хаунд",
-                    "Бернский Зенненхунд",
-                    "Бигль",
-                    "Бладхаунд"
-                ];
 
                 $scope.submitAnnouncement = function(){
                     $scope.submitted = true;
