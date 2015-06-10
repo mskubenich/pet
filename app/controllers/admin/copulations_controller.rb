@@ -4,7 +4,7 @@ class Admin::CopulationsController < AdminController
   skip_before_filter :authenticate_user, only: [:index, :show]
 
   def create
-    attachments_params = params[:copulation][:photos]
+    attachments_params = params[:copulation][:photos] || []
     @copulation = Copulation.new copulation_params.merge({user_id: current_user.id})
     if @copulation.save
       attachments_params.each do |attachment|
