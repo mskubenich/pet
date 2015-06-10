@@ -17,8 +17,6 @@ class SalesController < ApplicationController
   end
 
   def index
-    # price_min=400&price_max=7300&scorp=true&breed="sd&rkf=true"
-
     query = Sale.all
     query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'
     query = query.where("price > ?", params[:price_min]) if params[:price_min]

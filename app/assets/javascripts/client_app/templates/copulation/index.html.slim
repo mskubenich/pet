@@ -1,15 +1,86 @@
 .wave
 .nav-menu
-  .container style="height: 80px;"
-    table
+  .container
+    table.table.vertical-align-table.sale-filters-table
       tr
-        td
-          b
-            h3
-              | {{ I18n.t('copulation.title') }}
-        td.text-right
+        td style="width: 60px"
+          label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
+        td style="width: 60px"
+          label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
+        td style="width: 200px"
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+              | {{ I18n.t('sale.filters.choose_country') }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a test
+                a test
+                a test
+                a test
+        td style="width: 300px"
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+              | {{ I18n.t('sale.filters.choose_breed') }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a ng-repeat="breed in breeds" ng-click="filters.breed = breed"
+                  | {{ breed }}
+        td.text-right rowspan=2 style="text-align: left"
+          label
+            table.vertical-align-table
+              tr
+                td
+                  span.rounded-one class="{{ checked1 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="filters.bloodline"
+                td
+                  | {{ I18n.t('sale.filters.with_bloodline') }}
+          br
+          label
+            table.vertical-align-table
+              tr
+                td
+                  span.rounded-one class="{{ checked3 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked3 = !checked3" ng-model="filters.scorp"
+                td
+                  span.black-budget
+                    | СКОРП
+          br
+          label
+            table.vertical-align-table
+              tr
+                td
+                  span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="filters.rkf"
+                td
+                  span.black-budget
+                    | РКФ
+          br
+        td.text-right rowspan=2 style="text-align: right"
           a.yellow-black-btn ui-sref="new_copulation" ng-show="current_user"
             | {{ I18n.t('copulation.new') }}
+      tr
+        td style="width: 60px"
+          i.fa.fa-mars style="font-size: 26px; color: {{ filters.sex == 'male' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'female' || filters.sex == 'all' ? 'male' : 'all'"
+        td style="width: 60px"
+          i.fa.fa-venus style="font-size: 26px; color: {{ filters.sex == 'female' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'male' || filters.sex == 'all' ? 'female' : 'all'"
+        td
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
+              | {{ I18n.t('sale.filters.choose_city') }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a test
+                a test
+                a test
+                a test
+        td
+          div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max" filter="currency:'$'" step="100"
 .container
   #copulations-pagination ng-hide="count < 10"
   .col-group

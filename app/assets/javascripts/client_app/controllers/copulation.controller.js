@@ -3,17 +3,41 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams',
-            function ($scope, $state, ngDialog, copulations, $stateParams) {
+        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout) {
             $scope.I18n = I18n;
             $scope._ = _;
 
             if($state.current.name == 'copulation'){
+                $scope.filters = {
+                    family: 'all',
+                    sex: 'all',
+                    price: {
+                        min: 0,
+                        max: 1000000
+                    },
+                    breed: '',
+                    scorp: false,
+                    rkf: false,
+                    bloodline: false
+                };
+                $scope.sale = [];
+
+                var timer = false;
+                $scope.$watch('filters', function(){
+                    if(timer){
+                        $timeout.cancel(timer)
+                    }
+                    timer= $timeout(function(){
+                        $scope.retrieveCopulations();
+                    }, 500)
+                }, true);
+
                 $scope.copulation = [];
 
                 $scope.page = 1;
                 $scope.retrieveCopulations = function(){
-                    copulations.all({page: $scope.page}).success(function (data) {
+                    copulations.all({page: $scope.page, query: $scope.filters}).success(function (data) {
                         $scope.copulations = data.copulations;
                         $scope.count = data.count;
 
