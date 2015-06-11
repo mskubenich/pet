@@ -1,7 +1,8 @@
-.container
-  #copulaton-carousel
-    img ng-repeat="slide in slides" style="background-image: url({{ slide.url }}); background-position: center; background-size:cover;"
-  .nav-menu style="padding: 20px;"
+
+#copulaton-carousel
+  img ng-repeat="slide in slides" style="background-image: url({{ slide.url }}); background-position: center; background-size:cover;"
+.nav-menu style="padding: 20px;"
+  .container
     table.table.vertical-align-table
       tr
         td style="width: 200px;"
@@ -27,10 +28,11 @@
                 b
                   span.small-text
                     | {{ sale.breed }}
-  .wave-bottom
-  br
-  br
-  br
+.wave-bottom
+br
+br
+br
+.container
   .row
     .col-md-4.col-sm-5.col-md-offset-1
       br
@@ -101,25 +103,25 @@
       br
       br
     .col-md-1
-  .wave
-  .nav-menu
-    br
-    .text-center
-      b
-        h4
-          | Популярное в зоомагазине
-    #shop-carousel
-      div ng-repeat="slide in shop_slides" style="padding-bottom: 20px"
-        div style="height: 150px"
-          img ng-src="{{ slide.image_url }}"
+.wave
+.nav-menu
+  br
+  .text-center
+    b
+      h4
+        | Популярное в зоомагазине
+  #shop-carousel
+    div ng-repeat="slide in shop_slides" style="padding-bottom: 20px"
+      div style="height: 150px"
+        img ng-src="{{ slide.image_url }}"
+      br
+      .text-center
+        span.dashed_text
+          | {{ slide.description }}
         br
-        .text-center
-          span.dashed_text
-            | {{ slide.description }}
-          br
-          | {{ slide.price }}
-          i.fa.fa-ruble
-          br
-          span.black-budget
-            | Купить
-  .wave-bottom
+        | {{ slide.price }}
+        i.fa.fa-ruble
+        br
+        span.black-budget
+          | Купить
+.wave-bottom

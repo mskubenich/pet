@@ -90,23 +90,28 @@
                             nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'</button>",
                             responsive: [
                                 {
-                                    breakpoint: 1024,
+                                    breakpoint: 2000,
                                     settings: {
-                                        slidesToShow: 6,
-                                        slidesToScroll: 3,
-                                        infinite: true,
-                                        dots: true
+                                        slidesToShow: 8,
+                                        slidesToScroll: 7
                                     }
                                 },
                                 {
-                                    breakpoint: 600,
+                                    breakpoint: 1300,
+                                    settings: {
+                                        slidesToShow: 6,
+                                        slidesToScroll: 3
+                                    }
+                                },
+                                {
+                                    breakpoint: 800,
                                     settings: {
                                         slidesToShow: 4,
                                         slidesToScroll: 2
                                     }
                                 },
                                 {
-                                    breakpoint: 480,
+                                    breakpoint: 550,
                                     settings: {
                                         slidesToShow: 2,
                                         slidesToScroll: 1
@@ -127,31 +132,36 @@
                             dots: false,
                             infinite: true,
                             speed: 300,
-                            slidesToShow: 6,
-                            slidesToScroll: 5,
+                            slidesToShow: 12,
+                            slidesToScroll: 11,
                             autoplay: true,
                             arrows: true,
                             prevArrow: "<button class='gallery-prev'><i class='fa fa-caret-left'</button>",
                             nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'</button>",
                             responsive: [
                                 {
-                                    breakpoint: 1024,
+                                    breakpoint: 2000,
                                     settings: {
-                                        slidesToShow: 6,
-                                        slidesToScroll: 3,
-                                        infinite: true,
-                                        dots: true
+                                        slidesToShow: 8,
+                                        slidesToScroll: 7
                                     }
                                 },
                                 {
-                                    breakpoint: 600,
+                                    breakpoint: 1300,
+                                    settings: {
+                                        slidesToShow: 6,
+                                        slidesToScroll: 3
+                                    }
+                                },
+                                {
+                                    breakpoint: 800,
                                     settings: {
                                         slidesToShow: 4,
                                         slidesToScroll: 2
                                     }
                                 },
                                 {
-                                    breakpoint: 480,
+                                    breakpoint: 550,
                                     settings: {
                                         slidesToShow: 2,
                                         slidesToScroll: 1
