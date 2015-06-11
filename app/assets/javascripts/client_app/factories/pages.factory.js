@@ -4,6 +4,9 @@
         return {
             get_slides: function(){
                 return $http.get( I18n.locale + '/pages/slides.json')
+            },
+            get_sale_slides: function(){
+                return $http.get( I18n.locale + '/pages/sale_slides.json')
             }
         };
     }])

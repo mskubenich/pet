@@ -133,6 +133,15 @@
   margin-top: -10px;
   position: relative;
 }
+
+.wave-bottom{
+  height: 10px;
+  background-image: url('wave-bottom.svg');
+  //    background-size: 100px 200px;
+  margin-bottom: -10px;
+  position: relative;
+}
+
 .nav-menu{
   background-color: #FFD800;
   .container{
@@ -330,9 +339,10 @@ a.white-link{
 
 #copulaton-carousel{
   overflow: hidden;
-  height: 200px;
+  height: 150px;
+  margin-bottom: 0;
   img{
-    height: 200px !important;
+    height: 150px !important;
   }
   .gallery-prev, .gallery-next{
     background-color: #000000;

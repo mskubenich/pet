@@ -30,7 +30,7 @@ class Sale < ActiveRecord::Base
 
   def preview_image_url
     if attachments.any?
-      attachments.first.file.url
+      attachments.first.file.url(:thumb)
     else
       Attachment.new.file.url
     end

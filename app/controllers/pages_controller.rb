@@ -4,6 +4,10 @@ class PagesController < ApplicationController
   end
 
   def slides
-    @attachments = Attachment.where(entity_type: Copulation).limit(20)
+    @attachments = Attachment.where(entity_type: Copulation).sample(20)
+  end
+
+  def sale_slides
+    @sales = Sale.all.sample(6)
   end
 end
