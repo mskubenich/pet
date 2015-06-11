@@ -10,6 +10,9 @@
             },
             get_shop_slides: function(){
                 return $http.get( I18n.locale + '/pages/shop_slides.json')
+            },
+            news: function(){
+                return $http.get( I18n.locale + '/pages/news.json')
             }
         };
     }])

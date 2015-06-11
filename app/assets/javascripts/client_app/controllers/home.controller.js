@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('HomeController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', 'PagesFactory', '$timeout', 'SalesFactory',
-            function ($scope, $state, ngDialog, session, pages, $timeout, sales) {
+        .controller('HomeController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', 'PagesFactory', '$timeout', '$sce',
+            function ($scope, $state, ngDialog, session, pages, $timeout, $sce) {
             $scope.I18n = I18n;
             $scope.closeDialog = function(){
                 ngDialog.close();
@@ -52,9 +52,19 @@
 
             $scope.header_url = 'client_app/templates/layouts/yellow-header.html';
 
+            $scope.getHtml = function(html){
+                return $sce.trustAsHtml(html);
+            };
+
             pages.get_sale_slides()
                 .success(function(data){
                     $scope.sale_slides = data.sale_slides;
+                })
+                .error();
+
+            pages.news({page: 1})
+                .success(function(data){
+                    $scope.news = [data.news[0], data.news[1]];
                 })
                 .error();
 

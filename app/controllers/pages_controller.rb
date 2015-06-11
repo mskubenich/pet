@@ -14,4 +14,8 @@ class PagesController < ApplicationController
   def shop_slides
 
   end
+
+  def news
+    @news = News.all.sample(2)
+  end
 end

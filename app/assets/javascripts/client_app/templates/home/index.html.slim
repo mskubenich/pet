@@ -29,6 +29,27 @@
   br
   br
   br
+  .row
+    .col-md-4.col-sm-4
+      b
+        h4
+          | Питомцы в добрые руки
+    .col-md-4.col-sm-4
+      b
+        h4
+          | Специалисты
+    .col-md-4.col-sm-4
+      b
+        h4
+          | Новости
+      div ng-repeat="n in news"
+        b
+          a href="#news/{{ n.id }}" style="color: black"
+            | {{ n.title }}
+        br
+        span  ng-bind-html="getHtml(n.body)"
+          | {{ n.body }}
+      br
   .wave
   .nav-menu
     br
