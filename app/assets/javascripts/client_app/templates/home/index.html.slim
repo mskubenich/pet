@@ -1,6 +1,6 @@
 .container
   #copulaton-carousel
-    img ng-repeat="slide in slides" ng-src="{{ slide.url }}"
+    img ng-repeat="slide in slides" style="background-image: url({{ slide.url }}); background-position: center; background-size:cover;"
   .nav-menu style="padding: 20px;"
     table.table.vertical-align-table
       tr
