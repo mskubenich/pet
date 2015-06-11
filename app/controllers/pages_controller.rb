@@ -11,6 +11,10 @@ class PagesController < ApplicationController
     @sales = Sale.all.sample(6)
   end
 
+  def copulation_slides
+    @copulations = Copulation.all.sample(3)
+  end
+
   def shop_slides
 
   end

@@ -13,7 +13,7 @@
           br
           br
           span.black-budget ui-sref="new_sale" ng-enabled="current_user" style="cursor: pointer"
-            | Подать обявление
+            | Подать объявление
         td
           table.table.vertical-align-table style="background-color: transparent"
             tr
@@ -24,21 +24,66 @@
               td ng-repeat="sale in sale_slides"
                 | {{ sale.name }}
                 br
-                | {{ sale.breed }}
+                b
+                  span.small-text
+                    | {{ sale.breed }}
   .wave-bottom
   br
   br
   br
   .row
+    .col-md-4.col-sm-5.col-md-offset-1
+      br
+      br
+      br
+      table.table.vertical-align-table style="background-color: transparent"
+        tr
+          td ng-repeat="sale in copulation_slides"
+            a href="#sale/{{sale.id}}" style="cursor: pointer"
+              img ng-src="{{ sale.preview_image_url }}" style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; width: 100px; height: 100px"
+        tr
+          td ng-repeat="sale in copulation_slides"
+            | {{ sale.name }}
+            br
+            b
+              span.small-text
+                | {{ sale.breed }}
     .col-md-4.col-sm-4
+      img src="assets/wolf.png" style="width: 100%"
+    .col-md-2.col-sm-3
+      b
+        h4
+          | Питомцы на случку
+      br
+      span.small-text
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      br
+      br
+      a.white-btn href="#copulation"
+        | Найти пару
+    .col-md-1
+  .row
+    .col-md-3.col-sm-4.col-md-offset-1
       b
         h4
           | Питомцы в добрые руки
+      br
+      a.yellow-btn href="#news" style="background-color: black; color: white "
+        | Подать объявление
+      br
+      br
+      br
     .col-md-4.col-sm-4
       b
         h4
           | Специалисты
-    .col-md-4.col-sm-4
+      br
+      a.yellow-btn href="#news"
+        | Подать объявление
+      br
+      br
+      br
+    .col-md-3.col-sm-4
       b
         h4
           | Новости
@@ -47,9 +92,15 @@
           a href="#news/{{ n.id }}" style="color: black"
             | {{ n.title }}
         br
-        span  ng-bind-html="getHtml(n.body)"
+        span.small-text ng-bind-html="getHtml(n.body)"
           | {{ n.body }}
       br
+      a.white-btn href="#news"
+        | Все новости
+      br
+      br
+      br
+    .col-md-1
   .wave
   .nav-menu
     br

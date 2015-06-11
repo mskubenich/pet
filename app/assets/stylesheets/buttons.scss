@@ -6,7 +6,7 @@
   -moz-border-radius: 100px;
   padding: 8px 14px;
   border: 0 !important;
-  color: black !important;
+  color: black;
   &:hover{
     color: white !important;
   }
@@ -20,11 +20,26 @@
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   padding: 6px 14px;
-  color: black !important;
+  color: black;
   cursor: pointer;
   &:hover{
     color: white !important;
     border-color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.white-btn{
+  background-color: transparent;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 6px 14px;
+  color: black;
+  cursor: pointer;
+  &:hover{
     text-decoration: none;
   }
 }

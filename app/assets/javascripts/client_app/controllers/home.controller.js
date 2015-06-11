@@ -62,6 +62,12 @@
                 })
                 .error();
 
+            pages.get_copulation_slides()
+                .success(function(data){
+                    $scope.copulation_slides = data.copulation_slides;
+                })
+                .error();
+
             pages.news({page: 1})
                 .success(function(data){
                     $scope.news = [data.news[0], data.news[1]];
