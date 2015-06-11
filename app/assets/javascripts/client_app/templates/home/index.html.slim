@@ -26,3 +26,28 @@
                 br
                 | {{ sale.breed }}
   .wave-bottom
+  br
+  br
+  br
+  .wave
+  .nav-menu
+    br
+    .text-center
+      b
+        h4
+          | Популярное в зоомагазине
+    #shop-carousel
+      div ng-repeat="slide in shop_slides" style="padding-bottom: 20px"
+        div style="height: 150px"
+          img ng-src="{{ slide.image_url }}"
+        br
+        .text-center
+          span.dashed_text
+            | {{ slide.description }}
+          br
+          | {{ slide.price }}
+          i.fa.fa-ruble
+          br
+          span.black-budget
+            | Купить
+  .wave-bottom

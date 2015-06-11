@@ -10,4 +10,8 @@ class PagesController < ApplicationController
   def sale_slides
     @sales = Sale.all.sample(6)
   end
+
+  def shop_slides
+
+  end
 end

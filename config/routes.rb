@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       collection do
         get :slides
         get :sale_slides
+        get :shop_slides
       end
     end
 
