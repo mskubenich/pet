@@ -4,6 +4,8 @@
 //= require font-awesome
 //= require redactor/redactor
 //= require angular-range-slider
+//= require slick/slick.css
+//= require slick/slick-theme.css
 //= require_tree .
 
 
@@ -322,6 +324,32 @@ a.white-link{
     &:hover{
       color: black;
       border-color: black;
+    }
+  }
+}
+
+#copulaton-carousel{
+  overflow: hidden;
+  height: 200px;
+  img{
+    height: 200px !important;
+  }
+  .gallery-prev, .gallery-next{
+    background-color: #000000;
+    color: white;
+    padding-right: 8px;
+    padding-left: 8px;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    border: 0;
+    &.gallery-next{
+      border-radius: 10px 0 0 10px;
+      right: 0;
+    }
+    &.gallery-prev{
+      border-radius: 0 10px 10px 0;
+      left: 0;
     }
   }
 }

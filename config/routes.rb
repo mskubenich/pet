@@ -14,7 +14,11 @@ Rails.application.routes.draw do
       resources :sales, except: [:new, :edit]
     end
 
-    resources :pages, only: [:index]
+    resources :pages, only: [:index] do
+      collection do
+        get :slides
+      end
+    end
 
     resources :attachments, only: [] do
       collection do

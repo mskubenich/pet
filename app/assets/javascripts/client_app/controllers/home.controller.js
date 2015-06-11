@@ -3,7 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('HomeController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', function ($scope, $state, ngDialog, session) {
+        .controller('HomeController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', 'PagesFactory', '$timeout',
+            function ($scope, $state, ngDialog, session, pages, $timeout) {
             $scope.I18n = I18n;
             $scope.closeDialog = function(){
                 ngDialog.close();
@@ -50,6 +51,51 @@
             };
 
             $scope.header_url = 'client_app/templates/layouts/yellow-header.html';
+
+            $scope.slides = [];
+            pages.get_slides()
+                .success(function(data){
+                    $scope.slides = data.images;
+                    $timeout(function() {
+                        $('#copulaton-carousel').slick({
+                            dots: false,
+                            infinite: true,
+                            speed: 300,
+                            slidesToShow: 6,
+                            slidesToScroll: 5,
+                            autoplay: true,
+                            arrows: true,
+                            prevArrow: "<button class='gallery-prev'><i class='fa fa-caret-left'</button>",
+                            nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'</button>",
+                            responsive: [
+                                {
+                                    breakpoint: 1024,
+                                    settings: {
+                                        slidesToShow: 6,
+                                        slidesToScroll: 3,
+                                        infinite: true,
+                                        dots: true
+                                    }
+                                },
+                                {
+                                    breakpoint: 600,
+                                    settings: {
+                                        slidesToShow: 4,
+                                        slidesToScroll: 2
+                                    }
+                                },
+                                {
+                                    breakpoint: 480,
+                                    settings: {
+                                        slidesToShow: 2,
+                                        slidesToScroll: 1
+                                    }
+                                }
+                            ]
+                        });
+                    }, 1000);
+                })
+                .error(function(){});
 
         }])
 }());
