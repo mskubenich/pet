@@ -16,7 +16,7 @@
         $stateProvider
             .state('home',{
                 url: '',
-                templateUrl: 'client_app/templates/home/index.html',
+                templateUrl: 'client_app/templates/admin/home/index.html',
                 controller: 'AdminHomeController'
             })
             .state('users',{
