@@ -109,3 +109,42 @@ a.white-dashed-link{
     }
   }
 }
+
+.global-search{
+  color: white;
+  &:hover{
+    color: black;
+  }
+  input{
+    background-color: transparent;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border: 1px solid white;
+    width: 200px;
+    padding: 0 20px;
+  }
+}
+
+.global-search-icon{
+}
+
+/* enable absolute positioning */
+.inner-addon {
+  position: relative;
+}
+
+/* style icon */
+.inner-addon i {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon i  { left:  0px;}
+.right-addon i { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }

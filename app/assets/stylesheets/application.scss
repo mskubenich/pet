@@ -154,18 +154,6 @@
   }
 }
 
-.global-search{
-  background-color: transparent;
-  border-radius: 100px;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  padding: 0 20px;
-  border: 1px solid white;
-  outline: none;
-  position: relative;
-  width: 200px;
-}
-
 input, button{
   outline: none;
 }
@@ -339,10 +327,10 @@ a.white-link{
 
 #copulaton-carousel{
   overflow: hidden;
-  height: 150px;
+  height: 227px;
   margin-bottom: 0;
   img{
-    height: 150px !important;
+    height: 227px !important;
   }
   .gallery-prev, .gallery-next{
     background-color: #000000;
