@@ -332,23 +332,28 @@ a.white-link{
   img{
     height: 227px !important;
   }
-  .gallery-prev, .gallery-next{
-    background-color: #000000;
-    color: white;
-    padding-right: 8px;
-    padding-left: 8px;
-    position: absolute;
-    top: 50%;
-    margin-top: -10px;
-    border: 0;
-    &.gallery-next{
-      border-radius: 10px 0 0 10px;
-      right: 0;
-    }
-    &.gallery-prev{
-      border-radius: 0 10px 10px 0;
-      left: 0;
-    }
+}
+
+.gallery-prev, .gallery-next{
+  background-color: #000000;
+  color: white;
+  padding-right: 8px;
+  padding-left: 8px;
+  position: absolute;
+  top: 50%;
+  margin-top: -10px;
+  border: 0;
+
+  width: 38px;
+  font-size: 23px;
+  height: 35px;
+  &.gallery-next{
+    border-radius: 29px 0 0 29px;
+    right: 0;
+  }
+  &.gallery-prev{
+    border-radius: 0 29px 29px 0;
+    left: 0;
   }
 }
 
@@ -359,24 +364,6 @@ a.white-link{
   img{
     max-width: 150px !important;
     max-height: 150px !important;
-  }
-  .gallery-prev, .gallery-next{
-    background-color: #000000;
-    color: white;
-    padding-right: 8px;
-    padding-left: 8px;
-    position: absolute;
-    top: 50%;
-    margin-top: -10px;
-    border: 0;
-    &.gallery-next{
-      border-radius: 10px 0 0 10px;
-      right: 0;
-    }
-    &.gallery-prev{
-      border-radius: 0 10px 10px 0;
-      left: 0;
-    }
   }
 }
 
