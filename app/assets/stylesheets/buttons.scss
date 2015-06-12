@@ -148,3 +148,12 @@ a.white-dashed-link{
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
+
+.key-icon{
+  background-image: url(key-icon.png);
+  background-size: cover;
+  width: 37px;
+  height: 24px;
+  display: inline-block;
+  margin-bottom: -2px;
+}
