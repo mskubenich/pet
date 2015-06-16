@@ -64,6 +64,7 @@ en:
   bloodline_flag: "Add your pet's pedigree."
   bloodline: "Pedigree"
   prize: 'Prize'
+  price: 'Price'
   prize_flag: 'Add reward your pet.'
   mothers_photo: 'Mothers photo'
   fathers_photo: 'Fathers photo'

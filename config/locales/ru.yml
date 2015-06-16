@@ -59,6 +59,7 @@ ru:
   bloodline_flag: 'Добавьте родословную Вашего питомца.'
   bloodline: "Родословная"
   prize: 'Награда'
+  price: 'Цена'
   prize_flag: 'Добавьте награды Вашего питомца.'
   mothers_photo: 'Фото мамы'
   fathers_photo: 'Фото папы'

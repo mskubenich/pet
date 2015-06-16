@@ -36,7 +36,7 @@
                     sex: 'all',
                     price: {
                         min: 0,
-                        max: 1000000
+                        max: 100000
                     },
                     breed: '',
                     scorp: false,

@@ -3,9 +3,9 @@
   .container
     table.table.vertical-align-table.sale-filters-table
       tr
-        td style="width: 60px"
+        td style="width: 60px; text-align: center !important;"
           label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
-        td style="width: 60px"
+        td style="width: 60px; text-align: center !important;"
           label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
         td style="width: 200px"
           .btn-group dropdown=true style="width: 100%"
@@ -67,9 +67,9 @@
           a.yellow-black-btn ui-sref="new_sale" ng-show="current_user"
             | {{ I18n.t('sale.new') }}
       tr
-        td style="width: 60px"
+        td style="width: 60px; text-align: center !important;"
           i.fa.fa-mars style="font-size: 26px; color: {{ filters.sex == 'male' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'female' || filters.sex == 'all' ? 'male' : 'all'"
-        td style="width: 60px"
+        td style="width: 60px; text-align: center !important;"
           i.fa.fa-venus style="font-size: 26px; color: {{ filters.sex == 'female' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'male' || filters.sex == 'all' ? 'female' : 'all'"
         td
           .btn-group dropdown=true style="width: 100%"
@@ -83,7 +83,15 @@
                 a test
                 a test
         td
-          div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max" filter="currency:'$'" step="100"
+          table style="width: 100%"
+            tr
+              td style="text-align: left"
+                | {{ I18n.t('price') }}:&nbsp;&nbsp;{{filters.price.min}}&nbsp;
+                i.fa.fa-ruble
+              td style="text-align: right"
+                | {{ filters.price.max }}&nbsp;
+                i.fa.fa-ruble
+          div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
 .container
   #sales-pagination ng-hide="count < 10"
   .col-group
