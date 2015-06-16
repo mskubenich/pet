@@ -34,6 +34,10 @@ class SalesController < ApplicationController
 
   end
 
+  def show_phone
+
+  end
+
   private
 
   def sale_params

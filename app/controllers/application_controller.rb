@@ -37,6 +37,7 @@ class ApplicationController < ActionController::Base
   end
 
   def bad_request(errors, options, status = 200)
+    render json: {error: 'Access Denied!'}, status: status and return if request.xhr?
     redirect_to root_path and return
   end
 

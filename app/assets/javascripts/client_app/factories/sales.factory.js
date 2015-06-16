@@ -57,6 +57,9 @@
             },
             show: function(id){
                 return $http.get('/sales/' + id + '.json');
+            },
+            showPhone: function(id){
+                return $http.get('/sales/' + id + '/show_phone.json');
             }
         }
         ;

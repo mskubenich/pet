@@ -112,6 +112,18 @@
 
                 $scope.updatePreview = function(image){
                     $scope.preview_image = image;
+                };
+
+                $scope.showPhone = function(){
+                    sales.showPhone($stateParams.id).success(function (data) {
+                        $scope.phone = data.sale.owner_phone;
+                    }).error(function (data) {
+                        ngDialog.open({
+                            className: 'ngdialog-theme-default',
+                            template: "Вы должны войти чтобы увидеть номер владельца.",
+                            plain: true
+                        });
+                    });
                 }
 
             }
