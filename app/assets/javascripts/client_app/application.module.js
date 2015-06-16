@@ -24,6 +24,11 @@
                 templateUrl: 'client_app/templates/users/new.html',
                 controller: 'UsersController'
             })
+            .state('login',{
+                url: '/login',
+                templateUrl: 'client_app/templates/sessions/new.html',
+                controller: 'SessionsController'
+            })
             .state('pet-shop',{
                 url: '/pet-shop',
                 templateUrl: 'client_app/templates/shop/index.html',

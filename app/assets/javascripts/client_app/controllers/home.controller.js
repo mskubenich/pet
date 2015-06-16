@@ -17,28 +17,6 @@
             };
             $scope.getCurrentUserInfo();
 
-            $scope.showLoginForm = function(){
-                ngDialog.open({
-                    className: 'ngdialog-theme-default',
-                    scope: $scope,
-                    template: 'client_app/templates/sessions/new.html',
-                    controller: ['$scope', '$rootScope', function($scope, $rootScope) {
-                        $scope.session = {};
-
-                        $scope.login = function(){
-                            session.create($scope.session)
-                                .success(function(){
-                                    $scope.closeThisDialog();
-                                    $scope.getCurrentUserInfo();
-                                })
-                                .error(function(data){
-                                    $scope.error = data.error;
-                                })
-                        };
-                    }]
-                });
-            };
-
             $scope.logout = function(){
                 session.destroy()
                     .success(function(){
