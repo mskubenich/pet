@@ -88,7 +88,15 @@ div
                   a test
                   a test
           td
-            div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max" filter="currency:'$'" step="100"
+            table style="width: 100%"
+              tr
+                td style="text-align: left"
+                  | {{ I18n.t('price') }}:&nbsp;&nbsp;{{filters.price.min}}&nbsp;
+                  i.fa.fa-ruble
+                td style="text-align: right"
+                  | {{ filters.price.max }}&nbsp;
+                  i.fa.fa-ruble
+            div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
 
   #sales-pagination ng-hide="count < 11"
   table.table.table-striped.table-responsive
