@@ -31,19 +31,20 @@
                 "Бладхаунд"
             ];
 
+            $scope.filters = {
+                family: 'all',
+                sex: 'all',
+                price: {
+                    min: 0,
+                    max: 1000000
+                },
+                breed: '',
+                scorp: false,
+                rkf: false,
+                bloodline: false
+            };
+
             if($state.current.name == 'copulation'){
-                $scope.filters = {
-                    family: 'all',
-                    sex: 'all',
-                    price: {
-                        min: 0,
-                        max: 1000000
-                    },
-                    breed: '',
-                    scorp: false,
-                    rkf: false,
-                    bloodline: false
-                };
                 $scope.sale = [];
 
                 var timer = false;
@@ -86,6 +87,13 @@
                 $scope.retrieveCopulations();
             }
             if($state.current.name == 'show_copulation'){
+
+                setTimeout(function(){
+                    $scope.$watch('filters', function(){
+                        $state.go('copulation');
+                    });
+                }, 100);
+
                 $scope.copulation = {};
 
                 $scope.rate = 4;

@@ -30,19 +30,20 @@
                 "Бладхаунд"
                 ];
 
+            $scope.filters = {
+                family: 'all',
+                sex: 'all',
+                price: {
+                    min: 0,
+                    max: 100000
+                },
+                breed: '',
+                scorp: false,
+                rkf: false,
+                bloodline: false
+            };
+
             if($state.current.name == 'sale'){
-                $scope.filters = {
-                    family: 'all',
-                    sex: 'all',
-                    price: {
-                        min: 0,
-                        max: 100000
-                    },
-                    breed: '',
-                    scorp: false,
-                    rkf: false,
-                    bloodline: false
-                };
                 $scope.sale = [];
 
                 var timer = false;
@@ -83,6 +84,13 @@
                 $scope.retrievesales();
             }
             if($state.current.name == 'show_sale'){
+
+                setTimeout(function(){
+                    $scope.$watch('filters', function(){
+                        $state.go('sale');
+                    });
+                }, 100);
+
                 $scope.sale = {};
 
                 $scope.rate = 4;
