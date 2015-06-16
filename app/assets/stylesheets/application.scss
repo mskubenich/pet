@@ -8,6 +8,12 @@
 //= require slick/slick-theme.css
 //= require_tree .
 
+[ng-bind-html]{
+  img{
+    max-width: 100% !important;
+  }
+  overflow: hidden;
+}
 
 .localization{
   margin-top: 20px;
