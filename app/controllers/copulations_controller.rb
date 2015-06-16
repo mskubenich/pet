@@ -35,6 +35,10 @@ class CopulationsController < ApplicationController
 
   end
 
+  def show_phone
+
+  end
+
   private
 
   def update_attachments

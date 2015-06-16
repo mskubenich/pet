@@ -57,6 +57,9 @@
             },
             show: function(id){
                 return $http.get('/copulations/' + id + '.json');
+            },
+            showPhone: function(id){
+                return $http.get('/copulations/' + id + '/show_phone.json');
             }
         }
         ;

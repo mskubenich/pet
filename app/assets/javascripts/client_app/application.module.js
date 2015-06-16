@@ -14,7 +14,7 @@
     petModeApp.config(['$urlRouterProvider', '$stateProvider', '$httpProvider', function ($urlRouterProvider, $stateProvider, $httpProvider) {
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'AngularXMLHttpRequest';
-        
+
         $urlRouterProvider.otherwise('home');
         $stateProvider
             .state('home',{

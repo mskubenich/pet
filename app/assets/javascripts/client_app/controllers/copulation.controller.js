@@ -115,8 +115,19 @@
 
                 $scope.updatePreview = function(image){
                     $scope.preview_image = image;
-                }
+                };
 
+                $scope.showPhone = function(){
+                    copulations.showPhone($stateParams.id).success(function (data) {
+                            $scope.phone = data.copulation.owner_phone;
+                        }).error(function (data) {
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: "Вы должны войти чтобы увидеть номер владельца.",
+                                plain: true
+                            });
+                    });
+            }
             }
             if($state.current.name == 'new_copulation'){
 
