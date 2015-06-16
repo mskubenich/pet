@@ -16,8 +16,14 @@ class Sale < ActiveRecord::Base
 
   belongs_to :owner, class_name: User, foreign_key: 'user_id'
 
+  after_destroy :destroy_attachments
+
   def attachments
     Attachment.where(entity_id: self.id, entity_type: Sale)
+  end
+
+  def redactor_attachments
+    Attachment.where(entity_id: self.id, entity_type: 'sale_description')
   end
 
   def preview_images_url
@@ -34,5 +40,12 @@ class Sale < ActiveRecord::Base
     else
       Attachment.new.file.url
     end
+  end
+
+  private
+
+  def destroy_attachments
+    attachments.destroy_all
+    redactor_attachments.destroy_all
   end
 end

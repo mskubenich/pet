@@ -3,10 +3,14 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout',
-            function ($scope, $state, ngDialog, sales, $stateParams, $timeout) {
+        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce',
+            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce) {
             $scope.I18n = I18n;
             $scope._ = _;
+
+            $scope.getHtml = function(html){
+                return $sce.trustAsHtml(html);
+            };
 
             $scope.breeds = [
                 "Акита-ину",
@@ -112,6 +116,16 @@
 
             }
             if($state.current.name == 'new_sale'){
+
+                setTimeout(function(){
+                    $('#redactor').redactor({
+                        buttonSource: true,
+                        imageUpload: '/attachments/sale_description',
+                        fileUpload: '/attachments/sale_description',
+                        plugins: ['table', 'video']
+                    });
+                });
+
                 $scope.attachments = [];
                 $scope.attachments_previews = [];
                 $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
@@ -123,6 +137,7 @@
                 };
 
                 $scope.submitAnnouncement = function(){
+                    $scope.announcement.description = $('#redactor').redactor('code.get');
                     $scope.submitted = true;
                     if($scope.announcementForm.$invalid ){
                         return false;

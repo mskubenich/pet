@@ -85,7 +85,7 @@
           h4
             b
               | {{ I18n.t('description') }}:
-          | {{ sale.description }}
+          div ng-bind-html="getHtml(sale.description)"
           h4
             b
               | Документы:
