@@ -5,7 +5,7 @@ json.sales @sales.each do |sale|
   json.rkf               sale.rkf
   json.scorp             sale.scorp
   json.breed             sale.breed
-  json.description       sale.description.to_s[0..100] + '...'
+  json.description       sale.preview_text
   json.price             sale.price
   json.preview_image_url sale.preview_image_url
   json.has_prize         sale.prize.exists?

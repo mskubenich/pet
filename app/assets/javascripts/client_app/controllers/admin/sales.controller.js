@@ -3,11 +3,15 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminSalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout',
-            function ($scope, $state, ngDialog, sales, $stateParams, $timeout) {
+        .controller('AdminSalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce',
+            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce) {
                 $scope.I18n = I18n;
                 $scope._ = _;
                 $scope.$state = $state;
+
+                $scope.getHtml = function(html){
+                    return $sce.trustAsHtml(html);
+                };
 
                 $scope.breeds = [
                     "Акита-ину",
@@ -87,6 +91,14 @@
                 }
 
                 if($state.current.name == 'new_sale' || $state.current.name == 'edit_sale'){
+                    setTimeout(function(){
+                        $('#redactor').redactor({
+                            buttonSource: true,
+                            imageUpload: '/attachments/sale_description',
+                            fileUpload: '/attachments/sale_description',
+                            plugins: ['table', 'video']});
+                    });
+
                     if($state.current.name == 'new_sale'){
                         $scope.announcement = {scorp: false, rkf: false};
                     }
@@ -95,6 +107,7 @@
                         sales.show($stateParams.id)
                             .success(function(data){
                                 $scope.announcement = data.sale;
+                                $('#redactor').redactor('code.set', $scope.announcement.description);
                             })
                     }
 
@@ -113,6 +126,7 @@
                     };
 
                     $scope.submitAnnouncement = function(){
+                        $scope.announcement.description = $('#redactor').redactor('code.get');
                         $scope.submitted = true;
                         if($scope.announcementForm.$invalid ){
                             return false;

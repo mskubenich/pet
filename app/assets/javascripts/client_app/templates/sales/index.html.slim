@@ -94,22 +94,22 @@
             .img style="background-image: url({{ sale.preview_image_url }})"
             .prize ng-show="sale.has_prize"
           td
-            b
-              a href="#sale/{{sale.id}}" style="color: black"
-                | {{ sale.name }}
-            | &nbsp;
-            | &nbsp;
-            span.black-budget ng-show="sale.scorp"
-              | СКОРП
-            | &nbsp;
-            | &nbsp;
-            span.black-budget ng-show="sale.rkf"
-              | РКФ
-            br
-            div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
-              | ({{ sale.breed }})
-            span
-              | {{ sale.description }}
+            .cell-div
+              b
+                a href="#sale/{{sale.id}}" style="color: black"
+                  | {{ sale.name }}
+              | &nbsp;
+              | &nbsp;
+              span.black-budget ng-show="sale.scorp"
+                | СКОРП
+              | &nbsp;
+              | &nbsp;
+              span.black-budget ng-show="sale.rkf"
+                | РКФ
+              br
+              div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
+                | ({{ sale.breed }})
+              span ng-bind-html="getHtml(sale.description)"
         tr
           td
             .yellow-btn style="width: 100%; text-align: center"

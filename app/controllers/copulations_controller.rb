@@ -7,6 +7,7 @@ class CopulationsController < ApplicationController
     attachments_params = params[:copulation][:photos]
     @copulation = Copulation.new copulation_params.merge({user_id: current_user.id})
     if @copulation.save
+      update_attachments
       attachments_params.each do |attachment|
         Attachment.create entity_id: @copulation.id, entity_type: Copulation, file: attachment
       end
@@ -35,6 +36,16 @@ class CopulationsController < ApplicationController
   end
 
   private
+
+  def update_attachments
+    Attachment.where(entity_id: nil, entity_type: 'copulation_description').each do |attachment|
+      if @copulation.description.include?(attachment.file.url)
+        attachment.update_attribute :entity_id, @copulation.id
+      end
+    end
+
+    Attachment.where('created_at <= :day_ago AND entity_id IS NULL', :day_ago  => 1.day.ago ).destroy_all
+  end
 
   def copulation_params
     params.require(:copulation).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)

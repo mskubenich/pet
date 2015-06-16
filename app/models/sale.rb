@@ -30,7 +30,7 @@ class Sale < ActiveRecord::Base
     if attachments.any?
       attachments.map{|a| {id: a.id, url: a.file.url} }
     else
-      [{id: mil, url: Attachment.new.file.url}]
+      [{id: nil, url: Attachment.new.file.url}]
     end
   end
 
@@ -40,6 +40,13 @@ class Sale < ActiveRecord::Base
     else
       Attachment.new.file.url
     end
+  end
+
+  def preview_text
+    f = Nokogiri::XML.fragment(description[0..100])
+
+    f.search('.//img').remove
+    f.to_html
   end
 
   private

@@ -6,6 +6,7 @@ class Admin::SalesController < AdminController
     attachments_params = params[:sale][:photos] || []
     @sale = Sale.new sale_params.merge({user_id: current_user.id})
     if @sale.save
+      update_attachments
       attachments_params.each do |attachment|
         Attachment.create entity_id: @sale.id, entity_type: Sale, file: attachment
       end
@@ -18,6 +19,7 @@ class Admin::SalesController < AdminController
   def update
     attachments_params = params[:sale][:photos] || []
     if @sale.update_attributes sale_params
+      update_attachments
       attachments_params.each do |attachment|
         Attachment.create entity_id: @sale.id, entity_type: Sale, file: attachment
       end
@@ -52,6 +54,16 @@ class Admin::SalesController < AdminController
   end
 
   private
+
+  def update_attachments
+    Attachment.where(entity_id: nil, entity_type: 'sale_description').each do |attachment|
+      if @sale.description.include?(attachment.file.url)
+        attachment.update_attribute :entity_id, @sale.id
+      end
+    end
+
+    Attachment.where('created_at <= :day_ago AND entity_id IS NULL', :day_ago  => 1.day.ago ).destroy_all
+  end
 
   def sale_params
     params.require(:sale).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
