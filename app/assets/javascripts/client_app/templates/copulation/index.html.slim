@@ -94,22 +94,22 @@
             .img style="background-image: url({{ copulation.preview_image_url }})"
             .prize ng-show="copulation.has_prize"
           td
-            b
-              a href="#copulation/{{copulation.id}}" style="color: black"
-                | {{ copulation.name }}
-            | &nbsp;
-            | &nbsp;
-            span.black-budget ng-show="copulation.scorp"
-              | СКОРП
-            | &nbsp;
-            | &nbsp;
-            span.black-budget ng-show="copulation.rkf"
-              | РКФ
-            br
-            div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
-              | ({{ copulation.breed }})
-            span
-              | {{ copulation.description }}
+            div.cell-div
+              b
+                a href="#copulation/{{copulation.id}}" style="color: black"
+                  | {{ copulation.name }}
+              | &nbsp;
+              | &nbsp;
+              span.black-budget ng-show="copulation.scorp"
+                | СКОРП
+              | &nbsp;
+              | &nbsp;
+              span.black-budget ng-show="copulation.rkf"
+                | РКФ
+              br
+              div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
+                | ({{ copulation.breed }})
+              div ng-bind-html="getHtml(copulation.description)"
         tr
           td
             .yellow-btn style="width: 100%; text-align: center"

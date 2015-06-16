@@ -42,6 +42,13 @@ class Copulation < ActiveRecord::Base
     end
   end
 
+  def preview_text
+    f = Nokogiri::XML.fragment(description[0..100])
+
+    f.search('.//img').remove
+    f.to_html
+  end
+
   private
 
   def destroy_attachments

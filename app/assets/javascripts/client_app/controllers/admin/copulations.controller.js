@@ -3,11 +3,15 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminCopulationsController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout',
-            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout) {
+        .controller('AdminCopulationsController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce) {
                 $scope.I18n = I18n;
                 $scope._ = _;
                 $scope.$state = $state;
+
+                $scope.getHtml = function(html){
+                    return $sce.trustAsHtml(html);
+                };
 
                 $scope.breeds = [
                     "Акита-ину",
@@ -122,6 +126,15 @@
                 }
                 if($state.current.name == 'new_copulation' || $state.current.name == 'edit_copulation'){
 
+                    setTimeout(function(){
+                            $('#redactor').redactor({
+                                buttonSource: true,
+                                imageUpload: '/attachments/copulation_description',
+                                fileUpload: '/attachments/copulation_description',
+                                plugins: ['table', 'video']
+                            });
+                    });
+
                     if($state.current.name == 'new_copulation'){
                         $scope.announcement = {scorp: false, rkf: false};
                     }
@@ -130,6 +143,7 @@
                         copulations.show($stateParams.id)
                             .success(function(data){
                                 $scope.announcement = data.copulation;
+                                $('#redactor').redactor('code.set', $scope.announcement.description);
                             })
                     }
 
@@ -166,6 +180,7 @@
                     ];
 
                     $scope.submitAnnouncement = function(){
+                        $scope.announcement.description = $('#redactor').redactor('code.get');
                         $scope.submitted = true;
                         if($scope.announcementForm.$invalid ){
                             return false;
