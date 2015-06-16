@@ -3,8 +3,13 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout',
-            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout) {
+        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce) {
+
+            $scope.getHtml = function(html){
+                return $sce.trustAsHtml(html);
+            };
+
             $scope.I18n = I18n;
             $scope._ = _;
 
@@ -114,6 +119,16 @@
 
             }
             if($state.current.name == 'new_copulation'){
+
+                setTimeout(function(){
+                    $('#redactor').redactor({
+                        buttonSource: true,
+                        imageUpload: '/attachments/copulation_description',
+                        fileUpload: '/attachments/copulation_description',
+                        plugins: ['table', 'video']
+                    });
+                });
+
                 $scope.attachments = [];
                 $scope.attachments_previews = [];
                 $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
@@ -143,6 +158,7 @@
                 ];
 
                 $scope.submitAnnouncement = function(){
+                    $scope.announcement.description = $('#redactor').redactor('code.get');
                     $scope.submitted = true;
                     if($scope.announcementForm.$invalid ){
                         return false;

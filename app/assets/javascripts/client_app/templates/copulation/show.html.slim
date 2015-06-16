@@ -85,7 +85,7 @@
           h4
             b
               | {{ I18n.t('description') }}:
-          | {{ copulation.description }}
+          div ng-bind-html="getHtml(copulation.description)"
           h4
             b
               | Документы:
