@@ -20,6 +20,6 @@ class PagesController < ApplicationController
   end
 
   def news
-    @news = News.all.sample(2)
+    @news = News.all.order('RAND()').limit(2)
   end
 end

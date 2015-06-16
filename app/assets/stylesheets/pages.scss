@@ -1,3 +1,51 @@
-// Place all the styles related to the pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.small-content{
+  .heading-table{
+    width: 100%;
+    td{
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+    }
+    td:nth-child(1){
+
+    }
+    td:nth-child(2){
+      width: 91px;
+      color: #FFD800;
+      text-align: left;
+    }
+  }
+
+  .small-text{
+    font-size: 14px;
+    font-family: 'PTSansRegular';
+  }
+}
+
+.pt-sans-text{
+  font-family: 'PTSansRegular';
+}
+
+.small-content{
+  .heading-table-with-image{
+    width: 100%;
+    td{
+      margin: 0;
+      padding: 0;
+      vertical-align: top;
+    }
+    td:nth-child(1){
+
+    }
+    td:nth-child(2){
+      width: 91px;
+      color: #FFD800;
+      text-align: left;
+    }
+  }
+
+  .small-text{
+    font-size: 14px;
+    font-family: 'PTSansRegular';
+  }
+}

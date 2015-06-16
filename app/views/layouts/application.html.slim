@@ -4,6 +4,7 @@ html(lang="en")
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     link href='http://fonts.googleapis.com/css?family=PT+Serif+Caption&subset=latin,cyrillic' rel='stylesheet' type='text/css'
+    link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'
     = csrf_meta_tags
     = include_gon
     javascript:
@@ -34,42 +35,42 @@ html(lang="en")
                 td
                   ul
                     li
-                      a href="#sale"
+                      a.black-dashed-link href="#sale"
                         | Продажа
                     li
-                      a href="#copulation"
+                      a.black-dashed-link href="#copulation"
                         | Случка
                     li
-                      a href="#news"
+                      a.black-dashed-link href="#news"
                         | Новости
                     li
-                      a href="#pet-shop"
+                      a.black-dashed-link href="#pet-shop"
                         | Зоомагазин
                 td
                   ul
                     li
-                      a href="#good-hands"
+                      a.black-dashed-link href="#good-hands"
                         | В добрые руки
                     li
-                      a href="#experts"
+                      a.black-dashed-link href="#experts"
                         | Специалисты
                     li
-                      a Конкурсы
+                      a.black-dashed-link Конкурсы
                     li
-                      a Выставки
+                      a.black-dashed-link Выставки
                 td
                   ul
                     li
-                      a ui-sref="help"
+                      a.black-dashed-link ui-sref="help"
                         | {{ I18n.t('pages.help') }}
                     li
-                      a ui-sref="rules"
+                      a.black-dashed-link ui-sref="rules"
                         | {{ I18n.t('pages.rules') }}
                     li
-                      a ui-sref="team"
+                      a.black-dashed-link ui-sref="team"
                         | {{ I18n.t('pages.team') }}
                     li
-                      a ui-sref="contacts"
+                      a.black-dashed-link ui-sref="contacts"
                         | {{ I18n.t('pages.contacts') }}
 
           .col-md-4 style="position: relative"

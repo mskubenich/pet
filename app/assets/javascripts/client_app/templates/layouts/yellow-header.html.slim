@@ -7,11 +7,11 @@
             a href="/admin" ng-show="current_user.is_admin"
               | Admin
           td
-            a href="/en"
-              | EN
+            a href="/ru" style="{{ I18n.locale == 'ru' ?  'border-bottom: 1px solid' : '' }}"
+              | Ru
           td
-            a href="/ru"
-              | RU
+            a href="/en" style="{{ I18n.locale == 'en' ? 'border-bottom: 1px solid' : '' }}"
+              | Eng
     .header-row
       .logo
         a href="#"
@@ -31,28 +31,28 @@
       .header-menu
         ul.header-menu-column
           li
-            a href="#sale"
+            a.white-dashed-link href="#sale"
               | Продажа
           li
-            a href="#copulation"
+            a.white-dashed-link href="#copulation"
               | Случка
           li
-            a href="#news"
+            a.white-dashed-link href="#news"
               | {{ I18n.t('menu.news') }}
           li
-            a href="#pet-shop"
+            a.white-dashed-link href="#pet-shop"
               | Зоомагазин
         ul.header-menu-column
           li
-            a href="#good-hands"
+            a.white-dashed-link href="#good-hands"
               | В добрые руки
           li
-            a href="#experts"
+            a.white-dashed-link href="#experts"
               | Специалисты
           li
-            a Конкурсы
+            a.white-dashed-link Конкурсы
           li
-            a Выставки
+            a.white-dashed-link Выставки
         .header-menu-column style="text-align: right"
           div ng-show="current_user"
             img ng-src="{{current_user.avatar_url}}" style="width: 50px; height: 50px;"

@@ -26,7 +26,7 @@
                 | {{ sale.name }}
                 br
                 b
-                  span.small-text
+                  span.serif-font-bold.header2-text
                     | {{ sale.breed }}
 .wave-bottom
 br
@@ -34,7 +34,7 @@ br
 br
 .container
   .row
-    .col-md-4.col-sm-5.col-md-offset-1
+    .col-md-5.col-sm-5
       br
       br
       br
@@ -45,14 +45,15 @@ br
               img ng-src="{{ sale.preview_image_url }}" style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; width: 100px; height: 100px"
         tr
           td ng-repeat="sale in copulation_slides"
-            | {{ sale.name }}
+            span.pt-sans-text
+              | {{ sale.name }}
             br
             b
-              span.small-text
+              span.small-text.serif-font-bold
                 | {{ sale.breed }}
     .col-md-4.col-sm-4
       img src="assets/wolf.png" style="width: 100%"
-    .col-md-2.col-sm-3
+    .col-md-3.col-sm-3
       b
         h4
           | Питомцы на случку
@@ -63,9 +64,8 @@ br
       br
       a.white-btn href="#copulation"
         | Найти пару
-    .col-md-1
-  .row
-    .col-md-3.col-sm-4.col-md-offset-1
+  .row.small-content
+    .col-md-4.col-sm-4
       b
         h4
           | Питомцы в добрые руки
@@ -79,20 +79,74 @@ br
       b
         h4
           | Специалисты
+      div
+        table.heading-table
+          tr
+            td
+              a.yellow-dashed-link
+                | Грумер
+            td style="width: 120px; color: black"
+              span.yellow-rounded
+                i.fa.fa-home
+              | &nbsp;
+              b
+                | Новосибирск
+        br
+        span.small-text
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        br
+        br
+        table.heading-table
+          tr
+            td
+              a.yellow-dashed-link
+                | Ветеринар
+            td style="width: 120px; color: black"
+              span.yellow-rounded
+                i.fa.fa-home
+              | &nbsp;
+              b
+                | Уфа
+        br
+        span.small-text
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        br
+        br
+        table.heading-table
+          tr
+            td
+              a.yellow-dashed-link
+                | Грумер
+            td style="width: 120px; color: black;"
+              span.yellow-rounded
+                i.fa.fa-home
+              | &nbsp;
+              b
+                | Караганда
+        br
+        span.small-text
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        br
       br
       a.yellow-btn href="#news"
         | Подать объявление
       br
       br
       br
-    .col-md-3.col-sm-4
+    .col-md-4.col-sm-4
       b
         h4
-          | Новости
+          | {{ I18n.t('menu.news') }}
       div ng-repeat="n in news"
-        b
-          a href="#news/{{ n.id }}" style="color: black"
-            | {{ n.title }}
+        table.heading-table
+          tr
+            td.serif-font-bold
+              a href="#news/{{ n.id }}" style="color: black"
+                | {{ n.title }}
+            td
+              i.fa.fa-clock-o
+              | &nbsp;
+              | {{ n.created_at }}
         br
         span.small-text ng-bind-html="getHtml(n.body)"
           | {{ n.body }}
@@ -119,9 +173,10 @@ br
         span.dashed_text
           | {{ slide.description }}
         br
-        | {{ slide.price }}
-        i.fa.fa-ruble
+        span style="font-size: 25px"
+          | {{ slide.price }} &nbsp;
+          i.fa.fa-ruble
         br
-        span.black-budget
+        span.black-budget style="text-transform: none; padding: 5px 25px 5px 25px; font-size: 16px;"
           | Купить
 .wave-bottom

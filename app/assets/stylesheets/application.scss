@@ -10,9 +10,13 @@
 
 
 .localization{
-  font-size: 12px;
   margin-top: 20px;
   text-align: right;
+
+  font-family: 'PTSansRegular';
+  cursor: pointer;
+  font-size: 16px;
+
   table{
     display: inline-flex;
     td{
@@ -71,17 +75,6 @@
         display: inline-block;
         text-align: left;
         list-style-type: none;
-        li{
-          a {
-            color: white;
-            cursor: pointer;
-            text-decoration: none;
-            border-bottom: 1px dashed white;
-            &:hover{
-              border: 0;
-            }
-          }
-        }
       }
     }
     .header-text{
@@ -173,15 +166,6 @@ input.pet-input{
 .footer-routes{
   ul{
     list-style-type: none;
-    a {
-      color: black;
-      cursor: pointer;
-      text-decoration: none;
-      border-bottom: 1px dashed black;
-      &:hover{
-        border: 0;
-      }
-    }
     li{
       height: 60px;
       width: 117px;
@@ -288,6 +272,15 @@ a.white-link{
   font-family: 'PT Serif Caption', serif;
 }
 
+.header2-text{
+  font-size: 16px;
+}
+
+.serif-font-bold{
+  font-family: 'PT Serif Caption', serif;
+  font-weight: bold;
+}
+
 .dashed_text{
   border-bottom: 1px dashed black;
 }
@@ -359,15 +352,18 @@ a.white-link{
 
 #shop-carousel{
   overflow: hidden;
-  height: 270px;
+  height: 363px;
   margin-bottom: 0;
   img{
     max-width: 150px !important;
     max-height: 150px !important;
   }
+
+  font-family: 'PTSansRegular';
+  font-size: 18px;
+  line-height: 41px;
 }
 
 .small-text{
   font-size: 10px;
-  font-family: monospace;
 }
