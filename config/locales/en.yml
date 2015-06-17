@@ -27,6 +27,7 @@ en:
   login: 'Login'
   menu:
     news: 'News'
+    news_categories: 'News Categories'
     sale: 'Sale'
     in_good_hands: 'In Good Hands'
     competitions: 'Competitions'
@@ -39,6 +40,12 @@ en:
     at: 'at'
   users:
     created_by: 'added by'
+  category:
+    new: 'New Category'
+    messages:
+      success_upsert: "Category successfully saved."
+  news:
+    new: 'New News'
   copulation:
     title: 'Copulation'
     new: 'New Copulation'
@@ -95,3 +102,4 @@ en:
     actions: 'Actions'
   actions:
     update: 'Update'
+    create: 'Create'

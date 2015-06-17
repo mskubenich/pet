@@ -6,6 +6,7 @@ ru:
   login: 'Вход'
   menu:
     news: 'Новости'
+    news_categories: 'Категории Новостей'
     sale: 'Продажа'
     in_good_hands: 'В добрые руки'
     competitions: 'Конкурсы'
@@ -34,6 +35,12 @@ ru:
         other: "около %{count} часов"
   users:
     created_by: 'добавил'
+  category:
+    new: 'Новая Категория'
+    messages:
+      success_upsert: "Категория удачно сохранена."
+  news:
+    new: 'Добавить Новость'
   copulation:
     title: 'Случка'
     new: 'Добавить Случку'
@@ -90,3 +97,4 @@ ru:
     actions: 'Действия'
   actions:
     update: 'Обновить'
+    create: 'Сохранить'

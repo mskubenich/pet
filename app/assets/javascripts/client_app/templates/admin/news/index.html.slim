@@ -1,8 +1,9 @@
 div
-  h2 News
+  h2
+    | {{ I18n.t('menu.news') }}
 
   button type="submit" class="btn btn--primary btn--sm" ui-sref="create_news"
-    | New
+    | {{ I18n.t('news.new')}}
 
   #news-pagination ng-hide="news_count < 11"
   table.table.table-striped.table-responsive

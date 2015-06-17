@@ -1,5 +1,7 @@
 class News < ActiveRecord::Base
   belongs_to :author, class_name: User, foreign_key: :user_id
+  has_and_belongs_to_many :categories
+
   has_attached_file :preview_image, :styles => { :thumb => "300x300>" }, :default_url => "/assets/missing.png"
   validates_attachment_content_type :preview_image, :content_type => /\Aimage\/.*\Z/
 

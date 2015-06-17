@@ -78,6 +78,21 @@
                 url: '/sales/:id/edit',
                 templateUrl: 'client_app/templates/admin/sales/new.html',
                 controller: 'AdminSalesController'
+            })
+            .state('news_categories',{
+                url: '/news_categories',
+                templateUrl: 'client_app/templates/admin/news_categories/index.html',
+                controller: 'AdminNewsCategoriesController'
+            })
+            .state('create_category',{
+                url: '/create_category',
+                templateUrl: 'client_app/templates/admin/news_categories/new.html',
+                controller: 'AdminNewsCategoriesController'
+            })
+            .state('edit_category',{
+                url: '/categories/:id/edit',
+                templateUrl: 'client_app/templates/admin/news_categories/new.html',
+                controller: 'AdminNewsCategoriesController'
             });
     }]);
 
