@@ -6,7 +6,7 @@
     table.table.vertical-align-table
       tr
         td style="width: 200px;"
-          h4
+          .pet-h3
             | Питомцы на продажу
           | Lorem ipsum dolor sit amet
           br
@@ -55,7 +55,7 @@ br
       img src="assets/wolf.png" style="width: 100%"
     .col-md-3.col-sm-3
       b
-        h4
+        .pet-h3
           | Питомцы на случку
       br
       span.small-text
@@ -67,17 +67,17 @@ br
   .row.small-content
     .col-md-4.col-sm-4
       b
-        h4
+        .pet-h3
           | Питомцы в добрые руки
       br
-      a.yellow-btn href="#news" style="background-color: black; color: white "
+      a.yellow-btn href="#news" style="background-color: black; color: white; text-transform: uppercase; font-family: PFCentroSerifBold;"
         | Подать объявление
       br
       br
       br
     .col-md-4.col-sm-4
       b
-        h4
+        .pet-h3
           | Специалисты
       div
         table.heading-table
@@ -128,14 +128,14 @@ br
           | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         br
       br
-      a.yellow-btn href="#news"
+      a.yellow-btn href="#news" style="text-transform: uppercase; font-family: PFCentroSerifBold;"
         | Подать объявление
       br
       br
       br
     .col-md-4.col-sm-4
       b
-        h4
+        .pet-h3
           | {{ I18n.t('menu.news') }}
       div ng-repeat="n in news"
         table.heading-table
@@ -151,7 +151,7 @@ br
         span.small-text ng-bind-html="getHtml(n.body)"
           | {{ n.body }}
       br
-      a.white-btn href="#news"
+      a.white-btn href="#news" style="text-transform: uppercase; font-family: PFCentroSerifBold;"
         | Все новости
       br
       br
@@ -162,7 +162,7 @@ br
   br
   .text-center
     b
-      h4
+      .pet-h3
         | Популярное в зоомагазине
   #shop-carousel
     div ng-repeat="slide in shop_slides" style="padding-bottom: 20px"
