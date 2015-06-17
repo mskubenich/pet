@@ -1,0 +1,97 @@
+.nav-menu
+  .container
+    table.table.vertical-align-table style="margin: 0"
+      tr
+        td
+          a.profile-yellow-icon
+            i.fa.fa-user
+          a.profile-yellow-icon
+            i.fa.fa-envelope-o
+          a.profile-yellow-icon
+            i.fa.fa-gear
+          a.profile-yellow-icon
+            i.fa.fa-paw
+          a.profile-yellow-icon
+            i.fa.fa-heart-o
+.container
+  .row
+    br
+    br
+    .col-md-3.col-sm-3
+      img.profile-avatar ng-src="{{profile.avatar_url }}"
+    .col-md-6.col-sm-6
+      .pet-h1
+        | {{ profile.full_name }}
+      br
+      | Russian Federation, Moskow
+      | &nbsp;
+      | &nbsp;
+      img src="assets/ru.png" style="width: 20px"
+      br
+      br
+      br
+      br
+      br
+      br
+      .pet-h2
+        | {{ I18n.t('about_me') }}:
+      .pt-sans-text
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+
+    .col-md-3.col-sm-3.text-right
+      span.rating
+        span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly"
+          | {{percent}}%
+        rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      span style="color: red; font-size: 26px"
+        | {{ phone }}
+      br
+      span.black-budget.connect ng-click="showPhone()"
+        | {{ I18n.t('message') }}
+  hr
+  .row
+    br
+    br
+    .col-md-3.col-sm-3
+      .pet-h2
+        | {{ I18n.t('my_friends') }}:
+      table.table.vertical-align-table
+        tr
+          td
+            img src="assets/np.png" style="width: 65px"
+          td
+            a style="color: black; text-decoration: underline"
+              | Анастасия Петровна
+            br
+            b.pt-sans-text
+              | грумер
+      table.table.vertical-align-table
+        tr
+          td
+            img src="assets/np.png" style="width: 65px"
+          td
+            a style="color: black; text-decoration: underline"
+              | Анастасия Петровна
+            br
+            b.pt-sans-text
+              | грумер
+      table.table.vertical-align-table
+        tr
+          td
+            img src="assets/np.png" style="width: 65px"
+          td
+            a style="color: black; text-decoration: underline"
+              | Анастасия Петровна
+            br
+            b.pt-sans-text
+              | грумер
+    .col-md-9.col-sm-9
+      .pet-h2
+        | {{ I18n.t('my_pets') }}:

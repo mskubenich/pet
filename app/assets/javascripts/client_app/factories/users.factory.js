@@ -12,6 +12,9 @@
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
                 })
+            },
+            profile: function(){
+                return $http.get('/users/profile');
             }
         };
     }])

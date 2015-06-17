@@ -22,6 +22,11 @@
                 templateUrl: 'client_app/templates/home/index.html',
                 controller: 'HomeController'
             })
+            .state('profile',{
+                url: '/profile',
+                templateUrl: 'client_app/templates/users/profile.html',
+                controller: 'ProfileController'
+            })
             .state('registration',{
                 url: '/registration',
                 templateUrl: 'client_app/templates/users/new.html',

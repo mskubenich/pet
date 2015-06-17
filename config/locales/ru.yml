@@ -65,6 +65,11 @@ ru:
   fathers_photo: 'Фото папы'
   description: 'Описаниие'
   publish: 'ОПУБЛИКОВАТЬ'
+  contact: 'Связаться'
+  message: 'Сообщение'
+  about_me: 'Обо мне'
+  my_friends: 'Мои друзья'
+  my_pets: 'Мои питомцы'
   pages:
     help: 'Помощь'
     rules: 'Правила'

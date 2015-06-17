@@ -70,6 +70,11 @@ en:
   fathers_photo: 'Fathers photo'
   description: 'Description'
   publish: 'PUBLISH'
+  contact: 'Contact'
+  message: 'Message'
+  about_me: 'About Me'
+  my_friends: 'My friends'
+  my_pets: 'My Pets'
   pages:
     help: 'Help'
     rules: 'Rules'
