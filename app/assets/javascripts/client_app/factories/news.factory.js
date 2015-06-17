@@ -6,7 +6,10 @@
                 return $http.get('/'+ gon.locale + '/news/' + news_id)
             },
             all: function(params){
-                return $http.get('/' + gon.locale + '/news.json?page=' + params.page);
+                return $http.get('/' + gon.locale + '/news.json?page=' + params.page + '&categories=' + JSON.stringify(params.filters.categories));
+            },
+            categories: function(){
+                return $http.get('/' + I18n.locale + '/news/categories.json');
             }
         };
     }])

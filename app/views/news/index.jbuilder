@@ -8,5 +8,6 @@ json.news @news.each do |news|
   json.preview_image_url news.preview_image.url(:thumb)
   json.author            news.author.login
   json.author_avatar_url news.author.avatar.url(:thumb)
+  json.categories        news.categories.map{|c| {id: c.id, title: c.send("title_#{ I18n.locale }")}}
 end
-json.news_count News.count
+json.news_count @count

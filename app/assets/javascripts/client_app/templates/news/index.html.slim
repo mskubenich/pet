@@ -1,29 +1,11 @@
 .wave
-.nav-menu style="height: 100px"
+.nav-menu
   .container
-    div.horizontal-list
+    div.horizontal-list style="height: 80px"
       ul
-        li
-          a
-            = image_tag 'cat-icon.png', width: '50px'
-        li
-          a
-            = image_tag 'dog-icon.png', width: '50px'
-        li
-          a
-            | Мода
-        li
-          a
-            | Политика
-        li
-          a
-            | Спорт
-        li
-          a
-            | Зоомагазин
-        li
-          a
-            | Игрушки
+        li ng-repeat="category in categories"
+          a.black-dashed-link class="{{ filters.categories[category.id] ? 'active' : '' }}" ng-click="filters.categories[category.id] = filters.categories[category.id] ? null: true"
+            | {{ category.title }}
 .container
   .row
     .col-md-9
@@ -40,6 +22,9 @@
               | &nbsp;
               span.black-budget ng-show="article.rkf"
                 | РКФ
+              |  &nbsp;
+              span.yellow-budget ng-repeat="cat in article.categories" style="margin-right: 5px;"
+                | {{ cat.title }}
             td style="text-align: right"
               span.news-gray-text
                 | {{ article.created_at }}

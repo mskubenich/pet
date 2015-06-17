@@ -17,11 +17,18 @@
             }
 
             if($state.current.name == 'news'){
+
+                $scope.filters = {categories: {}};
+
+                news.categories().success(function(data){
+                    $scope.categories = data.categories;
+                });
+
                 $scope.news = [];
 
                 $scope.page = 1;
                 $scope.retrieveNews = function(){
-                    news.all({page: $scope.page}).success(function (data) {
+                    news.all({page: $scope.page, filters: $scope.filters}).success(function (data) {
                         $scope.news = data.news;
                         $scope.news_count = data.news_count;
 
@@ -45,6 +52,10 @@
                 };
 
                 $scope.retrieveNews();
+
+                $scope.$watch('filters', function(){
+                    $scope.retrieveNews();
+                }, true);
             }
 
             $scope.getHtml = function(html){

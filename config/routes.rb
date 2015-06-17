@@ -46,7 +46,11 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :news, only: [:index, :show]
+    resources :news, only: [:index, :show] do
+      collection do
+        get :categories
+      end
+    end
     resources :copulations, only: [:index, :create, :update, :show] do
       member do
         get :show_phone

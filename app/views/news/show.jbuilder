@@ -8,4 +8,5 @@ json.news do
   json.preview_image_url @news.preview_image.url
   json.author            @news.author.login
   json.author_avatar_url @news.author.avatar.url(:thumb)
+  json.categories        @news.categories.map{|c| {id: c.id, title: c.send("title_#{ I18n.locale }")}}
 end

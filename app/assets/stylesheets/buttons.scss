@@ -69,6 +69,10 @@ a.black-dashed-link{
   &:hover{
     border: 0;
   }
+  &.active{
+    color: white;
+    border-bottom: 1px dashed white;
+  }
 }
 
 a.yellow-dashed-link{

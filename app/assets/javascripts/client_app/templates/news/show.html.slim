@@ -39,6 +39,9 @@
               | &nbsp;
               span.black-budget ng-show="news.rkf"
                 | РКФ
+              |  &nbsp;
+              span.yellow-budget ng-repeat="cat in news.categories" style="margin-right: 5px;"
+                | {{ cat.title }}
             td style="text-align: right"
               span.news-gray-text
                 | {{ news.created_at }}

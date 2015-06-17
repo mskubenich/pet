@@ -198,9 +198,6 @@ input.pet-input{
     li{
       margin-right: 14px;
       display: inline-block;
-      &:nth-child(1) a, &:nth-child(2) a{
-        border: 0 !important;
-      }
     }
   }
 }
@@ -240,6 +237,18 @@ footer{
   &.checked .rounded-two{
     display: block;
   }
+}
+
+span.yellow-budget{
+  text-transform: uppercase;
+  background-color: #FFD800;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  color: white;
+  font-weight: normal;
+  font-size: 13px;
+  padding: 4px 7px;
 }
 
 span.black-budget{
@@ -291,7 +300,7 @@ a.white-link{
 }
 
 .dashed_text{
-  border-bottom: 1px dashed black;
+  border-bottom: 1px dashed black !important;
 }
 
 .horizontal-list{
