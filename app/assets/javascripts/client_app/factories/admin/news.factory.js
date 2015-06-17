@@ -13,6 +13,13 @@
                 fd.append('news[body_en]', news.body_en);
                 fd.append('news[scorp]', news.scorp);
                 fd.append('news[rkf]', news.rkf);
+                if(news.categories){
+                    var i = 0;
+                    while(i< news.categories.length){
+                        fd.append('news[categories][]', news.categories[i]);
+                        i++;
+                    }
+                }
 
                 if(news.id){
                     return $http.put('/admin/news/' + news.id, fd, {

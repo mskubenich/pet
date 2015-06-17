@@ -7,4 +7,5 @@ json.news do
   json.rkf               @news.rkf
   json.scorp             @news.scorp
   json.preview_image_url @news.preview_image.url(:thumb)
+  json.categories        @news.categories.map{|c| {id: c.id, title: c.send("title_#{ I18n.locale }")}}
 end

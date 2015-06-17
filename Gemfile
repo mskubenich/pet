@@ -36,6 +36,7 @@ gem "paperclip", "~> 4.2"
 gem 'will_paginate', '~> 3.0.6'
 gem 'gon'
 gem "i18n-js", ">= 3.0.0.rc8"
+gem "selectize-rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

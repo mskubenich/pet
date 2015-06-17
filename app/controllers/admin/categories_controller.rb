@@ -3,7 +3,7 @@ class Admin::CategoriesController < AdminController
 
   def index
     query = Category.all
-    query = query.where(title: params[:title]) if params[:title] && !params[:title].blank?
+    query = query.where("title_ru LIKE ? OR title_en LIKE ?", "%#{params[:title]}%", "%#{params[:title]}%") if params[:title] && !params[:title].blank?
 
     @categories = query.order('id DESC').paginate page: params[:page], per_page: 9
     @count = query.count

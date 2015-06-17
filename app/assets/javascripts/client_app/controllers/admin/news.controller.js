@@ -13,6 +13,36 @@
 
             if($state.current.name == 'create_news' || $state.current.name == 'edit_news'){
 
+                var $select = $('#label').selectize({
+                    valueField: 'id',
+                    labelField: 'title',
+                    searchField: 'title',
+                    create: false,
+                    render: {
+                        option: function(item, escape) {
+                            return '<div>' +
+                                '<span class="name">' + escape(item.title) + '</span>' +
+                                '</div>';
+                        }
+                    },
+                    load: function(query, callback) {
+                        if (!query.length) return callback();
+                        $.ajax({
+                            url: 'admin/categories?title=' + encodeURIComponent(query),
+                            type: 'GET',
+                            error: function() {
+                                callback();
+                            },
+                            success: function(res) {
+                                callback(res.categories);
+                            }
+                        });
+                    },
+                    onChange: function(data){
+                        $scope.processedNews.categories = data;
+                    }
+                });
+
                 if($state.current.name == 'create_news'){
                     $scope.processedNews = {scorp: false, rkf: false};
                 }
@@ -27,6 +57,9 @@
                             if($scope.processedNews.preview_image_url){
                                 $('#avatar-preview').css('background-image', 'url(' + $scope.processedNews.preview_image_url + ')');
                             }
+                            $select[0].selectize.addOption($scope.processedNews.categories, true);
+                            $select[0].selectize.setValue(_.map($scope.processedNews.categories, function(i){return i.id}));
+
                         })
                 }
 
@@ -60,7 +93,7 @@
                             $scope.newsProcessing = false;
                             ngDialog.open({
                                 className: 'ngdialog-theme-default',
-                                template: "News successfully saved.",
+                                template: I18n.t('news.messages.success_upsert'),
                                 plain: true
                             });
                         })
@@ -76,6 +109,7 @@
             }
 
             if($state.current.name == 'news'){
+
                 $scope.news = [];
 
                 $scope.page = 1;

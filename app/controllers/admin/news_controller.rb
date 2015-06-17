@@ -6,8 +6,10 @@ class Admin::NewsController < AdminController
   end
 
   def create
+    @categories = Category.where id: params[:news][:categories]
     @news = News.new news_params.merge({user_id: current_user.id})
     if @news.save
+      @news.categories = @categories
       update_attachments
       render json: {id: @news.id}
     else
@@ -16,7 +18,9 @@ class Admin::NewsController < AdminController
   end
 
   def update
+    @categories = Category.where id: params[:news][:categories]
     if @news.update_attributes news_params
+      @news.categories = @categories
       update_attachments
       render json: {id: @news.id}
     else

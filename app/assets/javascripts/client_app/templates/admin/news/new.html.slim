@@ -1,9 +1,12 @@
 form ng-submit="upsertNews()" name="newsForm" novalidate=true
-  h3 ng-show="$state.current.name == 'create_news'" Create News
-  h3 ng-show="$state.current.name == 'edit_news'" Edit News
+  h3 ng-show="$state.current.name == 'create_news'"
+    | {{ I18n.t('news.new') }}
+  h3 ng-show="$state.current.name == 'edit_news'"
+    | {{ I18n.t('news.edit') }}
 
   .form-group
-    label Title
+    label
+      | {{ I18n.t('entities.title') }}
     div role="tabpanel"
       ul.nav.nav-tabs role="tablist"
         li role="presentation" class="active"
@@ -20,6 +23,10 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
     br
     .error-container ng-show="submited && (newsForm.title_ru.$invalid || newsForm.title_en.$invalid)"
       small.error Can't be blank
+
+  .form-group
+    label Label
+    select#label style="width: 100%" multiple="multiple" ng-model="processedNews.labels"
 
   .form-group
     label Preview Image

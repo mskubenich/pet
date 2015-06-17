@@ -41,6 +41,9 @@ ru:
       success_upsert: "Категория удачно сохранена."
   news:
     new: 'Добавить Новость'
+    edit: 'Редактировать Новость'
+    messages:
+      success_upsert: "Новость удачно сохранена."
   copulation:
     title: 'Случка'
     new: 'Добавить Случку'
@@ -95,6 +98,7 @@ ru:
   entities:
     name: 'Имя'
     actions: 'Действия'
+    title: 'Заголовок'
   actions:
     update: 'Обновить'
     create: 'Сохранить'
