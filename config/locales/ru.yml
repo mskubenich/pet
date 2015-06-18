@@ -55,6 +55,7 @@ ru:
   sale:
     title: 'Продажа'
     new: 'Добавить Продажу'
+    edit: 'Редактировать Продажу'
     dog:
       name: 'Кличка'
       age: 'Возраст'
@@ -99,6 +100,10 @@ ru:
     name: 'Имя'
     actions: 'Действия'
     title: 'Заголовок'
+    on_moderation: 'На модерации'
   actions:
     update: 'Обновить'
     create: 'Сохранить'
+    approve: 'Одобрить'
+    reject: 'Отклонить'
+    cancel: 'Отмена'

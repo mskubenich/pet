@@ -9,5 +9,6 @@ json.sales @sales.each do |sale|
   json.price             sale.price
   json.preview_image_url sale.preview_image_url
   json.has_prize         sale.prize.exists?
+  json.approved          sale.approved
 end
 json.count @count

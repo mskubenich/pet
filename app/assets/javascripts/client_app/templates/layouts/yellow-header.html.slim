@@ -32,27 +32,29 @@
         ul.header-menu-column
           li
             a.white-dashed-link href="#sale"
-              | Продажа
+              | {{ I18n.t('menu.sale') }}
           li
             a.white-dashed-link href="#copulation"
-              | Случка
+              | {{ I18n.t('menu.copulation') }}
           li
             a.white-dashed-link href="#news"
               | {{ I18n.t('menu.news') }}
           li
             a.white-dashed-link href="#pet-shop"
-              | Зоомагазин
+              | {{ I18n.t('menu.pet_shop') }}
         ul.header-menu-column
           li
             a.white-dashed-link href="#good-hands"
-              | В добрые руки
+              | {{ I18n.t('menu.in_good_hands') }}
           li
             a.white-dashed-link href="#experts"
-              | Специалисты
+              | {{ I18n.t('menu.experts') }}
           li
-            a.white-dashed-link Конкурсы
+            a.white-dashed-link
+              | {{ I18n.t('menu.competitions') }}
           li
-            a.white-dashed-link Выставки
+            a.white-dashed-link
+              | {{ I18n.t('menu.exhibitions') }}
         .header-menu-column style="text-align: right"
           div ng-show="current_user"
             img ng-src="{{current_user.avatar_url}}" style="width: 50px; height: 50px;"

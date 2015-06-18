@@ -60,6 +60,12 @@
             },
             destroy: function(id){
                 return $http.delete('/admin/sales/' + id)
+            },
+            approve: function(id){
+                return $http.post('/admin/sales/' + id + '/approve', {})
+            },
+            reject: function(id, reason){
+                return $http.post('/admin/sales/' + id + '/reject', {reason: reason})
             }
         }
         ;

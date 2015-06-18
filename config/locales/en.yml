@@ -60,6 +60,7 @@ en:
   sale:
     title: 'Sale'
     new: 'New Sale'
+    edit: 'Edit Sale'
     dog:
       name: 'Name'
       age: 'Age'
@@ -104,6 +105,10 @@ en:
     name: 'Name'
     title: 'Title'
     actions: 'Actions'
+    on_moderation: 'On moderation'
   actions:
     update: 'Update'
     create: 'Create'
+    approve: 'Approve'
+    reject: 'Reject'
+    cancel: 'Cancel'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617115622) do
+ActiveRecord::Schema.define(version: 20150618143750) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 20150617115622) do
     t.string   "fathers_photo_content_type", limit: 255
     t.integer  "fathers_photo_file_size",    limit: 4
     t.datetime "fathers_photo_updated_at"
+    t.text     "reject_reason",              limit: 65535
   end
 
   create_table "news", force: :cascade do |t|
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(version: 20150617115622) do
     t.string   "fathers_photo_content_type", limit: 255
     t.integer  "fathers_photo_file_size",    limit: 4
     t.datetime "fathers_photo_updated_at"
+    t.text     "reject_reason",              limit: 65535
   end
 
   create_table "sessions", force: :cascade do |t|

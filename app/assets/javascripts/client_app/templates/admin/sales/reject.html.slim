@@ -1,0 +1,11 @@
+| Укажите причину отклонения:
+br
+textarea ng-model="reason" style="width: 100%"
+
+br
+br
+a.btn.btn-danger ng-click="reject(reason)"
+  | {{ I18n.t('actions.reject') }}
+| &nbsp;
+a.btn.btn-success ng-click="closeThisDialog()"
+  | {{ I18n.t('actions.cancel') }}

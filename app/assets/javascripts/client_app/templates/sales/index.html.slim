@@ -101,6 +101,10 @@
           td
             .img style="background-image: url({{ sale.preview_image_url }})"
             .prize ng-show="sale.has_prize"
+            | &nbsp;
+            | &nbsp;
+            span.black-budget ng-hide="sale.approved"
+              | {{ I18n.t('entities.on_moderation') }}
           td
             .cell-div
               b

@@ -18,6 +18,8 @@ class SalesController < ApplicationController
 
   def index
     query = Sale.all
+    query = query.where("approved = 1 OR user_id = ?", current_user.try(:id))
+
     query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'
     query = query.where("price > ?", params[:price_min]) if params[:price_min]
     query = query.where("price < ?", params[:price_max]) if params[:price_max]
