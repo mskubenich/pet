@@ -16,4 +16,5 @@ json.sale do
   json.age                 @sale.age
   json.owner               @sale.owner.try(:full_name)
   json.owner_phone_hashed  @sale.owner.try(:phone)[0..4] + '*****'
+  json.reject_reason       @sale.reject_reason
 end

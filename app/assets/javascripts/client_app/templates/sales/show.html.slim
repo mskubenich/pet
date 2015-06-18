@@ -94,6 +94,8 @@
           div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
 .container
   .row.copulation-drilldown
+    .alert.alert-danger ng-show="sale.reject_reason"
+      | {{ sale.reject_reason }}
     .col-md-3.col-sm-3
       img.copulation-preview-image ng-src="{{ preview_image.url }}"
       br
