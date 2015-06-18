@@ -1,5 +1,6 @@
 div
   h2 Users
+  #users-pagination ng-hide="news_count < 11"
   table.table.table-striped.table-responsive
     thead
       tr
@@ -35,4 +36,4 @@ div
           | {{ user.created_at }}
         td
           a
-            .i.fa.fa-close ng-click="$parent.destroyInvite(invite)"
+            .i.fa.fa-close ng-click="$parent.removeUser(user.id)"
