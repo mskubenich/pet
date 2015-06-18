@@ -101,6 +101,8 @@
           td
             .img style="background-image: url({{ copulation.preview_image_url }})"
             .prize ng-show="copulation.has_prize"
+            span.black-budget ng-hide="copulation.approved"
+              | {{ I18n.t('entities.on_moderation') }}
           td
             div.cell-div
               b

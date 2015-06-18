@@ -53,6 +53,16 @@ class Admin::CopulationsController < AdminController
     render nothing: true
   end
 
+  def approve
+    @copulation.update_attributes approved: true, reject_reason: nil
+    render json: {ok: true}
+  end
+
+  def reject
+    @copulation.update_attributes approved: false, reject_reason: params[:reason]
+    render json: {ok: true}
+  end
+
   private
 
   def update_attachments

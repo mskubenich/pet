@@ -173,5 +173,14 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
       | can't be blank
 
   .text-center
-    input.yellow-btn type="submit" value="{{ I18n.t('publish') }}"
-    i.fa.fa-spinner.fa-pulse ng-show="processing"
+    table.table.vertical-align-table style="width: 100%"
+      tr
+        td
+          input.yellow-btn type="submit" value="{{ I18n.t('publish') }}"
+          i.fa.fa-spinner.fa-pulse ng-show="processing"
+        td ng-show="$state.current.name == 'edit_copulation'"
+          a.btn.btn-success ng-show="announcement.approved == null || announcement.approved == false" ng-click="approve()"
+            | {{ I18n.t('actions.approve') }}
+          | &nbsp;
+          a.btn.btn-danger ng-show="announcement.approved == null || announcement.approved == true" ng-click="reject()"
+            | {{ I18n.t('actions.reject') }}

@@ -102,6 +102,7 @@ div
   table.table.table-striped.table-responsive
     thead
       tr
+        th style="width: 150px"
         th
         th
           | Name
@@ -111,6 +112,9 @@ div
         th
     tbody
       tr ng-repeat="copulation in copulations"
+        td style="width: 150px"
+          span.black-budget ng-hide="copulation.approved"
+            | {{ I18n.t('entities.on_moderation') }}
         td
           img ng-src="{{copulation.preview_image_url}}" style="height: 30px"
         td

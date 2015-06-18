@@ -65,6 +65,12 @@
             },
             destroy: function(id){
                 return $http.delete('/admin/copulations/' + id)
+            },
+            approve: function(id){
+                return $http.post('/admin/copulations/' + id + '/approve', {})
+            },
+            reject: function(id, reason){
+                return $http.post('/admin/copulations/' + id + '/reject', {reason: reason})
             }
         }
         ;

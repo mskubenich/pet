@@ -9,5 +9,6 @@ json.copulations @copulations.each do |copulation|
   json.price             copulation.price
   json.preview_image_url copulation.preview_image_url
   json.has_prize         copulation.prize.exists?
+  json.approved          copulation.approved
 end
 json.count @count
