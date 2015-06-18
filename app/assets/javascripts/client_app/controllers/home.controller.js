@@ -125,16 +125,30 @@
                                     }
                                 },
                                 {
-                                    breakpoint: 1300,
+                                    breakpoint: 1750,
                                     settings: {
                                         slidesToShow: 6,
+                                        slidesToScroll: 7
+                                    }
+                                },
+                                {
+                                    breakpoint: 1300,
+                                    settings: {
+                                        slidesToShow: 5,
+                                        slidesToScroll: 3
+                                    }
+                                },
+                                {
+                                    breakpoint: 1150,
+                                    settings: {
+                                        slidesToShow: 4,
                                         slidesToScroll: 3
                                     }
                                 },
                                 {
                                     breakpoint: 800,
                                     settings: {
-                                        slidesToShow: 4,
+                                        slidesToShow: 3,
                                         slidesToScroll: 2
                                     }
                                 },
