@@ -54,3 +54,15 @@
   background-position: center;
   background-size: cover;
 }
+
+.profile-my-pets{
+  .pet-image{
+    width: 123px;
+    height: 123px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+  }
+}
