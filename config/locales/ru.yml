@@ -35,6 +35,8 @@ ru:
         other: "около %{count} часов"
   users:
     created_by: 'добавил'
+    messages:
+      success_upsert: "Пользователь удачно обновлен."
   category:
     new: 'Новая Категория'
     messages:

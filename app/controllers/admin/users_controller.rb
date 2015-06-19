@@ -11,4 +11,22 @@ class Admin::UsersController < AdminController
     @user.destroy
     render json: {ok: true}
   end
+
+  def show
+
+  end
+
+  def update
+    if @user.update_attributes user_params
+      render json: {ok: true}
+    else
+      render json: {errors: @user.errors}, status: :unprocessable_entity
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:first_name, :last_name, :login, :password, :password_confirmation, :rkf, :scorp, :avatar, :email, :phone)
+  end
 end

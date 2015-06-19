@@ -22,7 +22,11 @@ class UsersController < ApplicationController
   end
 
   def email_available
-    if User.where(email: params[:email]).count == 0
+    query = User.all
+    query = query.where email: params[:email]
+    query = query.where.not(id: params[:except]) if params[:except]
+
+    if query.count == 0
       render json: {ok: true}
     else
       render json: {}, status: :unprocessable_entity

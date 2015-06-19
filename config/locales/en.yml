@@ -40,6 +40,8 @@ en:
     at: 'at'
   users:
     created_by: 'added by'
+    messages:
+      success_upsert: "User successfully saved."
   category:
     new: 'New Category'
     messages:

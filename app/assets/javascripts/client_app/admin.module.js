@@ -24,6 +24,11 @@
                 templateUrl: 'client_app/templates/admin/users/index.html',
                 controller: 'AdminUsersController'
             })
+            .state('edit_user',{
+                url: '/user/:id/edit',
+                templateUrl: 'client_app/templates/admin/users/edit.html',
+                controller: 'AdminUsersController'
+            })
             .state('news',{
                 url: '/news',
                 templateUrl: 'client_app/templates/admin/news/index.html',

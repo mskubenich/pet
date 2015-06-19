@@ -35,5 +35,7 @@ div
         td
           | {{ user.created_at }}
         td
+          a href="#user/{{ user.id }}/edit"
+            .i.fa.fa-pencil
           a
             .i.fa.fa-close ng-click="$parent.removeUser(user.id)"
