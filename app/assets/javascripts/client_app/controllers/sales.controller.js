@@ -173,7 +173,7 @@
                     }).error(function (data) {
                         ngDialog.open({
                             className: 'ngdialog-theme-default',
-                            template: "Вы должны войти чтобы увидеть номер владельца.",
+                            template: I18n.t('actions.you_must_enter_before'),
                             plain: true
                         });
                     });
@@ -219,7 +219,7 @@
                             $scope.processing = false;
                             ngDialog.open({
                                 className: 'ngdialog-theme-default',
-                                template: "Announcement successfully saved.",
+                                template: I18n.t('announcements.messages.success_upsert'),
                                 plain: true
                             });
                         })

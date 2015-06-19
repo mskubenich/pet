@@ -5,6 +5,7 @@ ru:
     pets: 'питомцев'
   login: 'Вход'
   menu:
+    users: 'Пользователи'
     news: 'Новости'
     news_categories: 'Категории Новостей'
     sale: 'Продажа'
@@ -34,11 +35,20 @@ ru:
         one: "около 1 часа"
         other: "около %{count} часов"
   users:
+    email: 'Електронный адрес'
+    login: 'Логин'
+    phone: 'Телефон'
     created_by: 'добавил'
     messages:
       success_upsert: "Пользователь удачно обновлен."
+      ban_confirm: "Вы действительно хотите забанить пользователя ?"
+      remove_confirm: "Вы действительно хотите удалить пользователя ?"
+  announcements:
+    messages:
+      success_upsert: "Объявление удачно создано."
   category:
     new: 'Новая Категория'
+    edit: 'Редактировать Категорию'
     messages:
       success_upsert: "Категория удачно сохранена."
   news:
@@ -76,6 +86,7 @@ ru:
   prize_flag: 'Добавьте награды Вашего питомца.'
   mothers_photo: 'Фото мамы'
   fathers_photo: 'Фото папы'
+  your_photo: 'Ваше фото'
   description: 'Описаниие'
   publish: 'ОПУБЛИКОВАТЬ'
   contact: 'Связаться'
@@ -88,6 +99,8 @@ ru:
     rules: 'Правила'
     team: 'Команда'
     contacts: 'Контакты'
+    messages:
+      success_upsert: "Страница успешно сохранена."
   admin:
     static_pages:
       title: 'Статические Страницы'
@@ -99,14 +112,31 @@ ru:
             team: "Редактирование страницы 'Команда'"
             contacts: "Редактирование страницы 'Контакты'"
   entities:
+    owner: 'Владелец'
+    organizations: 'Организации'
     name: 'Имя'
+    body: 'Содержание'
     actions: 'Действия'
     title: 'Заголовок'
     on_moderation: 'На модерации'
+    created_at: 'Дата создания'
+    reject_reason_message: 'Укажите причину отклонения'
+    preview_image: 'Картинка.'
+    actions: 'Действия'
+  validations:
+    cant_be_blank: "Не может быть пустым."
+    is_invalid: 'Неправильный формат'
+    has_already_been_taken: 'Уже используется'
   actions:
+    buy: 'Купить'
     update: 'Обновить'
     create: 'Сохранить'
     approve: 'Одобрить'
     reject: 'Отклонить'
     cancel: 'Отмена'
     confirm: 'Подтвердить'
+    you_must_enter_before: 'Вы должны сначала войти.'
+  sessions:
+    success_login: "Регистрация прошла успешно. Можете войти."
+    logout: 'Выход'
+    signup: 'Регистрация'

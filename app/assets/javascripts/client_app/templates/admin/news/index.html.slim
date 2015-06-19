@@ -11,12 +11,12 @@ div
       tr
         th
         th
-          | Title
+          | {{ I18n.t('entities.title') }}
         /th
         /  | Body
         th
         th
-          | Created At
+          | {{ I18n.t('entities.created_at') }}
         th
     tbody
       tr ng-repeat="article in news"

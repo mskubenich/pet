@@ -192,7 +192,7 @@
                                 $scope.processing = false;
                                 ngDialog.open({
                                     className: 'ngdialog-theme-default',
-                                    template: "Announcement successfully saved.",
+                                    template: I18n.t('announcements.message.success_upsert'),
                                     plain: true
                                 });
                             })

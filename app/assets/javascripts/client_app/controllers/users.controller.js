@@ -24,7 +24,7 @@
                         $state.go('home');
                         ngDialog.open({
                             className: 'ngdialog-theme-default',
-                            template: "Регистрация прошла успешно. Можете войти.",
+                            template: I18n.t('sessions.success_login'),
                             plain: true
                         });
                     })

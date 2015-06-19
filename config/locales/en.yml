@@ -26,6 +26,7 @@ en:
     pets: 'pets'
   login: 'Login'
   menu:
+    users: 'Users'
     news: 'News'
     news_categories: 'News Categories'
     sale: 'Sale'
@@ -39,11 +40,20 @@ en:
     ago: 'ago'
     at: 'at'
   users:
+    email: 'Email'
+    login: 'Login'
+    phone: 'Phone'
     created_by: 'added by'
     messages:
       success_upsert: "User successfully saved."
+      ban_confirm: "Are you sure you want to ban user ?"
+      remove_confirm: "Are you sure you want to remove user ?"
+  announcements:
+    messages:
+      success_upsert: "Announcement successfully saved."
   category:
     new: 'New Category'
+    edit: 'Edit Category'
     messages:
       success_upsert: "Category successfully saved."
   news:
@@ -81,6 +91,7 @@ en:
   prize_flag: 'Add reward your pet.'
   mothers_photo: 'Mothers photo'
   fathers_photo: 'Fathers photo'
+  your_photo: 'Your photo'
   description: 'Description'
   publish: 'PUBLISH'
   contact: 'Contact'
@@ -93,6 +104,8 @@ en:
     rules: 'Rules'
     team: 'Team'
     contacts: 'Contacts'
+    messages:
+      success_upsert: "Page successfully saved."
   admin:
     static_pages:
       title: 'Static Pages'
@@ -104,14 +117,31 @@ en:
             team: 'Edit Team Page'
             contacts: 'Edit Contacts Page'
   entities:
+    owner: 'Owner'
+    organizations: 'Organizations'
     name: 'Name'
+    body: 'Body'
     title: 'Title'
     actions: 'Actions'
     on_moderation: 'On moderation'
+    created_at: 'Created At'
+    reject_reason_message: 'Reject reason message'
+    preview_image: 'Preview image.'
+    actions: 'Actions'
+  validations:
+    cant_be_blank: "Can't be blank"
+    is_invalid: 'Is invalid'
+    has_already_been_taken: 'Has already been taken'
   actions:
+    buy: 'Buy'
     update: 'Update'
     create: 'Create'
     approve: 'Approve'
     reject: 'Reject'
     cancel: 'Cancel'
     confirm: 'Confirm'
+    you_must_enter_before: 'You should enter before.'
+  sessions:
+    success_login: "Registration successful. You can enter."
+    logout: 'Exit'
+    signup: 'Registration'

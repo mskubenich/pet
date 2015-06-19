@@ -10,9 +10,9 @@ div
     thead
       tr
         th
-          | Title
+          | {{ I18n.t('entities.title') }}
         th
-          | Actions
+          | {{ I18n.t('entities.actions') }}
     tbody
       tr ng-repeat="category in categories"
         td

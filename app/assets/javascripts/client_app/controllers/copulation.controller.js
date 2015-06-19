@@ -176,7 +176,7 @@
                         }).error(function (data) {
                             ngDialog.open({
                                 className: 'ngdialog-theme-default',
-                                template: "Вы должны войти чтобы увидеть номер владельца.",
+                                template: I18n.t('actions.you_must_enter_before'),
                                 plain: true
                             });
                     });

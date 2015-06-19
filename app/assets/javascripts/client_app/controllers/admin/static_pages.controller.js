@@ -53,7 +53,7 @@
                             $scope.processing = false;
                             ngDialog.open({
                                 className: 'ngdialog-theme-default',
-                                template: "Page successfully updated.",
+                                template: I18n.t('pages.messages.success_upsert'),
                                 plain: true
                             });
                         })

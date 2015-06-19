@@ -3,22 +3,22 @@ form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=t
   .form-group
     input.form-control type="text" placeholder="Имя" required=true class="{{ userForm.first_name.$invalid && submited ? 'validation-error' : ''}}" name="first_name" ng-model="user.first_name"
     .error ng-show="userForm.first_name.$invalid && submited"
-      | can't be blank
+      | {{ I18n.t('validations.cant_be_blank')}}
 
   .form-group
     input.form-control type="text" placeholder="Фамилия" required=true class="{{ userForm.last_name.$invalid && submited ? 'validation-error' : ''}}" name="last_name" ng-model="user.last_name"
     .error ng-show="userForm.last_name.$invalid && submited"
-      | can't be blank
+      | {{ I18n.t('validations.cant_be_blank')}}
 
   .form-group
     input.form-control type="text" placeholder="Адрес электронной почты" emailvalidate='' required=true ng-model="user.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email" except="user.id"
 
     .error ng-show="userForm.email.$error.required && submited"
-      | can't be blank
+      | {{ I18n.t('validations.cant_be_blank')}}
     .error ng-show="userForm.email.$error.emailAvailable"
-      | has already been taken
+      | {{ I18n.t('validations.has_already_been_taken')}}
     .error ng-show="userForm.email.$error.emailValid && submited"
-      | is invalid
+      | {{ I18n.t('validations.is_invalid')}}
 
   .form-group
     input.form-control type="text" placeholder="Контактный телефон" name="phone" ng-model="user.phone"
@@ -26,7 +26,7 @@ form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=t
   .form-group
     input.form-control type="text" placeholder="Ваш логин" required=true class="{{ userForm.login.$invalid && submited ? 'validation-error' : ''}}" name="login" ng-model="user.login"
     .error ng-show="userForm.login.$invalid && submited"
-      | can't be blank
+      | {{ I18n.t('validations.cant_be_blank')}}
 
   br
   .form-group
@@ -55,7 +55,7 @@ form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=t
     br
     br
     span.gray
-      | Поставте отметку, если Вы представляете одну из организаций.
+      | {{ I18n.t('organization_flag')}}
 
   .form-group
     table.vertical-align-table
@@ -70,7 +70,7 @@ form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=t
                     i.fa.fa-plus-circle
         td
           span.gray
-            | Ваше фото.
+            | {{ I18n.t('your_photo')}}.
 
   .text-center
     input.yellow-btn type="submit" value="{{ I18n.t('actions.update') }}"

@@ -6,7 +6,8 @@ div
 
 form ng-submit="upsertCategory()" name="categoryForm" novalidate=true
   .form-group
-    label Title
+    label
+      | {{ I18n.t('entities.title') }}
     div role="tabpanel"
       ul.nav.nav-tabs role="tablist"
         li role="presentation" class="active"
@@ -22,7 +23,8 @@ form ng-submit="upsertCategory()" name="categoryForm" novalidate=true
           input.form-control name="title_ru" ng-model="category.title_en" required=true
     br
     .error-container ng-show="submited && (categoryForm.title_ru.$invalid || categoryForm.title_en.$invalid)"
-      small.error Can't be blank
+      small.error
+        | {{ I18n.t('validations.cant_be_blank') }}
 
   div style="text-align: center"
     button class="btn btn--primary btn--sm" ng-disabled="processing" type="submit"

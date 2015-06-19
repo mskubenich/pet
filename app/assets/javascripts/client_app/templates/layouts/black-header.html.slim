@@ -63,7 +63,7 @@
           br
           br
           a.yellow-btn ng-click="logout()"
-            | Выход
+            | {{ I18n.t('sessions.logout') }}
         div ng-hide="current_user"
           br
           a.yellow-btn href="#login"
@@ -74,6 +74,6 @@
           | &nbsp;
           | &nbsp;
           a.white-dashed-link href="#registration"
-            | Регистрация
+            | {{ I18n.t('sessions.signup') }}
           br
           br

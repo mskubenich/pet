@@ -11,13 +11,13 @@
                 fd.append('copulation[scorp]', copulation.scorp);
                 fd.append('copulation[rkf]', copulation.rkf);
                 fd.append('copulation[description]', copulation.description);
-                fd.append('copulation[price]', copulation.price);;
+                fd.append('copulation[price]', copulation.price);
                 var i = 0;
                 while(i < removed_attachments_previews.length){
                     fd.append('copulation[removed_photos][]', removed_attachments_previews[i]);
                     i++
                 }
-                var i = 0;
+                i = 0;
                 while(i < attachments.length){
                     if(attachments[i] != 'null'){
                         fd.append('copulation[photos][]', attachments[i]);

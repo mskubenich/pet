@@ -6,17 +6,17 @@ div
       tr
         th
         th
-          | Email
+          | {{ I18n.t('users.email') }}
         th
-          | Login
+          | {{ I18n.t('users.login') }}
         th
-          | Phone
+          | {{ I18n.t('users.phone') }}
         th
-          | Organizations
+          | {{ I18n.t('entities.organizations') }}
         th
-          | Created At
+          | {{ I18n.t('users.login') }}
         th
-          | Actions
+          | {{ I18n.t('entities.actions') }}
     tbody
       tr ng-repeat="user in users"
         td
