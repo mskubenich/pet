@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce',
-            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce) {
+        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce', 'Lightbox',
+            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce, Lightbox) {
             $scope.I18n = I18n;
             $scope._ = _;
 
@@ -85,13 +85,14 @@
             }
             if($state.current.name == 'show_sale'){
 
-                setTimeout(function(){
-                    $scope.$watch('filters', function(){
-                        $state.go('sale');
-                    });
-                }, 100);
+                //setTimeout(function(){
+                //    $scope.$watch('filters', function(){
+                //        $state.go('sale');
+                //    });
+                //}, 100);
 
                 $scope.sale = {};
+                $scope.images = [];
 
                 $scope.rate = 4;
                 $scope.max = 5;
@@ -111,9 +112,53 @@
                 ];
 
                 sales.show($stateParams.id).success(function (data) {
-                   $scope.sale = data.sale;
-                   $scope.phone = $scope.sale.owner_phone_hashed;
-                   $scope.preview_image = $scope.sale.preview_images[0];
+                    $scope.sale = data.sale;
+                    $scope.phone = $scope.sale.owner_phone_hashed;
+                    $scope.preview_image = $scope.sale.preview_images[0];
+                    var i = 0;
+                    for(i = 0; i < $scope.sale.preview_images.length; i++){
+                        $scope.images.push({
+                            'url': $scope.sale.preview_images[i].url,
+                            'thumbUrl': $scope.sale.preview_images[i].url,
+                            'caption': ''
+                        });
+                    }
+                    if($scope.sale.prize_image_url){
+                        $scope.prize_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.sale.prize_image_url,
+                            'thumbUrl': $scope.sale.prize_image_url,
+                            'caption': I18n.t('prize')
+                        });
+                        i++;
+                    }
+                    if($scope.sale.bloodline_image_url){
+                        $scope.bloodline_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.sale.bloodline_image_url,
+                            'thumbUrl': $scope.sale.bloodline_image_url,
+                            'caption': I18n.t('bloodline')
+                        });
+                        i++;
+                    }
+                    if($scope.sale.mother_image_url){
+                        $scope.mothers_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.sale.mother_image_url,
+                            'thumbUrl': $scope.sale.mother_image_url,
+                            'caption': I18n.t('mothers_photo')
+                        });
+                        i++;
+                    }
+                    if($scope.sale.father_image_url){
+                        $scope.fathers_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.sale.father_image_url,
+                            'thumbUrl': $scope.sale.father_image_url,
+                            'caption': I18n.t('fathers_photo')
+                        });
+                        i++;
+                    }
                 }).error(function (data) {
 
                 });
@@ -132,7 +177,12 @@
                             plain: true
                         });
                     });
-                }
+                };
+
+                $scope.openLightboxModal = function (index) {
+                    console.log(index);
+                    Lightbox.openModal($scope.images, index);
+                };
 
             }
             if($state.current.name == 'new_sale'){

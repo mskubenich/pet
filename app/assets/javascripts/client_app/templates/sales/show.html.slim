@@ -97,13 +97,13 @@
     .alert.alert-danger ng-show="sale.reject_reason"
       | {{ sale.reject_reason }}
     .col-md-3.col-sm-3
-      img.copulation-preview-image ng-src="{{ preview_image.url }}"
+      img.copulation-preview-image ng-src="{{ preview_image.url }}"  ng-click="openLightboxModal(0)"
       br
       br
       .row
         .col-xs-6.col-md-4 ng-repeat="image in sale.preview_images"
           a class="thumbnail"
-            img ng-src="{{ image.url }}" ng-click="updatePreview(image)"
+            img ng-src="{{ image.url }}" ng-click="openLightboxModal($index)"
     .col-md-9.col-sm-9
       .row
         .col-md-8.col-sm-8
@@ -183,14 +183,14 @@
               | Документы:
           .row
             .col-xs-6.col-md-3 ng-show="sale.prize_image_url"
-              a href="#" class="thumbnail"
-                img ng-src="{{ sale.prize_image_url }}" alt="Призы"
+              a class="thumbnail" ng-click="openLightboxModal(prize_image_i)"
+                img ng-src="{{ sale.prize_image_url }}"
             .col-xs-6.col-md-3 ng-show="sale.bloodline_image_url"
-              a href="#" class="thumbnail"
-                img ng-src="{{ sale.bloodline_image_url }}" alt="Родословная"
-            .col-xs-6.col-md-3 ng-show="sale.mothers_image_url"
-              a href="#" class="thumbnail"
-                img ng-src="{{ sale.mothers_image_url }}" alt="Фото мамы"
-            .col-xs-6.col-md-3 ng-show="sale.fathers_image_url"
-              a href="#" class="thumbnail"
-                img ng-src="{{ sale.fathers_image_url }}" alt="Фото папы"
+              a class="thumbnail" ng-click="openLightboxModal(bloodline_image_i)"
+                img ng-src="{{ sale.bloodline_image_url }}"
+            .col-xs-6.col-md-3 ng-show="sale.mother_image_url"
+              a class="thumbnail" ng-click="openLightboxModal(mothers_image_i)"
+                img ng-src="{{ sale.mother_image_url }}"
+            .col-xs-6.col-md-3 ng-show="sale.father_image_url"
+              a class="thumbnail" ng-click="openLightboxModal(fathers_image_i)"
+                img ng-src="{{ sale.father_image_url }}"

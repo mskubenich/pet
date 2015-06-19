@@ -8,6 +8,7 @@
 //= require slick/slick-theme.css
 //= require selectize
 //= require selectize.default
+//= require angular-bootstrap-lightbox
 //= require_tree .
 
 [ng-bind-html]{
@@ -219,6 +220,7 @@ footer{
   height: 16px;
   border: 1px solid black;
   cursor: pointer;
+  display: inline-block;
   border-radius: 50px;
   input[type=checkbox], input[type=radio]{
     display: none;
