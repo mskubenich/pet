@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     params.permit!
     user = User.find_by(email: params[:session][:login].to_s.downcase)
     user = User.find_by(login: params[:session][:login]) unless user
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:session][:password]) && user.banned != true
       sign_in user
       render json: {ok: true}
     else
