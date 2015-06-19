@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce',
-            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce) {
+        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox) {
 
             $scope.getHtml = function(html){
                 return $sce.trustAsHtml(html);
@@ -88,13 +88,14 @@
             }
             if($state.current.name == 'show_copulation'){
 
-                setTimeout(function(){
-                    $scope.$watch('filters', function(){
-                        $state.go('copulation');
-                    });
-                }, 100);
+                //setTimeout(function(){
+                //    $scope.$watch('filters', function(){
+                //        $state.go('copulation');
+                //    });
+                //}, 100);
 
                 $scope.copulation = {};
+                $scope.images = [];
 
                 $scope.rate = 4;
                 $scope.max = 5;
@@ -114,9 +115,53 @@
                 ];
 
                 copulations.show($stateParams.id).success(function (data) {
-                   $scope.copulation = data.copulation;
-                   $scope.phone = $scope.copulation.owner_phone_hashed;
-                   $scope.preview_image = $scope.copulation.preview_images[0];
+                    $scope.copulation = data.copulation;
+                    $scope.phone = $scope.copulation.owner_phone_hashed;
+                    $scope.preview_image = $scope.copulation.preview_images[0];
+                    var i = 0;
+                    for(i = 0; i < $scope.copulation.preview_images.length; i++){
+                        $scope.images.push({
+                            'url': $scope.copulation.preview_images[i].url,
+                            'thumbUrl': $scope.copulation.preview_images[i].url,
+                            'caption': ''
+                        });
+                    }
+                    if($scope.copulation.prize_image_url){
+                        $scope.prize_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.copulation.prize_image_url,
+                            'thumbUrl': $scope.copulation.prize_image_url,
+                            'caption': I18n.t('prize')
+                        });
+                        i++;
+                    }
+                    if($scope.copulation.bloodline_image_url){
+                        $scope.bloodline_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.copulation.bloodline_image_url,
+                            'thumbUrl': $scope.copulation.bloodline_image_url,
+                            'caption': I18n.t('bloodline')
+                        });
+                        i++;
+                    }
+                    if($scope.copulation.mother_image_url){
+                        $scope.mothers_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.copulation.mother_image_url,
+                            'thumbUrl': $scope.copulation.mother_image_url,
+                            'caption': I18n.t('mothers_photo')
+                        });
+                        i++;
+                    }
+                    if($scope.copulation.father_image_url){
+                        $scope.fathers_image_i = i;
+                        $scope.images.push({
+                            'url': $scope.copulation.father_image_url,
+                            'thumbUrl': $scope.copulation.father_image_url,
+                            'caption': I18n.t('fathers_photo')
+                        });
+                        i++;
+                    }
                 }).error(function (data) {
 
                 });
@@ -135,7 +180,11 @@
                                 plain: true
                             });
                     });
-            }
+                };
+
+                $scope.openLightboxModal = function (index) {
+                    Lightbox.openModal($scope.images, index);
+                };
             }
             if($state.current.name == 'new_copulation'){
 
