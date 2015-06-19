@@ -8,6 +8,12 @@
             remove: function(id){
                 return $http.delete('admin/users/' + id + '.json');
             },
+            ban: function(id){
+                return $http.post('admin/users/' + id + '/ban.json');
+            },
+            unban: function(id){
+                return $http.post('admin/users/' + id + '/unban.json');
+            },
             show: function(id){
                 return $http.get('admin/users/' + id + '.json');
             },
@@ -22,7 +28,7 @@
                 fd.append('user[scorp]', user.scorp);
 
                 if(avatar){
-                    fd.append('user[avatar]', avatar);                      
+                    fd.append('user[avatar]', avatar);
                 }
 
                 return $http.put('/admin/users/' + user.id, fd, {

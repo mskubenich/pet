@@ -39,3 +39,7 @@ div
             .i.fa.fa-pencil
           a
             .i.fa.fa-close ng-click="$parent.removeUser(user.id)"
+          a ng-hide="user.banned"
+            .i.fa.fa-lock ng-click="$parent.banUser(user)"
+          a ng-show="user.banned"
+            .i.fa.fa-unlock ng-click="$parent.unbanUser(user)"

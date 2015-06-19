@@ -24,6 +24,16 @@ class Admin::UsersController < AdminController
     end
   end
 
+  def ban
+    @user.update_attribute :banned, true
+    render json: {ok: true}
+  end
+
+  def unban
+    @user.update_attribute :banned, false
+    render json: {ok: true}
+  end
+
   private
 
   def user_params

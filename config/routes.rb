@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 
     namespace :admin do
       get '/', to: 'pages#index'
-      resources :users, only: [:index, :destroy, :update, :show]
+      resources :users, only: [:index, :destroy, :update, :show] do
+        member do
+          post :ban
+          post :unban
+        end
+      end
       resources :news, only: [:index, :create, :update, :destroy, :show]
       get 'static_pages/:name', to: 'static_pages#show', constraints: { name: /#{ StaticPage::NAMES.join('|')}/ }
       put 'static_pages/:name', to: 'static_pages#update', constraints: { name: /#{ StaticPage::NAMES.join('|')}/ }

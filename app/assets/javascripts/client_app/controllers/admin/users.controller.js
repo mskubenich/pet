@@ -52,6 +52,29 @@
                             };
                         }]
                     });
+                };
+
+                $scope.banUser = function(user){
+                    var scope = $scope;
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: 'client_app/templates/admin/users/confirm_ban.html',
+                        controller: ['$scope', function ($scope) {
+                            $scope.I18n = I18n;
+                            $scope.ban = function () {
+                                users.ban(user.id).success(function(){
+                                    user.banned = true;
+                                    $scope.closeThisDialog();
+                                });
+                            };
+                        }]
+                    });
+                };
+
+                $scope.unbanUser = function(user){
+                    users.unban(user.id).success(function(){
+                        user.banned = false;
+                    });
                 }
             }
 
