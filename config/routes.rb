@@ -71,12 +71,14 @@ Rails.application.routes.draw do
         get :show_phone
       end
     end
+
     resources :sales, only: [:index, :create, :update, :show] do
       member do
         get :show_phone
       end
     end
 
+    resources :comments, only: [:index]
   end
 
   get '/:locale' => 'pages#index'

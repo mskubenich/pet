@@ -3,7 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('NewsController', ['$scope', '$state', 'ngDialog', 'NewsFactory', '$sce', '$stateParams', function ($scope, $state, ngDialog, news, $sce, $stateParams) {
+        .controller('NewsController', ['$scope', '$state', 'ngDialog', 'NewsFactory', '$sce', '$stateParams', 'CommentsFactory',
+            function ($scope, $state, ngDialog, news, $sce, $stateParams, comments) {
 
             $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
 
@@ -12,8 +13,43 @@
 
                 news.show($stateParams.id).success(function(data){
                     $scope.news = data.news;
-                })
+                });
 
+                $scope.comments_page = 1;
+                $scope.retrieveComments = function(){
+                    comments.all({page: $scope.comments_page, entity_type: 'News', entity_id: $stateParams.id}).success(function (data) {
+                        $scope.comments = data.comments;
+                        $scope.count = data.count;
+
+                        var pagination = $('#comments-pagination');
+                        pagination.empty();
+                        pagination.removeData('twbs-pagination');
+                        pagination.unbind('page');
+
+                        pagination.twbsPagination({
+                            totalPages: Math.ceil($scope.count / 10),
+                            startPage: $scope.comments_page,
+                            visiblePages: 9,
+                            onPageClick: function (event, page) {
+                                $scope.comments_page = page;
+                                $scope.retrieveComments();
+                            }
+                        });
+                    }).error(function (data) {
+
+                    });
+                };
+
+                $scope.retrieveComments();
+
+                $scope.rate = 4;
+                $scope.max = 5;
+                $scope.isReadonly = true;
+
+                $scope.hoveringOver = function(value) {
+                    $scope.overStar = value;
+                    $scope.percent = 100 * (value / $scope.max);
+                };
             }
 
             if($state.current.name == 'news'){

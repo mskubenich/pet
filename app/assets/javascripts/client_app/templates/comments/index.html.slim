@@ -1,0 +1,25 @@
+h1.h1-sans-regular
+  | ОТЗЫВЫ
+br
+#comments-pagination ng-hide="count < 11"
+table.table.comments-table ng-repeat="comment in comments"
+  tr
+    td
+      img ng-src="{{ comment.author_avatar }}"
+    td
+      .angle
+    td
+      table.comment-content
+        tr
+          td.pt-sans-text
+            b
+              | {{ comment.author_name }}
+            span.rating
+              rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+          td.pt-sans-text
+            | {{ comment.created_at }} &nbsp;
+            i.fa.fa-clock-o
+        tr
+          td colspan="2"
+            br
+            | {{ comment.text }}
