@@ -40,17 +40,17 @@
               img ng-src="{{ article.preview_image_url }}"
             td.news-text ng-bind-html="getHtml(article.body)"
           tr
-            td.news-meta
+            td.news-meta style="padding-left: 30px;"
               a
                 i.fa.fa-heart
                 | 255
               a
                 i.fa.fa-repeat
-                | 15
+                | &nbsp;{{ article.comments_count }}
               a
                 i.fa.fa-eye
                 | 125
-              a.dashed_text
+              a.dashed_text href="#news/{{article.id}}"
                 | Оставить отзыв
     .col-md-3
       h3.serif-font

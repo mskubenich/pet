@@ -9,4 +9,5 @@ json.news do
   json.author            @news.author.login
   json.author_avatar_url @news.author.avatar.url(:thumb)
   json.categories        @news.categories.map{|c| {id: c.id, title: c.send("title_#{ I18n.locale }")}}
+  json.comments_count    @news.comments.count
 end

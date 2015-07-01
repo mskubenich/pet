@@ -21,6 +21,7 @@ class Ability
           sale.new_record? || sale.owner.id == user.id
         end
       end
+      can :create, Comment
     else
       can :manage, User do |entity|
         entity.new_record?
@@ -29,5 +30,6 @@ class Ability
     can :read, News
     can :read, Copulation
     can :read, Sale
+    can :read, Comment
   end
 end
