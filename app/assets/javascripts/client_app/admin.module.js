@@ -98,6 +98,21 @@
                 url: '/categories/:id/edit',
                 templateUrl: 'client_app/templates/admin/news_categories/new.html',
                 controller: 'AdminNewsCategoriesController'
+            })
+            .state('good_hands',{
+                url: '/good_hands',
+                templateUrl: 'client_app/templates/admin/good_hands/index.html',
+                controller: 'AdminGoodHandsController'
+            })
+            .state('new_hand',{
+                url: '/good_hands/new',
+                templateUrl: 'client_app/templates/admin/good_hands/new.html',
+                controller: 'AdminGoodHandsController'
+            })
+            .state('edit_hand',{
+                url: '/good_hands/:id/edit',
+                templateUrl: 'client_app/templates/admin/good_hands/new.html',
+                controller: 'AdminGoodHandsController'
             });
     }]);
 

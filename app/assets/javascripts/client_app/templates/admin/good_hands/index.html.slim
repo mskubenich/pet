@@ -1,0 +1,113 @@
+div
+  h2
+    | {{ I18n.t('menu.in_good_hands') }}
+
+  a.yellow-black-btn ui-sref="new_hand"
+    | {{ I18n.t('good_hands.new') }}
+  br
+  br
+
+  div style="background-color: lightgray"
+    .container
+      table.table.vertical-align-table.sale-filters-table
+        tr
+          td style="width: 60px"
+            label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
+          td style="width: 60px"
+            label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
+          td style="width: 200px"
+            .btn-group dropdown=true style="width: 100%"
+              button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+                | {{ I18n.t('sale.filters.choose_country') }}
+                span.caret
+              ul.dropdown-menu role="menu"
+                li
+                  a test
+                  a test
+                  a test
+                  a test
+          td
+            .btn-group dropdown=true style="width: 100%"
+              button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"
+                span ng-hide="filters.breed"
+                  | {{ I18n.t('sale.filters.choose_breed') }}
+                span ng-show="filters.breed"
+                  | {{ filters.breed }}
+                span.caret
+              ul.dropdown-menu role="menu"
+                li
+                  a ng-repeat="breed in breeds" ng-click="filters.breed = breed"
+                    | {{ breed }}
+        tr
+          td style="width: 60px"
+            i.fa.fa-mars style="font-size: 26px; color: {{ filters.sex == 'male' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'female' || filters.sex == 'all' ? 'male' : 'all'"
+          td style="width: 60px"
+            i.fa.fa-venus style="font-size: 26px; color: {{ filters.sex == 'female' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'male' || filters.sex == 'all' ? 'female' : 'all'"
+          td
+            .btn-group dropdown=true style="width: 100%"
+              button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
+                | {{ I18n.t('sale.filters.choose_city') }}
+                span.caret
+              ul.dropdown-menu role="menu"
+                li
+                  a test
+                  a test
+                  a test
+                  a test
+          td
+            label
+              table.vertical-align-table
+                tr
+                  td
+                    span.rounded-one class="{{ checked3 ? 'checked' : ''}}"
+                      .rounded-two
+                      input.form-control type="checkbox" ng-click="checked3 = !checked3" ng-model="filters.scorp"
+                  td
+                    span.black-budget
+                      | СКОРП
+            label
+              table.vertical-align-table
+                tr
+                  td
+                    span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                      .rounded-two
+                      input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="filters.rkf"
+                  td
+                    span.black-budget
+                      | РКФ
+
+  #announcements-pagination ng-hide="count < 11"
+  table.table.table-striped.table-responsive
+    thead
+      tr
+        th style="width: 150px"
+        th
+        th
+          | {{ I18n.t('entities.title') }}
+        th
+        th
+          | {{ I18n.t('entities.created_at') }}
+        th
+    tbody
+      tr ng-repeat="announcement in announcements"
+        td style="width: 150px"
+          span.black-budget ng-hide="announcement.approved"
+            | {{ I18n.t('entities.on_moderation') }}
+        td
+          img ng-src="{{announcement.preview_image_url}}" style="height: 30px"
+        td
+          | {{ announcement.name }}
+        td
+          span.black-budget ng-show="announcement.scorp"
+            | СКОРП
+          | &nbsp;
+          span.black-budget ng-show="announcement.rkf"
+            | РКФ
+        td
+          | {{ announcement.created_at }}
+        td style="width: 50px"
+          a href="#good_hands/{{announcement.id}}/edit"
+            i.fa.fa-pencil
+          | &nbsp;
+          a ng-click="destroy(announcement.id)"
+            i.fa.fa-close

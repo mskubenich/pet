@@ -56,6 +56,11 @@ en:
     edit: 'Edit Category'
     messages:
       success_upsert: "Category successfully saved."
+  good_hands:
+    new: 'New Announcement'
+    edit: 'Edit Announcement'
+    messages:
+      success_upsert: "Announcement successfully saved."
   news:
     new: 'New News'
     edit: 'Edit News'

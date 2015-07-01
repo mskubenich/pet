@@ -27,6 +27,12 @@ Rails.application.routes.draw do
           post :reject
         end
       end
+      resources :good_hands, except: [:new, :edit] do
+        member do
+          post :approve
+          post :reject
+        end
+      end
       resources :categories, only: [:index, :create, :update, :destroy, :show]
     end
 
@@ -73,6 +79,12 @@ Rails.application.routes.draw do
     end
 
     resources :sales, only: [:index, :create, :update, :show] do
+      member do
+        get :show_phone
+      end
+    end
+
+    resources :good_hands, only: [:index, :create, :update, :show] do
       member do
         get :show_phone
       end

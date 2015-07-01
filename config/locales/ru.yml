@@ -24,6 +24,9 @@ ru:
         other: "меньше чем %{count} минут"
       x_minutes:
         one: "1 минуту"
+        two: "2 минуты"
+        three: "3 минуты"
+        four: "4 минуты"
         other: "%{count} минут"
       x_days:
         one: "1 день"
@@ -51,6 +54,11 @@ ru:
     edit: 'Редактировать Категорию'
     messages:
       success_upsert: "Категория удачно сохранена."
+  good_hands:
+    new: 'Новое Объявление'
+    edit: 'Редактировать Объявление'
+    messages:
+      success_upsert: "Объявление удачно сохранено."
   news:
     new: 'Добавить Новость'
     edit: 'Редактировать Новость'

@@ -1,0 +1,185 @@
+form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
+  h3 ng-show="$state.current.name == 'new_hand'"
+    | {{ I18n.t('good_hands.new' ) }}
+  h3 ng-show="$state.current.name == 'edit_hand'"
+    | {{ I18n.t('good_hands.edit' ) }}
+  .row
+    .col-md-3.col-sm-3
+      .form-group
+        label.family-select class="{{ announcement.family == 'cat' ? 'active' : '' }}"
+          = image_tag 'cat-icon.png', style: "margin-left: 8px; width: 36px;"
+          input type="radio" name="family" value="cat" ng-model="announcement.family" required=true
+        label.family-select class="{{ announcement.family == 'dog' ? 'active' : '' }}"
+          = image_tag 'dog-icon.png', style: "margin-left: 8px; width: 43px; margin-top:3px;"
+          input type="radio" name="family" value="dog" ng-model="announcement.family" required=true
+      .error ng-show="announcementForm.family.$invalid && submitted"
+        | {{ I18n.t('validations.cant_be_blank')}}
+    .col-md-6.col-sm-3
+      .form-group
+        input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.name') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="name" ng-model="announcement.name"
+        .error ng-show="announcementForm.name.$invalid && submitted"
+          | {{ I18n.t('validations.cant_be_blank')}}
+    .col-md-3.col-sm-3
+      .form-group
+        input.form-control type="number" placeholder="{{ I18n.t('copulation.dog.age') }}" required=true class="{{ announcementForm.age.$invalid && submited ? 'validation-error' : ''}}" name="age" ng-model="announcement.age"
+        .error ng-show="announcementForm.age.$invalid && submitted"
+          | {{ I18n.t('validations.cant_be_blank')}}
+  br
+  .form-group
+    select.form-control name="breed" ng-model="announcement.breed" required=true
+      option value='' disabled=true selected=true
+        | {{ I18n.t('copulation.dog.breed') }} ({{ I18n.t('choose_from_list')}})
+      option ng-repeat="breed in breeds" value="{{ breed }}"
+        | {{ breed }}
+    .error ng-show="announcementForm.breed.$invalid && submitted"
+      | {{ I18n.t('validations.cant_be_blank')}}
+  br
+  .form-group
+    .file-select ng-repeat="image in announcement.preview_images"
+      .file-remove ng-click="removeExistingAttachment(image.id, $event)"
+        i.fa.fa-close
+      label style="padding-right: 30px;"
+        .avatar-droppable style="background-image: url({{ image.url }})"
+          table
+            tr
+              td
+                i.fa.fa-plus-circle
+
+    .file-select ng-repeat="i in _.range(0, attachments.length + 1)" ng-hide="attachments[i] == 'null'"
+      .file-remove ng-click="removeAttachment(i, $event)" ng-show="attachments[{{ i }}]"
+        i.fa.fa-close
+      label style="padding-right: 30px;"
+        input type="file" style="display: none" file-model="attachments[{{ i }}]" onchange="previewAvatar2(this);"
+        .avatar-droppable id="preview-{{ i }}"
+          table
+            tr
+              td
+                i.fa.fa-plus-circle
+  br
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            span.rounded-one class="{{ announcement.scorp ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="announcement.scorp"
+          td
+            span.black-budget
+              | СКОРП
+    label
+      table.vertical-align-table
+        tr
+          td
+            span.rounded-one class="{{ announcement.rkf ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="announcement.rkf"
+          td
+            span.black-budget
+              | РКФ
+    br
+    span.gray
+      | {{ I18n.t('organization_flag') }}
+
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            span.rounded-one class="{{ bloodline_checked ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-click="bloodline_checked = !bloodline_checked"
+          td
+            span.black-budget
+              | {{ I18n.t('bloodline') }}
+    label ng-show="bloodline_checked"
+      table.vertical-align-table
+        tr
+          td
+            span
+              i.fa.fa-plus-circle.add-file-icon
+          td
+            span.selected-file-text ng-hide="bloodline || !announcement.bloodline_file_name"
+              | {{ announcement.bloodline_file_name }} ({{ announcement.bloodline_file_size / 1000}}kb)
+            span.selected-file-text ng-show="bloodline"
+              | {{ bloodline.name }} ({{ bloodline.size / 1000}}kb)
+            input type="file" file-model="bloodline" style="display: none"
+    br
+    span.gray
+      | {{ I18n.t('bloodline_flag') }}
+
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            span.rounded-one class="{{ prize_checked ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-click="prize_checked = !prize_checked"
+          td
+            span.black-budget
+              | {{ I18n.t('prize') }}
+    label ng-show="prize_checked"
+      table.vertical-align-table
+        tr
+          td
+            span
+              i.fa.fa-plus-circle.add-file-icon
+          td
+            span.selected-file-text ng-hide="prize || !announcement.prize_file_name"
+              | {{ announcement.prize_file_name }} ({{ announcement.prize_file_size / 1000}}kb)
+            span.selected-file-text ng-show="prize"
+              | {{ prize.name }} ({{ prize.size / 1000}}kb)
+            input type="file" file-model="prize" style="display: none"
+          td
+            = image_tag 'badge.svg', style: "width: 35px;"
+    br
+    span.gray
+      | {{ I18n.t('prize_flag') }}
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            span
+              i.fa.fa-plus-circle.add-file-icon
+          td
+            span.selected-file-text
+              | {{ I18n.t('mothers_photo') }}
+          td
+            span.selected-file-text ng-hide="mothers_photo || !announcement.mother_file_name"
+              | {{ announcement.mother_file_name }} ({{ announcement.mother_file_size / 1000}}kb)
+            span.selected-file-text ng-show="mothers_photo"
+              | {{ mothers_photo.name }} ({{ mothers_photo.size / 1000}}kb)
+            input type="file" file-model="mothers_photo" style="display: none"
+    label
+      table.vertical-align-table
+        tr
+          td
+            span
+              i.fa.fa-plus-circle.add-file-icon
+          td
+            span.selected-file-text
+              | {{ I18n.t('fathers_photo') }}
+          td
+            span.selected-file-text ng-hide="fathers_photo || !announcement.father_file_name"
+              | {{ announcement.father_file_name }} ({{ announcement.father_file_size / 1000}}kb)
+            span.selected-file-text ng-show="fathers_photo"
+              | {{ fathers_photo.name }} ({{ fathers_photo.size / 1000}}kb)
+            input type="file" file-model="fathers_photo" style="display: none"
+
+  .form-group
+    textarea#redactor.form-control placeholder="{{ I18n.t('description') }}"
+
+  .text-center
+    table.table.vertical-align-table style="width: 100%"
+      tr
+        td
+          input.yellow-btn type="submit" value="{{ I18n.t('publish') }}"
+          i.fa.fa-spinner.fa-pulse ng-show="processing"
+        td ng-show="$state.current.name == 'edit_hand'"
+          a.btn.btn-success ng-show="announcement.approved == null || announcement.approved == false" ng-click="approve()"
+            | {{ I18n.t('actions.approve') }}
+          | &nbsp;
+          a.btn.btn-danger ng-show="announcement.approved == null || announcement.approved == true" ng-click="reject()"
+            | {{ I18n.t('actions.reject') }}
