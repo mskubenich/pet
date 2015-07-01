@@ -25,5 +25,6 @@ module Pet
 
     config.i18n.enforce_available_locales = true
     config.i18n.default_locale = :ru
+    config.autoload_paths += Dir[Rails.root.join('app', 'modules')]
   end
 end
