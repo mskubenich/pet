@@ -23,3 +23,14 @@ table.table.comments-table ng-repeat="comment in comments"
           td colspan="2"
             br
             | {{ comment.text }}
+
+.row
+  .col-md-9.col-sm-9.gray-block
+    form.registration-form novalidate=true
+      .form-group
+        textarea.form-control type="text" placeholder="{{ I18n.t('comments.messages.enter_your_comment') }}" style="max-width: 100%" ng-model="$parent.new_comment"
+  .col-md-3.col-sm-3
+    form
+      .form-group
+        a.yellow-btn ng-click="comment()"
+          | {{ I18n.t('publish') }}

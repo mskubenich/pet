@@ -78,7 +78,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :comments, only: [:index]
+    resources :comments, only: [:index, :create]
   end
 
   get '/:locale' => 'pages#index'

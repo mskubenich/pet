@@ -140,3 +140,6 @@ ru:
     success_login: "Регистрация прошла успешно. Можете войти."
     logout: 'Выход'
     signup: 'Регистрация'
+  comments:
+    messages:
+      enter_your_comment: 'Ваш комментарий'

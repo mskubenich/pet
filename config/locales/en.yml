@@ -145,3 +145,6 @@ en:
     success_login: "Registration successful. You can enter."
     logout: 'Exit'
     signup: 'Registration'
+  comments:
+    messages:
+      enter_your_comment: 'Your comment'

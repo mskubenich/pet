@@ -50,6 +50,16 @@
                     $scope.overStar = value;
                     $scope.percent = 100 * (value / $scope.max);
                 };
+
+                $scope.new_comment = '';
+                $scope.comment = function(){
+                    if($scope.new_comment.toString().trim() != ''){
+                        comments.create({text: $scope.new_comment, entity_id: $stateParams.id, entity_type: 'News'}).success(function(){
+                            $scope.new_comment = '';
+                            $scope.retrieveComments();
+                        })
+                    }
+                }
             }
 
             if($state.current.name == 'news'){
