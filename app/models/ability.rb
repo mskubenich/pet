@@ -32,5 +32,6 @@ class Ability
     can :read, Sale
     can :read, Comment
     can :read, GoodHand
+    can :read, Breed
   end
 end
