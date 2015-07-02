@@ -31,5 +31,6 @@ class Ability
     can :read, Copulation
     can :read, Sale
     can :read, Comment
+    can :read, GoodHand
   end
 end

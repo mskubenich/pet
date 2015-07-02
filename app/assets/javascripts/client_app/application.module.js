@@ -43,11 +43,6 @@
                 templateUrl: 'client_app/templates/shop/index.html',
                 controller: 'ShopController'
             })
-            .state('good-hands',{
-                url: '/good-hands',
-                templateUrl: 'client_app/templates/hands/index.html',
-                controller: 'HandsController'
-            })
             .state('experts',{
                 url: '/experts',
                 templateUrl: 'client_app/templates/experts/index.html',
@@ -112,6 +107,21 @@
                 url: '/sale/:id',
                 templateUrl: 'client_app/templates/sales/show.html',
                 controller: 'SalesController'
+            })
+            .state('good_hands',{
+                url: '/good-hands',
+                templateUrl: 'client_app/templates/good_hands/index.html',
+                controller: 'GoodHandsController'
+            })
+            .state('new_hand',{
+                url: '/good_hands/new',
+                templateUrl: 'client_app/templates/good_hands/new.html',
+                controller: 'GoodHandsController'
+            })
+            .state('show_hand',{
+                url: '/good_hands/:id',
+                templateUrl: 'client_app/templates/good_hands/show.html',
+                controller: 'GoodHandsController'
             });
     }]);
 

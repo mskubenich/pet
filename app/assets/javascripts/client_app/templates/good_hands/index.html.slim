@@ -1,0 +1,117 @@
+.wave
+.nav-menu
+  .container
+    table.table.vertical-align-table.sale-filters-table
+      tr
+        td style="width: 60px; text-align: center !important;"
+          label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
+        td style="width: 60px; text-align: center !important;"
+          label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
+        td style="width: 200px"
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+              | {{ I18n.t('sale.filters.choose_country') }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a test
+                a test
+                a test
+                a test
+        td style="width: 300px"
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+              span ng-show="filters.breed == ''"
+                | {{ I18n.t('sale.filters.choose_breed') }}
+              span ng-show="filters.breed != ''"
+                | {{ filters.breed }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a ng-repeat="breed in breeds" ng-click="filters.breed = breed"
+                  | {{ breed }}
+        td.text-right rowspan=2 style="text-align: left"
+        td.text-right rowspan=2 style="text-align: right"
+          a.yellow-black-btn ui-sref="new_hand" ng-show="current_user"
+            | {{ I18n.t('good_hands.new') }}
+      tr
+        td style="width: 60px; text-align: center !important;"
+          i.fa.fa-mars style="font-size: 26px; color: {{ filters.sex == 'male' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'female' || filters.sex == 'all' ? 'male' : 'all'"
+        td style="width: 60px; text-align: center !important;"
+          i.fa.fa-venus style="font-size: 26px; color: {{ filters.sex == 'female' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'male' || filters.sex == 'all' ? 'female' : 'all'"
+        td
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
+              | {{ I18n.t('sale.filters.choose_city') }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a test
+                a test
+                a test
+                a test
+        td
+          label
+            table.vertical-align-table
+              tr
+                td
+                  span.rounded-one class="{{ checked3 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked3 = !checked3" ng-model="filters.scorp"
+                td
+                  span.black-budget
+                    | СКОРП
+          label
+            table.vertical-align-table
+              tr
+                td
+                  span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="filters.rkf"
+                td
+                  span.black-budget
+                    | РКФ
+.container
+  #announcements-pagination ng-hide="count < 10"
+  .col-group
+    div ng-repeat="announcement in announcements"
+      table.sale-item
+        tr
+          td
+            .img style="background-image: url({{ announcement.preview_image_url }})"
+            .prize ng-show="announcement.has_prize"
+            | &nbsp;
+            | &nbsp;
+            span.black-budget ng-hide="announcement.approved"
+              | {{ I18n.t('entities.on_moderation') }}
+          td
+            .cell-div
+              b
+                a href="#good_hands/{{announcement.id}}" style="color: black"
+                  | {{ announcement.name }}
+              | &nbsp;
+              | &nbsp;
+              span.black-budget ng-show="announcement.scorp"
+                | СКОРП
+              | &nbsp;
+              | &nbsp;
+              span.black-budget ng-show="announcement.rkf"
+                | РКФ
+              br
+              div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
+                | ({{ announcement.breed }})
+              span ng-bind-html="getHtml(announcement.description)"
+        tr
+          td
+            .yellow-btn style="width: 100%; text-align: center"
+              | Новосибирск
+          td.stat-meta style="vertical-align: middle"
+            a
+              i.fa.fa-heart
+              | 255
+            a
+              i.fa.fa-repeat
+              | 15
+            a
+              i.fa.fa-eye
+              | 125

@@ -150,7 +150,7 @@
                     };
 
                     $scope.approve = function(){
-                        sales.approve($stateParams.id).success(function(){
+                        good_hands.approve($stateParams.id).success(function(){
                             $scope.announcement.approved = true;
                         });
                     };
@@ -160,11 +160,11 @@
                         var id = $stateParams.id;
                         ngDialog.open({
                             className: 'ngdialog-theme-default',
-                            template: 'client_app/templates/admin/sales/reject.html',
+                            template: 'client_app/templates/admin/good_hands/reject.html',
                             controller: ['$scope', function ($scope) {
                                 $scope.I18n = I18n;
                                 $scope.reject = function (reason) {
-                                    sales.reject(id, reason).success(function(){
+                                    good_hands.reject(id, reason).success(function(){
                                         scope.announcement.approved = false;
                                         $scope.closeThisDialog();
                                     });
