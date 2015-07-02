@@ -3,39 +3,44 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminShopCategoriesController', ['$sce', '$scope', '$state', 'ngDialog', 'ShopCategoriesFactory', '$stateParams', '$rootScope',
-            function ($sce, $scope, $state, ngDialog, categories, $stateParams, $rootScope) {
+        .controller('AdminShopSubcategoriesController', ['$sce', '$scope', '$state', 'ngDialog', 'ShopCategoriesFactory', 'ShopSubcategoriesFactory', '$stateParams', '$rootScope',
+            function ($sce, $scope, $state, ngDialog, categories, subcategories, $stateParams, $rootScope) {
             $rootScope.$state = $state;
 
 
-            if($state.current.name == 'create_shop_category' || $state.current.name == 'edit_shop_category'){
+            categories.show($stateParams.shop_category_id).success(function(data){
+                $scope.shop_category = data.category;
+            });
 
-                if($state.current.name == 'create_shop_category'){
-                    $scope.category = {};
+            if($state.current.name == 'create_shop_subcategory' || $state.current.name == 'edit_shop_subcategory'){
+
+                if($state.current.name == 'create_shop_subcategory'){
+                    $scope.subcategory = {};
                 }
 
-                if($state.current.name == 'edit_shop_category'){
-                    categories.show($stateParams.id)
+                if($state.current.name == 'edit_shop_subcategory'){
+
+                    subcategories.show($stateParams.shop_category_id, $stateParams.id)
                         .success(function(data){
-                            $scope.category = data.category;
+                            $scope.subcategory = data.subcategory;
                         })
                 }
 
                 $scope.submitted = false;
 
-                $scope.upsertCategory = function(){
+                $scope.upsertSubcategory = function(){
                     $scope.submited = true;
-                    if($scope.categoryForm.$invalid ){
+                    if($scope.subcategoryForm.$invalid ){
                         return false;
                     }
 
                     $scope.processing = true;
-                    categories.upsert($scope.category)
+                    subcategories.upsert({category_id: $scope.shop_category.id, subcategory: $scope.subcategory})
                         .success(function(){
                             $scope.processing = false;
                             ngDialog.open({
                                 className: 'ngdialog-theme-default',
-                                template: I18n.t('category.messages.success_upsert'),
+                                template: I18n.t('shop_subcategory.messages.success_upsert'),
                                 plain: true
                             });
                         })
@@ -48,22 +53,18 @@
                             });
                         })
                 };
-
-                $scope.goToSubcategories = function(){
-                    $state.go('shop_subcategories', {category_id: $stateParams.id})
-                }
             }
 
-            if($state.current.name == 'shop_categories'){
+            if($state.current.name == 'shop_subcategories'){
                 $scope.categories = [];
 
                 $scope.page = 1;
-                $scope.retrieveCategories = function(){
-                    categories.all({page: $scope.page}).success(function (data) {
-                        $scope.categories = data.categories;
+                $scope.retrieveSubcategories = function(){
+                    subcategories.all({shop_category_id: $stateParams.shop_category_id, page: $scope.page}).success(function (data) {
+                        $scope.subcategories = data.subcategories;
                         $scope.count = data.count;
 
-                        var pagination = $('#categories-pagination');
+                        var pagination = $('#subcategories-pagination');
                         pagination.empty();
                         pagination.removeData('twbs-pagination');
                         pagination.unbind('page');
@@ -83,12 +84,12 @@
                 };
 
                 $scope.destroy = function(id){
-                    categories.destroy(id).success(function(){
-                        $scope.retrieveCategories();
+                    subcategories.destroy($scope.shop_category.id, id).success(function(){
+                        $scope.retrieveSubcategories();
                     })
                 };
 
-                $scope.retrieveCategories();
+                $scope.retrieveSubcategories();
             }
         }])
 }());

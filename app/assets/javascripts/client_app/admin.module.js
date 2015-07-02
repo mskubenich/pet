@@ -143,6 +143,21 @@
                 url: '/shop_categories/:id/edit',
                 templateUrl: 'client_app/templates/admin/shop_categories/new.html',
                 controller: 'AdminShopCategoriesController'
+            })
+            .state('shop_subcategories',{
+                url: '/shop_categories/:shop_category_id/shop_subcategories',
+                templateUrl: 'client_app/templates/admin/shop_subcategories/index.html',
+                controller: 'AdminShopSubcategoriesController'
+            })
+            .state('create_shop_subcategory',{
+                url: '/shop_categories/:shop_category_id/shop_subcategories/new',
+                templateUrl: 'client_app/templates/admin/shop_subcategories/new.html',
+                controller: 'AdminShopSubcategoriesController'
+            })
+            .state('edit_shop_subcategory',{
+                url: '/shop_categories/:shop_category_id/shop_subcategories/:id/edit',
+                templateUrl: 'client_app/templates/admin/shop_subcategories/new.html',
+                controller: 'AdminShopSubcategoriesController'
             });
     }]);
 

@@ -38,6 +38,7 @@ en:
     exhibitions: 'Exhibitions'
     breeds: 'Breeds'
     shop_categories: 'Product Categories'
+    shop_subcategories: 'Product Subcategories'
   datetime:
     ago: 'ago'
     at: 'at'
@@ -68,11 +69,17 @@ en:
     edit: 'Edit Announcement'
     messages:
       success_upsert: "Announcement successfully saved."
-  good_hands:
+  shop_category:
     new: 'New Shop Category'
     edit: 'Edit Shop Category'
     messages:
       success_upsert: "Shop Category successfully saved."
+  shop_subcategory:
+    new: 'New Shop Subcategory'
+    edit: 'Edit Shop Subcategory'
+    back_to_categories: 'Back To Categories'
+    messages:
+      success_upsert: "Shop Subcategory successfully saved."
   news:
     new: 'New News'
     edit: 'Edit News'

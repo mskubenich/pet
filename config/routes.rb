@@ -34,7 +34,9 @@ Rails.application.routes.draw do
         end
       end
       resources :categories, only: [:index, :create, :update, :destroy, :show]
-      resources :shop_categories, only: [:index, :create, :update, :destroy, :show]
+      resources :shop_categories, only: [:index, :create, :update, :destroy, :show] do
+        resources :shop_subcategories, only: [:index, :create, :update, :destroy, :show]
+      end
       resources :breeds, only: [:index, :create, :update, :destroy, :show]
     end
 

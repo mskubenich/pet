@@ -17,6 +17,7 @@ ru:
     exhibitions: 'Выставки'
     breeds: 'Породы'
     shop_categories: 'Категории товара'
+    shop_subcategories: 'Субкатегории товара'
   datetime:
     ago: 'назад'
     at: 'в'
@@ -71,6 +72,12 @@ ru:
     edit: 'Редактировать категорию товара'
     messages:
       success_upsert: "Категория товара удачно сохранена."
+  shop_subcategory:
+    new: 'Новая субкатегория товара'
+    edit: 'Редактировать субкатегорию товара'
+    back_to_categories: 'Назад к категориям'
+    messages:
+      success_upsert: "Субкатегория товара удачно сохранена."
   news:
     new: 'Добавить Новость'
     edit: 'Редактировать Новость'
