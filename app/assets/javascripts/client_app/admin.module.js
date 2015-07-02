@@ -128,6 +128,21 @@
                 url: '/good_hands/:id/edit',
                 templateUrl: 'client_app/templates/admin/good_hands/new.html',
                 controller: 'AdminGoodHandsController'
+            })
+            .state('shop_categories',{
+                url: '/shop_categories',
+                templateUrl: 'client_app/templates/admin/shop_categories/index.html',
+                controller: 'AdminShopCategoriesController'
+            })
+            .state('create_shop_category',{
+                url: '/create_shop_category',
+                templateUrl: 'client_app/templates/admin/shop_categories/new.html',
+                controller: 'AdminShopCategoriesController'
+            })
+            .state('edit_shop_category',{
+                url: '/shop_categories/:id/edit',
+                templateUrl: 'client_app/templates/admin/shop_categories/new.html',
+                controller: 'AdminShopCategoriesController'
             });
     }]);
 

@@ -16,6 +16,7 @@ ru:
     experts: 'Специалисты'
     exhibitions: 'Выставки'
     breeds: 'Породы'
+    shop_categories: 'Категории товара'
   datetime:
     ago: 'назад'
     at: 'в'
@@ -65,6 +66,11 @@ ru:
     edit: 'Редактировать Объявление'
     messages:
       success_upsert: "Объявление удачно сохранено."
+  shop_category:
+    new: 'Новая категория товара'
+    edit: 'Редактировать категорию товара'
+    messages:
+      success_upsert: "Категория товара удачно сохранена."
   news:
     new: 'Добавить Новость'
     edit: 'Редактировать Новость'

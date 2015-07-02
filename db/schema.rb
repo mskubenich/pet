@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702092855) do
+ActiveRecord::Schema.define(version: 20150702114802) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -177,6 +177,16 @@ ActiveRecord::Schema.define(version: 20150702092855) do
     t.integer  "user_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "shop_categories", force: :cascade do |t|
+    t.string "title_ru", limit: 255
+    t.string "title_en", limit: 255
+  end
+
+  create_table "shop_categories_news", force: :cascade do |t|
+    t.integer "product_id",       limit: 4
+    t.integer "shop_category_id", limit: 4
   end
 
   create_table "static_pages", force: :cascade do |t|

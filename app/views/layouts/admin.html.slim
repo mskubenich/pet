@@ -53,6 +53,9 @@ html(lang="en")
                 li role="presentation" ng-class="{'active' : $state.current.name == 'good_hands' }"
                   a href="#good_hands"
                     | {{ I18n.t('menu.in_good_hands') }}
+                li role="presentation" ng-class="{'active' : $state.current.name == 'shop_categories' }"
+                  a href="#shop_categories"
+                    | {{ I18n.t('menu.shop_categories') }}
         .col-md-9
           div ui-view=true
 

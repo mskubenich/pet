@@ -37,6 +37,7 @@ en:
     experts: 'Experts'
     exhibitions: 'Exhibitions'
     breeds: 'Breeds'
+    shop_categories: 'Product Categories'
   datetime:
     ago: 'ago'
     at: 'at'
@@ -67,6 +68,11 @@ en:
     edit: 'Edit Announcement'
     messages:
       success_upsert: "Announcement successfully saved."
+  good_hands:
+    new: 'New Shop Category'
+    edit: 'Edit Shop Category'
+    messages:
+      success_upsert: "Shop Category successfully saved."
   news:
     new: 'New News'
     edit: 'Edit News'

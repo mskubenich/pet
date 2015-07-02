@@ -33,5 +33,7 @@ class Ability
     can :read, Comment
     can :read, GoodHand
     can :read, Breed
+    can :read, Category
+    can :read, ShopCategory
   end
 end
