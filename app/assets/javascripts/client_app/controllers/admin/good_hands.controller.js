@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminGoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout', '$sce',
-            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce) {
+        .controller('AdminGoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout', '$sce', 'BreedsFactory',
+            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce, breeds) {
                 $scope.I18n = I18n;
                 $scope._ = _;
                 $scope.$state = $state;
@@ -12,33 +12,32 @@
                 $scope.getHtml = function(html){
                     return $sce.trustAsHtml(html);
                 };
+                $scope.filters = {
+                    family: 'all',
+                    sex: 'all',
+                    breed: '',
+                    scorp: false,
+                    rkf: false
+                };
 
-                $scope.breeds = [
-                    "Акита-ину",
-                    "Алабай или среднеазиатская овчарка",
-                    "Аляскинский маламут",
-                    "Американский бульдог",
-                    "Американский питбуль терьер",
-                    "Английский бульдог",
-                    "Английский кокер-спаниель",
-                    "Английский Мастиф",
-                    "Аргентинский дог",
-                    "Афганская борзая",
-                    "Басенджи",
-                    "Бассет-хаунд",
-                    "Бернский Зенненхунд",
-                    "Бигль",
-                    "Бладхаунд"
-                ];
+                $scope.breeds = [];
+                $scope.updateBreeds = function(){
+                    breeds.titles({family: $scope.filters.family})
+                        .success(function(data){
+                            $scope.breeds = data.breeds;
+                        })
+                        .error(function(){
+
+                        })
+                };
+                $scope.updateBreeds();
+
+                $scope.$watch('filters.family', function(){
+                    $scope.updateBreeds();
+                });
 
                 if($state.current.name == 'good_hands'){
-                    $scope.filters = {
-                        family: 'all',
-                        sex: 'all',
-                        breed: '',
-                        scorp: false,
-                        rkf: false
-                    };
+
                     $scope.announcement = [];
 
                     var timer = false;

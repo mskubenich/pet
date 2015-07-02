@@ -36,8 +36,8 @@ div
                 span.caret
               ul.dropdown-menu role="menu"
                 li
-                  a ng-repeat="breed in breeds" ng-click="filters.breed = breed"
-                    | {{ breed }}
+                  a ng-repeat="breed in breeds" ng-click="filters.breed = breed.title"
+                    | {{ breed.title }}
         tr
           td style="width: 60px"
             i.fa.fa-mars style="font-size: 26px; color: {{ filters.sex == 'male' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'female' || filters.sex == 'all' ? 'male' : 'all'"
