@@ -28,8 +28,8 @@
               span.caret
             ul.dropdown-menu role="menu"
               li
-                a ng-repeat="breed in breeds" ng-click="filters.breed = breed"
-                  | {{ breed }}
+                a ng-repeat="breed in breeds" ng-click="filters.breed = breed.title"
+                  | {{ breed.title }}
         td.text-right rowspan=2 style="text-align: left"
         td.text-right rowspan=2 style="text-align: right"
           a.yellow-black-btn ui-sref="new_sale" ng-show="current_user"
