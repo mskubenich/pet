@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox',
-            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox) {
+        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox, breeds) {
 
             $scope.getHtml = function(html){
                 return $sce.trustAsHtml(html);
@@ -12,24 +12,6 @@
 
             $scope.I18n = I18n;
             $scope._ = _;
-
-            $scope.breeds = [
-                "Акита-ину",
-                "Алабай или среднеазиатская овчарка",
-                "Аляскинский маламут",
-                "Американский бульдог",
-                "Американский питбуль терьер",
-                "Английский бульдог",
-                "Английский кокер-спаниель",
-                "Английский Мастиф",
-                "Аргентинский дог",
-                "Афганская борзая",
-                "Басенджи",
-                "Бассет-хаунд",
-                "Бернский Зенненхунд",
-                "Бигль",
-                "Бладхаунд"
-            ];
 
             $scope.filters = {
                 family: 'all',
@@ -43,6 +25,22 @@
                 rkf: false,
                 bloodline: false
             };
+
+            $scope.breeds = [];
+            $scope.updateBreeds = function(){
+                breeds.all({family: $scope.filters.family})
+                    .success(function(data){
+                        $scope.breeds = data.breeds;
+                    })
+                    .error(function(){
+
+                    })
+            };
+            $scope.updateBreeds();
+
+            $scope.$watch('filters.family', function(){
+                $scope.updateBreeds();
+            });
 
             if($state.current.name == 'copulation'){
                 $scope.sale = [];
