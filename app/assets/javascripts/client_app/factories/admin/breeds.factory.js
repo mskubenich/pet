@@ -17,6 +17,9 @@
             },
             destroy: function(id){
                 return $http.delete('/admin/breeds/' + id)
+            },
+            titles: function(options){
+                return $http.get('/breeds.json?family=' + options.family);
             }
         };
     }])
