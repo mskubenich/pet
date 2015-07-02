@@ -36,8 +36,8 @@ div
                 span.caret
               ul.dropdown-menu role="menu"
                 li
-                  a ng-repeat="breed in breeds" ng-click="filters.breed = breed"
-                    | {{ breed }}
+                  a ng-repeat="breed in breeds" ng-click="filters.breed = breed.title"
+                    | {{ breed.title }}
           td.text-right rowspan=2 style="text-align: left"
             label
               table.vertical-align-table
