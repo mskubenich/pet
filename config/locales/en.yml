@@ -36,6 +36,7 @@ en:
     pet_shop: 'Pet Shop'
     experts: 'Experts'
     exhibitions: 'Exhibitions'
+    breeds: 'Breeds'
   datetime:
     ago: 'ago'
     at: 'at'
@@ -56,6 +57,11 @@ en:
     edit: 'Edit Category'
     messages:
       success_upsert: "Category successfully saved."
+  breed:
+    new: 'New Breed'
+    edit: 'Edit Breed'
+    messages:
+      success_upsert: "Breed successfully saved."
   good_hands:
     new: 'New Announcement'
     edit: 'Edit Announcement'
@@ -122,6 +128,7 @@ en:
             team: 'Edit Team Page'
             contacts: 'Edit Contacts Page'
   entities:
+    family: 'Cat or Dog'
     owner: 'Owner'
     organizations: 'Organizations'
     name: 'Name'

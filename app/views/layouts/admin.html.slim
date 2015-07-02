@@ -38,6 +38,9 @@ html(lang="en")
                 li role="presentation" ng-class="{'active' : $state.current.name == 'news_categories' }"
                   a href="#news_categories"
                     | {{ I18n.t('menu.news_categories') }}
+                li role="presentation" ng-class="{'active' : $state.current.name == 'breeds' }"
+                  a href="#breeds"
+                    | {{ I18n.t('menu.breeds') }}
                 li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
                   a href="#static_pages"
                     | {{ I18n.t('admin.static_pages.title') }}

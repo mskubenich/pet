@@ -18,6 +18,14 @@ class Admin::CategoriesController < AdminController
     end
   end
 
+  def update
+    if @category.update_attributes category_params
+      render json: {ok: true}
+    else
+      render json: {errors: @category.errors}, status: :unprocessable_entity
+    end
+  end
+
   def show
 
   end

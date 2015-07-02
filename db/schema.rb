@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150702073355) do
+ActiveRecord::Schema.define(version: 20150702092855) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -22,6 +22,12 @@ ActiveRecord::Schema.define(version: 20150702073355) do
     t.integer  "file_file_size",    limit: 4
     t.datetime "file_updated_at"
     t.string   "entity_type",       limit: 255
+  end
+
+  create_table "breeds", force: :cascade do |t|
+    t.string "title_ru", limit: 255
+    t.string "title_en", limit: 255
+    t.string "family",   limit: 255
   end
 
   create_table "categories", force: :cascade do |t|
@@ -73,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150702073355) do
     t.integer  "fathers_photo_file_size",    limit: 4
     t.datetime "fathers_photo_updated_at"
     t.text     "reject_reason",              limit: 65535
+    t.integer  "breed_id",                   limit: 4
   end
 
   create_table "good_hands", force: :cascade do |t|
@@ -104,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150702073355) do
     t.integer  "fathers_photo_file_size",    limit: 4
     t.datetime "fathers_photo_updated_at"
     t.text     "reject_reason",              limit: 65535
+    t.integer  "breed_id",                   limit: 4
   end
 
   create_table "news", force: :cascade do |t|
@@ -161,6 +169,7 @@ ActiveRecord::Schema.define(version: 20150702073355) do
     t.integer  "fathers_photo_file_size",    limit: 4
     t.datetime "fathers_photo_updated_at"
     t.text     "reject_reason",              limit: 65535
+    t.integer  "breed_id",                   limit: 4
   end
 
   create_table "sessions", force: :cascade do |t|

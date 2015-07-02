@@ -99,6 +99,21 @@
                 templateUrl: 'client_app/templates/admin/news_categories/new.html',
                 controller: 'AdminNewsCategoriesController'
             })
+            .state('breeds',{
+                url: '/breeds',
+                templateUrl: 'client_app/templates/admin/breeds/index.html',
+                controller: 'AdminBreedsController'
+            })
+            .state('create_breeds',{
+                url: '/breeds/new',
+                templateUrl: 'client_app/templates/admin/breeds/new.html',
+                controller: 'AdminBreedsController'
+            })
+            .state('edit_breeds',{
+                url: '/breeds/:id/edit',
+                templateUrl: 'client_app/templates/admin/breeds/new.html',
+                controller: 'AdminBreedsController'
+            })
             .state('good_hands',{
                 url: '/good_hands',
                 templateUrl: 'client_app/templates/admin/good_hands/index.html',

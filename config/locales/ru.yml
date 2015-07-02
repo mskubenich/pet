@@ -15,6 +15,7 @@ ru:
     pet_shop: 'Зоомагазин'
     experts: 'Специалисты'
     exhibitions: 'Выставки'
+    breeds: 'Породы'
   datetime:
     ago: 'назад'
     at: 'в'
@@ -54,6 +55,11 @@ ru:
     edit: 'Редактировать Категорию'
     messages:
       success_upsert: "Категория удачно сохранена."
+  breed:
+    new: 'Новая Порода'
+    edit: 'Редактировать Породу'
+    messages:
+      success_upsert: "Порода удачно сохранена."
   good_hands:
     new: 'Новое Объявление'
     edit: 'Редактировать Объявление'
@@ -120,6 +126,7 @@ ru:
             team: "Редактирование страницы 'Команда'"
             contacts: "Редактирование страницы 'Контакты'"
   entities:
+    family: 'Кошка или собака'
     owner: 'Владелец'
     organizations: 'Организации'
     name: 'Имя'
