@@ -21,11 +21,3 @@
         };
     }])
 }());
-
-//admin_shop_category_shop_subcategories GET    (/:locale)/admin/shop_categories/:shop_category_id/shop_subcategories(.:format)     admin/shop_subcategories#index {:locale=>/en|ru/}
-//POST   (/:locale)/admin/shop_categories/:shop_category_id/shop_subcategories(.:format)     admin/shop_subcategories#create {:locale=>/en|ru/}
-//admin_shop_category_shop_subcategory GET    (/:locale)/admin/shop_categories/:shop_category_id/shop_subcategories/:id(.:format) admin/shop_subcategories#show {:locale=>/en|ru/}
-//PATCH  (/:locale)/admin/shop_categories/:shop_category_id/shop_subcategories/:id(.:format) admin/shop_subcategories#update {:locale=>/en|ru/}
-//PUT    (/:locale)/admin/shop_categories/:shop_category_id/shop_subcategories/:id(.:format) admin/shop_subcategories#update {:locale=>/en|ru/}
-//DELETE (/:locale)/admin/shop_categories/:shop_category_id/shop_subcategories/:id(.:format) admin/shop_subcategories#destroy {:locale=>/en|ru/}
-

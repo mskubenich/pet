@@ -27,6 +27,7 @@ Rails.application.routes.draw do
           post :reject
         end
       end
+      resources :products, except: [:new, :edit]
       resources :good_hands, except: [:new, :edit] do
         member do
           post :approve

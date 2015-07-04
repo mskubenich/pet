@@ -1,0 +1,65 @@
+form ng-submit="submitProduct()" name="productForm" novalidate=true
+  h3 ng-show="$state.current.name == 'new_product'"
+    | {{ I18n.t('product.new' ) }}
+  h3 ng-show="$state.current.name == 'edit_product'"
+    | {{ I18n.t('product.edit' ) }}
+
+  .form-group
+    label.family-select class="{{ product.family == 'cat' ? 'active' : '' }}"
+      = image_tag 'cat-icon.png', style: "margin-left: 8px; width: 36px;"
+      input type="radio" name="family" value="cat" ng-model="product.family" required=true
+    label.family-select class="{{ product.family == 'dog' ? 'active' : '' }}"
+      = image_tag 'dog-icon.png', style: "margin-left: 8px; width: 43px; margin-top:3px;"
+      input type="radio" name="family" value="dog" ng-model="product.family" required=true
+    .error ng-show="productForm.family.$invalid && submited"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .form-group
+    input.form-control type="text" placeholder="{{ I18n.t('entities.title') }}" required=true class="{{ productForm.title.$invalid && submited ? 'validation-error' : ''}}" name="title" ng-model="product.title"
+    .error ng-show="productForm.title.$invalid && submited"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .form-group
+    .file-select ng-repeat="image in product.preview_images"
+      .file-remove ng-click="removeExistingAttachment(image.id, $event)"
+        i.fa.fa-close
+      label style="padding-right: 30px;"
+        .avatar-droppable style="background-image: url({{ image.url }})"
+          table
+            tr
+              td
+                i.fa.fa-plus-circle
+
+    .file-select ng-repeat="i in _.range(0, attachments.length + 1)" ng-hide="attachments[i] == 'null'"
+      .file-remove ng-click="removeAttachment(i, $event)" ng-show="attachments[{{ i }}]"
+        i.fa.fa-close
+      label style="padding-right: 30px;"
+        input type="file" style="display: none" file-model="attachments[{{ i }}]" onchange="previewAvatar2(this);"
+        .avatar-droppable id="preview-{{ i }}"
+          table
+            tr
+              td
+                i.fa.fa-plus-circle
+
+  .form-group
+    textarea#redactor.form-control placeholder="{{ I18n.t('description') }}" ng-model="product.description" required=true name="description"
+    .error ng-show="productForm.description.$invalid && submited"
+      | {{ I18n.t('validations.cant_be_blank')}}
+  .form-group
+    table.vertical-align-table
+      tr
+        td
+          span
+            input.form-control type="number" ng-model="product.price" required=true name="price"
+        td
+          span
+            i.fa.fa-ruble
+    .error ng-show="productForm.price.$invalid && submited"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .text-center
+    table.table.vertical-align-table style="width: 100%"
+      tr
+        td
+          input.yellow-btn type="submit" value="{{ I18n.t('publish') }}"
+          i.fa.fa-spinner.fa-pulse ng-show="processing"

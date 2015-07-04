@@ -39,6 +39,7 @@ en:
     breeds: 'Breeds'
     shop_categories: 'Product Categories'
     shop_subcategories: 'Product Subcategories'
+    products: 'Products'
   datetime:
     ago: 'ago'
     at: 'at'
@@ -64,6 +65,11 @@ en:
     edit: 'Edit Breed'
     messages:
       success_upsert: "Breed successfully saved."
+  product:
+    new: 'New Product'
+    edit: 'Edit Product'
+    messages:
+      success_upsert: "Product successfully saved."
   good_hands:
     new: 'New Announcement'
     edit: 'Edit Announcement'

@@ -158,6 +158,21 @@
                 url: '/shop_categories/:shop_category_id/shop_subcategories/:id/edit',
                 templateUrl: 'client_app/templates/admin/shop_subcategories/new.html',
                 controller: 'AdminShopSubcategoriesController'
+            })
+            .state('products',{
+                url: '/products',
+                templateUrl: 'client_app/templates/admin/products/index.html',
+                controller: 'AdminProductsController'
+            })
+            .state('new_product',{
+                url: '/products/new',
+                templateUrl: 'client_app/templates/admin/products/new.html',
+                controller: 'AdminProductsController'
+            })
+            .state('edit_product',{
+                url: '/products/:id/edit',
+                templateUrl: 'client_app/templates/admin/products/new.html',
+                controller: 'AdminProductsController'
             });
     }]);
 

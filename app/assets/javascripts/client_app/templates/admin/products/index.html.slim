@@ -1,0 +1,44 @@
+div
+  h2
+    | {{ I18n.t('menu.products') }}
+
+  a.yellow-black-btn ui-sref="new_product"
+    | {{ I18n.t('product.new') }}
+  br
+  br
+
+  #products-pagination ng-hide="count < 11"
+  table.table.table-striped.table-responsive
+    thead
+      tr
+        th style="width: 150px"
+        th
+        th
+          | {{ I18n.t('entities.title') }}
+        th
+        th
+          | {{ I18n.t('entities.created_at') }}
+        th
+    tbody
+      tr ng-repeat="product in products"
+        td style="width: 150px"
+          span.black-budget ng-hide="product.approved"
+            | {{ I18n.t('entities.on_moderation') }}
+        td
+          img ng-src="{{product.preview_image_url}}" style="height: 30px"
+        td
+          | {{ product.title }}
+        td
+          span.black-budget ng-show="product.scorp"
+            | СКОРП
+          | &nbsp;
+          span.black-budget ng-show="product.rkf"
+            | РКФ
+        td
+          | {{ product.created_at }}
+        td style="width: 50px"
+          a href="#products/{{product.id}}/edit"
+            i.fa.fa-pencil
+          | &nbsp;
+          a ng-click="destroy(product.id)"
+            i.fa.fa-close

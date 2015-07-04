@@ -18,6 +18,7 @@ ru:
     breeds: 'Породы'
     shop_categories: 'Категории товара'
     shop_subcategories: 'Субкатегории товара'
+    products: 'Продукты'
   datetime:
     ago: 'назад'
     at: 'в'
@@ -62,6 +63,11 @@ ru:
     edit: 'Редактировать Породу'
     messages:
       success_upsert: "Порода удачно сохранена."
+  breed:
+    new: 'Новый Продукт'
+    edit: 'Редактировать Продукт'
+    messages:
+      success_upsert: "Продукт удачно сохранен."
   good_hands:
     new: 'Новое Объявление'
     edit: 'Редактировать Объявление'
