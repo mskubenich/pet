@@ -3,24 +3,21 @@
 }
 .col-group-shop > div {
     padding: 1em;
-    background-color: gray;
+    display: inline-block;
 }
 
-@media screen and (min-width: 44em) {
+@media screen and (min-width: 1em) {
     .col-group-shop > div {
-        float: left;
-        width: 50%;
+        width: 33.3333%;
     }
-    .col-group-shop > div:nth-child(odd) {
-        clear: left;
+    .col-group-shop > div:nth-child(3n-1) {
     }
 }
 
-@media screen and (min-width: 80em) {
+@media screen and (min-width: 1000px) {
     .col-group-shop > div {
         width: 20%;
     }
     .col-group-shop > div:nth-child(odd), .col-group-shop > div:nth-child(5n+1) {
-        clear: none;
     }
 }

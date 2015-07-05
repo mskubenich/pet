@@ -111,6 +111,7 @@ ru:
       choose_breed: 'Выберите Породу'
       with_bloodline: 'с родословной'
   product:
+    new: 'Новый Товар'
     filters:
       choose_size: 'Выберите Размер'
   choose_from_list: 'Выберите из списка'

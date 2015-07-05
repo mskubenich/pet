@@ -22,3 +22,9 @@
 .pt-sans-text{
   font-family: 'PTSansRegular';
 }
+
+@media (min-width: 1200px){
+  .container {
+    width: 1296px;
+  }
+}

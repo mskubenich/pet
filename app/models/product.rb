@@ -27,7 +27,7 @@ class Product < ActiveRecord::Base
   end
 
   def preview_text
-    description[0..100]
+    description[0..24] + '...'
   end
 
   private

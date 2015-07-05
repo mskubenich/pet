@@ -113,6 +113,7 @@ en:
       choose_breed: 'Choose Breed'
       with_bloodline: 'with bloodline'
   product:
+    new: 'New Product'
     filters:
       choose_size: 'Chose Size'
   choose_from_list: 'Choose from list'
