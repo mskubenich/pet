@@ -35,5 +35,7 @@ class Ability
     can :read, Breed
     can :read, Category
     can :read, ShopCategory
+    can :read, ShopSubcategory
+    can :read, Product
   end
 end

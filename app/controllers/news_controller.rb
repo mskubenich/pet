@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  load_and_authorize_resource :news
+  load_and_authorize_resource :news, only: [:index, :show]
   skip_before_filter :authenticate_user
 
   def index

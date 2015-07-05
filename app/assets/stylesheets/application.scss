@@ -146,6 +146,7 @@
 }
 
 .nav-menu{
+  position: relative;
   background-color: #FFD800;
   .container{
     table{
@@ -153,6 +154,62 @@
       height: 100%;
       vertical-align: middle;
       width: 100%;
+    }
+  }
+  ul{
+    list-style-type: none;
+    a {
+      color: black;
+      cursor: pointer;
+      text-decoration: none;
+      &:hover{
+        border: 0;
+      }
+    }
+    li{
+      margin-right: 14px;
+      display: inline-block;
+    }
+  }
+  .nav-dropdown{
+    display: none;
+    position: absolute;
+    height: 200px;
+    min-width: 175px;
+    background-color: #ffffff;
+    top: 100%;
+    z-index: 100;
+    border: 1px solid #E8E8E8;
+    border-bottom: 3px solid #FFD800;
+    padding: 20px;
+    .arrow{
+      position: absolute;
+      top: -1px;
+      left: 30px;
+      border-top: 10px solid #FFD800;
+      border-left: 10px solid #ffffff;
+      border-right: 10px solid #ffffff;
+    }
+    ul{
+      padding: 0 !important;
+      li{
+        display: block;
+        a{
+
+        }
+      }
+    }
+  }
+  .nav-dropdown-table{
+    height: 100%;
+    width: auto !important;
+    tr{
+      td{
+        padding-right: 5px !important;
+        a{
+          margin: 0 !important;
+        }
+      }
     }
   }
 }
@@ -180,24 +237,6 @@ input.pet-input{
       height: 60px;
       width: 117px;
       margin-right: 14px;
-    }
-  }
-}
-
-.nav-menu{
-  ul{
-    list-style-type: none;
-    a {
-      color: black;
-      cursor: pointer;
-      text-decoration: none;
-      &:hover{
-        border: 0;
-      }
-    }
-    li{
-      margin-right: 14px;
-      display: inline-block;
     }
   }
 }
@@ -271,7 +310,8 @@ span.black-budget{
       vertical-align: middle;
     }
     text-align: left;
-    padding-right: 10px;
+    padding-right: 30px;
+    border: 1px solid red;
   }
 }
 

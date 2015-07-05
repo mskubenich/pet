@@ -38,11 +38,6 @@
                 templateUrl: 'client_app/templates/sessions/new.html',
                 controller: 'SessionsController'
             })
-            .state('pet-shop',{
-                url: '/pet-shop',
-                templateUrl: 'client_app/templates/shop/index.html',
-                controller: 'ShopController'
-            })
             .state('experts',{
                 url: '/experts',
                 templateUrl: 'client_app/templates/experts/index.html',
@@ -122,6 +117,16 @@
                 url: '/good_hands/:id',
                 templateUrl: 'client_app/templates/good_hands/show.html',
                 controller: 'GoodHandsController'
+            })
+            .state('products',{
+                url: '/products',
+                templateUrl: 'client_app/templates/products/index.html',
+                controller: 'ProductsController'
+            })
+            .state('show_product',{
+                url: '/products/:id',
+                templateUrl: 'client_app/templates/products/show.html',
+                controller: 'ProductsController'
             });
     }]);
 

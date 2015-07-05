@@ -15,6 +15,21 @@
   }
 }
 
+.black-btn{
+  background-color: #000000;
+  text-decoration: none;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 2px;
+  border: 0 !important;
+  color: white;
+  font-family: 'PTSansRegular';
+  cursor: pointer;
+  font-size: 19px;
+  text-align: center;
+}
+
 .yellow-black-btn{
   background-color: #FFD800;
   text-decoration: none;
@@ -22,9 +37,27 @@
   border-radius: 100px;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
-  padding: 6px 14px;
+  padding: 2px;
   color: black;
   cursor: pointer;
+  &:hover{
+    color: white !important;
+    border-color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.yellow-black-dropdown{
+  background-color: #FFD800;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 2px;
+  color: black;
+  cursor: pointer;
+  font-size: 13px;
   &:hover{
     color: white !important;
     border-color: #ffffff;
@@ -88,6 +121,7 @@ a.yellow-dashed-link{
 }
 
 .yellow-cat-radio{
+  cursor: pointer;
   width: 40px;
   height: 40px;
   background-size: 40px 40px;
@@ -98,6 +132,7 @@ a.yellow-dashed-link{
 }
 
 .yellow-dog-radio{
+  cursor: pointer;
   width: 40px;
   height: 40px;
   background-size: 40px 40px;
@@ -119,8 +154,8 @@ a.yellow-dashed-link{
   -moz-border-radius: 20px !important;
   -webkit-border-radius: 20px !important;
   .ngrs-runner{
-    height: 15px;
-    margin: 0 15px 0 0 !important;
+    height: 10px;
+    margin: 0 10px 0 0 !important;
     .ngrs-handle{
       &.ngrs-handle-max{
         margin: 0 !important;
@@ -128,8 +163,8 @@ a.yellow-dashed-link{
       &.ngrs-handle-min{
         margin: 0 !important;
       }
-      width: 15px !important;
-      height: 15px !important;
+      width: 10px !important;
+      height: 10px !important;
       border-radius: 20px !important;
       -moz-border-radius: 20px !important;
       -webkit-border-radius: 20px !important;
@@ -138,10 +173,10 @@ a.yellow-dashed-link{
     }
     .ngrs-join{
       top: 0;
-      margin: 0px -15px 0 0 !important;
+      margin: 0px -10px 0 0 !important;
       background-color: #000000 !important;
       background-image: none !important;
-      height: 15px !important;
+      height: 10px !important;
       border-radius: 20px !important;
       -moz-border-radius: 20px !important;
       -webkit-border-radius: 20px !important;

@@ -37,3 +37,10 @@ window.previewAvatar2 = (input) ->
     reader.onload = (e) ->
       $(input).parent().find('.avatar-droppable').css('background', 'transparent url(' + e.target.result + ')')
     reader.readAsDataURL(input.files[0])
+
+$ ->
+  $(document).on 'mouseover', "[dropdown-id]", (e) ->
+    $("[dropdown-for=" + $(e.target).attr('dropdown-id') + "]").show('fast')
+  $(document).on 'mouseleave', "[dropdown-leave]", (e) ->
+    $(e.target).find("[dropdown-for]").hide('fast')
+    $(e.target).parent("[dropdown-leave]").find('[dropdown-for]').hide('fast')

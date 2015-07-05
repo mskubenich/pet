@@ -89,6 +89,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :products, only: [:index, :show]
+
     resources :good_hands, only: [:index, :create, :update, :show] do
       member do
         get :show_phone
@@ -97,6 +99,7 @@ Rails.application.routes.draw do
 
     resources :comments, only: [:index, :create]
     resources :breeds, only: [:index]
+    resources :shop_categories, only: [:index]
   end
 
   get '/:locale' => 'pages#index'

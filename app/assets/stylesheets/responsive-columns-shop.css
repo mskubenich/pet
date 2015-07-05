@@ -1,0 +1,26 @@
+.col-group-shop {
+    overflow: hidden;
+}
+.col-group-shop > div {
+    padding: 1em;
+    background-color: gray;
+}
+
+@media screen and (min-width: 44em) {
+    .col-group-shop > div {
+        float: left;
+        width: 50%;
+    }
+    .col-group-shop > div:nth-child(odd) {
+        clear: left;
+    }
+}
+
+@media screen and (min-width: 80em) {
+    .col-group-shop > div {
+        width: 20%;
+    }
+    .col-group-shop > div:nth-child(odd), .col-group-shop > div:nth-child(5n+1) {
+        clear: none;
+    }
+}

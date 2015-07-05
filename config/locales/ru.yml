@@ -110,6 +110,9 @@ ru:
       choose_city: 'Выберите Город'
       choose_breed: 'Выберите Породу'
       with_bloodline: 'с родословной'
+  product:
+    filters:
+      choose_size: 'Выберите Размер'
   choose_from_list: 'Выберите из списка'
   organization_flag: 'Поставте отметку, если Вы представляете одну из организаций.'
   bloodline_flag: 'Добавьте родословную Вашего питомца.'

@@ -112,6 +112,9 @@ en:
       choose_city: 'Choose City'
       choose_breed: 'Choose Breed'
       with_bloodline: 'with bloodline'
+  product:
+    filters:
+      choose_size: 'Chose Size'
   choose_from_list: 'Choose from list'
   organization_flag: 'Check this box if you represent one of the organizations.'
   bloodline_flag: "Add your pet's pedigree."
