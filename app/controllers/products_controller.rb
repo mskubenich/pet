@@ -7,10 +7,10 @@ class ProductsController < ApplicationController
     query = Product.all
 
     query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'
-    query = query.where("price > ?", params[:price_min]) if params[:price_min]
-    query = query.where("price < ?", params[:price_max]) if params[:price_max]
+    query = query.where("price > ?", params[:price_min])
+    query = query.where("price < ?", params[:price_max])
 
-    @product = query.order('created_at DESC').paginate page: params[:page], per_page: 9
+    @products = query.order('id DESC').paginate page: params[:page], per_page: 9
     @count = query.count
   end
 

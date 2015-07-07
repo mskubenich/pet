@@ -6,6 +6,7 @@
         .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory',
             function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox, breeds) {
 
+            $('body').css('background-color', 'white');
             $scope.getHtml = function(html){
                 return $sce.trustAsHtml(html);
             };

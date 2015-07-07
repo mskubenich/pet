@@ -6,6 +6,7 @@
         .controller('SessionsController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', function ($scope, $state, ngDialog, session) {
             $scope.session = {};
 
+            $('body').css('background-color', 'white');
             $scope.login = function(){
                 session.create($scope.session)
                     .success(function(){

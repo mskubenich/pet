@@ -5,6 +5,7 @@
     angular.module('petModeApp')
         .controller('ProductsController', ['$scope', '$state', 'ngDialog', 'ProductsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'ShopCategoriesFactory',
             function ($scope, $state, ngDialog, products, $stateParams, $timeout, $sce, Lightbox, categories) {
+            $('body').css('background-color', '#FAFAFA');
             $scope.I18n = I18n;
             $scope._ = _;
 
