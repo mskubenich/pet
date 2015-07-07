@@ -5,6 +5,11 @@
     padding: 1em;
     display: inline-block;
 }
+.col-group-shop > .shop-ad {
+    padding: 1em;
+    display: inline-block;
+    float: right;
+}
 
 @media screen and (min-width: 1em) {
     .col-group-shop > div {
@@ -19,5 +24,17 @@
         width: 20%;
     }
     .col-group-shop > div:nth-child(odd), .col-group-shop > div:nth-child(5n+1) {
+    }
+}
+
+@media screen and (min-width: 1em) {
+    .col-group-shop .shop-ad {
+        width: 66.6666%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .col-group-shop .shop-ad{
+        width: 40%;
     }
 }

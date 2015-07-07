@@ -50,6 +50,8 @@
 .container
   #products-pagination ng-hide="count < 10"
   .col-group-shop
+    .shop-ad
+      div
     div.shop-item ng-repeat="product in products"
       .visible-item
         .img style="background-image: url({{ product.preview_image_url }})"
@@ -65,3 +67,14 @@
         .price
           | {{ product.price }}
           i.fa.fa-ruble
+      table.card-section.vertical-align-table
+        tr
+          td.card-icon-section
+            span.card-icon
+            | &nbsp;
+          td
+            a.to-card-link.black-dashed-link
+              | {{ I18n.t('shop.to_card') }}
+          td.card-button-section.text-right
+            a.card-button
+              | {{ I18n.t('shop.buy') }}

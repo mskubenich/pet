@@ -181,3 +181,6 @@ ru:
   comments:
     messages:
       enter_your_comment: 'Ваш комментарий'
+  shop:
+    buy: 'Купить'
+    to_card: 'В корзину'

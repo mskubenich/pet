@@ -45,3 +45,59 @@
     }
   }
 }
+
+.shop-ad > div{
+  background-color: #EEEEEE;
+  width: 100%;
+  border-radius: 5px;
+  -mox-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  height: 294px;
+}
+
+table.card-section{
+  width: 100%;
+  td{
+    padding: 0 !important;
+  }
+  margin-top: 28px;
+  td.card-icon-section{
+    width: 28px;
+    .card-icon{
+      display: inline-block;
+      background-image: url(card.png);
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      background-repeat: no-repeat;
+    }
+  }
+  .to-card-link{
+    display: inline-block;
+    margin-top: -30px;
+    color: #343434;
+    font-size: 16px;
+  }
+  .card-button-section{
+    text-align: right;
+    margin-top: -40px;
+    .card-button{
+      background-color: #000000;
+      border-radius: 100px;
+      -moz-border-radius: 100px;
+      -webkit-border-radius: 100px;
+      padding: 3px 20px;
+      color: #FAFAFA;
+      cursor: pointer;
+      text-decoration: none;
+      font-family: PTSansBold;
+      font-size: 14px;
+      font-weight: 100;
+      &:hover{
+        background-color: #ffffff;
+        border: 1px solid #000000;
+        color: #000000;
+      }
+    }
+  }
+}

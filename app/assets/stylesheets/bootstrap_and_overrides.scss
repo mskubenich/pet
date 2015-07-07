@@ -14,7 +14,13 @@
 }
 
 .pet-h3{
-  font-size: 24px;
+  font-size: 28px;
+  font-family: PFCentroSerifBold;
+  font-weight: 900;
+}
+
+.pet-h4{
+  font-size: 20px;
   font-family: PFCentroSerifBold;
   font-weight: 900;
 }
@@ -23,7 +29,7 @@
   font-family: 'PTSansRegular';
 }
 
-@media (min-width: 1200px){
+@media (min-width: 1700px){
   .container {
     width: 1296px;
   }

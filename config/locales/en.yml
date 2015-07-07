@@ -183,3 +183,6 @@ en:
   comments:
     messages:
       enter_your_comment: 'Your comment'
+  shop:
+    buy: 'Buy'
+    to_card: 'Add to card'
