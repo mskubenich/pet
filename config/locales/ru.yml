@@ -184,3 +184,15 @@ ru:
   shop:
     buy: 'Купить'
     to_card: 'В корзину'
+  promo:
+    get: 'Получи промо код'
+    get_button: 'Получить'
+    delivery:
+      title: 'Доставка'
+      description: 'Доставляем по всей России и не только'
+    pay:
+      title: 'Удобная оплата'
+      description: 'Способы оплаты на любой вкус'
+    action:
+      title: 'WOW Акции'
+      description: 'Лучшие предложения для Вас'

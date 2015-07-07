@@ -56,9 +56,9 @@
                         pagination.unbind('page');
 
                         pagination.twbsPagination({
-                            totalPages: Math.ceil($scope.count / 9),
+                            totalPages: Math.ceil($scope.count / 13),
                             startPage: $scope.page,
-                            visiblePages: 9,
+                            visiblePages: 13,
                             onPageClick: function (event, page) {
                                 $scope.page = page;
                                 $scope.retrieveProducts();

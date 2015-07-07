@@ -1,3 +1,54 @@
+.shop-promo
+  .yellow
+    .container
+      table.outher
+        tr
+          td
+            table.inner
+              tr
+                td.icon rowspan=2
+                  .delivery-icon
+                td.title
+                  a.black-dashed-link
+                    | {{ I18n.t('promo.delivery.title') }}
+              tr
+                td.description
+                  | {{ I18n.t('promo.delivery.description') }}
+          td
+            table.inner
+              tr
+                td.icon rowspan=2
+                  .pay-icon
+                td.title
+                  a.black-dashed-link
+                    | {{ I18n.t('promo.pay.title') }}
+              tr
+                td.description
+                  | {{ I18n.t('promo.pay.description') }}
+          td
+            table.inner
+              tr
+                td.icon rowspan=2
+                  .action-icon
+                td.title
+                  a.black-dashed-link
+                    | {{ I18n.t('promo.action.title') }}
+              tr
+                td.description
+                  | {{ I18n.t('promo.action.description') }}
+  .red
+    .container
+      table
+        tr
+          td style="width: 450px;"
+            .promo-code
+              | {{ I18n.t('promo.get') }}
+          td
+            .text
+              | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          td
+            .get-button
+              | {{ I18n.t('promo.get_button') }}
 .wave
 .nav-menu
   .container
@@ -48,10 +99,12 @@
           .black-btn
             | SALE
 .container
-  #products-pagination ng-hide="count < 10"
+  #products-pagination
   .col-group-shop
     .shop-ad
       div
+        .new-badge
+          | new
     div.shop-item ng-repeat="product in products"
       .visible-item
         .img style="background-image: url({{ product.preview_image_url }})"

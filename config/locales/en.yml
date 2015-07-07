@@ -186,3 +186,15 @@ en:
   shop:
     buy: 'Buy'
     to_card: 'Add to card'
+  promo:
+    get: 'Get promo code'
+    get_button: 'Get'
+    delivery:
+      title: 'Delivery'
+      description: 'We deliver all over Russia, and not only'
+    pay:
+      title: 'Easy payment'
+      description: 'Payment methods for every taste'
+    action:
+      title: 'WOW Actions'
+      description: 'The best offers for you'
