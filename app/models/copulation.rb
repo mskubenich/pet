@@ -30,7 +30,7 @@ class Copulation < ActiveRecord::Base
     if attachments.any?
       attachments.map{|a| {id: a.id, url: a.file.url} }
     else
-      [{id: mil, url: Attachment.new.file.url}]
+      [{id: nil, url: Attachment.new.file.url}]
     end
   end
 
