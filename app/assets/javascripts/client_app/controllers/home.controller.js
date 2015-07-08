@@ -109,6 +109,9 @@
                     .success(function(data){
                         $scope.slides = data.images;
                         $timeout(function() {
+                            $('#copulaton-carousel').on('init', function(){
+                                $('#copulaton-carousel').css('display', 'block')
+                            });
                             $('#copulaton-carousel').slick({
                                 dots: false,
                                 infinite: true,
