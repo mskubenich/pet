@@ -164,7 +164,7 @@
                                 $scope.processing = false;
                                 ngDialog.open({
                                     className: 'ngdialog-theme-default',
-                                    template: I18n.t('announcements.message.success_upsert'),
+                                    template: I18n.t('announcements.messages.success_upsert'),
                                     plain: true
                                 });
                             })
