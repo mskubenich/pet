@@ -6,6 +6,8 @@ class Product < ActiveRecord::Base
 
   after_destroy :destroy_attachments
 
+  belongs_to :shop_subcategory
+
   def attachments
     Attachment.where(entity_id: self.id, entity_type: Product)
   end

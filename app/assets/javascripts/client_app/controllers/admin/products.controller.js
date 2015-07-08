@@ -67,7 +67,22 @@
                 }
 
                 if($state.current.name == 'new_product' || $state.current.name == 'edit_product'){
-                    
+
+
+                    $scope.categories = [];
+                    $scope.subcategories = [];
+                    products.shop_categories()
+                        .success(function(data){
+                            $scope.categories = data.shop_categories;
+                        });
+                    $scope.$watch('product.category_id', function(){
+                        $scope.subcategory_id = null;
+                        products.shop_subcategories($scope.product.category_id)
+                            .success(function(data){
+                                $scope.subcategories = data.shop_subcategories;
+                            });
+                    });
+
                     if($state.current.name == 'new_product'){
                         $scope.product = {
                             title: '',
@@ -100,7 +115,6 @@
 
                     $scope.submitProduct = function(){
                         $scope.submited = true;
-                        console.log($scope.productForm);
                         if($scope.productForm.$invalid ){
                             return false;
                         }

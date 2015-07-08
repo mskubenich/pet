@@ -59,6 +59,15 @@ class Admin::ProductsController < AdminController
     render json: {ok: true}
   end
 
+  def shop_categories
+    @shop_categories = ShopCategory.all
+  end
+
+  def shop_subcategories
+    @category = ShopCategory.find params[:shop_category_id]
+    @shop_subcategories = @category.shop_subcategories
+  end
+
   private
 
   def update_attachments
@@ -66,6 +75,6 @@ class Admin::ProductsController < AdminController
   end
 
   def product_params
-    params.require(:product).permit(:family, :title, :description, :price)
+    params.require(:product).permit(:family, :title, :description, :price, :shop_subcategory_id)
   end
 end

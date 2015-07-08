@@ -6,6 +6,7 @@
                 return $http.get('/products.json?page=' + options.page +
                                             '&family=' + options.query.family +
                                             '&price_min=' + options.query.price.min +
+                                            '&shop_subcategory_id=' + options.query.subcategory.id +
                                             '&price_max=' + options.query.price.max);
             },
             show: function(id){

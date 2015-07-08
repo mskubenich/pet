@@ -4,11 +4,12 @@ class ProductsController < ApplicationController
   skip_before_filter :authenticate_user, only: [:index, :show]
 
   def index
-    query = Product.all
+    query = Product.includes(:shop_subcategory)
 
-    query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'
-    query = query.where("price > ?", params[:price_min])
-    query = query.where("price < ?", params[:price_max])
+    query = query.where(products: {family: params[:family]}) if params[:family] && params[:family] != 'all'
+    query = query.where("products.price > ?", params[:price_min])
+    query = query.where("products.price < ?", params[:price_max])
+    query = query.where(shop_subcategories: {id: params[:shop_subcategory_id]}) unless params[:shop_subcategory_id].blank?
 
     @products = query.order('id DESC').paginate page: params[:page], per_page: 13
     @count = query.count

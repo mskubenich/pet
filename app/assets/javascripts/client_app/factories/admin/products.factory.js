@@ -8,6 +8,7 @@
                 fd.append('product[title]', product.title);
                 fd.append('product[description]', product.description);
                 fd.append('product[price]', product.price);
+                fd.append('product[shop_subcategory_id]', product.subcategory_id);
                 var i = 0;
                 while(i < attachments.length){
                     if(attachments[i] != 'null'){
@@ -42,8 +43,13 @@
             },
             destroy: function(id){
                 return $http.delete('/admin/products/' + id)
+            },
+            shop_categories: function(){
+                return $http.get('/admin/products/shop_categories.json')
+            },
+            shop_subcategories: function(category_id){
+                return $http.get('/admin/products/shop_subcategories.json?shop_category_id=' + category_id)
             }
-        }
-            ;
+        };
     }])
 }());

@@ -17,7 +17,8 @@
                     min: 0,
                     max: 100000
                 },
-                subcategory_id: null,
+                category: {},
+                subcategory: { id: ''},
                 size: ''
             };
 

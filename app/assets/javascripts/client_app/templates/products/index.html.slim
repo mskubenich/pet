@@ -70,7 +70,7 @@
                   .arrow
                   ul
                     li ng-repeat="subcategory in category.subcategories"
-                      a.black-dashed-link
+                      a.black-dashed-link ng-click="filters.category = category; filters.subcategory = subcategory"
                         | {{ subcategory.title }}
         td style="width: 177px"
           .btn-group dropdown=true style="width: 100%"
@@ -99,6 +99,9 @@
           .black-btn
             | SALE
 .container
+  br
+  .pet-h4
+    | {{ filters.category ? filters.category.title : I18n.t('menu.products') }}  {{ filters.subcategory.title }} {{ filters.family == 'cat' ? I18n.t('shop.for_cats') : '' }} {{ filters.family == 'dog' ? I18n.t('shop.for_dogs') : '' }}
   #products-pagination
   .col-group-shop
     .shop-ad

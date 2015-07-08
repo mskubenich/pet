@@ -27,7 +27,12 @@ Rails.application.routes.draw do
           post :reject
         end
       end
-      resources :products, except: [:new, :edit]
+      resources :products, except: [:new, :edit] do
+        collection do
+          get :shop_categories
+          get :shop_subcategories
+        end
+      end
       resources :good_hands, except: [:new, :edit] do
         member do
           post :approve

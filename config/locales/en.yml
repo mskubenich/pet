@@ -186,6 +186,8 @@ en:
   shop:
     buy: 'Buy'
     to_card: 'Add to card'
+    for_dogs: 'Toys for dogs'
+    for_cats: 'Toys for cats'
   promo:
     get: 'Get promo code'
     get_button: 'Get'
