@@ -90,40 +90,25 @@
                         })
                     };
                 }
-                if($state.current.name == 'show_copulation'){
-                    $scope.copulation = {};
-
-                    $scope.rate = 4;
-                    $scope.max = 5;
-                    $scope.isReadonly = false;
-
-                    $scope.hoveringOver = function(value) {
-                        $scope.overStar = value;
-                        $scope.percent = 100 * (value / $scope.max);
-                    };
-
-                    $scope.ratingStates = [
-                        {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
-                        {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
-                        {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-                        {stateOn: 'glyphicon-heart'},
-                        {stateOff: 'glyphicon-off'}
-                    ];
-
-                    copulations.show($stateParams.id).success(function (data) {
-                        $scope.copulation = data.copulation;
-                        $scope.phone = $scope.copulation.owner_phone_hashed;
-                        $scope.preview_image = $scope.copulation.preview_images[0];
-                    }).error(function (data) {
-
-                    });
-
-                    $scope.updatePreview = function(image){
-                        $scope.preview_image = image;
-                    }
-
-                }
                 if($state.current.name == 'new_copulation' || $state.current.name == 'edit_copulation'){
+
+                    $scope.announcement = {};
+
+                    $scope.updateBreeds2 = function(){
+                        breeds.titles({family: $scope.announcement.family})
+                            .success(function(data){
+                                $scope.breeds = data.breeds;
+                            })
+                            .error(function(){
+
+                            })
+                    };
+                    $scope.updateBreeds2();
+
+                    $scope.$watch('announcement.family', function(){
+                        $scope.announcement.breed = null;
+                        $scope.updateBreeds2();
+                    });
 
                     setTimeout(function(){
                             $('#redactor').redactor({
@@ -159,24 +144,6 @@
                         $scope.attachments[i] = 'null';
                         $(event.target).parents('.file-select').remove();
                     };
-
-                    $scope.breeds = [
-                        "Акита-ину",
-                        "Алабай или среднеазиатская овчарка",
-                        "Аляскинский маламут",
-                        "Американский бульдог",
-                        "Американский питбуль терьер",
-                        "Английский бульдог",
-                        "Английский кокер-спаниель",
-                        "Английский Мастиф",
-                        "Аргентинский дог",
-                        "Афганская борзая",
-                        "Басенджи",
-                        "Бассет-хаунд",
-                        "Бернский Зенненхунд",
-                        "Бигль",
-                        "Бладхаунд"
-                    ];
 
                     $scope.submitAnnouncement = function(){
                         $scope.announcement.description = $('#redactor').redactor('code.get');

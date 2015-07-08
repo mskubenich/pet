@@ -85,6 +85,25 @@
                 }
 
                 if($state.current.name == 'new_hand' || $state.current.name == 'edit_hand'){
+
+                    $scope.announcement = {};
+
+                    $scope.updateBreeds2 = function(){
+                        breeds.titles({family: $scope.announcement.family})
+                            .success(function(data){
+                                $scope.breeds = data.breeds;
+                            })
+                            .error(function(){
+
+                            })
+                    };
+                    $scope.updateBreeds2();
+
+                    $scope.$watch('announcement.family', function(){
+                        $scope.announcement.breed = null;
+                        $scope.updateBreeds2();
+                    });
+
                     setTimeout(function(){
                         $('#redactor').redactor({
                             buttonSource: true,
