@@ -7,10 +7,10 @@
             a href="/admin" ng-show="current_user.is_admin"
               | Admin
           td
-            a href="/ru" style="{{ I18n.locale == 'ru' ?  'border-bottom: 1px solid' : '' }}"
+            a href="/ru" style="{{ I18n.locale == 'ru' ?  'border-bottom: 0' : 'border-bottom: 1px solid' }}"
               | Ru
           td
-            a href="/en" style="{{ I18n.locale == 'en' ? 'border-bottom: 1px solid' : '' }}"
+            a href="/en" style="{{ I18n.locale == 'en' ?  'border-bottom: 0' : 'border-bottom: 1px solid' }}"
               | Eng
     .header-row
       .logo
