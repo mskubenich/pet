@@ -14,6 +14,6 @@ json.good_hand do
   json.has_prize           @good_hand.prize.exists?
   json.age                 @good_hand.age
   json.owner               @good_hand.owner.try(:full_name)
-  json.owner_phone_hashed  @good_hand.owner.try(:phone)[0..4] + '*****'
+  json.owner_phone_hashed  @good_hand.owner.try(:phone)[0..4].to_s + '*****'
   json.reject_reason       @good_hand.reject_reason
 end
