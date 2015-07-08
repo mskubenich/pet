@@ -32,17 +32,17 @@
                     fd.append('sale[fathers_photo]', fathers_photo);
                 }
 
-                //if(news.id){
-                //    return $http.put('/admin/news/' + news.id, fd, {
-                //        transformRequest: angular.identity,
-                //        headers: {'Content-Type': undefined}
-                //    });
-                //}else{
+                if(sale.id){
+                    return $http.put('/admin/sales/' + sale.id, fd, {
+                        transformRequest: angular.identity,
+                        headers: {'Content-Type': undefined}
+                    });
+                }else{
                     return $http.post('/admin/sales', fd, {
                         transformRequest: angular.identity,
                         headers: {'Content-Type': undefined}
                     });
-                //}
+                }
             },
             all: function(options){
                 return $http.get('/admin/sales.json?page=' + options.page +

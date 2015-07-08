@@ -4,7 +4,7 @@ class CopulationsController < ApplicationController
   skip_before_filter :authenticate_user, only: [:index, :show]
 
   def create
-    attachments_params = params[:copulation][:photos]
+    attachments_params = params[:copulation][:photos] || []
     @copulation = Copulation.new copulation_params.merge({user_id: current_user.id})
     if @copulation.save
       update_attachments
@@ -53,6 +53,6 @@ class CopulationsController < ApplicationController
   end
 
   def copulation_params
-    params.require(:copulation).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
+    params.require(:copulation).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :prize, :bloodline, :mothers_photo, :fathers_photo)
   end
 end

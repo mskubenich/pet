@@ -130,6 +130,12 @@
                         if($scope.announcementForm.$invalid ){
                             return false;
                         }
+                        if($scope.announcement.description.length == 0){
+                            $scope.description_error = true;
+                            return false;
+                        }else{
+                            $scope.description_error = false;
+                        }
 
                         $scope.processing = true;
                         sales.upsert($scope.announcement, $scope.attachments, $scope.prize, $scope.bloodline, $scope.mothers_photo, $scope.fathers_photo)

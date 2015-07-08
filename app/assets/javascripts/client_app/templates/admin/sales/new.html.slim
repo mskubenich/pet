@@ -29,8 +29,8 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
     select.form-control name="breed" ng-model="announcement.breed" required=true
       option value='' disabled=true selected=true
         | {{ I18n.t('copulation.dog.breed') }} ({{ I18n.t('choose_from_list')}})
-      option ng-repeat="breed in breeds" value="{{ breed }}"
-        | {{ breed }}
+      option ng-repeat="breed in breeds" value="{{ breed.title }}" ng-selected="breed.title == announcement.breed"
+        | {{ breed.title }}
     .error ng-show="announcementForm.breed.$invalid && submitted"
       | {{ I18n.t('validations.cant_be_blank')}}
   br
@@ -160,6 +160,8 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
 
   .form-group
     textarea#redactor.form-control placeholder="{{ I18n.t('description') }}"
+    .error ng-show="description_error && submitted"
+      | {{ I18n.t('validations.cant_be_blank') }}
   .form-group
     table.vertical-align-table
       tr
