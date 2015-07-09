@@ -44,6 +44,7 @@
             });
 
             if($state.current.name == 'copulation'){
+                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
                 $scope.sale = [];
 
                 var timer = false;
@@ -86,6 +87,7 @@
                 $scope.retrieveCopulations();
             }
             if($state.current.name == 'show_copulation'){
+                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
 
                 //setTimeout(function(){
                 //    $scope.$watch('filters', function(){
@@ -222,6 +224,7 @@
                 }
             }
             if($state.current.name == 'new_copulation'){
+                $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
 
                 setTimeout(function(){
                     $('#redactor').redactor({

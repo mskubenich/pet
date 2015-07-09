@@ -43,6 +43,7 @@
                 });
 
                 if($state.current.name == 'good_hands'){
+                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
                     $scope.sale = [];
 
                     var timer = false;
@@ -84,6 +85,7 @@
                 }
 
                 if($state.current.name == 'show_hand'){
+                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
 
                     //setTimeout(function(){
                     //    $scope.$watch('filters', function(){
@@ -221,6 +223,7 @@
                     }
                 }
                 if($state.current.name == 'new_hand'){
+                    $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
 
                     setTimeout(function(){
                         $('#redactor').redactor({

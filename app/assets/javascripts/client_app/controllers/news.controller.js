@@ -6,9 +6,8 @@
         .controller('NewsController', ['$scope', '$state', 'ngDialog', 'NewsFactory', '$sce', '$stateParams', 'CommentsFactory',
             function ($scope, $state, ngDialog, news, $sce, $stateParams, comments) {
 
-            $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
-
             if($state.current.name == 'show_news'){
+                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
                 $scope.news = {};
 
                 news.show($stateParams.id).success(function(data){
@@ -63,6 +62,7 @@
             }
 
             if($state.current.name == 'news'){
+                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
 
                 $scope.filters = {categories: {}};
 

@@ -5,6 +5,8 @@
     angular.module('petModeApp')
         .controller('HomeController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', 'PagesFactory', '$timeout', '$sce',
             function ($scope, $state, ngDialog, session, pages, $timeout, $sce) {
+
+                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
                 $('body').css('background-color', 'white');
                 $scope.I18n = I18n;
                 $scope.closeDialog = function(){
@@ -110,6 +112,7 @@
                         $timeout(function() {
                             $('.main-slider').on('init', function(){
                                 $('.main-slider').show();
+                                $(window).resize();
                             });
                             $('.main-slider').slick({
                                 dots: false,

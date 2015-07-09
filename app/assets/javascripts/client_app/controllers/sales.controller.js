@@ -43,6 +43,7 @@
                 });
 
                 if($state.current.name == 'sale'){
+                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
                     $scope.sale = [];
 
                     var timer = false;
@@ -83,6 +84,7 @@
                     $scope.retrievesales();
                 }
                 if($state.current.name == 'show_sale'){
+                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
 
                     //setTimeout(function(){
                     //    $scope.$watch('filters', function(){
