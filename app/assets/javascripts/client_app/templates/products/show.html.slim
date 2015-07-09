@@ -1,196 +1,131 @@
-.wave
 .nav-menu
   .container
-    table.table.vertical-align-table.sale-filters-table
+    table.vertical-align-table
       tr
-        td style="width: 60px; text-align: center !important;"
-          label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
-        td style="width: 60px; text-align: center !important;"
-          label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
-        td style="width: 200px"
-          .btn-group dropdown=true style="width: 100%"
-            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
-              | {{ I18n.t('sale.filters.choose_country') }}
-              span.caret
-            ul.dropdown-menu role="menu"
-              li
-                a test
-                a test
-                a test
-                a test
-        td style="width: 300px"
-          .btn-group dropdown=true style="width: 100%"
-            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
-              span ng-show="filters.breed == ''"
-                | {{ I18n.t('sale.filters.choose_breed') }}
-              span ng-show="filters.breed != ''"
-                | {{ filters.breed }}
-              span.caret
-            ul.dropdown-menu role="menu"
-              li
-                a ng-repeat="breed in breeds" ng-click="filters.breed = breed.title"
-                  | {{ breed.title }}
-        td.text-right rowspan=2 style="text-align: left"
-          label
-            table.vertical-align-table
-              tr
-                td
-                  span.rounded-one class="{{ checked1 ? 'checked' : ''}}"
-                    .rounded-two
-                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="filters.bloodline"
-                td
-                  | {{ I18n.t('sale.filters.with_bloodline') }}
-          br
-          label
-            table.vertical-align-table
-              tr
-                td
-                  span.rounded-one class="{{ checked3 ? 'checked' : ''}}"
-                    .rounded-two
-                    input.form-control type="checkbox" ng-click="checked3 = !checked3" ng-model="filters.scorp"
-                td
-                  span.black-budget
-                    | СКОРП
-          br
-          label
-            table.vertical-align-table
-              tr
-                td
-                  span.rounded-one class="{{ checked2 ? 'checked' : ''}}"
-                    .rounded-two
-                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="filters.rkf"
-                td
-                  span.black-budget
-                    | РКФ
-          br
-        td.text-right rowspan=2 style="text-align: right"
-          a.yellow-black-btn ui-sref="new_sale" ng-show="current_user"
-            | {{ I18n.t('sale.new') }}
-      tr
-        td style="width: 60px; text-align: center !important;"
-          i.fa.fa-mars style="font-size: 26px; color: {{ filters.sex == 'male' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'female' || filters.sex == 'all' ? 'male' : 'all'"
-        td style="width: 60px; text-align: center !important;"
-          i.fa.fa-venus style="font-size: 26px; color: {{ filters.sex == 'female' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'male' || filters.sex == 'all' ? 'female' : 'all'"
+        td style="width: 50px; text-align: center !important;"
+          span
+            label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
+        td style="width: 50px; text-align: center !important;"
+          span
+            label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
         td
-          .btn-group dropdown=true style="width: 100%"
-            button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
-              | {{ I18n.t('sale.filters.choose_city') }}
-              span.caret
-            ul.dropdown-menu role="menu"
-              li
-                a test
-                a test
-                a test
-                a test
-        td
-          table style="width: 100%"
+          table.nav-dropdown-table
             tr
-              td style="text-align: left"
-                | {{ I18n.t('price') }}:&nbsp;&nbsp;{{filters.price.min}}&nbsp;
-                i.fa.fa-ruble
-              td style="text-align: right"
-                | {{ filters.price.max }}&nbsp;
-                i.fa.fa-ruble
-          div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
+              td ng-repeat="category in categories" dropdown-leave=true
+                a.black-dashed-link style="margin-right: 20px;" dropdown-id="{{category.id}}"
+                  | {{ category.title }}
+                .nav-dropdown dropdown-for="{{category.id}}"
+                  .arrow
+                  ul
+                    li ng-repeat="subcategory in category.subcategories"
+                      a.black-dashed-link ng-click="filters.category = category; filters.subcategory = subcategory"
+                        | {{ subcategory.title }}
+        td style="width: 177px"
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-dropdown.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+              span ng-show="filters.size == ''"
+                | {{ I18n.t('product.filters.choose_size') }}
+              span ng-show="filters.size != ''"
+                | {{ filters.size }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a ng-repeat="size in sizes" ng-click="filters.size = size.title"
+                  | {{ size.title }}
+        td style="width: 320px;"
+          div style="margin-top: 20px; margin-bottom: 20px;"
+            table style="width: 100%"
+              tr
+                td style="text-align: left"
+                  | {{ I18n.t('price') }}:&nbsp;&nbsp;От:&nbsp;{{filters.price.min}}&nbsp;
+                  i.fa.fa-ruble
+                td style="text-align: right"
+                  | До:&nbsp;{{ filters.price.max }}&nbsp;
+                  i.fa.fa-ruble
+            div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
+        td style="width: 128px;"
+          .black-btn
+            | SALE
 .container
   .row.copulation-drilldown
     .alert.alert-danger ng-show="sale.reject_reason"
       | {{ sale.reject_reason }}
-    .col-md-3.col-sm-3
+    .col-md-5.col-sm-5
       img.copulation-preview-image ng-src="{{ preview_image.url }}"  ng-click="openLightboxModal(0)"
       br
       br
       .row
-        .col-xs-6.col-md-4 ng-repeat="image in sale.preview_images"
+        .col-xs-4.col-md-3 ng-repeat="image in product.preview_images"
           a class="thumbnail"
             img ng-src="{{ image.url }}" ng-click="openLightboxModal($index)"
-    .col-md-9.col-sm-9
-      .row
-        .col-md-8.col-sm-8
-          span.copulation-title
-            | {{ sale.name }}
-          | &nbsp;
-          | &nbsp;
-          span.black-budget ng-show="sale.scorp"
-            | СКОРП
-          | &nbsp;
-          | &nbsp;
-          span.black-budget ng-show="sale.rkf"
-            | РКФ
-          br
-          | Russian Federation, Moskow
-          | &nbsp;
-          | &nbsp;
-          img src="assets/ru.png" style="width: 20px"
-          br
-          br
-          table.short-table
-            tr
-              td style="width: 100px"
-                | {{ I18n.t('sale.dog.breed') }} >
-              td
-                | {{ sale.breed }}
-            tr
-              td
-                | {{ I18n.t('sale.dog.age') }} >
-              td
-                | {{ sale.age }}
-            tr
-              td
-                | Цвет >
-              td
-                | черный
-            tr
-              td
-                | Вес >
-              td
-                | 320 г
-          br
-          br
-          .price
-            | {{ sale.price }}
-            | &nbsp;
-            i.fa.fa-ruble
-        .col-md-4.col-sm-4.text-right
-          span.rating
-            span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly"
-              | {{percent}}%
-            rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
-          | (150)
-          br
-          br
-          br
-          br
-          br
-          br
-          span style="color: gray"
-            | владелец &nbsp;&nbsp;
-          span style="color: blue"
-            | {{ sale.owner }}
-          br
-          span style="color: red; font-size: 26px"
-            | {{ phone }}
-          br
-          span.black-budget.connect ng-click="showPhone()"
-            | Связаться
-        .col-md-12.col-sm-12
-          h4
-            b
-              | {{ I18n.t('description') }}:
-          div ng-bind-html="getHtml(sale.description)"
-          h4
-            b
-              | Документы:
-          .row
-            .col-xs-6.col-md-3 ng-show="sale.prize_image_url"
-              a class="thumbnail" ng-click="openLightboxModal(prize_image_i)"
-                img ng-src="{{ sale.prize_image_url }}"
-            .col-xs-6.col-md-3 ng-show="sale.bloodline_image_url"
-              a class="thumbnail" ng-click="openLightboxModal(bloodline_image_i)"
-                img ng-src="{{ sale.bloodline_image_url }}"
-            .col-xs-6.col-md-3 ng-show="sale.mother_image_url"
-              a class="thumbnail" ng-click="openLightboxModal(mothers_image_i)"
-                img ng-src="{{ sale.mother_image_url }}"
-            .col-xs-6.col-md-3 ng-show="sale.father_image_url"
-              a class="thumbnail" ng-click="openLightboxModal(fathers_image_i)"
-                img ng-src="{{ sale.father_image_url }}"
+    .col-md-7.col-sm-7
+      .product-title
+        | {{ product.title }}
+      .product-description
+        | {{ product.description }}
+      br
+      br
+      table.short-table
+        tr
+          td
+            | {{ I18n.t('product.fields.type') }} >
+          td
+            | {{ product.type }}
+        tr
+          td
+            | {{ I18n.t('product.fields.material') }} >
+          td
+            | пластик
+        tr
+          td
+            | {{ I18n.t('product.fields.size') }} >
+          td
+            | 20 X 20
+        tr
+          td
+            | {{ I18n.t('product.fields.weight') }} >
+          td
+            | 320г
+        tr
+          td style="width: 180px;"
+            | {{ I18n.t('product.fields.country') }} >
+          td
+            | Китай
+        tr
+          td
+            br
+            br
+            br
+          td
+        tr
+          td
+            span.rating
+              rating ng-model="rate" max="5" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+            | (150)
+          td
+            a.small-grey-dashed-link
+              | Оставить отзыв
+        tr
+          td
+            br
+            br
+          td
+        tr
+          td
+            .price
+              | {{ product.price }}
+              | &nbsp;
+              i.fa.fa-ruble
+          td
+            table.card-section.vertical-align-table
+              tr
+                td
+                  a.black-btn-lg
+                    | {{ I18n.t('actions.buy') }}
+                  | &nbsp;&nbsp;&nbsp;
+                td
+                  a.to-card-link.black-dashed-link
+                    | {{ I18n.t('shop.to_card') }}
+                  | &nbsp;
+                td.card-icon-section
+                  span.card-icon

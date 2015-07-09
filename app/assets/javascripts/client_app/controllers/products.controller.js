@@ -33,8 +33,6 @@
             });
 
             if($state.current.name == 'products'){
-                $scope.sale = [];
-
                 var timer = false;
                 $scope.$watch('filters', function(){
                     if(timer){
@@ -80,8 +78,7 @@
                 //    });
                 //}, 100);
 
-                $scope.sale = {};
-                $scope.images = [];
+                $scope.product = {};
 
                 $scope.rate = 4;
                 $scope.max = 5;
@@ -100,10 +97,9 @@
                     {stateOff: 'glyphicon-off'}
                 ];
 
-                sales.show($stateParams.id).success(function (data) {
-                    $scope.sale = data.sale;
-                    $scope.phone = $scope.sale.owner_phone_hashed;
-                    $scope.preview_image = $scope.sale.preview_images[0];
+                products.show($stateParams.id).success(function (data) {
+                    $scope.product = data.product;
+                    $scope.preview_image = $scope.product.preview_images[0];
                 }).error(function (data) {
 
                 });
@@ -112,21 +108,9 @@
                     $scope.preview_image = image;
                 };
 
-                $scope.showPhone = function(){
-                    sales.showPhone($stateParams.id).success(function (data) {
-                        $scope.phone = data.sale.owner_phone;
-                    }).error(function (data) {
-                        ngDialog.open({
-                            className: 'ngdialog-theme-default',
-                            template: I18n.t('actions.you_must_enter_before'),
-                            plain: true
-                        });
-                    });
-                };
-
                 $scope.openLightboxModal = function (index) {
                     console.log(index);
-                    Lightbox.openModal($scope.images, index);
+                    Lightbox.openModal($scope.product.preview_images, index);
                 };
 
             }

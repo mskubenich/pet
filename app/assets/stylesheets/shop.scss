@@ -21,6 +21,10 @@
     .title{
       margin-top: 17px;
       font-size: 18px;
+      overflow: hidden;
+      word-wrap: break-word;
+      text-overflow: ellipsis;
+      height: 25px;
     }
     .description{
       margin-top: 17px;
@@ -220,4 +224,16 @@ table.card-section{
       }
     }
   }
+}
+
+.product-title{
+  font-family: PTSansRegular;
+  font-size: 36px;
+  text-transform: uppercase;
+}
+
+.product-description{
+  margin-top: 30px;
+  font-family: PTSansRegular;
+  font-size: 14px;
 }

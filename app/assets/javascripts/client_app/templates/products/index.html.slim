@@ -112,7 +112,7 @@
       .visible-item
         .img style="background-image: url({{ product.preview_image_url }})"
         .title
-          a.black-dashed-link
+          a.black-dashed-link href="#products/{{ product.id }}"
             | {{ product.name }}
         .description
           | {{ product.description }}

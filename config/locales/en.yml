@@ -74,8 +74,16 @@ en:
   product:
     new: 'New Product'
     edit: 'Edit Product'
+    fields:
+      type: 'Type'
+      material: 'Material'
+      size: 'Size'
+      weight: 'Weight'
+      country: 'Country'
     messages:
       success_upsert: "Product successfully saved."
+    filters:
+      choose_size: 'Chose Size'
   good_hands:
     new: 'New Announcement'
     edit: 'Edit Announcement'
@@ -118,10 +126,6 @@ en:
       choose_city: 'Choose City'
       choose_breed: 'Choose Breed'
       with_bloodline: 'with bloodline'
-  product:
-    new: 'New Product'
-    filters:
-      choose_size: 'Chose Size'
   choose_from_list: 'Choose from list'
   organization_flag: 'Check this box if you represent one of the organizations.'
   bloodline_flag: "Add your pet's pedigree."

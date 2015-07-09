@@ -77,10 +77,12 @@
                         });
                     $scope.$watch('product.category_id', function(){
                         $scope.subcategory_id = null;
-                        products.shop_subcategories($scope.product.category_id)
-                            .success(function(data){
-                                $scope.subcategories = data.shop_subcategories;
-                            });
+                        if($scope.product){
+                            products.shop_subcategories($scope.product.category_id)
+                                .success(function(data){
+                                    $scope.subcategories = data.shop_subcategories;
+                                });
+                        }
                     });
 
                     if($state.current.name == 'new_product'){

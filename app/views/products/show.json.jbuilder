@@ -1,20 +1,13 @@
-json.sale do
-  json.id                  @sale.id
-  json.family              @sale.family
-  json.name                @sale.name
-  json.rkf                 @sale.rkf
-  json.scorp               @sale.scorp
-  json.breed               @sale.breed
-  json.description         @sale.description
-  json.price               @sale.price
-  json.preview_images      @sale.preview_images_url
-  json.prize_image_url     (@sale.prize.exists? ? @sale.prize.url : nil)
-  json.bloodline_image_url (@sale.bloodline.exists? ? @sale.bloodline.url : nil)
-  json.mother_image_url    (@sale.mothers_photo.exists? ? @sale.mothers_photo.url : nil)
-  json.father_image_url    (@sale.fathers_photo.exists? ? @sale.fathers_photo.url : nil)
-  json.has_prize           @sale.prize.exists?
-  json.age                 @sale.age
-  json.owner               @sale.owner.try(:full_name)
-  json.owner_phone_hashed  @sale.owner.try(:phone)[0..4].to_s + '*****'
-  json.reject_reason       @sale.reject_reason
+json.product do
+  json.product @product.id
+  json.preview_images @product.preview_images_url
+  json.title @product.title
+  json.description @product.description
+  json.price @product.price
+  json.family @product.family
+  json.created_at @product.created_at
+  json.shop_subcategory_id @product.shop_subcategory_id
+  json.description @product.description
+  json.type "#{ @product.shop_subcategory.try(:shop_category) ? @product.shop_subcategory.try(:shop_category).try("title_#{ I18n.locale }") : I18n.t('menu.products') } #{ @product.shop_subcategory.try("title_#{ I18n.locale }") } #{ @product.family == 'cat' ? I18n.t('shop.for_cats') : '' } #{ @product.family == 'dog' ? I18n.t('shop.for_dogs') : '' }"
+
 end
