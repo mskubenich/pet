@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
 
     @products = query.order('id DESC').paginate page: params[:page], per_page: 13
     @count = query.count
+    @new_product = Product.order('created_at DESC').limit(5).sample
   end
 
   def show

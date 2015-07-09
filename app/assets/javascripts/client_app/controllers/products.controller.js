@@ -47,6 +47,7 @@
                 $scope.retrieveProducts = function(){
                     products.all({page: $scope.page, query: $scope.filters}).success(function (data) {
                         $scope.products = data.products;
+                        $scope.new_product = data.new_product;
                         $scope.count = data.count;
 
                         var pagination = $('#products-pagination');

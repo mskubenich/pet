@@ -51,6 +51,7 @@
 }
 
 .shop-ad > div{
+  padding: 33px;
   overflow: hidden;
   background-color: #EEEEEE;
   width: 100%;
@@ -71,6 +72,44 @@
     right: -190px;
     top: 29px;
 
+  }
+  table{
+    width: 100%;
+    tr.first{
+      td{
+        &.first{
+          width: 40%;
+        }
+        &.second{
+          width: 60%;
+          img{
+            width: 100%;
+            max-height: 90%;
+          }
+        }
+        width: 50%;
+        vertical-align: top;
+      }
+      .title{
+        text-transform: uppercase;
+        font-family: PTSansRegular;
+        font-size: 18px;
+      }
+      .description{
+        padding-top: 36px;
+        font-family: PTSansRegular;
+        font-size: 14px;
+      }
+    }
+  }
+  .product-price{
+    font-family: PFCentroSerifBold;
+    text-transform: uppercase;
+    font-size: 25px;
+    color: red;
+    bottom: 30px;
+    right: 30px;
+    position: absolute;
   }
 }
 

@@ -8,3 +8,10 @@ json.products @products.each do |product|
   json.rate              4
 end
 json.count @count
+json.new_product do
+  json.id @new_product.id
+  json.title @new_product.title
+  json.description @new_product.description
+  json.preview_image_url @new_product.preview_image_url
+  json.price @new_product.price
+end

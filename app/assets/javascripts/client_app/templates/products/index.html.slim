@@ -107,7 +107,19 @@
     .shop-ad
       div
         .new-badge
-          | new
+          | NEW
+        table.new-product-table
+          tr.first
+            td.first
+              .title
+                | {{ new_product.title }}
+              .description
+                | {{ new_product.description }}
+            td.second
+              img ng-src="{{ new_product.preview_image_url }}"
+        .product-price
+          | {{ new_product.price }}&nbsp;
+          i.fa.fa-ruble
     div.shop-item ng-repeat="product in products"
       .visible-item
         .img style="background-image: url({{ product.preview_image_url }})"
