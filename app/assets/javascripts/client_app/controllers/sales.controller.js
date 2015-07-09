@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory',
-            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce, Lightbox, breeds) {
+        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory',
+            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce, Lightbox, breeds, comments) {
                 $('body').css('background-color', 'white');
                 $scope.I18n = I18n;
                 $scope._ = _;
@@ -183,6 +183,41 @@
                         Lightbox.openModal($scope.images, index);
                     };
 
+                    $scope.comments_page = 1;
+                    $scope.retrieveComments = function(){
+                        comments.all({page: $scope.comments_page, entity_type: 'Sale', entity_id: $stateParams.id}).success(function (data) {
+                            $scope.comments = data.comments;
+                            $scope.count = data.count;
+
+                            var pagination = $('#comments-pagination');
+                            pagination.empty();
+                            pagination.removeData('twbs-pagination');
+                            pagination.unbind('page');
+                            pagination.twbsPagination({
+                                totalPages: Math.ceil($scope.count / 10),
+                                startPage: $scope.comments_page,
+                                visiblePages: 9,
+                                onPageClick: function (event, page) {
+                                    $scope.comments_page = page;
+                                    $scope.retrieveComments();
+                                }
+                            });
+                        }).error(function (data) {
+
+                        });
+                    };
+
+                    $scope.retrieveComments();
+
+                    $scope.new_comment = '';
+                    $scope.comment = function(){
+                        if($scope.new_comment.toString().trim() != ''){
+                            comments.create({text: $scope.new_comment, entity_id: $stateParams.id, entity_type: 'Sale'}).success(function(){
+                                $scope.new_comment = '';
+                                $scope.retrieveComments();
+                            })
+                        }
+                    }
                 }
                 if($state.current.name == 'new_sale'){
 

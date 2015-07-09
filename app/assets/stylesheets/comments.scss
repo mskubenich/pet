@@ -41,3 +41,14 @@ table.comments-table{
     }
   }
 }
+
+.comments-gray{
+  color: lightgray;
+  .dashed_text{
+    color: lightgray;
+    border-color: lightgray !important;
+    &:hover{
+      border-color: #000000 !important;
+    }
+  }
+}

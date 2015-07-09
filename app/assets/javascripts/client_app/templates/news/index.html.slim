@@ -50,8 +50,10 @@
               a
                 i.fa.fa-eye
                 | 125
-              a.dashed_text href="#news/{{article.id}}"
-                | Оставить отзыв
+              span.comments-gray
+                a.dashed_text href="#news/{{article.id}}"
+                  | Оставить отзыв
+                | ({{ article.comments_count }})
     .col-md-3
       h3.serif-font
         b Популярное за сутки:

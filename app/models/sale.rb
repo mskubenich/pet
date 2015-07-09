@@ -1,4 +1,5 @@
 class Sale < ActiveRecord::Base
+  include Commentable
   validates :family, presence: true
   validates :name, presence: true
   validates :age, presence: true
