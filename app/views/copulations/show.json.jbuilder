@@ -15,6 +15,6 @@ json.copulation do
   json.has_prize           @copulation.prize.exists?
   json.age                 @copulation.age
   json.owner               @copulation.owner.try(:full_name)
-  json.owner_phone_hashed  @copulation.owner.try(:phone)[0..4].to_s + '*****'
+  json.owner_phone_hashed  @copulation.owner.try(:phone).to_s[0..4] + '*****'
   json.reject_reason       @copulation.reject_reason
 end
