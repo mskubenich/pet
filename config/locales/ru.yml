@@ -19,6 +19,7 @@ ru:
     shop_categories: 'Категории товара'
     shop_subcategories: 'Субкатегории товара'
     products: 'Продукты'
+    slides: 'Галерея'
   datetime:
     ago: 'назад'
     at: 'в'
@@ -50,6 +51,11 @@ ru:
       success_upsert: "Пользователь удачно обновлен."
       ban_confirm: "Вы действительно хотите забанить пользователя ?"
       remove_confirm: "Вы действительно хотите удалить пользователя ?"
+  slides:
+    new: 'Новый слайд'
+    messages:
+      success_upsert: "Слайд удачно создан."
+      remove_confirm: "Вы действительно хотите удалить слайд ?"
   announcements:
     messages:
       success_upsert: "Объявление удачно создано."

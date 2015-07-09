@@ -173,6 +173,16 @@
                 url: '/products/:id/edit',
                 templateUrl: 'client_app/templates/admin/products/new.html',
                 controller: 'AdminProductsController'
+            })
+            .state('slides',{
+                url: '/slides',
+                templateUrl: 'client_app/templates/admin/slides/index.html',
+                controller: 'AdminSlidesController'
+            })
+            .state('new_slide',{
+                url: '/slides/new',
+                templateUrl: 'client_app/templates/admin/slides/new.html',
+                controller: 'AdminSlidesController'
             });
     }]);
 

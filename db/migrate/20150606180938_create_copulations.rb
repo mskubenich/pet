@@ -4,7 +4,6 @@ class CreateCopulations < ActiveRecord::Migration
       t.string :family
       t.string :name
       t.integer :age
-      t.string :breed
       t.boolean :scorp
       t.boolean :rkf
       t.text :description

@@ -1,0 +1,21 @@
+div
+  h2
+    | {{ I18n.t('slides.new') }}
+form.registration-form ng-submit="submitSlide()" name="slideForm" novalidate=true
+  .form-group
+    table.vertical-align-table
+      tr
+        td
+          label
+            input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" file-model="slide_image"
+            .avatar-droppable#avatar-preview style="background-image: url({{ user.avatar }})"
+              table
+                tr
+                  td
+                    i.fa.fa-plus-circle
+        td
+          span.gray
+            | {{ I18n.t('your_photo')}}.
+
+  .text-center
+    input.yellow-btn type="submit" value="{{ I18n.t('actions.update') }}"

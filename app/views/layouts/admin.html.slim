@@ -59,6 +59,9 @@ html(lang="en")
                 li role="presentation" ng-class="{'active' : $state.current.name == 'products' }"
                   a href="#products"
                     | {{ I18n.t('menu.products') }}
+                li role="presentation" ng-class="{'active' : $state.current.name == 'slides' }"
+                  a href="#slides"
+                    | {{ I18n.t('menu.slides') }}
         .col-md-9
           div ui-view=true
 

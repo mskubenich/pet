@@ -44,6 +44,7 @@ Rails.application.routes.draw do
         resources :shop_subcategories, only: [:index, :create, :update, :destroy, :show]
       end
       resources :breeds, only: [:index, :create, :update, :destroy, :show]
+      resources :slides, only: [:index, :show, :create, :destroy]
     end
 
     resources :pages, only: [:index] do
