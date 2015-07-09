@@ -167,3 +167,6 @@
             .col-xs-6.col-md-3 ng-show="announcement.father_image_url"
               a class="thumbnail" ng-click="openLightboxModal(fathers_image_i)"
                 img ng-src="{{ announcement.father_image_url }}"
+  .row
+    .col-md-3
+    .col-md-9 ng-include=true src="'client_app/templates/comments/index.html'"
