@@ -5,6 +5,7 @@ json.products @products.each do |product|
   json.description       product.preview_text
   json.price             product.price
   json.preview_image_url product.preview_image_url
+  json.comments_count    product.comments.count
   json.rate              4
 end
 json.count @count

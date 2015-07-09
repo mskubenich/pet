@@ -3,9 +3,9 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('ProductsController', ['$scope', '$state', 'ngDialog', 'ProductsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'ShopCategoriesFactory',
-            function ($scope, $state, ngDialog, products, $stateParams, $timeout, $sce, Lightbox, categories) {
-            $('body').css('background-color', '#FAFAFA');
+        .controller('ProductsController', ['$scope', '$state', 'ngDialog', 'ProductsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'ShopCategoriesFactory', 'CommentsFactory',
+            function ($scope, $state, ngDialog, products, $stateParams, $timeout, $sce, Lightbox, categories, comments) {
+
             $scope.I18n = I18n;
             $scope._ = _;
 
@@ -33,6 +33,7 @@
             });
 
             if($state.current.name == 'products'){
+                $('body').css('background-color', '#FAFAFA');
                 var timer = false;
                 $scope.$watch('filters', function(){
                     if(timer){
@@ -72,7 +73,7 @@
                 $scope.retrieveProducts();
             }
             if($state.current.name == 'show_product'){
-
+                $('body').css('background-color', 'white');
                 //setTimeout(function(){
                 //    $scope.$watch('filters', function(){
                 //        $state.go('sale');
@@ -114,6 +115,41 @@
                     Lightbox.openModal($scope.product.preview_images, index);
                 };
 
+                $scope.comments_page = 1;
+                $scope.retrieveComments = function(){
+                    comments.all({page: $scope.comments_page, entity_type: 'Product', entity_id: $stateParams.id}).success(function (data) {
+                        $scope.comments = data.comments;
+                        $scope.count = data.count;
+
+                        var pagination = $('#comments-pagination');
+                        pagination.empty();
+                        pagination.removeData('twbs-pagination');
+                        pagination.unbind('page');
+                        pagination.twbsPagination({
+                            totalPages: Math.ceil($scope.count / 10),
+                            startPage: $scope.comments_page,
+                            visiblePages: 9,
+                            onPageClick: function (event, page) {
+                                $scope.comments_page = page;
+                                $scope.retrieveComments();
+                            }
+                        });
+                    }).error(function (data) {
+
+                    });
+                };
+
+                $scope.retrieveComments();
+
+                $scope.new_comment = '';
+                $scope.comment = function(){
+                    if($scope.new_comment.toString().trim() != ''){
+                        comments.create({text: $scope.new_comment, entity_id: $stateParams.id, entity_type: 'Product'}).success(function(){
+                            $scope.new_comment = '';
+                            $scope.retrieveComments();
+                        })
+                    }
+                }
             }
         }])
 }());
