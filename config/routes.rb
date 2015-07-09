@@ -53,6 +53,7 @@ Rails.application.routes.draw do
         get :sale_slides
         get :copulation_slides
         get :shop_slides
+        get :main_slides
         get :news
       end
     end

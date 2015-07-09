@@ -48,10 +48,27 @@
 
 .header{
   .gallery{
+    .main-slider{
+      .main-slide{
+        height: 502px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: none;
+    }
+    .main-slider-disabler{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+    }
     overflow: hidden;
     margin-top: -20px;
     color: white;
-    background-image: url('pet1.jpg');
     min-height: 502px;
     background-repeat: no-repeat;
     background-position: center;

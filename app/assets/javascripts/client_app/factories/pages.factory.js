@@ -16,6 +16,9 @@
             },
             news: function(){
                 return $http.get( I18n.locale + '/pages/news.json')
+            },
+            get_main_slides: function(){
+                return $http.get( I18n.locale + '/pages/main_slides.json')
             }
         };
     }])

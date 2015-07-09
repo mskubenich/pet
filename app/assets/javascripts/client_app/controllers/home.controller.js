@@ -104,6 +104,26 @@
                     })
                     .error();
 
+                pages.get_main_slides()
+                    .success(function(data){
+                        $scope.main_slides = data.slides;
+                        $timeout(function() {
+                            $('.main-slider').on('init', function(){
+                                $('.main-slider').show();
+                            });
+                            $('.main-slider').slick({
+                                dots: false,
+                                infinite: true,
+                                speed: 700,
+                                autoplay: true,
+                                arrows: false,
+                                fade: true,
+                                autoplaySpeed: 10000
+                            });
+                        }, 0);
+                    })
+                    .error();
+
                 $scope.slides = [];
                 pages.get_slides()
                     .success(function(data){
