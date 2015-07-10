@@ -4,7 +4,7 @@ json.copulations @copulations.each do |copulation|
   json.name              copulation.name
   json.rkf               copulation.rkf
   json.scorp             copulation.scorp
-  json.breed             copulation.breed
+  json.breed             copulation.breed.try("title_#{ I18n.locale }")
   json.description       copulation.preview_text
   json.price             copulation.price
   json.preview_image_url copulation.preview_image_url

@@ -33,11 +33,9 @@
                 | {{ I18n.t('validations.cant_be_blank')}}
         br
         .form-group
-          select.form-control name="breed" ng-model="announcement.breed" required=true
+          select.form-control name="breed" ng-model="announcement.breed_id" required=true ng-options="breed.id as breed.title for breed in breeds2"
             option value='' disabled=true selected=true
               | {{ I18n.t('copulation.dog.breed') }} ({{ I18n.t('choose_from_list')}})
-            option ng-repeat="breed in breeds" value="{{ breed }}"
-              | {{ breed }}
           .error ng-show="announcementForm.breed.$invalid && submitted"
             | {{ I18n.t('validations.cant_be_blank')}}
         br

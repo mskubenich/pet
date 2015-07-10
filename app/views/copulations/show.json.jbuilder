@@ -5,6 +5,7 @@ json.copulation do
   json.rkf                 @copulation.rkf
   json.scorp               @copulation.scorp
   json.breed_id            @copulation.breed.try(:id)
+  json.breed               @copulation.breed.try("title_#{ I18n.locale }")
   json.description         @copulation.description
   json.price               @copulation.price
   json.preview_images      @copulation.preview_images_url
