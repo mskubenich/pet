@@ -31,6 +31,9 @@
                     breeds.titles({family: $scope.filters.family})
                         .success(function(data){
                             $scope.breeds = data.breeds;
+                            if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.filters.breed_id)){
+                                $scope.filters.breed_id = '';
+                            }
                         })
                         .error(function(){
 
