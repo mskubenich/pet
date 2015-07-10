@@ -7,7 +7,7 @@
                 fd.append('sale[family]', sale.family);
                 fd.append('sale[name]', sale.name);
                 fd.append('sale[age]', sale.age);
-                fd.append('sale[breed]', sale.breed);
+                fd.append('sale[breed_id]', sale.breed_id);
                 fd.append('sale[scorp]', sale.scorp);
                 fd.append('sale[rkf]', sale.rkf);
                 fd.append('sale[description]', sale.description);

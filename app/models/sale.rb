@@ -3,7 +3,7 @@ class Sale < ActiveRecord::Base
   validates :family, presence: true
   validates :name, presence: true
   validates :age, presence: true
-  validates :breed, presence: true
+  validates :breed_id, presence: true
 
   has_attached_file :prize, :default_url => "/assets/missing.png"
   validates_attachment_content_type :prize, :content_type => /\Aimage\/.*\Z/
@@ -15,6 +15,7 @@ class Sale < ActiveRecord::Base
   validates_attachment_content_type :fathers_photo, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :owner, class_name: User, foreign_key: 'user_id'
+  belongs_to :breed
 
   after_destroy :destroy_attachments
 

@@ -20,7 +20,7 @@
                         min: 0,
                         max: 100000
                     },
-                    breed: '',
+                    breed_id: '',
                     scorp: false,
                     rkf: false,
                     bloodline: false
@@ -222,20 +222,45 @@
                     }
                 }
                 if($state.current.name == 'new_sale'){
+                    $scope.announcement = {};
+
+                    $scope.updateBreeds2 = function(){
+                        breeds.all({family: $scope.announcement.family})
+                            .success(function(data){
+                                $scope.breeds = data.breeds;
+
+                                if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.announcement.breed_id)){
+                                    $scope.announcement.breed_id = null;
+                                }
+                            })
+                            .error(function(){
+
+                            })
+                    };
+                    $scope.updateBreeds2();
 
                     setTimeout(function(){
                         $('#redactor').redactor({
                             buttonSource: true,
                             imageUpload: '/attachments/sale_description',
                             fileUpload: '/attachments/sale_description',
-                            plugins: ['table', 'video']
-                        });
+                            plugins: ['table', 'video']});
+                    });
+
+                    $scope.announcement = {scorp: false, rkf: false};
+
+                    $scope.$watch('announcement.family', function(){
+                        $scope.updateBreeds2();
                     });
 
                     $scope.attachments = [];
                     $scope.attachments_previews = [];
-                    $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
-                    $scope.announcement = {};
+                    $scope.removed_attachments_previews = [];
+
+                    $scope.removeExistingAttachment = function(id){
+                        $scope.removed_attachments_previews.push(id);
+                        $(event.target).parents('.file-select').remove();
+                    };
 
                     $scope.removeAttachment = function(i, event){
                         $scope.attachments[i] = 'null';
@@ -247,6 +272,12 @@
                         $scope.submitted = true;
                         if($scope.announcementForm.$invalid ){
                             return false;
+                        }
+                        if($scope.announcement.description.length == 0){
+                            $scope.description_error = true;
+                            return false;
+                        }else{
+                            $scope.description_error = false;
                         }
 
                         $scope.processing = true;

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709070202) do
+ActiveRecord::Schema.define(version: 20150710120402) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20150709070202) do
     t.string   "family",                     limit: 255
     t.string   "name",                       limit: 255
     t.integer  "age",                        limit: 4
-    t.string   "breed",                      limit: 255
     t.boolean  "scorp",                      limit: 1
     t.boolean  "rkf",                        limit: 1
     t.text     "description",                limit: 65535
@@ -86,7 +85,6 @@ ActiveRecord::Schema.define(version: 20150709070202) do
     t.string   "family",                     limit: 255
     t.string   "name",                       limit: 255
     t.integer  "age",                        limit: 4
-    t.string   "breed",                      limit: 255
     t.boolean  "scorp",                      limit: 1
     t.boolean  "rkf",                        limit: 1
     t.text     "description",                limit: 65535
@@ -161,7 +159,6 @@ ActiveRecord::Schema.define(version: 20150709070202) do
     t.string   "family",                     limit: 255
     t.string   "name",                       limit: 255
     t.integer  "age",                        limit: 4
-    t.string   "breed",                      limit: 255
     t.boolean  "scorp",                      limit: 1
     t.boolean  "rkf",                        limit: 1
     t.text     "description",                limit: 65535

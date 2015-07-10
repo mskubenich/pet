@@ -19,7 +19,7 @@
                 return $http.delete('/admin/breeds/' + id)
             },
             titles: function(options){
-                return $http.get('/breeds.json?family=' + options.family);
+                return $http.get('/admin/breeds/all.json?family=' + options.family);
             }
         };
     }])

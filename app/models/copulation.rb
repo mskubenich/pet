@@ -16,6 +16,7 @@ class Copulation < ActiveRecord::Base
   validates_attachment_content_type :fathers_photo, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :owner, class_name: User, foreign_key: 'user_id'
+  belongs_to :breed
 
   after_destroy :destroy_attachments
 

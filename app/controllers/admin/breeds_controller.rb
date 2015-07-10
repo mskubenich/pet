@@ -35,6 +35,12 @@ class Admin::BreedsController < AdminController
     render nothing: true
   end
 
+  def all
+    query = Breed.all
+    query = query.where(family: params[:family]) if ['cat', 'dog'].include?(params[:family])
+    @breeds = query.order('id DESC')
+  end
+
   private
 
   def breed_params
