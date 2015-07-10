@@ -51,7 +51,7 @@
                                             '&price_min=' + options.query.price.min +
                                             '&price_max=' + options.query.price.max +
                                             '&scorp=' + options.query.scorp +
-                                            '&breed=' + options.query.breed +
+                                            '&breed_id=' + options.query.breed_id +
                                             '&bloodline=' + options.query.bloodline +
                                             '&rkf=' + options.query.rkf);
             },
