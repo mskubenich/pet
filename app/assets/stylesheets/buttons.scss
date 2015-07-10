@@ -286,3 +286,17 @@ a.yellow-dashed-link{
   -moz-border-radius: 100px;
   text-align: center;
 }
+
+.yellow-rounded-house{
+  display: inline-block;
+  background-color: #FFD800;
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-image: url(house-icon.png);
+  background-position: center;
+}
