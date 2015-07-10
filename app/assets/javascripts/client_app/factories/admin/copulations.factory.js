@@ -7,7 +7,7 @@
                 fd.append('copulation[family]', copulation.family);
                 fd.append('copulation[name]', copulation.name);
                 fd.append('copulation[age]', copulation.age);
-                fd.append('copulation[breed]', copulation.breed);
+                fd.append('copulation[breed_id]', copulation.breed_id);
                 fd.append('copulation[scorp]', copulation.scorp);
                 fd.append('copulation[rkf]', copulation.rkf);
                 fd.append('copulation[description]', copulation.description);

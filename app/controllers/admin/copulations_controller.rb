@@ -35,7 +35,7 @@ class Admin::CopulationsController < AdminController
     query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'
     query = query.where("price > ?", params[:price_min]) if params[:price_min]
     query = query.where("price < ?", params[:price_max]) if params[:price_max]
-    query = query.where(breed: params[:breed]) unless params[:breed].blank?
+    query = query.where(breed_id: params[:breed_id]) unless params[:breed_id].blank?
     query = query.where("bloodline_file_size IS NOT NULL") if params[:bloodline] == 'true'
     query = query.where(scorp: true) if params[:scorp] == 'true'
     query = query.where(rkf: true) if params[:rkf] == 'true'
@@ -76,6 +76,6 @@ class Admin::CopulationsController < AdminController
   end
 
   def copulation_params
-    params.require(:copulation).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
+    params.require(:copulation).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
   end
 end

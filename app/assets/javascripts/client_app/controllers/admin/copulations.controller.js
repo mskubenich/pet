@@ -20,7 +20,7 @@
                         min: 0,
                         max: 1000000
                     },
-                    breed: '',
+                    breed_id: '',
                     scorp: false,
                     rkf: false,
                     bloodline: false
@@ -98,6 +98,10 @@
                         breeds.titles({family: $scope.announcement.family})
                             .success(function(data){
                                 $scope.breeds = data.breeds;
+
+                                if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.announcement.breed_id)){
+                                    $scope.announcement.breed_id = null;
+                                }
                             })
                             .error(function(){
 
@@ -106,7 +110,6 @@
                     $scope.updateBreeds2();
 
                     $scope.$watch('announcement.family', function(){
-                        $scope.announcement.breed = null;
                         $scope.updateBreeds2();
                     });
 

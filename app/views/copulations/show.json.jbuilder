@@ -4,7 +4,7 @@ json.copulation do
   json.name                @copulation.name
   json.rkf                 @copulation.rkf
   json.scorp               @copulation.scorp
-  json.breed               @copulation.breed
+  json.breed_id            @copulation.breed.try(:id)
   json.description         @copulation.description
   json.price               @copulation.price
   json.preview_images      @copulation.preview_images_url
