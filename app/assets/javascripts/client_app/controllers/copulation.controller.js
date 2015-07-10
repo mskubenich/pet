@@ -21,27 +21,30 @@
                     min: 0,
                     max: 1000000
                 },
-                breed: '',
+                breed_id: '',
                 scorp: false,
                 rkf: false,
                 bloodline: false
             };
 
-            $scope.breeds = [];
-            $scope.updateBreeds = function(){
-                breeds.all({family: $scope.filters.family})
-                    .success(function(data){
-                        $scope.breeds = data.breeds;
-                    })
-                    .error(function(){
+                $scope.breeds = [];
+                $scope.updateBreeds = function(){
+                    breeds.all({family: $scope.filters.family})
+                        .success(function(data){
+                            $scope.breeds = data.breeds;
+                            if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.filters.breed_id)){
+                                $scope.filters.breed_id = '';
+                            }
+                        })
+                        .error(function(){
 
-                    })
-            };
-            $scope.updateBreeds();
-
-            $scope.$watch('filters.family', function(){
+                        })
+                };
                 $scope.updateBreeds();
-            });
+
+                $scope.$watch('filters.family', function(){
+                    $scope.updateBreeds();
+                });
 
             if($state.current.name == 'copulation'){
                 $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
