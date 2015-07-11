@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('GoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory',
-            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce, Lightbox, breeds, comments) {
+        .controller('GoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory',
+            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes) {
                 $('body').css('background-color', 'white');
                 $scope.I18n = I18n;
                 $scope._ = _;
@@ -99,25 +99,46 @@
                     $scope.announcement = {};
                     $scope.images = [];
 
-                    $scope.rate = 4;
-                    $scope.max = 5;
-                    $scope.isReadonly = false;
-
+                    $scope.rating = {
+                        rating: 0,
+                        max: 5,
+                        isReadonly: true,
+                        voices_count: 0
+                    };
                     $scope.hoveringOver = function(value) {
                         $scope.overStar = value;
                         $scope.percent = 100 * (value / $scope.max);
                     };
-
-                    $scope.ratingStates = [
-                        {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
-                        {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
-                        {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-                        {stateOn: 'glyphicon-heart'},
-                        {stateOff: 'glyphicon-off'}
-                    ];
+                    var initializing = true;
 
                     good_hands.show($stateParams.id).success(function (data) {
                         $scope.announcement = data.good_hand;
+
+                        notes.show({entity_type: 'GoodHand', entity_id: $scope.announcement.id})
+                            .success(function(data){
+                                $scope.rating.rating = data.note.rating;
+                                $scope.rating.isReadonly = data.note.readonly;
+                                $scope.rating.voices_count = data.note.voices_count;
+                                $scope.$watch('rating.rating', function(){
+                                    if (initializing) {
+                                        $timeout(function() { initializing = false; });
+                                    } else {
+                                        $scope.rating.isReadonly = true;
+                                        notes.create({points: $scope.rating.rating, entity_type: 'GoodHand', entity_id: $scope.announcement.id})
+                                            .success(function(){
+                                                initializing = true;
+                                                notes.show({entity_type: 'GoodHand', entity_id: $scope.announcement.id})
+                                                    .success(function(data){
+                                                        $scope.rating.rating = data.note.rating;
+                                                        $scope.rating.isReadonly = data.note.readonly;
+                                                        $scope.rating.voices_count = data.note.voices_count;
+                                                    });
+                                            });
+                                    }
+                                });
+                            });
+
+
                         $scope.phone = $scope.announcement.owner_phone_hashed;
                         $scope.preview_image = $scope.announcement.preview_images[0];
                         var i = 0;
