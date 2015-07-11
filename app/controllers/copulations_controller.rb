@@ -2,6 +2,7 @@ class CopulationsController < ApplicationController
 
   load_and_authorize_resource :copulation
   skip_before_filter :authenticate_user, only: [:index, :show]
+  before_filter :calculate_view, only: [:show]
 
   def create
     attachments_params = params[:copulation][:photos] || []
@@ -41,6 +42,10 @@ class CopulationsController < ApplicationController
   end
 
   private
+
+  def calculate_view
+    View.create entity_type: Copulation, entity_id: @copulation.id, ip: request.ip
+  end
 
   def update_attachments
     Attachment.where(entity_id: nil, entity_type: 'copulation_description').each do |attachment|

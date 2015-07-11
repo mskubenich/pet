@@ -11,5 +11,6 @@ json.copulations @copulations.each do |copulation|
   json.has_prize         copulation.prize.exists?
   json.approved          copulation.approved
   json.comments_count    copulation.comments.count
+  json.views_count       copulation.views.count
 end
 json.count @count

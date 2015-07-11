@@ -1,5 +1,6 @@
 class Copulation < ActiveRecord::Base
   include Commentable
+  include Viewable
   validates :family, presence: true
   validates :name, presence: true
   validates :age, presence: true
