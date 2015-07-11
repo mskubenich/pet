@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
   load_and_authorize_resource :news, only: [:index, :show]
   skip_before_filter :authenticate_user
+  before_filter :calculate_view, only: [:show]
 
   def index
     query = News.all
@@ -20,5 +21,11 @@ class NewsController < ApplicationController
 
   def categories
     @categories = Category.all
+  end
+
+  private
+
+  def calculate_view
+    View.create entity_type: News, entity_id: @news.id, ip: request.ip
   end
 end

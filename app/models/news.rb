@@ -1,5 +1,6 @@
 class News < ActiveRecord::Base
   include Commentable
+  include Viewable
 
   belongs_to :author, class_name: User, foreign_key: :user_id
   has_and_belongs_to_many :categories
