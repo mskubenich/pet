@@ -103,6 +103,7 @@ en:
   news:
     new: 'New News'
     edit: 'Edit News'
+    popular: 'Popular for the day'
     messages:
       success_upsert: "News successfully saved."
   copulation:

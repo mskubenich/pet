@@ -58,7 +58,6 @@ Rails.application.routes.draw do
         get :copulation_slides
         get :shop_slides
         get :main_slides
-        get :news
       end
     end
 
@@ -86,6 +85,7 @@ Rails.application.routes.draw do
     resources :news, only: [:index, :show] do
       collection do
         get :categories
+        get :popular
       end
     end
     resources :copulations, only: [:index, :create, :update, :show] do

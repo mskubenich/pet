@@ -22,8 +22,4 @@ class PagesController < ApplicationController
   def main_slides
     @slides = MainSlide.all
   end
-
-  def news
-    @news = News.all.order('RAND()').limit(2)
-  end
 end

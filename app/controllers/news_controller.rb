@@ -23,6 +23,10 @@ class NewsController < ApplicationController
     @categories = Category.all
   end
 
+  def popular
+    @news = News.popular(2)
+  end
+
   private
 
   def calculate_view

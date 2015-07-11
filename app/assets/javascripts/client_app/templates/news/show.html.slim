@@ -67,8 +67,10 @@
             | Оставить отзыв
     .col-md-3
       h3.serif-font
-        b Популярное за сутки:
-      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        b
+          | {{ I18n.t('news.popular') }}:
+      br
+      div ng-include=true src="'client_app/templates/news/popular.html'"
   .row
     .col-md-9 ng-include=true src="'client_app/templates/comments/index.html'"
     .col-md-3

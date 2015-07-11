@@ -138,29 +138,7 @@ br
       br
       br
       br
-    .col-md-4.col-sm-4
-      b
-        .pet-h3
-          | {{ I18n.t('menu.news') }}
-      div ng-repeat="n in news"
-        table.heading-table
-          tr
-            td.serif-font-bold
-              a href="#news/{{ n.id }}" style="color: black"
-                | {{ n.title }}
-            td
-              i.fa.fa-clock-o
-              | &nbsp;
-              | {{ n.created_at }}
-        br
-        span.small-text ng-bind-html="getHtml(n.body)"
-          | {{ n.body }}
-      br
-      a.white-btn href="#news" style="text-transform: uppercase; font-family: PFCentroSerifBold;"
-        | Все новости
-      br
-      br
-      br
+    .col-md-4.col-sm-4 ng-include=true src="'client_app/templates/news/popular.html'"
     .col-md-1
 .wave
 .nav-menu

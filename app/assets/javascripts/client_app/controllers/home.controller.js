@@ -51,9 +51,9 @@
                     })
                     .error();
 
-                pages.news({page: 1})
+                pages.news()
                     .success(function(data){
-                        $scope.news = [data.news[0], data.news[1]];
+                        $scope.popular_news = data.news;
                     })
                     .error();
 

@@ -93,6 +93,7 @@ ru:
   news:
     new: 'Добавить Новость'
     edit: 'Редактировать Новость'
+    popular: 'Популярное за сутки'
     messages:
       success_upsert: "Новость удачно сохранена."
   copulation:

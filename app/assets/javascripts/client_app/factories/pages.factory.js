@@ -15,7 +15,7 @@
                 return $http.get( I18n.locale + '/pages/shop_slides.json')
             },
             news: function(){
-                return $http.get( I18n.locale + '/pages/news.json')
+                return $http.get( I18n.locale + '/news/popular.json')
             },
             get_main_slides: function(){
                 return $http.get( I18n.locale + '/pages/main_slides.json')
