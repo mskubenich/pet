@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   end
 
   def shop_slides
-
+    @products = Product.popular(10)
   end
 
   def main_slides

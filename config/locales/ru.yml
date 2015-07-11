@@ -198,6 +198,7 @@ ru:
     to_card: 'В корзину'
     for_dogs: 'для собак'
     for_cats: 'для кошек'
+    popular_title: 'Популярное в зоомагазине'
   promo:
     get: 'Получи промо код'
     get_button: 'Получить'

@@ -198,6 +198,7 @@ en:
     to_card: 'Add to card'
     for_dogs: 'Toys for dogs'
     for_cats: 'Toys for cats'
+    popular_title: 'Popular in zooshop'
   promo:
     get: 'Get promo code'
     get_button: 'Get'

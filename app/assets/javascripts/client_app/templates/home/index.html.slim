@@ -164,24 +164,5 @@ br
     .col-md-1
 .wave
 .nav-menu
-  br
-  .text-center
-    b
-      .pet-h3
-        | Популярное в зоомагазине
-  #shop-carousel
-    div ng-repeat="slide in shop_slides" style="padding-bottom: 20px"
-      div style="height: 150px"
-        img ng-src="{{ slide.image_url }}" style="margin: 0 auto"
-      br
-      .text-center
-        span.dashed_text
-          | {{ slide.description }}
-        br
-        span style="font-size: 25px"
-          | {{ slide.price }} &nbsp;
-          i.fa.fa-ruble
-        br
-        span.black-budget style="text-transform: none; padding: 5px 25px 5px 25px; font-size: 16px;"
-          | {{ I18n.t('actions.buy') }}
+div ng-include=true src="'client_app/templates/products/popular_slider.html'"
 .wave-bottom

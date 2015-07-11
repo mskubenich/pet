@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711162651) do
+ActiveRecord::Schema.define(version: 20150711172857) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -59,8 +59,8 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.integer  "price",                      limit: 4
     t.integer  "user_id",                    limit: 4
     t.boolean  "approved",                   limit: 1
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.string   "prize_file_name",            limit: 255
     t.string   "prize_content_type",         limit: 255
     t.integer  "prize_file_size",            limit: 4
@@ -79,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.datetime "fathers_photo_updated_at"
     t.text     "reject_reason",              limit: 65535
     t.integer  "breed_id",                   limit: 4
+    t.integer  "views_count",                limit: 4,     default: 0
   end
 
   create_table "good_hands", force: :cascade do |t|
@@ -90,8 +91,8 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.text     "description",                limit: 65535
     t.integer  "user_id",                    limit: 4
     t.boolean  "approved",                   limit: 1
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.string   "prize_file_name",            limit: 255
     t.string   "prize_content_type",         limit: 255
     t.integer  "prize_file_size",            limit: 4
@@ -110,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.datetime "fathers_photo_updated_at"
     t.text     "reject_reason",              limit: 65535
     t.integer  "breed_id",                   limit: 4
+    t.integer  "views_count",                limit: 4,     default: 0
   end
 
   create_table "main_slides", force: :cascade do |t|
@@ -124,8 +126,8 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.boolean  "rkf",                        limit: 1
     t.boolean  "scorp",                      limit: 1
     t.integer  "user_id",                    limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.string   "preview_image_file_name",    limit: 255
     t.string   "preview_image_content_type", limit: 255
     t.integer  "preview_image_file_size",    limit: 4
@@ -134,6 +136,7 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.text     "body_en",                    limit: 65535
     t.string   "title_ru",                   limit: 255
     t.string   "title_en",                   limit: 255
+    t.integer  "views_count",                limit: 4,     default: 0
   end
 
   create_table "products", force: :cascade do |t|
@@ -144,6 +147,7 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "shop_subcategory_id", limit: 4
+    t.integer  "views_count",         limit: 4,   default: 0
   end
 
   create_table "roles", force: :cascade do |t|
@@ -165,8 +169,8 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.integer  "price",                      limit: 4
     t.integer  "user_id",                    limit: 4
     t.boolean  "approved",                   limit: 1
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
     t.string   "prize_file_name",            limit: 255
     t.string   "prize_content_type",         limit: 255
     t.integer  "prize_file_size",            limit: 4
@@ -185,6 +189,7 @@ ActiveRecord::Schema.define(version: 20150711162651) do
     t.datetime "fathers_photo_updated_at"
     t.text     "reject_reason",              limit: 65535
     t.integer  "breed_id",                   limit: 4
+    t.integer  "views_count",                limit: 4,     default: 0
   end
 
   create_table "sessions", force: :cascade do |t|
