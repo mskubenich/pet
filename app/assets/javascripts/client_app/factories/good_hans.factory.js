@@ -7,7 +7,7 @@
                 fd.append('announcement[family]', announcement.family);
                 fd.append('announcement[name]', announcement.name);
                 fd.append('announcement[age]', announcement.age);
-                fd.append('announcement[breed]', announcement.breed);
+                fd.append('announcement[breed_id]', announcement.breed_id);
                 fd.append('announcement[scorp]', announcement.scorp);
                 fd.append('announcement[rkf]', announcement.rkf);
                 fd.append('announcement[description]', announcement.description);
@@ -51,7 +51,7 @@
                                             '&price_min=' + options.query.price.min +
                                             '&price_max=' + options.query.price.max +
                                             '&scorp=' + options.query.scorp +
-                                            '&breed=' + options.query.breed +
+                                            '&breed_id=' + options.query.breed_id +
                                             '&bloodline=' + options.query.bloodline +
                                             '&rkf=' + options.query.rkf);
             },

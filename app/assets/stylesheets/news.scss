@@ -1,6 +1,7 @@
 .news{
   padding-top: 40px;
   .news-image-original{
+    width: 47%;
     float: left;
     margin-right: 20px;
     margin-bottom: 20px;
@@ -30,35 +31,16 @@
       }
     }
   }
-  table.news-preview{
-    font-size: 14px;
-    line-height: 1.7em;
+  .news-preview{
     width: 100%;
-    margin-top: 10px;
-    tr{
-      td{
-        vertical-align: top;
-        &.news-image{
-          width: 220px;
-          img{
-            width: 220px;
-          }
-        }
-        &.news-text{
-          padding-left: 30px;
-        }
-      }
-    }
+    font-family: PTSansRegular;
+    line-height: 24px;
+    display: inline-block;
   }
   .news-author-avatar{
     width: 50px;
     height: 50px;
   }
-}
-
-.news-text{
-  font-family: PTSansRegular;
-  line-height: 24px;
 }
 
 .news-meta{

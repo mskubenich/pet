@@ -20,7 +20,7 @@
                         min: 0,
                         max: 100000
                     },
-                    breed: '',
+                    breed_id: '',
                     scorp: false,
                     rkf: false,
                     bloodline: false
@@ -31,6 +31,9 @@
                     breeds.all({family: $scope.filters.family})
                         .success(function(data){
                             $scope.breeds = data.breeds;
+                            if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.filters.breed_id)){
+                                $scope.filters.breed_id = '';
+                            }
                         })
                         .error(function(){
 
@@ -225,6 +228,26 @@
                 if($state.current.name == 'new_hand'){
                     $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
 
+                    $scope.announcement = {};
+                    $scope.updateBreeds2 = function(){
+                        breeds.all({family: $scope.announcement.family})
+                            .success(function(data){
+                                $scope.breeds = data.breeds;
+
+                                if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.announcement.breed_id)){
+                                    $scope.announcement.breed_id = null;
+                                }
+                            })
+                            .error(function(){
+
+                            })
+                    };
+                    $scope.updateBreeds2();
+
+                    $scope.$watch('announcement.family', function(){
+                        $scope.updateBreeds2();
+                    });
+
                     setTimeout(function(){
                         $('#redactor').redactor({
                             buttonSource: true,
@@ -237,7 +260,6 @@
                     $scope.attachments = [];
                     $scope.attachments_previews = [];
                     $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
-                    $scope.announcement = {};
 
                     $scope.removeAttachment = function(i, event){
                         $scope.attachments[i] = 'null';

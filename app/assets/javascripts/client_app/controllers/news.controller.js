@@ -12,6 +12,8 @@
 
                 news.show($stateParams.id).success(function(data){
                     $scope.news = data.news;
+                    $('.news-preview').append($($scope.news.body));
+                    $('.news-preview').append($('.news-meta'));
                 });
 
                 $scope.comments_page = 1;
