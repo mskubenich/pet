@@ -4,7 +4,7 @@ json.good_hand do
   json.name                @good_hand.name
   json.rkf                 @good_hand.rkf
   json.scorp               @good_hand.scorp
-  json.breed               @good_hand.breed
+  json.breed_id            @good_hand.breed.try(:id)
   json.description         @good_hand.description
   json.preview_images      @good_hand.preview_images_url
   json.prize_image_url     (@good_hand.prize.exists? ? @good_hand.prize.url : nil)

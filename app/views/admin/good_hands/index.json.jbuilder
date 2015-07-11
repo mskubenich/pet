@@ -4,7 +4,7 @@ json.good_hands @good_hands.each do |hand|
   json.name              hand.name
   json.rkf               hand.rkf
   json.scorp             hand.scorp
-  json.breed             hand.breed
+  json.breed_id          hand.breed.try(:id)
   json.description       hand.description.to_s[0..100] + '...'
   json.preview_image_url hand.preview_image_url
   json.has_prize         hand.prize.exists?
