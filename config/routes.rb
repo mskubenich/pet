@@ -109,6 +109,7 @@ Rails.application.routes.draw do
     end
 
     resources :comments, only: [:index, :create]
+    resources :notes, only: [:create, :show]
     resources :breeds, only: [:index]
     resources :shop_categories, only: [:index]
   end

@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
 
   load_and_authorize_resource :comment
-  skip_before_filter :authenticate_user
+  skip_before_filter :authenticate_user, only: [:index]
 
   def index
     query = Comment.where(entity_id: params[:entity_id], entity_type: params[:entity_type]).order('created_at asc')

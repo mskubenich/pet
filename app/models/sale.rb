@@ -1,6 +1,8 @@
 class Sale < ActiveRecord::Base
   include Commentable
   include Viewable
+  include Ratingable
+
   validates :family, presence: true
   validates :name, presence: true
   validates :age, presence: true
