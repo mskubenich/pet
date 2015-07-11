@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory',
-            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox, breeds, comments) {
+        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes) {
 
             $('body').css('background-color', 'white');
             $scope.getHtml = function(html){
@@ -101,15 +101,6 @@
                 $scope.copulation = {};
                 $scope.images = [];
 
-                $scope.rate = 4;
-                $scope.max = 5;
-                $scope.isReadonly = false;
-
-                $scope.hoveringOver = function(value) {
-                    $scope.overStar = value;
-                    $scope.percent = 100 * (value / $scope.max);
-                };
-
                 $scope.ratingStates = [
                     {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
                     {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
@@ -118,8 +109,45 @@
                     {stateOff: 'glyphicon-off'}
                 ];
 
+                $scope.rating = {
+                    rating: 0,
+                    max: 5,
+                    isReadonly: true,
+                    voices_count: 0
+                };
+                $scope.hoveringOver = function(value) {
+                    $scope.overStar = value;
+                    $scope.percent = 100 * (value / $scope.max);
+                };
+                var initializing = true;
+
                 copulations.show($stateParams.id).success(function (data) {
                     $scope.copulation = data.copulation;
+
+                    notes.show({entity_type: 'Copulation', entity_id: $scope.copulation.id})
+                        .success(function(data){
+                            $scope.rating.rating = data.note.rating;
+                            $scope.rating.isReadonly = data.note.readonly;
+                            $scope.rating.voices_count = data.note.voices_count;
+                            $scope.$watch('rating.rating', function(){
+                                if (initializing) {
+                                    $timeout(function() { initializing = false; });
+                                } else {
+                                    $scope.rating.isReadonly = true;
+                                    notes.create({points: $scope.rating.rating, entity_type: 'Copulation', entity_id: $scope.copulation.id})
+                                        .success(function(){
+                                            initializing = true;
+                                            notes.show({entity_type: 'Copulation', entity_id: $scope.copulation.id})
+                                                .success(function(data){
+                                                    $scope.rating.rating = data.note.rating;
+                                                    $scope.rating.isReadonly = data.note.readonly;
+                                                    $scope.rating.voices_count = data.note.voices_count;
+                                                });
+                                        });
+                                }
+                            });
+                        });
+
                     $scope.phone = $scope.copulation.owner_phone_hashed;
                     $scope.preview_image = $scope.copulation.preview_images[0];
                     var i = 0;
