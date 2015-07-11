@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   include Commentable
   include Viewable
+  include Ratingable
 
   validates :title, presence: true
   validates :description, presence: true

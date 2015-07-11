@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('ProductsController', ['$scope', '$state', 'ngDialog', 'ProductsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'ShopCategoriesFactory', 'CommentsFactory',
-            function ($scope, $state, ngDialog, products, $stateParams, $timeout, $sce, Lightbox, categories, comments) {
+        .controller('ProductsController', ['$scope', '$state', 'ngDialog', 'ProductsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'ShopCategoriesFactory', 'CommentsFactory', 'NotesFactory',
+            function ($scope, $state, ngDialog, products, $stateParams, $timeout, $sce, Lightbox, categories, comments, notes) {
 
             $scope.I18n = I18n;
             $scope._ = _;
@@ -81,26 +81,45 @@
                 //}, 100);
 
                 $scope.product = {};
-
-                $scope.rate = 4;
-                $scope.max = 5;
-                $scope.isReadonly = false;
-
+                $scope.rating = {
+                    rating: 0,
+                    max: 5,
+                    isReadonly: true,
+                    voices_count: 0
+                };
                 $scope.hoveringOver = function(value) {
                     $scope.overStar = value;
                     $scope.percent = 100 * (value / $scope.max);
                 };
-
-                $scope.ratingStates = [
-                    {stateOn: 'glyphicon-ok-sign', stateOff: 'glyphicon-ok-circle'},
-                    {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
-                    {stateOn: 'glyphicon-heart', stateOff: 'glyphicon-ban-circle'},
-                    {stateOn: 'glyphicon-heart'},
-                    {stateOff: 'glyphicon-off'}
-                ];
+                var initializing = true;
 
                 products.show($stateParams.id).success(function (data) {
                     $scope.product = data.product;
+
+                    notes.show({entity_type: 'Product', entity_id: $scope.product.id})
+                        .success(function(data){
+                            $scope.rating.rating = data.note.rating;
+                            $scope.rating.isReadonly = data.note.readonly;
+                            $scope.rating.voices_count = data.note.voices_count;
+                            $scope.$watch('rating.rating', function(){
+                                if (initializing) {
+                                    $timeout(function() { initializing = false; });
+                                } else {
+                                    $scope.rating.isReadonly = true;
+                                    notes.create({points: $scope.rating.rating, entity_type: 'Product', entity_id: $scope.product.id})
+                                        .success(function(){
+                                            initializing = true;
+                                            notes.show({entity_type: 'Product', entity_id: $scope.product.id})
+                                                .success(function(data){
+                                                    $scope.rating.rating = data.note.rating;
+                                                    $scope.rating.isReadonly = data.note.readonly;
+                                                    $scope.rating.voices_count = data.note.voices_count;
+                                                });
+                                        });
+                                }
+                            });
+                        });
+
                     $scope.preview_image = $scope.product.preview_images[0];
                 }).error(function (data) {
 
