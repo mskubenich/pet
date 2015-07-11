@@ -2,6 +2,7 @@ class GoodHandsController < ApplicationController
 
   load_and_authorize_resource :good_hand
   skip_before_filter :authenticate_user, only: [:index, :show]
+  before_filter :calculate_view, only: [:show]
 
   def create
     attachments_params = params[:announcement][:photos]
@@ -39,6 +40,10 @@ class GoodHandsController < ApplicationController
   end
 
   private
+
+  def calculate_view
+    View.create entity_type: GoodHand, entity_id: @good_hand.id, ip: request.ip
+  end
 
   def good_hands_params
     params.require(:announcement).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)

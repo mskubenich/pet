@@ -10,5 +10,6 @@ json.announcements @good_hands.each do |hand|
   json.has_prize         hand.prize.exists?
   json.approved          hand.approved
   json.comments_count    hand.comments.count
+  json.views_count       hand.views.count
 end
 json.count @count
