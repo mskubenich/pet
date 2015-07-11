@@ -11,5 +11,6 @@ json.sales @sales.each do |sale|
   json.has_prize         sale.prize.exists?
   json.approved          sale.approved
   json.comments_count    sale.comments.count
+  json.views_count       sale.views.count
 end
 json.count @count

@@ -2,6 +2,7 @@ class SalesController < ApplicationController
 
   load_and_authorize_resource :sale
   skip_before_filter :authenticate_user, only: [:index, :show]
+  before_filter :calculate_view, only: [:show]
 
   def create
     attachments_params = params[:sale][:photos]
@@ -41,6 +42,10 @@ class SalesController < ApplicationController
   end
 
   private
+
+  def calculate_view
+    View.create entity_type: Sale, entity_id: @sale.id, ip: request.ip
+  end
 
   def sale_params
     params.require(:sale).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)

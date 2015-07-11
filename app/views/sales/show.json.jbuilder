@@ -4,7 +4,7 @@ json.sale do
   json.name                @sale.name
   json.rkf                 @sale.rkf
   json.scorp               @sale.scorp
-  json.breed               @sale.breed
+  json.breed               @sale.breed.try("title_#{ I18n.locale }")
   json.description         @sale.description
   json.price               @sale.price
   json.preview_images      @sale.preview_images_url
