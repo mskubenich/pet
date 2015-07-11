@@ -3,9 +3,10 @@ class NotesController < ApplicationController
   def create
     @note = Note.new notes_params
     @note.user_id = current_user.id
+    @entity = @note.ratingable
 
     if @note.save
-      render json: {ok: true}
+      render template: 'notes/show'
     else
       render json: {errors: @note.errors}, status: :unprocessable_entity
     end

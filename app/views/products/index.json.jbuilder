@@ -6,7 +6,11 @@ json.products @products.each do |product|
   json.price             product.price
   json.preview_image_url product.preview_image_url
   json.comments_count    product.comments.count
-  json.rate              4
+  json.rating do
+      json.rating product.rating
+      json.isReadonly product.noted(current_user) || !current_user
+      json.voices_count product.voices_count
+  end
 end
 json.count @count
 json.new_product do

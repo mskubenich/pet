@@ -36,38 +36,65 @@
                 $('body').css('background-color', '#FAFAFA');
                 var timer = false;
                 $scope.$watch('filters', function(){
-                    if(timer){
-                        $timeout.cancel(timer)
-                    }
-                    timer= $timeout(function(){
-                        $scope.retrieveProducts();
-                    }, 500)
+                    $scope.retrieveProducts();
                 }, true);
+
+                $scope.watchers = {};
+                $scope.updateRate = function(product_id){
+                    if($scope.watchers[product_id]){
+                        $scope.watchers[product_id]();
+                    }
+                    $scope.watchers[product_id] = $scope.$watch('products[' + product_id + '].rating.rating', function(){
+                        if ($scope.products[product_id].initializing) {
+                            $timeout(function() { $scope.products[product_id].initializing = false; });
+                        } else {
+                            $scope.products[product_id].rating.isReadonly = true;
+                            notes.create({points: $scope.products[product_id].rating.rating, entity_type: 'Product', entity_id: $scope.products[product_id].id})
+                                .success(function(data){
+                                    $scope.products[product_id].initializing = true;
+                                    $scope.products[product_id].rating.rating = data.note.rating;
+                                    $scope.products[product_id].rating.isReadonly = data.note.readonly;
+                                    $scope.products[product_id].rating.voices_count = data.note.voices_count;
+                                });
+                        }
+                    });
+                };
 
                 $scope.page = 1;
                 $scope.retrieveProducts = function(){
-                    products.all({page: $scope.page, query: $scope.filters}).success(function (data) {
-                        $scope.products = data.products;
-                        $scope.new_product = data.new_product;
-                        $scope.count = data.count;
+                    if(timer){
+                        $timeout.cancel(timer)
+                    }
+                    timer = $timeout(function(){
 
-                        var pagination = $('#products-pagination');
-                        pagination.empty();
-                        pagination.removeData('twbs-pagination');
-                        pagination.unbind('page');
+                        products.all({page: $scope.page, query: $scope.filters}).success(function (data) {
+                            $scope.products = data.products;
+                            $scope.new_product = data.new_product;
+                            $scope.count = data.count;
 
-                        pagination.twbsPagination({
-                            totalPages: Math.ceil($scope.count / 13),
-                            startPage: $scope.page,
-                            visiblePages: 13,
-                            onPageClick: function (event, page) {
-                                $scope.page = page;
-                                $scope.retrieveProducts();
+                            var pagination = $('#products-pagination');
+                            pagination.empty();
+                            pagination.removeData('twbs-pagination');
+                            pagination.unbind('page');
+
+                            pagination.twbsPagination({
+                                totalPages: Math.ceil($scope.count / 13),
+                                startPage: $scope.page,
+                                visiblePages: 13,
+                                onPageClick: function (event, page) {
+                                    $scope.page = page;
+                                    $scope.retrieveProducts();
+                                }
+                            });
+
+                            for(var i = 0; i < $scope.products.length; i++){
+                                $scope.products[i].initializing = true;
+                                $scope.updateRate(i);
                             }
-                        });
-                    }).error(function (data) {
+                        }).error(function (data) {
 
-                    });
+                        });
+                    }, 500);
                 };
 
                 $scope.retrieveProducts();

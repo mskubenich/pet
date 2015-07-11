@@ -129,9 +129,9 @@
         .description
           | {{ product.description }}
         .rating
-          rating ng-model="product.rate" max="5" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+          rating ng-model="product.rating.rating" max="5" readonly="product.rating.isReadonly"
           span.value
-            | &nbsp;({{ product.comments_count }})
+            | &nbsp;({{ product.rating.voices_count }})
         .price
           | {{ product.price }}
           i.fa.fa-ruble
