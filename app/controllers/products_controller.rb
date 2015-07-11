@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   load_and_authorize_resource :product
   skip_before_filter :authenticate_user, only: [:index, :show]
+  before_filter :calculate_view, only: [:show]
 
   def index
     query = Product.all
@@ -21,6 +22,9 @@ class ProductsController < ApplicationController
   end
 
   private
+  def calculate_view
+    View.create entity_type: Product, entity_id: @product.id, ip: request.ip
+  end
 
   def product_params
     params.require(:sale).permit(:family, :name, :age, :breed, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
