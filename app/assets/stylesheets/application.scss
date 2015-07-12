@@ -348,6 +348,24 @@ span.black-budget{
   padding: 4px 7px;
 }
 
+.black-yellow-shop-button{
+  text-transform: uppercase;
+  background-color: black;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  color: white;
+  font-weight: normal;
+  font-size: 13px;
+  padding: 4px 7px;
+  &:hover{
+    color: #000000;
+    background-color: transparent;
+    text-decoration: none;
+    border: 1px solid #000000;
+  }
+}
+
 .vertical-align-table{
   tr td{
     vertical-align: middle !important;
@@ -387,6 +405,11 @@ a.white-link{
 
 .dashed_text{
   border-bottom: 1px dashed black !important;
+  color: #000000;
+  &:hover{
+    color: #000000;
+    text-decoration: none;
+  }
 }
 
 .horizontal-list{
