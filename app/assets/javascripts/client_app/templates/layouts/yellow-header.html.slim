@@ -17,71 +17,69 @@
               | ENG
     br
     br
-    .header-row
-      .logo
-        a href="#"
-          img src="assets/logo.png" style="margin-top: 20px; width: 320px; "
+  .header-row
+    .logo
+      a href="#"
+        img src="assets/logo.png" style="margin-top: 20px; width: 300px; "
+      .logo-text
+        .span1
+          b
+            | {{ I18n.t('logo.service') }}
         br
+        .span2
+          | {{ I18n.t('logo.home') }}
         br
-        .logo-text
-          .span1
-            b
-              | {{ I18n.t('logo.service') }}
+        .span3
+          | {{ I18n.t('logo.pets') }}
+    .header-menu
+      ul.header-menu-column
+        li
+          a.white-dashed-link href="#sale"
+            | {{ I18n.t('menu.sale') }}
+        li
+          a.white-dashed-link href="#copulation"
+            | {{ I18n.t('menu.copulation') }}
+        li
+          a.white-dashed-link href="#news"
+            | {{ I18n.t('menu.news') }}
+        li
+          a.white-dashed-link href="#products"
+            | {{ I18n.t('menu.pet_shop') }}
+      ul.header-menu-column style="width: 200px"
+        li
+          a.white-dashed-link href="#good-hands"
+            | {{ I18n.t('menu.in_good_hands') }}
+        li
+          a.white-dashed-link href="#experts"
+            | {{ I18n.t('menu.experts') }}
+        li
+          a.white-dashed-link
+            | {{ I18n.t('menu.competitions') }}
+        li
+          a.white-dashed-link
+            | {{ I18n.t('menu.exhibitions') }}
+      .header-menu-column style="text-align: right; width: 200px"
+        div ng-show="current_user"
+          img ng-src="{{current_user.avatar_url}}" style="width: 50px; height: 50px;"
           br
-          .span2
-            | {{ I18n.t('logo.home') }}
+          a.white-dashed-link href="#profile"
+            | {{ current_user.full_name }}
           br
-          .span3
-            | {{ I18n.t('logo.pets') }}
-      .header-menu
-        ul.header-menu-column
-          li
-            a.white-dashed-link href="#sale"
-              | {{ I18n.t('menu.sale') }}
-          li
-            a.white-dashed-link href="#copulation"
-              | {{ I18n.t('menu.copulation') }}
-          li
-            a.white-dashed-link href="#news"
-              | {{ I18n.t('menu.news') }}
-          li
-            a.white-dashed-link href="#products"
-              | {{ I18n.t('menu.pet_shop') }}
-        ul.header-menu-column
-          li
-            a.white-dashed-link href="#good-hands"
-              | {{ I18n.t('menu.in_good_hands') }}
-          li
-            a.white-dashed-link href="#experts"
-              | {{ I18n.t('menu.experts') }}
-          li
-            a.white-dashed-link
-              | {{ I18n.t('menu.competitions') }}
-          li
-            a.white-dashed-link
-              | {{ I18n.t('menu.exhibitions') }}
-        .header-menu-column style="text-align: right"
-          div ng-show="current_user"
-            img ng-src="{{current_user.avatar_url}}" style="width: 50px; height: 50px;"
-            br
-            a.white-dashed-link href="#profile"
-              | {{ current_user.full_name }}
-            br
-            a.yellow-btn ng-click="logout()"
-              | {{ I18n.t('sessions.logout') }}
-          div ng-hide="current_user"
-            a.yellow-btn href="#login"
-              | {{ I18n.t('login') }}
-            br
-            i.key-icon
-            | &nbsp;
-            | &nbsp;
-            a.white-dashed-link href="#registration"
-              | {{ I18n.t('sessions.signup') }}
-            br
-            br
-            .inner-addon.right-addon.global-search
-              input
-              i.fa.fa-search.global-search-icon
-    .header-text
-      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+          a.yellow-login-btn ng-click="logout()"
+            | {{ I18n.t('sessions.logout') }}
+        div ng-hide="current_user"
+          a.yellow-login-btn href="#login"
+            | {{ I18n.t('login') }}
+          br
+          i.key-icon
+          | &nbsp;
+          | &nbsp;
+          a.white-dashed-register-link href="#registration"
+            | {{ I18n.t('sessions.signup') }}
+          br
+          br
+          .inner-addon.right-addon.global-search
+            input
+            i.fa.fa-search.global-search-icon
+      .header-text
+        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris

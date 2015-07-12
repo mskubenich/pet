@@ -24,15 +24,15 @@
 
 .localization{
   position: absolute;
-  top: 20px;
-  right: 50px;
+  top: 33px;
+  right: 21px;
   width: 100%;
 
   text-align: right;
 
   font-family: 'PTSansRegular';
   cursor: pointer;
-  font-size: 16px;
+  font-size: 12px;
 
   table{
     display: inline-flex;
@@ -83,21 +83,33 @@
     background-size: cover;
     position:relative;
     .header-row{
-      position:relative;
+      position: absolute;
+      top: 54px;
+      right: 90px;
+      left: 65px;
+      .white-dashed-link{
+        font-size: 18px;
+      }
     }
     .logo{
       position: absolute;
-      margin-top: -40px;
+      margin-top: -26px;
       width: 320px;
       font-family: PFCentroSerifBold;
       font-weight: 900;
       .span1{
-        font-size: 65px;
+        margin-top: 40px;
+        margin-left: -10px;
+        font-size: 70px;
       }
       .span2{
-        font-size: 45.7px;
+        margin-top: 10px;
+        margin-left: -9px;
+        font-size: 44px;
       }
       .span3{
+        margin-top: 0px;
+        margin-left: -9px;
         font-size: 48.9px;
       }
     }
@@ -112,16 +124,24 @@
         list-style-type: none;
       }
     }
-    .header-text{
-      position: absolute;
-      bottom: 40px;
-      border: 2px dotted white;
+    .header-text {
+      /* bottom: 40px; */
+      border: 2px dashed white;
       border-radius: 100px;
       -webkit-border-radius: 100px;
       -moz-border-radius: 100px;
-      width: 660px;
-      padding: 20px 70px 20px 50px;
-      right: -60px;
+      width: 902px;
+      line-height: 21px;
+      font-family: PTSansRegular;
+      font-size: 16px;
+      padding: 19px 313px 20px 45px;
+      /* margin-left: 500px; */
+      text-align: left;
+      /* right: -98px; */
+      /* margin-right: 22px; */
+      position: absolute;
+      right: -354px;
+      top: 241px;
     }
     .logo-text{
       line-height: 1.7em;
