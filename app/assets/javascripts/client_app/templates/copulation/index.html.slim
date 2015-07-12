@@ -101,8 +101,6 @@
           td
             .img style="background-image: url({{ copulation.preview_image_url }})"
             .prize ng-show="copulation.has_prize"
-            span.black-budget ng-hide="copulation.approved"
-              | {{ I18n.t('entities.on_moderation') }}
           td
             div.cell-div
               b
@@ -120,6 +118,9 @@
               div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
                 | ({{ copulation.breed }})
               div ng-bind-html="getHtml(copulation.description)"
+              br
+              span.black-budget ng-hide="copulation.approved"
+                | {{ I18n.t('entities.on_moderation') }}
         tr
           td
             .yellow-btn style="width: 100%; text-align: center"

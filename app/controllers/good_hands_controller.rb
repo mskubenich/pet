@@ -22,7 +22,7 @@ class GoodHandsController < ApplicationController
     query = query.where("approved = 1 OR user_id = ?", current_user.try(:id))
 
     query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'
-    query = query.where(breed: params[:breed]) unless params[:breed].blank?
+    query = query.where(breed_id: params[:breed_id]) unless params[:breed_id].blank?
     query = query.where("bloodline_file_size IS NOT NULL") if params[:bloodline] == 'true'
     query = query.where(scorp: true) if params[:scorp] == 'true'
     query = query.where(rkf: true) if params[:rkf] == 'true'
