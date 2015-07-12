@@ -56,7 +56,10 @@
             }
 
             if($state.current.name == 'order'){
-
+                orders.show($stateParams.id)
+                    .success(function(data){
+                        $scope.order = data.order;
+                    });
             }
         }])
 }());

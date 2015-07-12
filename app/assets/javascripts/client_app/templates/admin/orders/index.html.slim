@@ -8,6 +8,8 @@ div
         th
           | Name
         th
+          | Phone Number
+        th
           | Price
         th
     tbody
@@ -17,8 +19,10 @@ div
         td
           | {{ order.name }}
         td
+          | {{ order.phone }}
+        td
           | {{ order.price }} &nbsp;
           i.fa.fa-ruble
         td style="width: 50px"
-          a ng-click="destroy(sale.id)"
-            i.fa.fa-close
+          a href="#orders/{{ order.id }}"
+            i.fa.fa-eye

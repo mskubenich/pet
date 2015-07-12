@@ -9,7 +9,7 @@
                 return $http.delete('admin/users/' + id + '.json');
             },
             show: function(id){
-                return $http.get('admin/users/' + id + '.json');
+                return $http.get('admin/orders/' + id + '.json');
             }
         };
     }])
