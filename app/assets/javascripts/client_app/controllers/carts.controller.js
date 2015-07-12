@@ -42,6 +42,18 @@
                 cart.destroy(item_id).success(function(){
                     $scope.retrieveItems();
                 })
+            };
+
+            $scope.increaseCount = function(item){
+                cart.set_count(item.id, item.count + 1).success(function(){
+                    $scope.retrieveItems();
+                })
+            };
+
+            $scope.decreaseCount = function(item){
+                cart.set_count(item.id, item.count - 1).success(function(){
+                    $scope.retrieveItems();
+                })
             }
         }])
 }());

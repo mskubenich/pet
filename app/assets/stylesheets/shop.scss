@@ -304,6 +304,37 @@ table.card-section{
     font-family: PTSansBold;
     font-size: 28px;
   }
+  .count{
+    font-family: PTSansRegular;
+    font-size: 26px;
+    input{
+      width: 45px;
+      border-radius: 20px;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 13px;
+      border: 1px solid lightgray;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+    a{
+      text-decoration: none;
+      color: lightgray;
+      cursor: pointer;
+      &:hover{
+        color: #000000;
+      }
+    }
+    .checker{
+      tr{
+        padding: 0;
+        td{
+          padding: 0;
+        }
+      }
+    }
+  }
   height: 95px;
   &:hover {
     background-color: #F8F8F8;

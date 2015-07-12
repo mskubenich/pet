@@ -10,6 +10,9 @@
             },
             destroy: function(item_id){
                 return $http.delete('/cart/' + item_id)
+            },
+            set_count: function(id, count){
+                return $http.post('cart/set_count', {cart_item_id: id, count: count});
             }
         }
         ;
