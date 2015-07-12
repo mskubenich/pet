@@ -75,7 +75,15 @@ div
                   td
                     span.black-budget
                       | РКФ
-
+      .btn-group data-toggle="buttons"
+        label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
+          | Все
+        label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
+          | Одобренные
+        label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
+          | Неодобренные
+      br
+      br
   #announcements-pagination ng-hide="count < 11"
   table.table.table-striped.table-responsive
     thead

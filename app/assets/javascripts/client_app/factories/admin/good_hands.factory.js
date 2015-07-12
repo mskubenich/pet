@@ -56,6 +56,7 @@
                                             '&sex=' + options.query.sex +
                                             '&scorp=' + options.query.scorp +
                                             '&breed_id=' + options.query.breed_id +
+                                            '&status=' + options.query.status +
                                             '&rkf=' + options.query.rkf);
             },
             show: function(id){
