@@ -113,7 +113,7 @@ Rails.application.routes.draw do
     resources :breeds, only: [:index]
     resources :shop_categories, only: [:index]
 
-    resources :cart, only: [:index] do
+    resources :cart, only: [:index, :destroy] do
       collection do
         post :add
         post :set_count

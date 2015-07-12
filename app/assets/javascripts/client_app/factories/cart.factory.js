@@ -7,6 +7,9 @@
             },
             add: function(product_id){
                 return $http.post('/cart/add', {product_id: product_id})
+            },
+            destroy: function(item_id){
+                return $http.delete('/cart/' + item_id)
             }
         }
         ;

@@ -15,4 +15,9 @@ class CartController < ApplicationController
   def index
     @cart_items = current_user.cart.cart_items
   end
+
+  def destroy
+    CartItem.find(params[:id]).destroy
+    render json: {ok: true}
+  end
 end

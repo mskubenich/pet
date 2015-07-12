@@ -1,5 +1,6 @@
 json.items @cart_items.each do |item|
   if item.product
+    json.id item.id
     json.count item.count
     json.title item.product.title
     json.price item.product.price

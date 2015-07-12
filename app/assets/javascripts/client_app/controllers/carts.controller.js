@@ -29,10 +29,19 @@
                 $scope.categories = data.shop_categories;
             });
 
-            cart.all()
-                .success(function(data){
-                    $scope.cart_items = data.items;
-                })
+            $scope.retrieveItems = function(){
+                cart.all()
+                    .success(function(data){
+                        $scope.cart_items = data.items;
+                    })
 
+            };
+            $scope.retrieveItems();
+
+            $scope.removeItem = function(item_id){
+                cart.destroy(item_id).success(function(){
+                    $scope.retrieveItems();
+                })
+            }
         }])
 }());
