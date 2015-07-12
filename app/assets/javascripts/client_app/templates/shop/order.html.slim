@@ -1,0 +1,178 @@
+.nav-menu
+  .container
+    table.vertical-align-table
+      tr
+        td style="width: 50px; text-align: center !important;"
+          span
+            label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
+        td style="width: 50px; text-align: center !important;"
+          span
+            label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
+        td
+          table.nav-dropdown-table
+            tr
+              td ng-repeat="category in categories" dropdown-leave=true
+                a.black-dashed-link style="margin-right: 20px;" dropdown-id="{{category.id}}"
+                  | {{ category.title }}
+                .nav-dropdown dropdown-for="{{category.id}}"
+                  .arrow
+                  ul
+                    li ng-repeat="subcategory in category.subcategories"
+                      a.black-dashed-link ng-click="filters.category = category; filters.subcategory = subcategory"
+                        | {{ subcategory.title }}
+        td style="width: 177px"
+          .btn-group dropdown=true style="width: 100%"
+            button.yellow-black-dropdown.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+              span ng-show="filters.size == ''"
+                | {{ I18n.t('product.filters.choose_size') }}
+              span ng-show="filters.size != ''"
+                | {{ filters.size }}
+              span.caret
+            ul.dropdown-menu role="menu"
+              li
+                a ng-repeat="size in sizes" ng-click="filters.size = size.title"
+                  | {{ size.title }}
+        td style="width: 320px;"
+          div style="margin-top: 20px; margin-bottom: 20px;"
+            table style="width: 100%"
+              tr
+                td style="text-align: left"
+                  | {{ I18n.t('price') }}:&nbsp;&nbsp;От:&nbsp;{{filters.price.min}}&nbsp;
+                  i.fa.fa-ruble
+                td style="text-align: right"
+                  | До:&nbsp;{{ filters.price.max }}&nbsp;
+                  i.fa.fa-ruble
+            div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
+        td style="width: 128px;"
+          .black-btn
+            | SALE
+.container
+  .row
+    .col-md-6.col-md-offset-3
+      br
+      br
+      .pet-h5
+        | 1. Заполните адрес доставки
+      br
+      .gray-block
+        form.registration-form ng-submit="addressData()" name="addressForm" novalidate=true
+          .row
+            .col-md-6.col-sm-6
+              .form-group
+                input.form-control type="text" placeholder="Имя" required=true class="{{ userForm.first_name.$invalid && submited ? 'validation-error' : ''}}" name="first_name" ng-model="userData.first_name"
+                .error ng-show="userForm.first_name.$invalid && submited"
+                  | can't be blank
+            .col-md-6.col-sm-6
+              .form-group
+                input.form-control type="text" placeholder="Фамилия" required=true class="{{ userForm.last_name.$invalid && submited ? 'validation-error' : ''}}" name="last_name" ng-model="userData.last_name"
+                .error ng-show="userForm.last_name.$invalid && submited"
+                  | can't be blank
+
+          .form-group
+            input.form-control type="text" placeholder="Адрес электронной почты" emailvalidate='' required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
+
+            .error ng-show="userForm.email.$error.required && submited"
+              | can't be blank
+            .error ng-show="userForm.email.$error.emailAvailable"
+              | has already been taken
+            .error ng-show="userForm.email.$error.emailValid && submited"
+              | is invalid
+
+          .form-group
+            input.form-control type="text" placeholder="Контактный телефон" name="phone" ng-model="userData.phone"
+
+          .row
+            .col-md-6.col-sm-6
+              .form-group
+                input.form-control type="text" placeholder="Страна" required=true class="{{ userForm.first_name.$invalid && submited ? 'validation-error' : ''}}" name="first_name" ng-model="userData.first_name"
+                .error ng-show="userForm.first_name.$invalid && submited"
+                  | can't be blank
+            .col-md-6.col-sm-6
+              .form-group
+                input.form-control type="text" placeholder="Город" required=true class="{{ userForm.last_name.$invalid && submited ? 'validation-error' : ''}}" name="last_name" ng-model="userData.last_name"
+                .error ng-show="userForm.last_name.$invalid && submited"
+                  | can't be blank
+
+          .row
+            .col-md-8.col-sm-8
+              .form-group
+                input.form-control type="text" placeholder="Улица, дом, кв" required=true class="{{ userForm.first_name.$invalid && submited ? 'validation-error' : ''}}" name="first_name" ng-model="userData.first_name"
+                .error ng-show="userForm.first_name.$invalid && submited"
+                  | can't be blank
+            .col-md-4.col-sm-4
+              .form-group
+                input.form-control type="text" placeholder="Индекс" required=true class="{{ userForm.last_name.$invalid && submited ? 'validation-error' : ''}}" name="last_name" ng-model="userData.last_name"
+                .error ng-show="userForm.last_name.$invalid && submited"
+                  | can't be blank
+      br
+      br
+      .pet-h5
+        | 2. Проверьте детали заказа
+      br
+      .gray-block style="padding: 20px;"
+        table.table.vertical-align-table
+          tr.cart-item ng-repeat="item in cart_items"
+            td style="width: 90px"
+              img ng-src="{{ item.preview_image_url }}" style="width: 90px"
+            td style="width: 200px;"
+              .title-order
+                | {{ item.title }}
+              .description
+                | {{ item.description }}
+            td width="150px"
+              .count style="width: 100%"
+                table.checker.vertical-align-table style="width: 100%"
+                  tr
+                    td style="text-align: right"
+                      a ng-click="decreaseCount(item)"
+                        | -
+                      | &nbsp;
+                    td.text-center style="width: 45px"
+                      input ng-model="item.count"
+                    td.text-left
+                      | &nbsp;
+                      a ng-click="increaseCount(item)"
+                        | +
+            td width="150px" style="text-align: right"
+              .price-gray
+                | {{ item.price }}
+                | &nbsp;
+                i.fa.fa-ruble
+        hr.order-hr
+          table.table.vertical-align-table.cart-item
+            tr
+              td style="text-align: right"
+                | Общая стоимость:
+              td style="width: 100px; text-align: right"
+                .price-gray style="color: black !important"
+                  | {{ total_price }}
+                  | &nbsp;
+                  i.fa.fa-ruble
+            tr
+              td style="text-align: right"
+                | Стоимость доставки:
+              td style="width: 100px; text-align: right"
+                .price-gray style="color: black !important"
+                  | 900
+                  | &nbsp;
+                  i.fa.fa-ruble
+      .pet-h5
+        | 3. Выберите способ оплаты
+      br
+      img src="assets/payments.png"
+      br
+      .text-right
+        .total-label-order
+          span.total
+            | Общая сумма:
+          span.value
+            | {{ total_price + 900}}&nbsp;
+            i.fa.fa-ruble
+          br
+          br
+          br
+          br
+          .text-center
+            a.yellow-uppercased-btn
+              | Оформить заказ
+div ng-include=true src="'client_app/templates/products/popular_slider.html'"

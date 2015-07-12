@@ -291,6 +291,11 @@ table.card-section{
     font-family: PTSansRegular;
     font-size: 24px;
   }
+  .title-order{
+    text-transform: uppercase;
+    font-family: PTSansRegular;
+    font-size: 16px;
+  }
   .description{
     margin-top: 17px;
     color: gray;
@@ -303,6 +308,12 @@ table.card-section{
     text-transform: uppercase;
     font-family: PTSansBold;
     font-size: 28px;
+  }
+  .price-gray{
+    text-transform: uppercase;
+    font-family: PTSansBold;
+    font-size: 20px;
+    color: lightgray;
   }
   .count{
     font-family: PTSansRegular;
@@ -378,4 +389,27 @@ table.card-section{
     font-family: PTSansBold;
     font-size: 45px;
   }
+}
+
+.total-label-order{
+  margin-top: 50px;
+  margin-bottom: 100px;
+  .total{
+    font-family: PTSansRegular;
+    font-size: 18px;
+    display: inline-block;
+    padding-right: 30px;
+  }
+  .value{
+    color: red;
+    text-transform: uppercase;
+    font-family: PTSansBold;
+    font-size: 33px;
+  }
+}
+
+.order-hr{
+  border-color: #aeaeae;
+  margin-right: 30px;
+  margin-left: 30px;
 }

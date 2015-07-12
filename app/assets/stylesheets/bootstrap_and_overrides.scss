@@ -25,6 +25,12 @@
   font-weight: 900;
 }
 
+.pet-h5{
+  font-size: 18px;
+  font-family: PFCentroSerifBold;
+  font-weight: 900;
+}
+
 .pt-sans-text{
   font-family: 'PTSansRegular';
 }
@@ -33,4 +39,8 @@
   .container {
     width: 1296px;
   }
+}
+
+.form-group{
+  margin-bottom: 29px;
 }

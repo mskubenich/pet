@@ -47,57 +47,59 @@
           .black-btn
             | SALE
 .container
-  br
-  br
-  .pet-h4
-    | Ваша корзина
-  br
-  table.table.vertical-align-table
-    tr.cart-item ng-repeat="item in cart_items"
-      td style="width: 110px"
-        img ng-src="{{ item.preview_image_url }}" style="width: 110px"
-      td style="min-width: 330px;"
-        .title
-          | {{ item.title }}
-        .description
-          | {{ item.description }}
-      td width="150px"
-        .count style="width: 100%"
-          table.checker.vertical-align-table style="width: 100%"
-            tr
-              td style="text-align: right"
-                a ng-click="decreaseCount(item)"
-                  | -
-                | &nbsp;
-              td.text-center style="width: 45px"
-                input ng-model="item.count"
-              td.text-left
-                | &nbsp;
-                a ng-click="increaseCount(item)"
-                  | +
-      td width="150px"
-        .price
-          | {{ item.price }}
-          | &nbsp;
-          i.fa.fa-ruble
-      td width="70px"
-        a.black-rounded-close ng-click="removeItem(item.id)"
-          i.fa.fa-close
-  .text-right
-    .total-label
-      span.total
-        | Итого:
-      span.value
-        | {{ total_price}}&nbsp;
-        i.fa.fa-ruble
+  .row
+    .col-md-10.col-md-offset-1
       br
       br
-        a.black-dashed-link href="#products"
-          | В магазин
-        | &nbsp;
-        | &nbsp;
-        | &nbsp;
-        | &nbsp;
-        a.yellow-uppercased-btn
-          | Оформить заказ
+      .pet-h4
+        | Ваша корзина
+      br
+      table.table.vertical-align-table
+        tr.cart-item ng-repeat="item in cart_items"
+          td style="width: 110px"
+            img ng-src="{{ item.preview_image_url }}" style="width: 110px"
+          td style="min-width: 330px;"
+            .title
+              | {{ item.title }}
+            .description
+              | {{ item.description }}
+          td width="150px"
+            .count style="width: 100%"
+              table.checker.vertical-align-table style="width: 100%"
+                tr
+                  td style="text-align: right"
+                    a ng-click="decreaseCount(item)"
+                      | -
+                    | &nbsp;
+                  td.text-center style="width: 45px"
+                    input ng-model="item.count"
+                  td.text-left
+                    | &nbsp;
+                    a ng-click="increaseCount(item)"
+                      | +
+          td width="150px"
+            .price
+              | {{ item.price }}
+              | &nbsp;
+              i.fa.fa-ruble
+          td width="70px"
+            a.black-rounded-close ng-click="removeItem(item.id)"
+              i.fa.fa-close
+      .text-right
+        .total-label
+          span.total
+            | Итого:
+          span.value
+            | {{ total_price}}&nbsp;
+            i.fa.fa-ruble
+          br
+          br
+            a.black-dashed-link href="#products"
+              | В магазин
+            | &nbsp;
+            | &nbsp;
+            | &nbsp;
+            | &nbsp;
+            a.yellow-uppercased-btn href="#order"
+              | Оформить заказ
 div ng-include=true src="'client_app/templates/products/popular_slider.html'"
