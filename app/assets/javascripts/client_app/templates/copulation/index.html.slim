@@ -117,10 +117,9 @@
               br
               div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
                 | ({{ copulation.breed }})
-              div ng-bind-html="getHtml(copulation.description)"
-              br
               span.black-budget ng-hide="copulation.approved"
                 | {{ I18n.t('entities.on_moderation') }}
+              div ng-bind-html="getHtml(copulation.description)"
         tr
           td
             .yellow-btn style="width: 100%; text-align: center"

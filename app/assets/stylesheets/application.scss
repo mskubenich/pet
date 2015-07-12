@@ -11,6 +11,10 @@
 //= require angular-bootstrap-lightbox
 //= require_tree .
 
+.btn-group-active{
+  background: #FFD800;
+}
+
 [ng-bind-html]{
   img{
     max-width: 100% !important;

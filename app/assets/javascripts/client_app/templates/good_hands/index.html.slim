@@ -96,10 +96,10 @@
               br
               div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
                 | ({{ announcement.breed }})
-              span ng-bind-html="getHtml(announcement.description)"
-              br
               span.black-budget ng-hide="announcement.approved"
                 | {{ I18n.t('entities.on_moderation') }}
+              br
+              span ng-bind-html="getHtml(announcement.description)"
         tr
           td
             .yellow-btn style="width: 100%; text-align: center"

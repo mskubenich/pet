@@ -40,6 +40,9 @@ class Admin::SalesController < AdminController
     query = query.where(scorp: true) if params[:scorp] == 'true'
     query = query.where(rkf: true) if params[:rkf] == 'true'
 
+    query = query.where(approved: true) if params[:status] == 'approved'
+    query = query.where(approved: [false, nil]) if params[:status] == 'not_approved'
+
     @sales = query.order('created_at DESC').paginate page: params[:page], per_page: 9
     @count = query.count
   end
