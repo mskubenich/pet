@@ -56,15 +56,19 @@
     display: inline;
     position: relative;
     .hover-block{
-      display: none;
-    }
-    &:hover .hover-block{
-      display: block;
+      .rating{
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 158px;
+        left: 0;
+      }
+//      display: none;
       position: absolute;
       width: 90%;
       height: 95%;
       left: 5%;
-      padding: 40px;
+      padding: 25px 40px 40px 40px;
       border-bottom-left-radius: 100px;
       -moz-border-bottom-left-radius: 100px;
       -webkit-border-bottom-left-radius: 100px;
@@ -72,6 +76,17 @@
       -moz-border-bottom-right-radius: 100px;
       -webkit-border-bottom-right-radius: 100px;
       background-color: rgba(255, 255, 255, 0.90);
+      .title{
+        font-family: PTSansBold;
+        font-size: 16px;
+      }
+      .description{
+        font-family: PTSansRegular;
+        font-size: 14px;
+      }
+    }
+    &:hover .hover-block{
+      display: block;
     }
     .img{
       height: 228px !important;

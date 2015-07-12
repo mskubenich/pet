@@ -1,15 +1,13 @@
-
 #copulaton-carousel
   .slide-item ng-repeat="slide in slides"
     .hover-block
       .text-center
-        span.serif-font-bold.capitalized
+        span.title
           | {{ slide.name }}
         br
         br
-        span.serif-font
+        span.description
           | {{ slide.description }}
-        br
         rating.rating ng-model="slide.rate" max="4" readonly="true"
     .img style="background-image: url({{ slide.url }}); background-position: center; background-size:cover;"
 .nav-menu style="padding: 20px;"

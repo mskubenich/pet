@@ -40,10 +40,14 @@ class Copulation < ActiveRecord::Base
   end
 
   def preview_image_url
+    preview_image.file.url
+  end
+
+  def preview_image
     if attachments.any?
-      attachments.first.file.url
+      attachments.first
     else
-      Attachment.new.file.url
+      Attachment.new
     end
   end
 
@@ -52,6 +56,13 @@ class Copulation < ActiveRecord::Base
 
     f.search('.//img').remove
     f.to_html
+  end
+
+  def preview_text_only(length)
+    f = Nokogiri::XML.fragment(description[0..length])
+
+    f.search('.//img').remove
+    f.text
   end
 
   private
