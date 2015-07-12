@@ -36,6 +36,10 @@ class User < ActiveRecord::Base
     "#{ first_name } #{ last_name }"
   end
 
+  def cart
+    Cart.where(user_id: self.id).first_or_create
+  end
+
   private
 
   def set_default_role

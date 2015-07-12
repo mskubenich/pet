@@ -47,92 +47,31 @@
           .black-btn
             | SALE
 .container
-  .row.copulation-drilldown
-    .alert.alert-danger ng-show="sale.reject_reason"
-      | {{ sale.reject_reason }}
-    .col-md-5.col-sm-5
-      img.copulation-preview-image ng-src="{{ preview_image.url }}"  ng-click="openLightboxModal(0)"
-      br
-      br
-      .row
-        .col-xs-4.col-md-3 ng-repeat="image in product.preview_images"
-          a class="thumbnail"
-            img ng-src="{{ image.url }}" ng-click="openLightboxModal($index)"
-    .col-md-7.col-sm-7
-      .product-title
-        | {{ product.title }}
-      .product-description
-        | {{ product.description }}
-      br
-      br
-      table.short-table
-        tr
-          td
-            | {{ I18n.t('product.fields.type') }} >
-          td
-            | {{ product.type }}
-        tr
-          td
-            | {{ I18n.t('product.fields.material') }} >
-          td
-            | пластик
-        tr
-          td
-            | {{ I18n.t('product.fields.size') }} >
-          td
-            | 20 X 20
-        tr
-          td
-            | {{ I18n.t('product.fields.weight') }} >
-          td
-            | 320г
-        tr
-          td style="width: 180px;"
-            | {{ I18n.t('product.fields.country') }} >
-          td
-            | Китай
-        tr
-          td
-            br
-            br
-            br
-          td
-        tr
-          td
-            span.rating
-              rating ng-model="rating.rating" max="rating.max" readonly="rating.isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
-            | ({{ rating.voices_count }})
-          td
-            a.small-grey-dashed-link
-              | Оставить отзыв
-        tr
-          td
-            br
-            br
-          td
-        tr
-          td
-            .price
-              | {{ product.price }}
-              | &nbsp;
-              i.fa.fa-ruble
-          td
-            table.card-section.vertical-align-table
-              tr
-                td
-                  a.black-btn-lg
-                    | {{ I18n.t('actions.buy') }}
-                  | &nbsp;&nbsp;&nbsp;
-                td
-                  a.to-card-link.black-dashed-link ng-click="addToCart(product.id)"
-                    | {{ I18n.t('shop.to_card') }}
-                  | &nbsp;
-                td.card-icon-section
-                  span.card-icon
-  .row
-    .col-md-4
-    .col-md-8 ng-include=true src="'client_app/templates/comments/index.html'"
-br
-br
-br
+  br
+  br
+  .pet-h4
+    | Ваша корзина
+  br
+  table.table.vertical-align-table
+    tr.cart-item ng-repeat="item in cart_items"
+      td style="width: 110px"
+        img ng-src="{{ item.preview_image_url }}" style="width: 110px"
+      td style="width: 330px;"
+        .title
+          | {{ item.title }}
+        .description
+          | {{ item.description }}
+      td width="150px"
+        | -
+        input
+        | +
+      td width="150px"
+        .price
+          | {{ item.price }}
+          | &nbsp;
+          i.fa.fa-ruble
+      td width="70px"
+        a.black-rounded-close
+          i.fa.fa-close
+
 div ng-include=true src="'client_app/templates/products/popular_slider.html'"

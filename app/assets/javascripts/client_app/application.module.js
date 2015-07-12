@@ -127,6 +127,16 @@
                 url: '/products/:id',
                 templateUrl: 'client_app/templates/products/show.html',
                 controller: 'ProductsController'
+            })
+            .state('cart',{
+                url: '/cart',
+                templateUrl: 'client_app/templates/shop/cart.html',
+                controller: 'CartController'
+            })
+            .state('order',{
+                url: '/order',
+                templateUrl: 'client_app/templates/shop/order.html',
+                controller: 'OrderController'
             });
     }]);
 

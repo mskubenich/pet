@@ -3,8 +3,9 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('ProductsController', ['$scope', '$state', 'ngDialog', 'ProductsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'ShopCategoriesFactory', 'CommentsFactory', 'NotesFactory',
-            function ($scope, $state, ngDialog, products, $stateParams, $timeout, $sce, Lightbox, categories, comments, notes) {
+        .controller('ProductsController', ['$scope', '$state', 'ngDialog', 'ProductsFactory', '$stateParams', '$timeout', '$sce',
+            'Lightbox', 'ShopCategoriesFactory', 'CommentsFactory', 'NotesFactory', 'CartFactory',
+            function ($scope, $state, ngDialog, products, $stateParams, $timeout, $sce, Lightbox, categories, comments, notes, cart) {
 
             $scope.I18n = I18n;
             $scope._ = _;
@@ -31,6 +32,17 @@
             categories.all().success(function(data){
                 $scope.categories = data.shop_categories;
             });
+
+            $scope.addToCart = function(product_id){
+                cart.add(product_id).success(function(){
+                    $scope.current_user.cart_items_count =  $scope.current_user.cart_items_count + 1;
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: I18n.t('shop.messages.success_add_to_cart'),
+                        plain: true
+                    });
+                })
+            };
 
             if($state.current.name == 'products'){
                 $('body').css('background-color', '#FAFAFA');

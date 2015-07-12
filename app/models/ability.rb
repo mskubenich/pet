@@ -26,6 +26,9 @@ class Ability
       can :manage, User do |entity|
         entity.new_record?
       end
+      can :manage, Cart do |entity|
+        entity.user_id == user_id || entity.new_record?
+      end
     end
     can :read, News
     can :read, Copulation

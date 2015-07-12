@@ -200,6 +200,8 @@ ru:
     for_dogs: 'для собак'
     for_cats: 'для кошек'
     popular_title: 'Популярное в зоомагазине'
+    messages:
+      success_add_to_cart: 'Товар добавлен в корзину'
   promo:
     get: 'Получи промо код'
     get_button: 'Получить'

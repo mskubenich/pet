@@ -200,6 +200,8 @@ en:
     for_dogs: 'Toys for dogs'
     for_cats: 'Toys for cats'
     popular_title: 'Popular in zooshop'
+    messages:
+      success_add_to_cart: 'Successfully added to cart'
   promo:
     get: 'Get promo code'
     get_button: 'Get'

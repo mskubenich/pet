@@ -112,6 +112,13 @@ Rails.application.routes.draw do
     resources :notes, only: [:create, :show]
     resources :breeds, only: [:index]
     resources :shop_categories, only: [:index]
+
+    resources :cart, only: [:index] do
+      collection do
+        post :add
+        post :set_count
+      end
+    end
   end
 
   get '/:locale' => 'pages#index'

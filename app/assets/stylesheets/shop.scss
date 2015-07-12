@@ -275,3 +275,59 @@ table.card-section{
   font-family: PTSansRegular;
   font-size: 14px;
 }
+
+.white-cart-icon{
+  width: 40px;
+  height: 36px;
+  background-image: url(cart-icon-white.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+}
+
+.cart-item{
+  .title{
+    text-transform: uppercase;
+    font-family: PTSansRegular;
+    font-size: 24px;
+  }
+  .description{
+    margin-top: 17px;
+    color: gray;
+    font-size: 13px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .price{
+    text-transform: uppercase;
+    font-family: PTSansBold;
+    font-size: 28px;
+  }
+  height: 95px;
+  &:hover {
+    background-color: #F8F8F8;
+  }
+  border-bottom: 1px solid #F8F8F8;
+  td{
+    padding: 10px;
+  }
+}
+
+.black-rounded-close {
+  padding-top: 3px;
+  display: inline-block;
+  background-color: #000000;
+  width: 40px;
+  height: 40px;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  text-align: center;
+  color: #ffffff;
+  &:hover{
+    color: white;
+  }
+  text-decoration: none;
+  font-size: 24px;
+}

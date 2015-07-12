@@ -141,7 +141,7 @@
             span.card-icon
             | &nbsp;
           td
-            a.to-card-link.black-dashed-link
+            a.to-card-link.black-dashed-link ng-click="addToCart(product.id)"
               | {{ I18n.t('shop.to_card') }}
           td.card-button-section.text-right
             a.card-button

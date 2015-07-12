@@ -9,7 +9,8 @@ class SessionsController < ApplicationController
                  current_user: {
                      full_name: current_user.full_name,
                      is_admin: current_user.admin?,
-                     avatar_url: current_user.avatar.url(:thumb)
+                     avatar_url: current_user.avatar.url(:thumb),
+                     cart_items_count: current_user.cart.cart_items.count
                  }
              }
     else
