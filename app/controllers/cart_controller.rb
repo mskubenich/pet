@@ -14,6 +14,8 @@ class CartController < ApplicationController
 
   def index
     @cart_items = current_user.cart.cart_items
+
+    @total_price = @cart_items.map{|i| i.count * i.product.try(:price).to_i }.sum
   end
 
   def destroy

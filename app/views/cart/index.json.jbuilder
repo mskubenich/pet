@@ -8,3 +8,4 @@ json.items @cart_items.each do |item|
     json.preview_image_url item.product.preview_image_url
   end
 end
+json.total_price @total_price

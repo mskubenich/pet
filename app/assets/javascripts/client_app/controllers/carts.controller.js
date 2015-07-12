@@ -33,6 +33,7 @@
                 cart.all()
                     .success(function(data){
                         $scope.cart_items = data.items;
+                        $scope.total_price = data.total_price;
                     })
 
             };

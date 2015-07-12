@@ -362,3 +362,20 @@ table.card-section{
   text-decoration: none;
   font-size: 24px;
 }
+
+.total-label{
+  margin-top: 50px;
+  margin-bottom: 100px;
+  .total{
+    font-family: PTSansRegular;
+    font-size: 26px;
+    display: inline-block;
+    padding-right: 30px;
+  }
+  .value{
+    color: red;
+    text-transform: uppercase;
+    font-family: PTSansBold;
+    font-size: 45px;
+  }
+}
