@@ -83,6 +83,8 @@
     background-size: cover;
     position:relative;
     .header-row{
+      margin: 0 auto;
+      max-width: 1368px;
       position: absolute;
       top: 54px;
       right: 90px;
@@ -134,7 +136,7 @@
       line-height: 21px;
       font-family: PTSansRegular;
       font-size: 16px;
-      padding: 19px 313px 20px 45px;
+      padding: 19px 354px 20px 45px;
       /* margin-left: 500px; */
       text-align: left;
       /* right: -98px; */
@@ -379,8 +381,8 @@ a.white-link{
 }
 
 .serif-font-bold{
-  font-family: 'PT Serif Caption', serif;
-  font-weight: bold;
+  font-family: PTSansBold;
+  font-size: 18px;
 }
 
 .dashed_text{

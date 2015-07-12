@@ -198,12 +198,23 @@ a.black-dashed-link{
   color: gray;
 }
 
-
 a.yellow-dashed-link{
   color: #FFD800;
   cursor: pointer;
   text-decoration: none;
   border-bottom: 1px dashed #FFD800;
+  font-family: 'PTSansRegular';
+  font-size: 17px;
+  &:hover{
+    border: 0;
+  }
+}
+
+a.yellow-solid-link{
+  color: #FFD800;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid #FFD800;
   font-family: 'PTSansRegular';
   font-size: 17px;
   &:hover{
