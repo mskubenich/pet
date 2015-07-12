@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  skip_before_filter :authenticate_user, only: [:show]
 
   def create
     @note = Note.new notes_params

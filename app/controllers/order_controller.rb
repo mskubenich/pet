@@ -4,10 +4,12 @@ class OrderController < ApplicationController
     order.user = current_user
     order.save
     current_user.cart.cart_items.each do |cart_item|
-      order.order_items.create product_id: cart_item.product_id,
-                               title: cart_item.product.try(:title),
-                               price: cart_item.product.try(:price),
-                               count: cart_item.product.try(:count)
+      OrderItem.create product_id: cart_item.product_id,
+                       title: cart_item.product.try(:title),
+                       price: cart_item.product.try(:price),
+                       count: cart_item.count,
+                       order_id: order.id
+      current_user.cart.destroy
     end
     render json: params
   end

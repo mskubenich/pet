@@ -24,7 +24,7 @@ class SalesController < ApplicationController
     query = query.where(family: params[:family]) if params[:family] && params[:family] != 'all'
     query = query.where("price > ?", params[:price_min]) if params[:price_min]
     query = query.where("price < ?", params[:price_max]) if params[:price_max]
-    query = query.where(breed: params[:breed_id]) unless params[:breed_id].blank?
+    query = query.where(breed_id: params[:breed_id]) unless params[:breed_id].blank?
     query = query.where("bloodline_file_size IS NOT NULL") if params[:bloodline] == 'true'
     query = query.where(scorp: true) if params[:scorp] == 'true'
     query = query.where(rkf: true) if params[:rkf] == 'true'

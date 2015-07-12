@@ -183,6 +183,16 @@
                 url: '/slides/new',
                 templateUrl: 'client_app/templates/admin/slides/new.html',
                 controller: 'AdminSlidesController'
+            })
+            .state('orders',{
+                url: '/orders',
+                templateUrl: 'client_app/templates/admin/orders/index.html',
+                controller: 'AdminOrdersController'
+            })
+            .state('order',{
+                url: '/orders/:id',
+                templateUrl: 'client_app/templates/admin/orders/show.html',
+                controller: 'AdminOrdersController'
             });
     }]);
 
@@ -190,6 +200,5 @@
         var csrf_token = $('meta[name="csrf-token"]').attr('content');
         $http.defaults.headers.common['X-CSRF-Token'] = csrf_token;
     }]);
-
 
 }());

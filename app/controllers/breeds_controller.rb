@@ -1,5 +1,4 @@
 class BreedsController < ApplicationController
-  load_and_authorize_resource :breed
   skip_before_filter :authenticate_user
   def index
     query = Breed.all

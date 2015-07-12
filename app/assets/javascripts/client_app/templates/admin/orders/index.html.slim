@@ -1,0 +1,24 @@
+div
+  #orders-pagination ng-hide="count < 11"
+  table.table.table-striped.table-responsive
+    thead
+      tr
+        th
+          | Email
+        th
+          | Name
+        th
+          | Price
+        th
+    tbody
+      tr ng-repeat="order in orders"
+        td
+          | {{ order.email }}
+        td
+          | {{ order.name }}
+        td
+          | {{ order.price }} &nbsp;
+          i.fa.fa-ruble
+        td style="width: 50px"
+          a ng-click="destroy(sale.id)"
+            i.fa.fa-close
