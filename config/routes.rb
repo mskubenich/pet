@@ -39,7 +39,11 @@ Rails.application.routes.draw do
           post :reject
         end
       end
-      resources :categories, only: [:index, :create, :update, :destroy, :show]
+      resources :categories, only: [:index, :create, :update, :destroy, :show] do
+        collection do
+          get :titles
+        end
+      end
       resources :shop_categories, only: [:index, :create, :update, :destroy, :show] do
         resources :shop_subcategories, only: [:index, :create, :update, :destroy, :show]
       end

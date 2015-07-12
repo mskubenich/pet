@@ -3,6 +3,7 @@ class News < ActiveRecord::Base
   include Viewable
 
   belongs_to :author, class_name: User, foreign_key: :user_id
+  belongs_to :category, foreign_key: :news_category_id
   has_and_belongs_to_many :categories
 
   has_attached_file :preview_image, :styles => { :thumb => "300x300>" }, :default_url => "/assets/missing.png"

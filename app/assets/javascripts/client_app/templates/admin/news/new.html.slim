@@ -27,7 +27,12 @@ form ng-submit="upsertNews()" name="newsForm" novalidate=true
 
   .form-group
     label Label
-    select#label style="width: 100%" multiple="multiple" ng-model="processedNews.labels"
+    select.form-control name="category" ng-model="processedNews.news_category_id" required=true ng-options="category.id as category.title for category in categories"
+      option value='' disabled=true selected=true
+        | Выберите категорию
+    .error-container ng-show="submited && newsForm.category.$invalid"
+      small.error
+        | {{ I18n.t('validations.cant_be_blank') }}
 
   .form-group
     label

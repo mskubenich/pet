@@ -8,7 +8,7 @@ class NewsController < ApplicationController
 
     if params[:categories].present?
       category_ids = JSON.parse(params[:categories]).delete_if { |k, v| v.nil? }.keys
-      query = query.includes(:categories).where('categories.id' => category_ids) if category_ids.any?
+      query = query.where(news_category_id: category_ids) if category_ids.any?
     end
 
     @news = query.order('news.id desc').paginate page: params[:page], per_page: 10

@@ -13,6 +13,7 @@
                 fd.append('news[body_en]', news.body_en);
                 fd.append('news[scorp]', news.scorp);
                 fd.append('news[rkf]', news.rkf);
+                fd.append('news[news_category_id]', news.news_category_id);
                 if(news.categories){
                     var i = 0;
                     while(i< news.categories.length){

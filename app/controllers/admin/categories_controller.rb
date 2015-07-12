@@ -9,6 +9,10 @@ class Admin::CategoriesController < AdminController
     @count = query.count
   end
 
+  def titles
+    @categories = Category.all
+  end
+
   def create
     @category = Category.new category_params
     if @category.save

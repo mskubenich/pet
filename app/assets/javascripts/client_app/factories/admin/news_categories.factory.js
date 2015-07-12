@@ -15,6 +15,9 @@
             all: function(params){
                 return $http.get('/admin/categories.json?page=' + params.page);
             },
+            titles: function(params){
+                return $http.get('/admin/categories/titles.json');
+            },
             destroy: function(id){
                 return $http.delete('/admin/categories/' + id)
             }

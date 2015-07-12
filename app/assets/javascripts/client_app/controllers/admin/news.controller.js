@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminNewsController', ['$sce', '$scope', '$state', 'ngDialog', 'NewsFactory', '$stateParams', '$rootScope',
-            function ($sce, $scope, $state, ngDialog, news, $stateParams, $rootScope) {
+        .controller('AdminNewsController', ['$sce', '$scope', '$state', 'ngDialog', 'NewsFactory', '$stateParams', '$rootScope', 'CategoriesFactory',
+            function ($sce, $scope, $state, ngDialog, news, $stateParams, $rootScope, categories) {
             $rootScope.$state = $state;
 
             $scope.getHtml = function(html){
@@ -13,38 +13,12 @@
 
             if($state.current.name == 'create_news' || $state.current.name == 'edit_news'){
 
-                var $select = $('#label').selectize({
-                    valueField: 'id',
-                    labelField: 'title',
-                    searchField: 'title',
-                    create: false,
-                    render: {
-                        option: function(item, escape) {
-                            return '<div>' +
-                                '<span class="name">' + escape(item.title) + '</span>' +
-                                '</div>';
-                        }
-                    },
-                    load: function(query, callback) {
-                        if (!query.length) return callback();
-                        $.ajax({
-                            url: 'admin/categories?title=' + encodeURIComponent(query),
-                            type: 'GET',
-                            error: function() {
-                                callback();
-                            },
-                            success: function(res) {
-                                callback(res.categories);
-                            }
-                        });
-                    },
-                    onChange: function(data){
-                        $scope.processedNews.categories = data;
-                    }
+                categories.titles().success(function(data){
+                    $scope.categories = data.categories;
                 });
 
                 if($state.current.name == 'create_news'){
-                    $scope.processedNews = {scorp: false, rkf: false};
+                    $scope.processedNews = {scorp: false, rkf: false, news_category_id: null};
                 }
 
                 if($state.current.name == 'edit_news'){
