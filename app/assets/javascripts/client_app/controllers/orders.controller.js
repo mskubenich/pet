@@ -3,7 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('OrderController', ['$scope', '$state', 'ngDialog', 'ShopCategoriesFactory', 'CartFactory', function ($scope, $state, ngDialog, categories, cart) {
+        .controller('OrderController', ['$scope', '$state', 'ngDialog', 'ShopCategoriesFactory', 'CartFactory', 'OrderFactory',
+            function ($scope, $state, ngDialog, categories, cart, order) {
             $('body').css('background-color', 'white');
 
             $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
@@ -54,6 +55,19 @@
             $scope.decreaseCount = function(item){
                 cart.set_count(item.id, item.count - 1).success(function(){
                     $scope.retrieveItems();
+                })
+            };
+
+            $scope.address = {};
+            $scope.submitOrder = function(){
+                $scope.submited = true;
+                order.create($scope.address).success(function(){
+                    $state.go('cart');
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: 'Оплачено',
+                        plain: true
+                    });
                 })
             }
         }])

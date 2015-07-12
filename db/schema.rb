@@ -166,7 +166,15 @@ ActiveRecord::Schema.define(version: 20150712124611) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "user_id", limit: 4
+    t.integer "user_id",    limit: 4
+    t.string  "city",       limit: 255
+    t.string  "country",    limit: 255
+    t.string  "email",      limit: 255
+    t.string  "first_name", limit: 255
+    t.string  "last_name",  limit: 255
+    t.string  "phone",      limit: 255
+    t.string  "street",     limit: 255
+    t.string  "zip",        limit: 255
   end
 
   create_table "products", force: :cascade do |t|

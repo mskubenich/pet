@@ -1,4 +1,4 @@
 class OrderItem < ActiveRecord::Base
   belongs_to :order
-  belons_to :product
+  belongs_to :product
 end

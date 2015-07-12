@@ -119,6 +119,8 @@ Rails.application.routes.draw do
         post :set_count
       end
     end
+
+    resources :order, only: [:create]
   end
 
   get '/:locale' => 'pages#index'
