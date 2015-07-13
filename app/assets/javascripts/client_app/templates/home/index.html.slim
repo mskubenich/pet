@@ -51,32 +51,35 @@ br
       br
       br
       br
-      table.table.vertical-align-table style="background-color: transparent"
+      table.copulation-slider-table.table.vertical-align-table style="background-color: transparent"
         tr
           td ng-repeat="sale in copulation_slides"
-            a href="#sale/{{sale.id}}" style="cursor: pointer"
-              img ng-src="{{ sale.preview_image_url }}" style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; width: 100px; height: 100px"
+            a href="#copulation/{{sale.id}}" style="cursor: pointer"
+              .sale-slider-image style="background-image: url({{ sale.preview_image_url }})"
+                .overlay
+                  rating.rating ng-model="sale.rating" max="5" readonly="true"
         tr
           td ng-repeat="sale in copulation_slides"
-            span.pt-sans-text
+            span.sale-slider-name
               | {{ sale.name }}
             br
-            b
-              span.small-text.serif-font-bold
-                | {{ sale.breed }}
+            span.sale-slider-breed
+              | {{ sale.breed }}
     .col-md-4.col-sm-4
       img src="assets/wolf.png" style="width: 100%"
     .col-md-3.col-sm-3
       b
-        .pet-h3
+        .pet-h4
           | Питомцы на случку
       br
-      span.small-text
+      span.pets-for-pay-description
         | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       br
       br
-      a.white-btn href="#copulation"
-        | Найти пару
+      br
+      .text-right
+        a.white-btn-lg href="#copulation"
+          | Найти пару
   .row.small-content
     .col-md-4.col-sm-4
       b

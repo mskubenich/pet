@@ -134,6 +134,25 @@
   }
 }
 
+.white-btn-lg{
+  background-color: transparent;
+  text-decoration: none;
+  border: 3px solid black;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  padding: 12px 28px;
+  color: black;
+  cursor: pointer;
+  &:hover{
+    text-decoration: none;
+    color: #000000;
+  }
+  text-transform: uppercase;
+  font-family: PFCentroSerifBold;
+  font-size: 16px;
+}
+
 a.white-dashed-link{
   color: white;
   cursor: pointer;
