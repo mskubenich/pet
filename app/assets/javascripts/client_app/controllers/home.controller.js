@@ -73,23 +73,30 @@
                                     nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'</button>",
                                     responsive: [
                                         {
-                                            breakpoint: 2000,
+                                            breakpoint: 2500,
                                             settings: {
-                                                slidesToShow: 8,
+                                                slidesToShow: 7,
                                                 slidesToScroll: 7
                                             }
                                         },
                                         {
-                                            breakpoint: 1300,
+                                            breakpoint: 1800,
                                             settings: {
-                                                slidesToShow: 6,
+                                                slidesToShow: 5,
                                                 slidesToScroll: 3
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 1200,
+                                            settings: {
+                                                slidesToShow: 4,
+                                                slidesToScroll: 2
                                             }
                                         },
                                         {
                                             breakpoint: 800,
                                             settings: {
-                                                slidesToShow: 4,
+                                                slidesToShow: 3,
                                                 slidesToScroll: 2
                                             }
                                         },
