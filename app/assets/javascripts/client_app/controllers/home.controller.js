@@ -56,54 +56,57 @@
                     })
                     .error();
 
-                pages.get_shop_slides()
-                    .success(function(data){
-                        $scope.shop_slides = data.slides;
-                        $timeout(function() {
-                            $('#shop-carousel').slick({
-                                dots: false,
-                                infinite: true,
-                                speed: 300,
-                                slidesToShow: 6,
-                                slidesToScroll: 5,
-                                autoplay: true,
-                                arrows: true,
-                                prevArrow: "<button class='gallery-prev'><i class='fa fa-caret-left'</button>",
-                                nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'</button>",
-                                responsive: [
-                                    {
-                                        breakpoint: 2000,
-                                        settings: {
-                                            slidesToShow: 8,
-                                            slidesToScroll: 7
+                $scope.initShopSlides = function(){
+                    pages.get_shop_slides()
+                        .success(function(data){
+                            $scope.shop_slides = data.slides;
+                            $timeout(function() {
+                                $('#shop-carousel').slick({
+                                    dots: false,
+                                    infinite: true,
+                                    speed: 300,
+                                    slidesToShow: 6,
+                                    slidesToScroll: 5,
+                                    autoplay: true,
+                                    arrows: true,
+                                    prevArrow: "<button class='gallery-prev'><i class='fa fa-caret-left'</button>",
+                                    nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'</button>",
+                                    responsive: [
+                                        {
+                                            breakpoint: 2000,
+                                            settings: {
+                                                slidesToShow: 8,
+                                                slidesToScroll: 7
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 1300,
+                                            settings: {
+                                                slidesToShow: 6,
+                                                slidesToScroll: 3
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 800,
+                                            settings: {
+                                                slidesToShow: 4,
+                                                slidesToScroll: 2
+                                            }
+                                        },
+                                        {
+                                            breakpoint: 550,
+                                            settings: {
+                                                slidesToShow: 2,
+                                                slidesToScroll: 1
+                                            }
                                         }
-                                    },
-                                    {
-                                        breakpoint: 1300,
-                                        settings: {
-                                            slidesToShow: 6,
-                                            slidesToScroll: 3
-                                        }
-                                    },
-                                    {
-                                        breakpoint: 800,
-                                        settings: {
-                                            slidesToShow: 4,
-                                            slidesToScroll: 2
-                                        }
-                                    },
-                                    {
-                                        breakpoint: 550,
-                                        settings: {
-                                            slidesToShow: 2,
-                                            slidesToScroll: 1
-                                        }
-                                    }
-                                ]
-                            });
-                        }, 1000);
-                    })
-                    .error();
+                                    ]
+                                });
+                            }, 1000);
+                        })
+                        .error();
+                };
+                $scope.initShopSlides();
 
                 pages.get_main_slides()
                     .success(function(data){
