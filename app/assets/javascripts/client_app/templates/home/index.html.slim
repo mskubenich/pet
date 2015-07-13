@@ -2,7 +2,7 @@
   .slide-item ng-repeat="slide in slides"
     .hover-block
       .text-center
-        span.title
+        a.title href="#copulation/{{slide.id}}"
           | {{ slide.name }}
         br
         br
@@ -14,15 +14,16 @@
   .container
     table.table.vertical-align-table
       tr
-        td style="width: 200px;"
-          .pet-h3
+        td style="width: 264px;"
+          .pet-h4
             | Питомцы на продажу
-          | Lorem ipsum dolor sit amet
+          .pets-for-pay-description
+            | Lorem ipsum dolor sit amet
+            br
+            | consectetur aclipisicing elit, sed do
           br
-          | consectetur aclipisicing elit, sed do
           br
-          br
-          span.black-budget ui-sref="new_sale" ng-enabled="current_user" style="cursor: pointer"
+          span.pets-for-pay-button ui-sref="new_sale" ng-enabled="current_user" style="cursor: pointer"
             | Подать объявление
         td
           table.table.vertical-align-table style="background-color: transparent"

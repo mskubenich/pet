@@ -466,3 +466,21 @@ a.white-link{
 .capitalized{
   text-transform: capitalize;
 }
+
+.pets-for-pay-description{
+  font-family: PTSansRegular;
+  font-size: 16px;
+}
+
+.pets-for-pay-button{
+  font-family: PFCentroSerifBold;
+  font-size: 16px;
+  text-transform: uppercase;
+  background-color: black;
+  border-radius: 100px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 100px;
+  font-weight: normal;
+  color: #FFD800;
+  padding: 15px 22px;
+}
