@@ -10,7 +10,8 @@ html(lang="en")
       I18n.locale = "#{ I18n.locale }";
   body ng-app="petModeApp" ng-controller="HomeController as home_ctrl"
     .header
-      div ng-include=true src="header_url"
+      div ng-include=true src="'client_app/templates/layouts/yellow-header.html'" style="display: {{ header_url == 'yellow' ? 'block' : 'none'}}"
+      div ng-include=true src="'client_app/templates/layouts/black-header.html'" style="display: {{ header_url != 'yellow' ? 'block' : 'none'}}"
     .content ui-view=true
     footer
       .container

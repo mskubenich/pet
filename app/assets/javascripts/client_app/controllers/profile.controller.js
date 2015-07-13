@@ -6,7 +6,7 @@
         .controller('ProfileController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$sce', '$stateParams', function ($scope, $state, ngDialog, users, $sce, $stateParams) {
 
             $('body').css('background-color', 'white');
-            $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
+            $scope.$parent.header_url = 'black';
 
             $scope.rate = 4;
             $scope.max = 5;

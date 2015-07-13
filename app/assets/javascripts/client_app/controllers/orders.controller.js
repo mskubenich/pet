@@ -7,7 +7,7 @@
             function ($scope, $state, ngDialog, categories, cart, order) {
             $('body').css('background-color', 'white');
 
-            $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
+            $scope.$parent.header_url = 'black';
 
             $scope.filters = {
                 family: 'all',

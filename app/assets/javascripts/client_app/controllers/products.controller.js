@@ -10,7 +10,7 @@
             $scope.I18n = I18n;
             $scope._ = _;
 
-            $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
+            $scope.$parent.header_url = 'black';
 
             $scope.filters = {
                 family: 'all',
@@ -183,15 +183,17 @@
                         pagination.empty();
                         pagination.removeData('twbs-pagination');
                         pagination.unbind('page');
-                        pagination.twbsPagination({
-                            totalPages: Math.ceil($scope.count / 10),
-                            startPage: $scope.comments_page,
-                            visiblePages: 9,
-                            onPageClick: function (event, page) {
-                                $scope.comments_page = page;
-                                $scope.retrieveComments();
-                            }
-                        });
+                        if($scope.count > 0){
+                            pagination.twbsPagination({
+                                totalPages: Math.ceil($scope.count / 10),
+                                startPage: $scope.comments_page,
+                                visiblePages: 9,
+                                onPageClick: function (event, page) {
+                                    $scope.comments_page = page;
+                                    $scope.retrieveComments();
+                                }
+                            });
+                        }
                     }).error(function (data) {
 
                     });

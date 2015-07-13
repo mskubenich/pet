@@ -46,7 +46,7 @@
                 });
 
                 if($state.current.name == 'sale'){
-                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+                    $scope.$parent.header_url = 'yellow';
                     $scope.sale = [];
 
                     var timer = false;

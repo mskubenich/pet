@@ -5,7 +5,7 @@
     angular.module('petModeApp')
         .controller('SessionsController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', function ($scope, $state, ngDialog, session) {
             $scope.session = {};
-            $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
+            $scope.$parent.header_url = 'black';
             $('body').css('background-color', 'white');
             $scope.login = function(){
                 session.create($scope.session)

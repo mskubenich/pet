@@ -7,7 +7,7 @@
             function ($scope, $state, ngDialog, news, $sce, $stateParams, comments) {
 
             if($state.current.name == 'show_news'){
-                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+                $scope.$parent.header_url = 'yellow';
                 $scope.news = {};
 
                 news.show($stateParams.id).success(function(data){
@@ -64,7 +64,7 @@
             }
 
             if($state.current.name == 'news'){
-                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+                $scope.$parent.header_url = 'yellow';
 
                 $scope.filters = {categories: {}};
 

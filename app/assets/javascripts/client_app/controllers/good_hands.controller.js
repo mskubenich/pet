@@ -46,7 +46,7 @@
                 });
 
                 if($state.current.name == 'good_hands'){
-                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+                    $scope.$parent.header_url = 'yellow';
                     $scope.sale = [];
 
                     var timer = false;
@@ -247,7 +247,7 @@
                     }
                 }
                 if($state.current.name == 'new_hand'){
-                    $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
+                    $scope.$parent.header_url = 'black';
 
                     $scope.announcement = {};
                     $scope.updateBreeds2 = function(){
@@ -280,7 +280,7 @@
 
                     $scope.attachments = [];
                     $scope.attachments_previews = [];
-                    $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
+                    $scope.$parent.header_url = 'black';
 
                     $scope.removeAttachment = function(i, event){
                         $scope.attachments[i] = 'null';

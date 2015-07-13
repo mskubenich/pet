@@ -6,7 +6,7 @@
         .controller('HomeController', ['$scope', '$state', 'ngDialog', 'SessionsFactory', 'PagesFactory', '$timeout', '$sce',
             function ($scope, $state, ngDialog, session, pages, $timeout, $sce) {
 
-                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+                $scope.$parent.header_url = 'yellow';
                 $('body').css('background-color', 'white');
                 $scope.I18n = I18n;
                 $scope.closeDialog = function(){
@@ -31,9 +31,8 @@
                         })
                 };
 
-                $scope.header_url = 'client_app/templates/layouts/yellow-header.html';
-                $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
-                $scope.header_url = 'client_app/templates/layouts/yellow-header.html';
+                $scope.$parent.header_url = 'yellow';
+                $scope.header_url = 'yellow';
 
                 $scope.getHtml = function(html){
                     return $sce.trustAsHtml(html);

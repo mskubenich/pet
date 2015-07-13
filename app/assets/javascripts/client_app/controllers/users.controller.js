@@ -8,7 +8,7 @@
             $scope.submited = false;
 
             $('body').css('background-color', 'white');
-            $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+            $scope.$parent.header_url = 'yellow';
 
             $scope.submitUserData = function () {
                 $scope.submited = true;
