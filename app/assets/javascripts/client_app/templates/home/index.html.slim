@@ -27,18 +27,20 @@
           span.pets-for-pay-button ui-sref="new_sale" ng-enabled="current_user" style="cursor: pointer"
             | Подать объявление
         td
-          table.table.vertical-align-table style="background-color: transparent"
+          table.sale-slider-table.table.vertical-align-table style="background-color: transparent"
             tr
               td ng-repeat="sale in sale_slides"
                 a href="#sale/{{sale.id}}" style="cursor: pointer"
-                  img ng-src="{{ sale.preview_image_url }}" style="border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; width: 100px; height: 100px"
+                  .sale-slider-image style="background-image: url({{ sale.preview_image_url }})"
+                    .overlay
+                      rating.rating ng-model="sale.rating" max="5" readonly="true"
             tr
               td ng-repeat="sale in sale_slides"
-                | {{ sale.name }}
+                span.sale-slider-name
+                  | {{ sale.name }}
                 br
-                b
-                  span.serif-font-bold.header2-text
-                    | {{ sale.breed }}
+                span.sale-slider-breed
+                  | {{ sale.breed }}
 .wave-bottom
 br
 br
