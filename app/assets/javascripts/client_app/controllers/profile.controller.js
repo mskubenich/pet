@@ -7,6 +7,7 @@
 
             $('body').css('background-color', 'white');
             $scope.$parent.header_url = 'black';
+            $scope.$state = $state;
 
             $scope.rate = 4;
             $scope.max = 5;

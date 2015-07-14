@@ -1,0 +1,11 @@
+.nav-menu style="height: 74px"
+  .container
+    table.table.vertical-align-table style="margin: 0; height: 74px"
+      tr
+        td
+          a.profile-yellow-icon.profile-profile href="#profile" class="{{ $state.current.name == 'profile' ? 'active' : '' }}"
+          a.profile-yellow-icon.profile-messages href="#messages" class="{{ $state.current.name == 'messages' ? 'active' : '' }}"
+          a.profile-yellow-icon.profile-settings href="#settings"
+          a.profile-yellow-icon.profile-pets-icon href="#my-pets"
+          a.profile-yellow-icon href="#friends"
+            i.fa.fa-heart-o

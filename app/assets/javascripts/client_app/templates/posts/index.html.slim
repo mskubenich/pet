@@ -1,0 +1,85 @@
+div ng-controller="PostsController"
+  .row
+    .col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3.gray-block
+      form.registration-form novalidate=true
+        .form-group
+          input.form-control type="text" placeholder="Введите заголовок статьи"
+        .form-group
+          textarea.form-control type="text" placeholder="Введите основной текст статьи" style="max-width: 100%"
+    .col-md-3.col-sm-3
+      form
+        .form-group
+          label
+            table.vertical-align-table
+              tr
+                td
+                  .rounded-one class="{{ checked1 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="userData.scorp"
+                td
+                  span.black-budget style="margin-top: 13px"
+                    | СКОРП
+
+        .form-group
+          label
+            table.vertical-align-table
+              tr
+                td
+                  .rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.rkf"
+                td
+                  span.black-budget
+                    | РКФ
+        .form-group
+          label
+            table.vertical-align-table
+              tr
+                td
+                  i.fa.fa-plus
+                td
+                  span.dashed_text
+                    | изображение
+        .form-group
+          a.yellow-btn
+            | {{ I18n.t('publish') }}
+  .row
+    .col-md-9.col-sm-9.col-md-offset-3.col-sm-offset-3
+      .news ng-repeat="article in articles"
+        table.news-header
+          tr
+            td
+              .news-gray-text
+                | {{ article.created_at }}
+                span
+                  = I18n.t 'users.created_by'
+                | &nbsp;
+                span.news-author-profile-link
+                  | {{ article.author }}
+              br
+              a.news-title href="#news/{{article.id}}"
+                | {{ article.title }}
+              | &nbsp;
+              | &nbsp;
+              | &nbsp;
+              span.black-budget ng-show="article.scorp"
+                | СКОРП
+              | &nbsp;
+              span.black-budget ng-show="article.rkf"
+                | РКФ
+              |  &nbsp;
+        table.news-preview
+          .news-text
+            br
+            | {{ article.body }}
+          .news-meta
+            br
+            a
+              i.fa.fa-heart
+              | 255
+            a
+              i.fa.fa-repeat
+              | 15
+            a
+              i.fa.fa-eye
+              | 125

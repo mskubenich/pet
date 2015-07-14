@@ -44,10 +44,52 @@
   font-size: 40px;
   margin-right: 30px;
   color: #000000;
+  display: inline-block;
+  height: 35px;
   &:hover{
     color: white;
   }
+  &.active{
+    color: white;
+  }
+  &.profile-profile{
+    width: 35px;
+    background-image: url(profile-image.png);
+    background-position: center;
+    background-size: cover;
+    &:hover, &:active{
+      background-image: url(profile-image-white.png);
+    }
+  }
+  &.profile-messages{
+    width: 45px;
+    background-image: url(messages-image.png);
+    background-position: center;
+    background-size: cover;
+    &:hover, &:active{
+      background-image: url(messages-image-white.png);
+    }
+  }
+  &.profile-settings{
+    width: 38px;
+    background-image: url(settings-image.png);
+    background-position: center;
+    background-size: cover;
+    &:hover, &:active{
+      background-image: url(settings-image-white.png);
+    }
+  }
+  &.profile-pets-icon{
+    width: 38px;
+    background-image: url(my-pets-image.png);
+    background-position: center;
+    background-size: cover;
+    &:hover, &:active{
+      background-image: url(my-pets-image-white.png);
+    }
+  }
 }
+
 .profile-avatar{
   max-width: 235px;
   width: 100%;

@@ -23,6 +23,11 @@
                 templateUrl: 'client_app/templates/home/index.html',
                 controller: 'HomeController'
             })
+            .state('home2',{
+                url: '/home',
+                templateUrl: 'client_app/templates/home/index.html',
+                controller: 'HomeController'
+            })
             .state('profile',{
                 url: '/profile',
                 templateUrl: 'client_app/templates/users/profile.html',
@@ -137,6 +142,26 @@
                 url: '/order',
                 templateUrl: 'client_app/templates/shop/order.html',
                 controller: 'OrderController'
+            })
+            .state('messages',{
+                url: '/messages',
+                templateUrl: 'client_app/templates/messages/index.html',
+                controller: 'ProfileController'
+            })
+            .state('settings',{
+                url: '/settings',
+                templateUrl: 'client_app/templates/settings/index.html',
+                controller: 'ProfileController'
+            })
+            .state('my-pets',{
+                url: '/my-pets',
+                templateUrl: 'client_app/templates/my-pets/index.html',
+                controller: 'ProfileController'
+            })
+            .state('friends',{
+                url: '/friends',
+                templateUrl: 'client_app/templates/friends/index.html',
+                controller: 'ProfileController'
             });
     }]);
 
