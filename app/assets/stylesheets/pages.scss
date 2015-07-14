@@ -120,6 +120,10 @@
   &.gallery-prev{
     border-radius: 0 29px 29px 0;
     left: 0;
+    i{
+      position: absolute;
+      margin-top: -11px;
+    }
   }
 }
 
