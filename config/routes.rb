@@ -126,6 +126,7 @@ Rails.application.routes.draw do
     end
 
     resources :order, only: [:create]
+    resources :posts, only: [:index, :show, :create, :update, :destroy]
   end
 
   get '/:locale' => 'pages#index'

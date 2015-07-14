@@ -5,7 +5,7 @@
         td
           a.profile-yellow-icon.profile-profile href="#profile" class="{{ $state.current.name == 'profile' ? 'active' : '' }}"
           a.profile-yellow-icon.profile-messages href="#messages" class="{{ $state.current.name == 'messages' ? 'active' : '' }}"
-          a.profile-yellow-icon.profile-settings href="#settings"
-          a.profile-yellow-icon.profile-pets-icon href="#my-pets"
-          a.profile-yellow-icon href="#friends"
+          a.profile-yellow-icon.profile-settings href="#settings" class="{{ $state.current.name == 'settings' ? 'active' : '' }}"
+          a.profile-yellow-icon.profile-pets-icon href="#my-pets" class="{{ $state.current.name == 'my-pets' ? 'active' : '' }}"
+          a.profile-yellow-icon href="#friends" class="{{ $state.current.name == 'friends' ? 'active' : '' }}"
             i.fa.fa-heart-o

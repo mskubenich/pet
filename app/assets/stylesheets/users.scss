@@ -57,7 +57,10 @@
     background-image: url(profile-image.png);
     background-position: center;
     background-size: cover;
-    &:hover, &:active{
+    &:hover{
+      background-image: url(profile-image-white.png);
+    }
+    &.active{
       background-image: url(profile-image-white.png);
     }
   }
@@ -66,7 +69,10 @@
     background-image: url(messages-image.png);
     background-position: center;
     background-size: cover;
-    &:hover, &:active{
+    &:hover{
+      background-image: url(messages-image-white.png);
+    }
+    &.active{
       background-image: url(messages-image-white.png);
     }
   }
@@ -75,7 +81,10 @@
     background-image: url(settings-image.png);
     background-position: center;
     background-size: cover;
-    &:hover, &:active{
+    &:hover{
+      background-image: url(settings-image-white.png);
+    }
+    &.active{
       background-image: url(settings-image-white.png);
     }
   }
@@ -84,7 +93,10 @@
     background-image: url(my-pets-image.png);
     background-position: center;
     background-size: cover;
-    &:hover, &:active{
+    &:hover{
+      background-image: url(my-pets-image-white.png);
+    }
+    &.active{
       background-image: url(my-pets-image-white.png);
     }
   }

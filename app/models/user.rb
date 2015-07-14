@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   after_create :set_default_role
 
   has_many :sessions
+  has_many :posts
   has_and_belongs_to_many :roles
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/assets/missing.png"
