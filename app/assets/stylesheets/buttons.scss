@@ -349,9 +349,6 @@ a.yellow-solid-link{
 
 .global-search{
   color: white;
-//  &:hover{
-//    color: black;
-//  }
   input{
     background-color: transparent;
     border-radius: 100px;
@@ -361,11 +358,35 @@ a.yellow-solid-link{
     width: 176px;
     padding: 0 20px;
   }
+  .global-search-icon{
+    font-size: 17px;
+    cursor: pointer;
+  }
 }
 
-.global-search-icon{
-  font-size: 17px;
-  cursor: pointer;
+.global-search2{
+  color: white;
+  input{
+    background-color: transparent;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border: 1px solid white;
+    width: 97%;
+    padding: 7px 20px;
+    &::-webkit-input-placeholder {color: white;}
+    &::-moz-placeholder          {color: white;}/* Firefox 19+ */
+    &:-moz-placeholder           {color: white;}/* Firefox 18- */
+    &:-ms-input-placeholder      {color: white;}
+  }
+  .global-search-icon{
+    font-size: 17px;
+    cursor: pointer;
+  }
+  &.right-addon i {
+    right: 18px;
+    top: 1px;
+  }
 }
 
 /* enable absolute positioning */
