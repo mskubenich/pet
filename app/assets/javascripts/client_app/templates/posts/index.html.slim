@@ -67,6 +67,12 @@ div ng-controller="PostsController"
                   | {{ post.author }}
               br
               a.news-title
+                span.edit-post-icon ng-click="editPost(post)"
+                  i.fa.fa-pencil
+                  | &nbsp;
+                span.edit-post-icon ng-click="removePost(post)"
+                  i.fa.fa-close
+                  | &nbsp;
                 | {{ post.title }}
               | &nbsp;
               | &nbsp;

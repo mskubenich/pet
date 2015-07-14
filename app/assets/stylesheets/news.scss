@@ -19,6 +19,15 @@
           text-decoration: underline;
           cursor: pointer;
           color: #000000;
+          .edit-post-icon{
+            display: none;
+          }
+          &:hover{
+            .edit-post-icon{
+              text-decoration: none;
+              display: inline-block;
+            }
+          }
         }
         .news-gray-text{
           color: gray;

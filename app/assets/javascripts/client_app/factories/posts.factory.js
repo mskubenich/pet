@@ -26,6 +26,9 @@
             },
             all: function(options){
                 return $http.get('/posts');
+            },
+            destroy: function(id){
+                return $http.delete('/posts/' + id);
             }
         }
         ;

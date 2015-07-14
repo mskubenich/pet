@@ -8,7 +8,15 @@ class PostsController < ApplicationController
     if @post.save
       render json: {ok: true}
     else
-      render json: {errors: @copulation.errors}
+      render json: {errors: @post.errors}
+    end
+  end
+
+  def update
+    if @post.update_attributes post_params
+      render json: {ok: true}
+    else
+      render json: {errors: @post.errors}
     end
   end
 
@@ -18,6 +26,11 @@ class PostsController < ApplicationController
 
   def show
 
+  end
+
+  def destroy
+    @post.destroy
+    render json: {ok: true}
   end
 
   private

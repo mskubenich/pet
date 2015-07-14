@@ -19,6 +19,21 @@
             };
             $scope.retrievePosts();
 
+            $scope.editPost = function(post){
+                $scope.post = post;
+            };
+
+            $scope.removePost = function(post){
+                posts.destroy(post.id).success(function(){
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: "Post successfully removed.",
+                        plain: true
+                    });
+                    $scope.retrievePosts();
+                });
+            };
+
             $scope.submitPost = function(){
                 //$scope.post.description = $('#post-redactor').redactor('code.get');
                 $scope.submitted = true;
@@ -35,6 +50,7 @@
                             template: "Post successfully saved.",
                             plain: true
                         });
+                        $scope.retrievePosts();
                     })
                     .error(function(data){
                         $scope.processing = false;
