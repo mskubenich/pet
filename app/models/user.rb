@@ -20,6 +20,15 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :comments, foreign_key: :author_id
+  has_many :friendships
+  has_many :friends, -> (){ where("status = accepted")},
+           :through => :friendships
+  has_many :requested_friends, -> (){ where("status = requested")},
+           :through => :friendships,
+           :source => :friend
+  has_many :pending_friends, -> (){ where("status = pending")},
+           :through => :friendships,
+           :source => :friend
 
   def authenticate(password)
     self.encrypted_password == encrypt(password)

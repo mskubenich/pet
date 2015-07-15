@@ -72,7 +72,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :users, only: [:create] do
+    resources :users, only: [:create, :index] do
       collection do
         get :profile
         post :email_available

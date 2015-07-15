@@ -15,6 +15,9 @@
             },
             profile: function(){
                 return $http.get('/users/profile');
+            },
+            all: function(options){
+                return $http.get(I18n.locale +   '/users?q=' + options.query + '&page=' + options.page);
             }
         };
     }])

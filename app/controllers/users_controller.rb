@@ -2,6 +2,19 @@ class UsersController < ApplicationController
   include SessionsHelper
   skip_before_filter :authenticate_user, except: [:profile]
 
+  def index
+    user_arel = User.arel_table
+    query = user_arel.project(Arel.star).where(
+        user_arel[:email].matches("%#{ params[:q] }%")
+            .or(user_arel[:first_name].matches("%#{ params[:q] }%"))
+            .or(user_arel[:last_name].matches("%#{ params[:q] }%"))
+    )
+
+    count_query = query.clone.project('COUNT(*) as count')
+    @users = User.find_by_sql(query.take(10).skip((params[:page].to_i - 1) * 10).to_sql)
+    @count = User.find_by_sql(count_query.to_sql).first["count"]
+  end
+
   def create
     @user = User.new user_params
     if @user.save
@@ -31,6 +44,18 @@ class UsersController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
+  end
+
+  def friends
+    @friends = current_user.friends
+  end
+
+  def requested_friends
+    @friends = current_user.requested_friends
+  end
+
+  def pending_friends
+    @friends = current_user.pending_friends
   end
 
   private

@@ -1,2 +1,63 @@
 div ng-controller="FriendsController"
-  | {{ where  }}
+  div role="tabpanel"
+    ul.nav.nav-tabs role="tablist"
+      li role="presentation" class="active"
+        a data-target="#friends" role="tab" data-toggle="tab"
+          | Мои друзья
+      li role="presentation"
+        a data-target="#pending" role="tab" data-toggle="tab"
+          | Мои запросы
+      li role="presentation"
+        a data-target="#requested" role="tab" data-toggle="tab"
+          | Ждут ответа
+      li role="presentation"
+        a data-target="#all" role="tab" data-toggle="tab"
+          | Все пользователи
+    .tab-content
+      div role="tabpanel" class="tab-pane active" id="friends"
+        .well
+          #client-users-pagination ng-hide="client_users_count < 11"
+          table.table.table-striped
+            thead
+              tr
+                th sortable=true ng-model="sort" col-name="interested_user_phone" text="Phone"
+                th sortable=true ng-model="sort" col-name="interested_user_invitation_code" text="Invitation Code"
+                th sortable=true ng-model="sort" col-name="created_at" text="Created At"
+                th
+                  | Actions
+            tbody
+              tr ng-repeat="invite in client_users"
+                td
+                  | {{ invite.interested_user_phone }}
+                td
+                  | {{ invite.interested_user_invitation_code }}
+                td
+                  | {{ invite.created_at }}
+                td.text-right
+                  a.btn.btn-xs.btn-default ng-click="$parent.destroyInvite(invite)"
+                    | Destroy
+                  | &nbsp;
+                  a.btn.btn-xs.btn-default ng-click="$parent.sendInvitationCode(invite)"
+                    | {{ invite.interested_user_invite_sent ? 'Resend invitation code' : 'Send invitation code' }}
+      div role="tabpanel" class="tab-pane" id="pending"
+      div role="tabpanel" class="tab-pane" id="requested"
+      div role="tabpanel" class="tab-pane" id="all"
+        br
+        br
+        .pet-h4
+          | Все пользователи
+        br
+        #users-pagination
+        br
+        table.table.vertical-align-table
+          tr.cart-item ng-repeat="user in users"
+            td style="width: 110px"
+              img ng-src="{{ user.avatar_url }}" style="width: 110px"
+            td style="min-width: 330px;"
+              .title
+                | {{ user.full_name }}
+              .description
+                | Lorem ipsum dolor sit ...
+            td width="70px"
+              a.black-rounded-close ng-click="removeItem(item.id)"
+                i.fa.fa-close
