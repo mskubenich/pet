@@ -43,6 +43,6 @@ class Ability
     can :read, ShopCategory
     can :read, ShopSubcategory
     can :read, Product
-    сфт :read, Post
+    can :read, Post
   end
 end
