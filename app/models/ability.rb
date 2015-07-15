@@ -23,13 +23,13 @@ class Ability
       end
       can :create, Comment
       can :manage, User do |entity|
-        entity.new_record?
+        entity.id == user.id || entity.new_record?
       end
       can :manage, Cart do |entity|
-        entity.user_id == user_id || entity.new_record?
+        entity.user_id == user.id || entity.new_record?
       end
       can :manage, Post do |entity|
-        entity.user_id == user_id || entity.new_record?
+        entity.user_id == user.id || entity.new_record?
       end
     else
     end
