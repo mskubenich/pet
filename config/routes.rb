@@ -77,6 +77,9 @@ Rails.application.routes.draw do
         get :profile
         post :email_available
         post :avatar
+        get :friends
+        get :requested_friends
+        get :pending_friends
       end
     end
 

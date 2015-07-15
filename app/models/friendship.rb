@@ -36,7 +36,6 @@ class Friendship < ActiveRecord::Base
   def self.accept_one_side(user, friend, accepted_at)
     request = find_by_user_id_and_friend_id(user, friend)
     request.status = 'accepted'
-    request.accepted_at = accepted_at
     request.save!
   end
 end

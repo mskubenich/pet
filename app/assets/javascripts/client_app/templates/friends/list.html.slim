@@ -1,4 +1,6 @@
 div ng-controller="FriendsController"
+  input.form-control ng-model="query"
+  br
   div role="tabpanel"
     ul.nav.nav-tabs role="tablist"
       li role="presentation" class="active"
@@ -15,32 +17,107 @@ div ng-controller="FriendsController"
           | Все пользователи
     .tab-content
       div role="tabpanel" class="tab-pane active" id="friends"
-        .well
-          #client-users-pagination ng-hide="client_users_count < 11"
-          table.table.table-striped
-            thead
-              tr
-                th sortable=true ng-model="sort" col-name="interested_user_phone" text="Phone"
-                th sortable=true ng-model="sort" col-name="interested_user_invitation_code" text="Invitation Code"
-                th sortable=true ng-model="sort" col-name="created_at" text="Created At"
-                th
-                  | Actions
-            tbody
-              tr ng-repeat="invite in client_users"
-                td
-                  | {{ invite.interested_user_phone }}
-                td
-                  | {{ invite.interested_user_invitation_code }}
-                td
-                  | {{ invite.created_at }}
-                td.text-right
-                  a.btn.btn-xs.btn-default ng-click="$parent.destroyInvite(invite)"
-                    | Destroy
-                  | &nbsp;
-                  a.btn.btn-xs.btn-default ng-click="$parent.sendInvitationCode(invite)"
-                    | {{ invite.interested_user_invite_sent ? 'Resend invitation code' : 'Send invitation code' }}
+        br
+        br
+        .pet-h4
+          | Мои друзья
+        br
+        #friends-pagination
+        br
+        table.table.vertical-align-table
+          tr.cart-item ng-repeat="user in friends"
+            td style="width: 110px"
+              img ng-src="{{ user.avatar_url }}" style="width: 110px"
+            td style="min-width: 330px;"
+              .title
+                | {{ user.full_name }}
+              .description ng-show="user.friendship_status == 'pending'"
+                | Пользователь еще не ответил на Ваше приглашение.
+              .description ng-show="user.friendship_status == 'accepted'"
+                | Друг.
+              .description ng-show="user.friendship_status == 'requested'"
+                | Пользователь хочет добавиться Вам в друзья.
+            td width="70px"
+              | {{ user.friendship_status }}
+            td style="width: 220px; text-align: right"
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'none'" ng-click="addToFriends(user.id)"
+                | Добавить в друзья
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'pending'" ng-click="declineInviteToFriends(user.id)"
+                | Отменить приглашение
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="acceptInviteToFriends(user.id)"
+                | Подтвердить дружбу
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="rejectInviteToFriends(user.id)"
+                | Отказаться от дружбы
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'accepted'" ng-click="removeFromFriends(user.id)"
+                | Удалить из друзей
       div role="tabpanel" class="tab-pane" id="pending"
+        br
+        br
+        .pet-h4
+          | Мои запросы
+        br
+        #pending-users-pagination
+        br
+        table.table.vertical-align-table
+          tr.cart-item ng-repeat="user in pending_friends"
+            td style="width: 110px"
+              img ng-src="{{ user.avatar_url }}" style="width: 110px"
+            td style="min-width: 330px;"
+              .title
+                | {{ user.full_name }}
+              .description ng-show="user.friendship_status == 'pending'"
+                | Пользователь еще не ответил на Ваше приглашение.
+              .description ng-show="user.friendship_status == 'accepted'"
+                | Друг.
+              .description ng-show="user.friendship_status == 'requested'"
+                | Пользователь хочет добавиться Вам в друзья.
+            td width="70px"
+              | {{ user.friendship_status }}
+            td style="width: 220px; text-align: right"
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'none'" ng-click="addToFriends(user.id)"
+                | Добавить в друзья
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'pending'" ng-click="declineInviteToFriends(user.id)"
+                | Отменить приглашение
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="acceptInviteToFriends(user.id)"
+                | Подтвердить дружбу
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="rejectInviteToFriends(user.id)"
+                | Отказаться от дружбы
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'accepted'" ng-click="removeFromFriends(user.id)"
+                | Удалить из друзей
       div role="tabpanel" class="tab-pane" id="requested"
+        br
+        br
+        .pet-h4
+          | Ждут ответа
+        br
+        #requested-users-pagination
+        br
+        table.table.vertical-align-table
+          tr.cart-item ng-repeat="user in requested_friends"
+            td style="width: 110px"
+              img ng-src="{{ user.avatar_url }}" style="width: 110px"
+            td style="min-width: 330px;"
+              .title
+                | {{ user.full_name }}
+              .description ng-show="user.friendship_status == 'pending'"
+                | Пользователь еще не ответил на Ваше приглашение.
+              .description ng-show="user.friendship_status == 'accepted'"
+                | Друг.
+              .description ng-show="user.friendship_status == 'requested'"
+                | Пользователь хочет добавиться Вам в друзья.
+            td width="70px"
+              | {{ user.friendship_status }}
+            td style="width: 220px; text-align: right"
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'none'" ng-click="addToFriends(user.id)"
+                | Добавить в друзья
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'pending'" ng-click="declineInviteToFriends(user.id)"
+                | Отменить приглашение
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="acceptInviteToFriends(user.id)"
+                | Подтвердить дружбу
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="rejectInviteToFriends(user.id)"
+                | Отказаться от дружбы
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'accepted'" ng-click="removeFromFriends(user.id)"
+                | Удалить из друзей
       div role="tabpanel" class="tab-pane" id="all"
         br
         br
@@ -56,10 +133,22 @@ div ng-controller="FriendsController"
             td style="min-width: 330px;"
               .title
                 | {{ user.full_name }}
-              .description
-                | Lorem ipsum dolor sit ...
+              .description ng-show="user.friendship_status == 'pending'"
+                | Пользователь еще не ответил на Ваше приглашение.
+              .description ng-show="user.friendship_status == 'accepted'"
+                | Друг.
+              .description ng-show="user.friendship_status == 'requested'"
+                | Пользователь хочет добавиться Вам в друзья.
             td width="70px"
               | {{ user.friendship_status }}
-            td width="70px"
-              a.black-yellow-shop-button
+            td style="width: 220px; text-align: right"
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'none'" ng-click="addToFriends(user.id)"
                 | Добавить в друзья
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'pending'" ng-click="declineInviteToFriends(user.id)"
+                | Отменить приглашение
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="acceptInviteToFriends(user.id)"
+                | Подтвердить дружбу
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'requested'" ng-click="rejectInviteToFriends(user.id)"
+                | Отказаться от дружбы
+              a.black-yellow-shop-button ng-show="user.friendship_status == 'accepted'" ng-click="removeFromFriends(user.id)"
+                | Удалить из друзей

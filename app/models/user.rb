@@ -21,14 +21,23 @@ class User < ActiveRecord::Base
 
   has_many :comments, foreign_key: :author_id
   has_many :friendships
-  has_many :friends, -> (){ where("status = accepted")},
+  has_many :friends, -> (){ where(friendships: { status: :accepted}) },
            :through => :friendships
-  has_many :requested_friends, -> (){ where("status = requested")},
+  has_many :requested_friends, -> (){ where(friendships: { status: :requested}) },
            :through => :friendships,
            :source => :friend
-  has_many :pending_friends, -> (){ where("status = pending")},
+  has_many :pending_friends, -> (){ where(friendships: { status: :pending}) },
            :through => :friendships,
            :source => :friend
+
+  def friendship_status(user)
+    friendship = friendships.where(friend_id: user.id).try(:first)
+    if friendship
+      friendship.status
+    else
+      'none'
+    end
+  end
 
   def authenticate(password)
     self.encrypted_password == encrypt(password)

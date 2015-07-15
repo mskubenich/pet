@@ -18,6 +18,15 @@
             },
             all: function(options){
                 return $http.get(I18n.locale +   '/users?q=' + options.query + '&page=' + options.page);
+            },
+            friends: function(options){
+                return $http.get(I18n.locale +   '/users/friends?q=' + options.query + '&page=' + options.page);
+            },
+            requested_friends: function(options){
+                return $http.get(I18n.locale +   '/users/requested_friends?q=' + options.query + '&page=' + options.page);
+            },
+            pending_friends: function(options){
+                return $http.get(I18n.locale +   '/users/pending_friends?q=' + options.query + '&page=' + options.page);
             }
         };
     }])

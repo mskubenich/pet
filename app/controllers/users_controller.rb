@@ -47,15 +47,18 @@ class UsersController < ApplicationController
   end
 
   def friends
-    @friends = current_user.friends
+    @users = current_user.friends.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{ params[:q]}%", "%#{ params[:q]}%", "%#{ params[:q]}%").paginate page: params[:page], per_page: 10
+    @count = current_user.friends.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{ params[:q]}%", "%#{ params[:q]}%", "%#{ params[:q]}%").count
   end
 
   def requested_friends
-    @friends = current_user.requested_friends
+    @users = current_user.requested_friends.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{ params[:q]}%", "%#{ params[:q]}%", "%#{ params[:q]}%").paginate page: params[:page], per_page: 10
+    @count = current_user.requested_friends.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{ params[:q]}%", "%#{ params[:q]}%", "%#{ params[:q]}%").count
   end
 
   def pending_friends
-    @friends = current_user.pending_friends
+    @users = current_user.pending_friends.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{ params[:q]}%", "%#{ params[:q]}%", "%#{ params[:q]}%").paginate page: params[:page], per_page: 10
+    @count = current_user.pending_friends.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{ params[:q]}%", "%#{ params[:q]}%", "%#{ params[:q]}%").count
   end
 
   private

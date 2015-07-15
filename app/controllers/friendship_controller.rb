@@ -1,58 +1,45 @@
 class FriendshipController < ApplicationController
-  include ProfileHelper
-  before_filter :protect, :setup_friends
+  before_filter :setup_friends
 
   def create
     Friendship.request(@user, @friend)
-    UserMailer.deliver_friend_request(
-        :user => @user,
-        :friend => @friend,
-        :user_url => profile_for(@user),
-        :accept_url => url_for(:action => "accept", :id => @user.screen_name),
-        :decline_url => url_for(:action => "decline", :id => @user.screen_name)
-    )
-    flash[:notice] = "Friend request sent."
-    redirect_to profile_for(@friend)
+    render json: {ok: true, message: "Friend request sent."}
   end
 
   def accept
     if @user.requested_friends.include?(@friend)
       Friendship.accept(@user, @friend)
-      flash[:notice] = "Friendship with #{@friend.screen_name} accepted!"
+      render json: {ok: true, message:"Friendship with #{@friend.full_name} accepted!"}
     else
-      flash[:notice] = "No friendship request from #{@friend.screen_name}."
+      render json: {ok: false, message: "No friendship request from #{@friend.full_name}."}, status: :unprocessable_entity
     end
-    redirect_to hub_url
   end
 
   def decline
     if @user.requested_friends.include?(@friend)
       Friendship.breakup(@user, @friend)
-      flash[:notice] = "Friendship with #{@friend.screen_name} declined"
+      render json: {ok: true, message: "Friendship with #{@friend.full_name} declined" }
     else
-      flash[:notice] = "No friendship request from #{@friend.screen_name}."
+      render json: {ok: false, message: "No friendship request from #{@friend.full_name}." }, status: :unprocessable_entity
     end
-    redirect_to hub_url
   end
 
   def cancel
     if @user.pending_friends.include?(@friend)
       Friendship.breakup(@user, @friend)
-      flash[:notice] = "Friendship request canceled."
+      render json: { ok: true, message: "Friendship request canceled." }
     else
-      flash[:notice] = "No request for friendship with #{@friend.screen_name}"
+      render json: { ok: false, message: "No request for friendship with #{@friend.full_name}" }
     end
-    redirect_to hub_url
   end
 
   def delete
     if @user.friends.include?(@friend)
       Friendship.breakup(@user, @friend)
-      flash[:notice] = "Friendship with #{@friend.screen_name} deleted!"
+      render json: { ok: true, message: "Friendship with #{@friend.full_name} deleted!"}
     else
-      flash[:notice] = "You aren't friends with #{@friend.screen_name}"
+      render json: { ok: false, message: "You aren't friends with #{@friend.full_name}"}, status: :unprocessable_entity
     end
-    redirect_to hub_url
   end
 
   private
