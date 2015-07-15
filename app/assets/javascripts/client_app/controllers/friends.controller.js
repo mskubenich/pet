@@ -43,5 +43,13 @@
                 };
 
                 $scope.retrieveUsers();
+
+                $scope.addToFriends(id)
+                    .success(function(){
+
+                    })
+                    .error(function(){
+
+                    })
         }])
 }());

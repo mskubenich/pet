@@ -127,6 +127,16 @@ Rails.application.routes.draw do
 
     resources :order, only: [:create]
     resources :posts, only: [:index, :show, :create, :update, :destroy]
+
+    resources :friendship, only: [] do
+      member do
+        post :create
+        post :accept
+        post :decline
+        post :cancel
+        post :delete
+      end
+    end
   end
 
   get '/:locale' => 'pages#index'

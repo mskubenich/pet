@@ -59,5 +59,7 @@ div ng-controller="FriendsController"
               .description
                 | Lorem ipsum dolor sit ...
             td width="70px"
-              a.black-rounded-close ng-click="removeItem(item.id)"
-                i.fa.fa-close
+              | {{ user.friendship_status }}
+            td width="70px"
+              a.black-yellow-shop-button
+                | Добавить в друзья
