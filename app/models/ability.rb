@@ -22,7 +22,6 @@ class Ability
         end
       end
       can :create, Comment
-    else
       can :manage, User do |entity|
         entity.new_record?
       end
@@ -32,6 +31,7 @@ class Ability
       can :manage, Post do |entity|
         entity.user_id == user_id || entity.new_record?
       end
+    else
     end
     can :read, News
     can :read, Copulation
