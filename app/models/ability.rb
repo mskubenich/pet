@@ -29,6 +29,9 @@ class Ability
       can :manage, Cart do |entity|
         entity.user_id == user_id || entity.new_record?
       end
+      can :manage, Post do |entity|
+        entity.user_id == user_id || entity.new_record?
+      end
     end
     can :read, News
     can :read, Copulation
@@ -40,5 +43,6 @@ class Ability
     can :read, ShopCategory
     can :read, ShopSubcategory
     can :read, Product
+    сфт :read, Post
   end
 end
