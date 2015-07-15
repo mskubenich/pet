@@ -3,6 +3,27 @@
   br
   .col-md-3.col-sm-3
     img.profile-avatar ng-src="{{profile.avatar_url }}"
+    div  ng-show="profile.id != current_user.id"
+      br
+      br
+      .description ng-show="profile.friendship_status == 'pending'"
+        | Пользователь еще не ответил на Ваше приглашение.
+      .description ng-show="profile.friendship_status == 'accepted'"
+        | Друг.
+      .description ng-show="profile.friendship_status == 'requested'"
+        | Пользователь хочет добавиться Вам в друзья.
+      br
+      br
+      a.black-yellow-shop-button ng-show="profile.friendship_status == 'none'" ng-click="addToFriends(profile.id)"
+        | Добавить в друзья
+      a.black-yellow-shop-button ng-show="profile.friendship_status == 'pending'" ng-click="declineInviteToFriends(profile.id)"
+        | Отменить приглашение
+      a.black-yellow-shop-button ng-show="profile.friendship_status == 'requested'" ng-click="acceptInviteToFriends(profile.id)"
+        | Подтвердить дружбу
+      a.black-yellow-shop-button ng-show="profile.friendship_status == 'requested'" ng-click="rejectInviteToFriends(profile.id)"
+        | Отказаться от дружбы
+      a.black-yellow-shop-button ng-show="profile.friendship_status == 'accepted'" ng-click="removeFromFriends(profile.id)"
+        | Удалить из друзей
   .col-md-6.col-sm-6
     .pet-h1
       | {{ profile.full_name }}

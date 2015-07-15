@@ -34,6 +34,10 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def email_available
     query = User.all
     query = query.where email: params[:email]

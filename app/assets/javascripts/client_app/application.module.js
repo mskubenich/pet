@@ -38,6 +38,11 @@
                 templateUrl: 'client_app/templates/users/new.html',
                 controller: 'UsersController'
             })
+            .state('user',{
+                url: '/users/:id',
+                templateUrl: 'client_app/templates/users/show.html',
+                controller: 'UsersController'
+            })
             .state('login',{
                 url: '/login',
                 templateUrl: 'client_app/templates/sessions/new.html',

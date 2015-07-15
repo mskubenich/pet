@@ -25,11 +25,11 @@ div ng-controller="FriendsController"
         #friends-pagination
         br
         table.table.vertical-align-table
-          tr.cart-item ng-repeat="user in friends"
+          tr.user-item ng-repeat="user in friends"
             td style="width: 110px"
               img ng-src="{{ user.avatar_url }}" style="width: 110px"
             td style="min-width: 330px;"
-              .title
+              a.title href="#users/{{user.id}}"
                 | {{ user.full_name }}
               .description ng-show="user.friendship_status == 'pending'"
                 | Пользователь еще не ответил на Ваше приглашение.
@@ -59,11 +59,11 @@ div ng-controller="FriendsController"
         #pending-users-pagination
         br
         table.table.vertical-align-table
-          tr.cart-item ng-repeat="user in pending_friends"
+          tr.user-item ng-repeat="user in pending_friends"
             td style="width: 110px"
               img ng-src="{{ user.avatar_url }}" style="width: 110px"
             td style="min-width: 330px;"
-              .title
+              a.title href="#users/{{user.id}}"
                 | {{ user.full_name }}
               .description ng-show="user.friendship_status == 'pending'"
                 | Пользователь еще не ответил на Ваше приглашение.
@@ -93,11 +93,11 @@ div ng-controller="FriendsController"
         #requested-users-pagination
         br
         table.table.vertical-align-table
-          tr.cart-item ng-repeat="user in requested_friends"
+          tr.user-item ng-repeat="user in requested_friends"
             td style="width: 110px"
               img ng-src="{{ user.avatar_url }}" style="width: 110px"
             td style="min-width: 330px;"
-              .title
+              a.title href="#users/{{user.id}}"
                 | {{ user.full_name }}
               .description ng-show="user.friendship_status == 'pending'"
                 | Пользователь еще не ответил на Ваше приглашение.
@@ -127,11 +127,11 @@ div ng-controller="FriendsController"
         #users-pagination
         br
         table.table.vertical-align-table
-          tr.cart-item ng-repeat="user in users"
+          tr.user-item ng-repeat="user in users"
             td style="width: 110px"
               img ng-src="{{ user.avatar_url }}" style="width: 110px"
             td style="min-width: 330px;"
-              .title
+              a.title href="#users/{{user.id}}"
                 | {{ user.full_name }}
               .description ng-show="user.friendship_status == 'pending'"
                 | Пользователь еще не ответил на Ваше приглашение.

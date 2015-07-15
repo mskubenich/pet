@@ -3,41 +3,168 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', function ($scope, $state, ngDialog, users) {
+        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$stateParams', 'FriendsFactory',
+            function ($scope, $state, ngDialog, users, $stateParams, friends) {
             $scope.userData = {};
             $scope.submited = false;
 
             $('body').css('background-color', 'white');
-            $scope.$parent.header_url = 'yellow';
 
-            $scope.submitUserData = function () {
-                $scope.submited = true;
+            if($state.current.name == 'registration'){
+                $scope.$parent.header_url = 'yellow';
 
-                if($scope.userForm.$invalid ){
-                    return false;
-                }
+                $scope.submitUserData = function () {
+                    $scope.submited = true;
 
-                users.create($scope.userData)
-                    .success(function(data, status, headers, config){
-                        if($scope.user_avatar){
-                            users.uploadAvatar($scope.user_avatar);
-                        }
-                        $state.go('home');
-                        ngDialog.open({
-                            className: 'ngdialog-theme-default',
-                            template: I18n.t('sessions.success_login'),
-                            plain: true
-                        });
-                    })
-                    .error(function (data, status, headers, config) {
-                        if(data.errors){
+                    if($scope.userForm.$invalid ){
+                        return false;
+                    }
+
+                    users.create($scope.userData)
+                        .success(function(data, status, headers, config){
+                            if($scope.user_avatar){
+                                users.uploadAvatar($scope.user_avatar);
+                            }
+                            $state.go('home');
                             ngDialog.open({
                                 className: 'ngdialog-theme-default',
-                                template: JSON.stringify(data.errors),
+                                template: I18n.t('sessions.success_login'),
                                 plain: true
                             });
-                        }
-                    });
-            };
+                        })
+                        .error(function (data, status, headers, config) {
+                            if(data.errors){
+                                ngDialog.open({
+                                    className: 'ngdialog-theme-default',
+                                    template: JSON.stringify(data.errors),
+                                    plain: true
+                                });
+                            }
+                        });
+                };
+            }
+            if($state.current.name == 'user'){
+                $('body').css('background-color', 'white');
+                $scope.$parent.header_url = 'black';
+                $scope.$state = $state;
+
+                $scope.rate = 4;
+                $scope.max = 5;
+                $scope.isReadonly = true;
+
+                $scope.hoveringOver = function(value) {
+                    $scope.overStar = value;
+                    $scope.percent = 100 * (value / $scope.max);
+                };
+
+                $scope.updateAll = function(){
+                    users.show($stateParams.id)
+                        .success(function(data){
+                            $scope.profile = data.profile;
+                            $scope.phone = $scope.profile.phone_hashed;
+                        })
+                        .error();
+                };
+
+                $scope.showPhone = function(){
+                    $scope.phone = $scope.profile.phone;
+                };
+                $scope.updateAll();
+
+                $scope.addToFriends = function(id){
+                    friends.create(id)
+                        .success(function(data){
+                            $scope.updateAll();
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                        .error(function(data){
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                };
+
+                $scope.declineInviteToFriends = function(id){
+                    friends.cancel(id)
+                        .success(function(data){
+                            $scope.updateAll();
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                        .error(function(data){
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                };
+
+                $scope.acceptInviteToFriends = function(id){
+                    friends.accept(id)
+                        .success(function(data){
+                            $scope.updateAll();
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                        .error(function(data){
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                };
+
+                $scope.rejectInviteToFriends = function(id){
+                    friends.decline(id)
+                        .success(function(data){
+                            $scope.updateAll();
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                        .error(function(data){
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                };
+
+                $scope.removeFromFriends = function(id){
+                    friends.remove(id)
+                        .success(function(data){
+                            $scope.updateAll();
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                        .error(function(data){
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: data.message,
+                                plain: true
+                            });
+                        })
+                }
+            }
         }])
 }());

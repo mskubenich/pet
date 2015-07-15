@@ -27,6 +27,9 @@
             },
             pending_friends: function(options){
                 return $http.get(I18n.locale +   '/users/pending_friends?q=' + options.query + '&page=' + options.page);
+            },
+            show: function(id){
+                return $http.get(I18n.locale + '/users/' + id + '.json');
             }
         };
     }])

@@ -1,5 +1,5 @@
 div ng-controller="PostsController"
-  form name="postForm" novalidate=true ng-submit="submitPost()"
+  form name="postForm" novalidate=true ng-submit="submitPost()" ng-show="profile.id == current_user.id"
     .row
       .col-md-6.col-sm-6.col-md-offset-3.col-sm-offset-3.gray-block
         .registration-form novalidate=true
