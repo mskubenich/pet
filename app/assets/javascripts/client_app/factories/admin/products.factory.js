@@ -9,6 +9,10 @@
                 fd.append('product[description]', product.description);
                 fd.append('product[price]', product.price);
                 fd.append('product[shop_subcategory_id]', product.subcategory_id);
+                fd.append('product[material]', product.material);
+                fd.append('product[size]', product.size);
+                fd.append('product[weight]', product.weight);
+                fd.append('product[country]', product.country);
                 var i = 0;
                 while(i < attachments.length){
                     if(attachments[i] != 'null'){

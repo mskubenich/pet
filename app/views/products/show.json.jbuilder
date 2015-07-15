@@ -5,6 +5,10 @@ json.product do
   json.description @product.description
   json.price @product.price
   json.family @product.family
+  json.material @product.material
+  json.size @product.size
+  json.weight @product.weight
+  json.country @product.country
   json.created_at @product.created_at
   json.shop_subcategory_id @product.shop_subcategory_id
   json.description @product.description

@@ -75,13 +75,15 @@
                         .success(function(data){
                             $scope.categories = data.shop_categories;
                         });
+
                     $scope.$watch('product.category_id', function(){
-                        $scope.subcategory_id = null;
-                        if($scope.product){
-                            products.shop_subcategories($scope.product.category_id)
-                                .success(function(data){
-                                    $scope.subcategories = data.shop_subcategories;
-                                });
+                        if($scope.product.category_id){
+                            if($scope.product){
+                                products.shop_subcategories($scope.product.category_id)
+                                    .success(function(data){
+                                        $scope.subcategories = data.shop_subcategories;
+                                    });
+                            }
                         }
                     });
 
@@ -90,7 +92,11 @@
                             title: '',
                             family: null,
                             description: '',
-                            price: null
+                            price: null,
+                            material: '',
+                            size: '',
+                            weight: '',
+                            country: ''
                         };
                     }
 

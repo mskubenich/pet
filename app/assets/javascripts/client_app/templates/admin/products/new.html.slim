@@ -15,11 +15,15 @@ form ng-submit="submitProduct()" name="productForm" novalidate=true
       | {{ I18n.t('validations.cant_be_blank')}}
 
   .form-group
+    label
+      | Категория
     select.form-control ng-model="product.category_id"
       option ng-repeat="category in categories" ng-value="category.id" ng-selected="category.id == product.category_id"
         | {{  category.title }}
 
   .form-group
+    label
+      | Подкатегория
     select.form-control ng-model="product.subcategory_id"
       option ng-repeat="subcategory in subcategories" ng-value="subcategory.id" ng-selected="subcategory.id == product.subcategory_id"
         | {{ subcategory.title }}
@@ -66,6 +70,26 @@ form ng-submit="submitProduct()" name="productForm" novalidate=true
             i.fa.fa-ruble
     .error ng-show="productForm.price.$invalid && submited"
       | {{ I18n.t('validations.cant_be_blank')}}
+
+    .form-group
+      label
+        | Материал
+      input.form-control ng-model="product.material"
+
+    .form-group
+      label
+        | Размер
+      input.form-control ng-model="product.size"
+
+    .form-group
+      label
+        | Вес
+      input.form-control ng-model="product.weight"
+
+    .form-group
+      label
+        | Страна производитель
+      input.form-control ng-model="product.country"
 
   .text-center
     table.table.vertical-align-table style="width: 100%"
