@@ -153,6 +153,11 @@
                 templateUrl: 'client_app/templates/messages/index.html',
                 controller: 'ProfileController'
             })
+            .state('user_messages',{
+                url: '/messages/:id',
+                templateUrl: 'client_app/templates/messages/user_messages.html',
+                controller: 'ProfileController'
+            })
             .state('settings',{
                 url: '/settings',
                 templateUrl: 'client_app/templates/settings/index.html',

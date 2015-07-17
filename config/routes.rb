@@ -140,6 +140,8 @@ Rails.application.routes.draw do
         post :delete
       end
     end
+
+    resources :messages, only: [:index, :create, :show]
   end
 
   get '/:locale' => 'pages#index'

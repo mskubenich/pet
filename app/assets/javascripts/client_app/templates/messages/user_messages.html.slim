@@ -1,6 +1,7 @@
 div ng-include="'client_app/templates/users/profile-header.html'"
 .container
-  div ng-include="'client_app/templates/users/short-info.html'"
+  div ng-controller="MessagesController"
+    div ng-include="'client_app/templates/users/short-info.html'"
   hr
   .row
     br
@@ -10,7 +11,7 @@ div ng-include="'client_app/templates/users/profile-header.html'"
       div ng-controller="MessagesController"
         .row
           .col-md-9
-            table.table.comments-table ng-repeat="message in messages" style="cursor: pointer" ng-click="$state.go('user_messages', {id: message.user_id})"
+            table.table.comments-table ng-repeat="message in messages"
               tr
                 td
                   img ng-src="{{ message.author_avatar }}"
@@ -29,3 +30,13 @@ div ng-include="'client_app/templates/users/profile-header.html'"
                       td colspan="2"
                         br
                         | {{ message.text }}
+        .row
+          .col-md-9.col-sm-9.gray-block
+            form.registration-form novalidate=true
+              .form-group
+                textarea.form-control type="text" placeholder="{{ I18n.t('comments.messages.enter_your_comment') }}" style="max-width: 100%" ng-model="message_text"
+          .col-md-3.col-sm-3
+            form
+              .form-group
+                a.yellow-btn ng-click="send()"
+                  | Отправить

@@ -87,7 +87,7 @@
                     $scope.retrievesales();
                 }
                 if($state.current.name == 'show_sale'){
-                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+                    $scope.$parent.header_url = 'yellow';
 
                     //setTimeout(function(){
                     //    $scope.$watch('filters', function(){
