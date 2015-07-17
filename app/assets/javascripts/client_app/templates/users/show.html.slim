@@ -7,4 +7,51 @@ div ng-include="'client_app/templates/users/profile-header.html'"
     br
     .col-md-3.col-sm-3 ng-include="'client_app/templates/friends/short.html'"
     .col-md-9.col-sm-9.profile-my-pets ng-include="'client_app/templates/my-pets/short.html'"
-  div ng-include=true src="'client_app/templates/posts/index.html'"
+  div
+    .row
+      .col-md-9.col-sm-9.col-md-offset-3.col-sm-offset-3
+        .news ng-repeat="post in posts"
+          table.news-header
+            tr
+              td
+                .news-gray-text
+                  | {{ post.created_at }} &nbsp;
+                  span
+                    = I18n.t 'users.created_by'
+                  | &nbsp;
+                  span.news-author-profile-link
+                    | {{ post.author }}
+                br
+                a.news-title
+                  span.edit-post-icon ng-click="editPost(post)"
+                    i.fa.fa-pencil
+                    | &nbsp;
+                  span.edit-post-icon ng-click="removePost(post)"
+                    i.fa.fa-close
+                    | &nbsp;
+                  | {{ post.title }}
+                | &nbsp;
+                | &nbsp;
+                | &nbsp;
+                span.black-budget ng-show="post.scorp"
+                  | СКОРП
+                | &nbsp;
+                span.black-budget ng-show="post.rkf"
+                  | РКФ
+                |  &nbsp;
+          table.news-preview
+            img ng-src="{{ post.image_url }}" style="width: 100%; margin: 10px 0"
+            .news-text
+              br
+              | {{ post.body }}
+            .news-meta
+              br
+              a
+                i.fa.fa-heart
+                | 255
+              a
+                i.fa.fa-repeat
+                | 15
+              a
+                i.fa.fa-eye
+                | 125

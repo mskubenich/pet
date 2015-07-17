@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$stateParams', 'FriendsFactory',
-            function ($scope, $state, ngDialog, users, $stateParams, friends) {
+        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$stateParams', 'FriendsFactory', 'PostsFactory',
+            function ($scope, $state, ngDialog, users, $stateParams, friends, posts) {
             $scope.userData = {};
             $scope.submited = false;
 
@@ -44,6 +44,14 @@
                 };
             }
             if($state.current.name == 'user'){
+
+                $scope.retrievePosts = function(){
+                    posts.all($stateParams.id).success(function(data){
+                        $scope.posts = data.posts;
+                    })
+                };
+                $scope.retrievePosts();
+
                 $('body').css('background-color', 'white');
                 $scope.$parent.header_url = 'black';
                 $scope.$state = $state;

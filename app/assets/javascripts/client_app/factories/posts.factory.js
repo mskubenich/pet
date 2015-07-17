@@ -24,8 +24,12 @@
                     });
                 }
             },
-            all: function(options){
-                return $http.get('/posts');
+            all: function(user_id){
+                if(user_id){
+                    return $http.get('/posts?user_id=' + user_id);
+                }else {
+                    return $http.get('/posts');
+                }
             },
             destroy: function(id){
                 return $http.delete('/posts/' + id);

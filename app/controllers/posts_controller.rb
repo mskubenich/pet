@@ -21,7 +21,9 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = current_user.posts.order('created_at DESC')
+    @user = User.where(id: params[:user_id].to_i).first
+    @user = current_user unless @user
+    @posts = @user.posts.order('created_at DESC')
   end
 
   def show
