@@ -25,9 +25,12 @@
                 };
                 $scope.retrieveMessages();
 
-                $interval(function(){
-                    $scope.retrieveMessages();
-                }, 4000);
+                //var intervalPromise = $interval(function(){
+                //    if($state.current.name == 'user_messages'){
+                //        $scope.retrieveMessages();
+                //    }
+                //}, 4000);
+                //$scope.$on('$destroy', function () { $interval.cancel(intervalPromise); });
 
                 $scope.send = function(){
                     messages.send({text: $scope.message_text, user_id: $stateParams.id })

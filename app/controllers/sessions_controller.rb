@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     if current_user
       render json: {
                  current_user: {
+                     id: current_user.id,
                      full_name: current_user.full_name,
                      is_admin: current_user.admin?,
                      avatar_url: current_user.avatar.url(:thumb),

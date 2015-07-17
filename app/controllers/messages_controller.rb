@@ -17,8 +17,6 @@ class MessagesController < ApplicationController
         select * from messages ORDER BY created_at DESC
         )messages
         on (messages.author_id = #{ current_user.id } AND messages.user_id = users.id) OR (messages.author_id = users.id AND messages.user_id = #{ current_user.id })
-
-
         GROUP BY friend_id
 SQL
     )
