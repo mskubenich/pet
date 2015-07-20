@@ -12,7 +12,7 @@ class Admin::GoodHandsController < AdminController
       end
       render json: {ok: true}
     else
-      render json: {errors: @good_hand.errors}
+      render json: {errors: @good_hand.errors}, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +26,7 @@ class Admin::GoodHandsController < AdminController
       @good_hand.attachments.where(id: params[:announcement][:removed_photos]).destroy_all
       render json: {ok: true}
     else
-      render json: {errors: @good_hand.errors}
+      render json: {errors: @good_hand.errors}, status: :unprocessable_entity
     end
   end
 

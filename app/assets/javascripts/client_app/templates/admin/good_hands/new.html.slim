@@ -134,6 +134,9 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
     br
     span.gray
       | {{ I18n.t('prize_flag') }}
+    .error ng-repeat="error in validation_errors.prize"
+      | {{ error }}
+
   .form-group
     label
       table.vertical-align-table
@@ -175,7 +178,7 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
       tr
         td
           input.yellow-btn type="submit" value="{{ I18n.t('publish') }}"
-          i.fa.fa-spinner.fa-pulse ng-show="processing"
+          i.fa.fa-spinner.fa-pulse ng-show="processing" ng-disabled="processing"
         td ng-show="$state.current.name == 'edit_hand'"
           a.btn.btn-success ng-show="announcement.approved == null || announcement.approved == false" ng-click="approve()"
             | {{ I18n.t('actions.approve') }}

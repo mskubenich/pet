@@ -214,3 +214,12 @@ en:
     action:
       title: 'WOW Actions'
       description: 'The best offers for you'
+  activerecord:
+    errors:
+      models:
+        good_hand:
+          attributes:
+            prize_file_size:
+              less_than: "Maximum file size is 10 megabytes"
+            prize_content_type:
+              invalid: "Only images, .txt, .xls, .doc, .pdf files is allowed"

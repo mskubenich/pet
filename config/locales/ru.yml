@@ -214,3 +214,12 @@ ru:
     action:
       title: 'WOW Акции'
       description: 'Лучшие предложения для Вас'
+  activerecord:
+    errors:
+      models:
+        good_hand:
+          attributes:
+            prize_file_size:
+              less_than: "Максимальный размер файла - 10 мегабайт"
+            prize_content_type:
+              invalid: "Только картинки, .txt, .xls, .doc, .pdf файлы разрешены"

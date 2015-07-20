@@ -58,7 +58,7 @@
                                     autoplay: true,
                                     arrows: false,
                                     fade: true,
-                                    autoplaySpeed: 1000
+                                    autoplaySpeed: 10000
                                 });
                             }, 0);
                         })

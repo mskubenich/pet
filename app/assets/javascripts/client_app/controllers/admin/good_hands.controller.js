@@ -126,10 +126,12 @@
                     if($state.current.name == 'edit_hand'){
                         good_hands.show($stateParams.id)
                             .success(function(data){
-                                $scope.announcement = data.good_hand;
-                                $('#redactor').redactor('code.set', $scope.announcement.description);
-                                $scope.bloodline_checked = $scope.announcement.bloodline_file_name != null;
-                                $scope.prize_checked = $scope.announcement.prize_file_name != null;
+                                $timeout(function(){
+                                    $scope.announcement = data.good_hand;
+                                    $('#redactor').redactor('code.set', $scope.announcement.description);
+                                    $scope.bloodline_checked = $scope.announcement.bloodline_file_name != null;
+                                    $scope.prize_checked = $scope.announcement.prize_file_name != null;
+                                }, 0);
                             })
                     }
 
@@ -146,6 +148,7 @@
                         $scope.attachments[i] = 'null';
                         $(event.target).parents('.file-select').remove();
                     };
+                    $scope.validation_errors = {};
 
                     $scope.submitAnnouncement = function(){
                         $scope.announcement.description = $('#redactor').redactor('code.get');
@@ -171,12 +174,8 @@
                                 });
                             })
                             .error(function(data){
-                                $scope.newsProcessing = false;
-                                ngDialog.open({
-                                    className: 'ngdialog-theme-default',
-                                    template: JSON.stringify(data.errors),
-                                    plain: true
-                                });
+                                $scope.validation_errors = data.errors;
+                                $scope.processing = false;
                             })
                     };
 

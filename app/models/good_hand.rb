@@ -9,13 +9,15 @@ class GoodHand < ActiveRecord::Base
   validates :breed, presence: true
 
   has_attached_file :prize, :default_url => "/assets/missing.png"
-  validates_attachment_content_type :prize, :content_type => /\Aimage\/.*\Z/
+  validates_attachment_content_type :prize, content_type: [/\Aimage\/.*\Z/, 'application/pdf', /text\/*/, "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"]
+  validates_attachment_size :prize, :less_than => 10.megabytes.to_i, if: Proc.new {|model| model.prize }
+
   has_attached_file :mothers_photo, :default_url => "/assets/missing.png"
   validates_attachment_content_type :mothers_photo, :content_type => /\Aimage\/.*\Z/
   has_attached_file :fathers_photo, :default_url => "/assets/missing.png"
   validates_attachment_content_type :fathers_photo, :content_type => /\Aimage\/.*\Z/
   has_attached_file :bloodline, :default_url => "/assets/missing.png"
-  validates_attachment_content_type :bloodline, :content_type => /\Aimage\/.*\Z/
+  # validates_attachment_content_type :bloodline, :content_type => /\Aimage\/.*\Z/
 
   belongs_to :owner, class_name: User, foreign_key: 'user_id'
   belongs_to :breed
