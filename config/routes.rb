@@ -62,6 +62,7 @@ Rails.application.routes.draw do
         get :slides
         get :sale_slides
         get :copulation_slides
+        get :the_copulation_slides
         get :shop_slides
         get :main_slides
       end

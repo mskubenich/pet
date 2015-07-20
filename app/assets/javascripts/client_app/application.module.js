@@ -21,12 +21,7 @@
             .state('home',{
                 url: '',
                 templateUrl: 'client_app/templates/home/index.html',
-                controller: 'HomeController'
-            })
-            .state('home2',{
-                url: '/home',
-                templateUrl: 'client_app/templates/home/index.html',
-                controller: 'HomeController'
+                controller: 'TheHomeController'
             })
             .state('profile',{
                 url: '/profile',

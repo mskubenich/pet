@@ -19,6 +19,9 @@
             },
             get_main_slides: function(){
                 return $http.get( I18n.locale + '/pages/main_slides.json')
+            },
+            get_the_copulation_slides: function(){
+                return $http.get( I18n.locale + '/pages/the_copulation_slides.json')
             }
         };
     }])

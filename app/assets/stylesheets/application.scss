@@ -54,6 +54,20 @@
   }
 }
 
+.the-copulation-slider{
+  overflow: hidden;
+  .the-copulation-slide{
+    width: 100%;
+    height: 300px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  width: 100%;
+  height: 300px;
+//  display: none;
+}
+
 .header{
   .gallery{
     .main-slider{
