@@ -1,48 +1,25 @@
-.pet-h2
-  | {{ I18n.t('my_pets') }}:
-table.table.vertical-align-table.profile-my-pets
-  tr
-    td style="width: 143px;"
-      div.pet-image style="background-image: url('/assets/cat1.jpg')"
-      br
-      .pt-sans-text
-        | Bobik
-      b
+div ng-controller="MyPetsController"
+  .pet-h2
+    | {{ I18n.t('my_pets') }}:
+  table.table.vertical-align-table.profile-my-pets
+    tr
+      td style="width: 143px;" ng-repeat="pet in pets"
+        div.pet-image style="background-image: url('{{ pet.image }}')"
+        br
         .pt-sans-text
-          | Перс
-    td style="width: 143px;"
-      div.pet-image style="background-image: url('/assets/cat1.jpg')"
-      br
-      .pt-sans-text
-        | Barsik
-      b
+          | {{ pet.name }}
+        b
+          .pt-sans-text
+            | {{ pet.breed }}
+      td.text-center
+        table.vertical-align-table style="height: 127px"
+          tr
+            td
+              a href="#my-pets/new"
+                i.fa.fa-plus-circle.add-file-icon
+        br
         .pt-sans-text
-          | Йоркшир
-    td style="width: 143px;"
-      div.pet-image style="background-image: url('/assets/cat1.jpg')"
-      br
-      .pt-sans-text
-        | Bobik
-      b
-        .pt-sans-text
-          | Персик
-    td style="width: 143px;"
-      div.pet-image style="background-image: url('/assets/cat1.jpg')"
-      br
-      .pt-sans-text
-        | Barsik
-      b
-        .pt-sans-text
-          | Зиненхуд
-    td.text-center
-      table.vertical-align-table style="height: 127px"
-        tr
-          td
-            a href="#my-pets/new"
-              i.fa.fa-plus-circle.add-file-icon
-      br
-      .pt-sans-text
-        | &nbsp;
-      b
-        .pt-sans-text
-        | &nbsp;
+          | &nbsp;
+        b
+          .pt-sans-text
+          | &nbsp;

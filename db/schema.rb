@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150715201935) do
+ActiveRecord::Schema.define(version: 20150720092740) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -148,6 +148,15 @@ ActiveRecord::Schema.define(version: 20150715201935) do
     t.text     "author_name", limit: 65535
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "my_pets", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "breed_id",   limit: 4
+    t.integer  "user_id",    limit: 4
+    t.string   "family",     limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "news", force: :cascade do |t|

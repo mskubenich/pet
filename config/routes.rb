@@ -143,6 +143,7 @@ Rails.application.routes.draw do
     end
 
     resources :messages, only: [:index, :create, :show]
+    resources :my_pets, only: [:index, :create, :update, :show, :destroy]
   end
 
   get '/:locale' => 'pages#index'
