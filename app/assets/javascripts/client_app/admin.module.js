@@ -193,6 +193,16 @@
                 url: '/orders/:id',
                 templateUrl: 'client_app/templates/admin/orders/show.html',
                 controller: 'AdminOrdersController'
+            })
+            .state('copulation_slides',{
+                url: '/copulation_slides',
+                templateUrl: 'client_app/templates/admin/copulation_slides/index.html',
+                controller: 'AdminCopulationSlidesController'
+            })
+            .state('new_copulation_slide',{
+                url: '/copulation_slides/new',
+                templateUrl: 'client_app/templates/admin/copulation_slides/new.html',
+                controller: 'AdminCopulationSlidesController'
             });
     }]);
 
