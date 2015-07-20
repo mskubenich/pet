@@ -168,6 +168,11 @@
                 templateUrl: 'client_app/templates/my-pets/index.html',
                 controller: 'ProfileController'
             })
+            .state('new_my_pet',{
+                url: '/my-pets/new',
+                templateUrl: 'client_app/templates/my-pets/new.html',
+                controller: 'ProfileController'
+            })
             .state('friends',{
                 url: '/friends',
                 templateUrl: 'client_app/templates/friends/index.html',

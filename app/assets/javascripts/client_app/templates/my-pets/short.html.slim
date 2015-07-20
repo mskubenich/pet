@@ -1,6 +1,6 @@
 .pet-h2
   | {{ I18n.t('my_pets') }}:
-table.table.vertical-align-table
+table.table.vertical-align-table.profile-my-pets
   tr
     td style="width: 143px;"
       div.pet-image style="background-image: url('/assets/cat1.jpg')"
@@ -38,7 +38,7 @@ table.table.vertical-align-table
       table.vertical-align-table style="height: 127px"
         tr
           td
-            span
+            a href="#my-pets/new"
               i.fa.fa-plus-circle.add-file-icon
       br
       .pt-sans-text
