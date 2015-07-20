@@ -34,10 +34,19 @@
                     $scope.preview_friends = data.friends;
                 }).error();
 
-                pets.all()
-                    .success(function(data){
-                        $scope.pets = data.pets;
+                $scope.retrievePets = function(){
+                    pets.all()
+                        .success(function(data){
+                            $scope.pets = data.pets;
+                        })
+                        .error(function(){})
+                };
+                $scope.retrievePets();
+
+                $scope.removePet = function(id){
+                    pets.destroy(id).success(function(){
+                        $scope.retrievePets();
                     })
-                    .error(function(){})
+                }
         }])
 }());

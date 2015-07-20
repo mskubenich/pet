@@ -52,6 +52,12 @@
                 };
                 $scope.retrievePosts();
 
+                pets.all($stateParams.id)
+                    .success(function(data){
+                        $scope.pets = data.pets;
+                    })
+                    .error(function(){});
+
                 $('body').css('background-color', 'white');
                 $scope.$parent.header_url = 'black';
                 $scope.$state = $state;

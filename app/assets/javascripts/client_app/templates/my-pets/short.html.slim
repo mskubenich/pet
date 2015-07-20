@@ -5,6 +5,12 @@ div ng-controller="MyPetsController"
     tr
       td style="width: 143px;" ng-repeat="pet in pets"
         div.pet-image style="background-image: url('{{ pet.image }}')"
+          .overlay
+            rating.rating ng-model="pet.rating" max="5" readonly="true"
+          /a.edit-icon ng-show="pet.user_id == current_user.id"
+          /  i.fa.fa-pencil
+          a.remove-icon ng-show="pet.user_id == current_user.id" ng-click="removePet(pet.id)"
+            i.fa.fa-close
         br
         .pt-sans-text
           | {{ pet.name }}

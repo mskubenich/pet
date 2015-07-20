@@ -32,8 +32,12 @@
                     });
                 }
             },
-            all: function(options){
-                return $http.get('/my_pets');
+            all: function(user_id){
+                if(user_id){
+                    return $http.get('/my_pets?user_id=' + user_id);
+                }else {
+                    return $http.get('/my_pets');
+                }
             },
             show: function(id){
                 return $http.get('/my_pets/' + id + '.json');

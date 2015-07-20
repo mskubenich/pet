@@ -1,7 +1,9 @@
 class MyPetsController < ApplicationController
 
   def index
-    @pets = current_user.pets
+    @user = User.where(id: params[:user_id].to_i).first
+    @user = current_user unless @user
+    @pets = @user.pets.order('created_at DESC')
   end
 
   def create
@@ -32,7 +34,8 @@ class MyPetsController < ApplicationController
   end
 
   def destroy
-
+    MyPet.find(params[:id]).destroy
+    render json: {ok: true}
   end
 
   private

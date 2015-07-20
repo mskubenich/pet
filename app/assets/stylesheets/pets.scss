@@ -1,0 +1,84 @@
+.profile-my-pets{
+  .pet-image{
+    width: 123px;
+    height: 123px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    position: relative;
+    .overlay{
+      border-radius: 20px;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      background-color: #343434;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      .rating{
+        i:nth-child(1){
+          position: absolute;
+          top: 25px;
+          right: 47px;
+        }
+        i:nth-child(2){
+          position: absolute;
+          top: 44px;
+          right: 21px;
+        }
+        i:nth-child(3){
+          position: absolute;
+          top: 73px;
+          right: 31px;
+        }
+        i:nth-child(4){
+          position: absolute;
+          top: 73px;
+          left: 34px;
+        }
+        i:nth-child(5){
+          position: absolute;
+          top: 44px;
+          left: 26px;
+        }
+      }
+      display: none;
+    }
+    &:hover{
+      .overlay{
+        display: block;
+      }
+      .edit-icon, .remove-icon{
+        display: block;
+      }
+    }
+    .edit-icon, .remove-icon{
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #000000;
+      border: 4px solid #ffffff;
+      display: none;
+      top: -7px;
+      right: -7px;
+      border-radius: 20px;
+      -moz-border-radius: 20px;
+      -webkit-border-radius: 20px;
+      color: white;
+      text-align: center;
+      cursor: pointer;
+      &:hover{
+        color: #ffffff;
+      }
+    }
+    .edit-icon{
+      top: -7px;
+      right: 25px;
+    }
+    .remove-icon{
+      top: -7px;
+      right: -10px;
+    }
+  }
+}
