@@ -65,6 +65,10 @@ class UsersController < ApplicationController
     @count = current_user.pending_friends.where("email LIKE ? OR first_name LIKE ? OR last_name LIKE ?", "%#{ params[:q]}%", "%#{ params[:q]}%", "%#{ params[:q]}%").count
   end
 
+  def friends_preview
+    @users = current_user.friends.sample(3)
+  end
+
   private
 
   def user_params

@@ -30,6 +30,9 @@
             },
             show: function(id){
                 return $http.get(I18n.locale + '/users/' + id + '.json');
+            },
+            friends_preview: function(){
+                return $http.get(I18n.locale + '/users/friends_preview.json')
             }
         };
     }])

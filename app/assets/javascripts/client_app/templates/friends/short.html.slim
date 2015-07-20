@@ -1,32 +1,12 @@
 .pet-h2
   | {{ I18n.t('my_friends') }}:
-table.table.vertical-align-table
+table.table.vertical-align-table.friends-preview-table ng-repeat="friend in preview_friends"
   tr
+    td style="width: 65px"
+      img ng-src="{{ friend.avatar_url }}" style="width: 65px"
     td
-      img src="assets/np.png" style="width: 65px"
-    td
-      a style="color: black; text-decoration: underline"
-        | Анастасия Петровна
-      br
-      b.pt-sans-text
-        | грумер
-table.table.vertical-align-table
-  tr
-    td
-      img src="assets/np.png" style="width: 65px"
-    td
-      a style="color: black; text-decoration: underline"
-        | Анастасия Петровна
-      br
-      b.pt-sans-text
-        | грумер
-table.table.vertical-align-table
-  tr
-    td
-      img src="assets/np.png" style="width: 65px"
-    td
-      a style="color: black; text-decoration: underline"
-        | Анастасия Петровна
+      a style="color: black; text-decoration: underline" href="#users/{{ friend.id }}"
+        | {{ friend.full_name }}
       br
       b.pt-sans-text
         | грумер

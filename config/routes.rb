@@ -80,6 +80,7 @@ Rails.application.routes.draw do
         get :friends
         get :requested_friends
         get :pending_friends
+        get :friends_preview
       end
     end
 

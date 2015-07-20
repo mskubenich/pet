@@ -28,5 +28,9 @@
             $scope.showPhone = function(){
                 $scope.phone = $scope.profile.phone;
             };
+
+            users.friends_preview().success(function(data){
+                $scope.preview_friends = data.friends;
+            }).error();
         }])
 }());
