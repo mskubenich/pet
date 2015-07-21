@@ -14,7 +14,7 @@ class CopulationsController < ApplicationController
       end
       render json: {ok: true}
     else
-      render json: {errors: @copulation.errors}
+      render json: {errors: @copulation.errors}, status: :unprocessable_entity
     end
   end
 

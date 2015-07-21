@@ -313,12 +313,8 @@
                             });
                         })
                         .error(function(data){
-                            $scope.newsProcessing = false;
-                            ngDialog.open({
-                                className: 'ngdialog-theme-default',
-                                template: JSON.stringify(data.errors),
-                                plain: true
-                            });
+                            $scope.validation_errors = data.errors;
+                            $scope.processing = false;
                         })
                 };
             }
