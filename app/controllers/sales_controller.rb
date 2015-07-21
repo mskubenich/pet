@@ -13,7 +13,7 @@ class SalesController < ApplicationController
       end
       render json: {ok: true}
     else
-      render json: {errors: @sale.errors}
+      render json: {errors: @sale.errors}, status: :unprocessable_entity
     end
   end
 

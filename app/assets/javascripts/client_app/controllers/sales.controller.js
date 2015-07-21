@@ -70,15 +70,17 @@
                             pagination.removeData('twbs-pagination');
                             pagination.unbind('page');
 
-                            pagination.twbsPagination({
-                                totalPages: Math.ceil($scope.count / 9),
-                                startPage: $scope.page,
-                                visiblePages: 9,
-                                onPageClick: function (event, page) {
-                                    $scope.page = page;
-                                    $scope.retrievesales();
-                                }
-                            });
+                            if($scope.count){
+                                pagination.twbsPagination({
+                                    totalPages: Math.ceil($scope.count / 9),
+                                    startPage: $scope.page,
+                                    visiblePages: 9,
+                                    onPageClick: function (event, page) {
+                                        $scope.page = page;
+                                        $scope.retrievesales();
+                                    }
+                                });
+                            }
                         }).error(function (data) {
 
                         });
@@ -326,12 +328,8 @@
                                 });
                             })
                             .error(function(data){
-                                $scope.newsProcessing = false;
-                                ngDialog.open({
-                                    className: 'ngdialog-theme-default',
-                                    template: JSON.stringify(data.errors),
-                                    plain: true
-                                });
+                                $scope.validation_errors = data.errors;
+                                $scope.processing = false;
                             })
                     };
                 }

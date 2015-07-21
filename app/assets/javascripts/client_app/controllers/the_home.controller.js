@@ -46,7 +46,6 @@
                         .success(function(data){
                             $scope.the_copulation_slides = data.slides;
                             $timeout(function() {
-                                console.log('here');
                                 $('.the-copulation-slider').on('init', function(){
                                     $('.the-copulation-slider').show();
                                     $(window).resize();
