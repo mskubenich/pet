@@ -91,3 +91,89 @@ table.messages-table-right{
   padding: 28px;
   background-color: #F8F8F8;
 }
+
+.smile_row{
+  clear: both;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
+  float: left;
+  background: url(smiles.png) no-repeat;
+}
+
+.smile_wink {
+  background-position: 0px 0px;
+  cursor: pointer;
+}
+
+.smile_grin {
+  background-position: -27px 0px;
+  cursor: pointer;
+}
+
+.smile_tongue {
+  background-position: -54px 0px;
+  cursor: pointer;
+}
+
+.smile_emotion {
+  background-position: -81px 0px;
+  cursor: pointer;
+}
+
+.smile_eyehard {
+  background-position: -108px 0px;
+  cursor: pointer;
+}
+
+.smile_sob {
+  background-position: 0px -27px;
+  cursor: pointer;
+}
+
+.smile_upset {
+  background-position: -27px -27px;
+  cursor: pointer;
+}
+
+.smile_fear {
+  background-position: -54px -27px;
+  cursor: pointer;
+}
+
+.smile_nowords {
+  background-position: -81px -27px;
+  cursor: pointer;
+}
+
+.smile_sad {
+  background-position: -108px -27px;
+  cursor: pointer;
+}
+
+.smile_mouthclosed {
+  background-position: 0px -54px;
+  cursor: pointer;
+}
+
+.smile_cry {
+  background-position: -27px -54px;
+  cursor: pointer;
+}
+
+.smile_heard {
+  background-position: -54px -54px;
+  cursor: pointer;
+}
+
+.smile_kiss {
+  background-position: -81px -54px;
+  cursor: pointer;
+}
+
+.smile_goodlook {
+  background-position: -108px -54px;
+  cursor: pointer;
+}

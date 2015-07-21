@@ -52,12 +52,21 @@ div ng-include="'client_app/templates/users/profile-header.html'"
                     .angle
                   td
                     img ng-src="{{ message.author_avatar }}"
+          .col-md-3
+
         .row
           .col-md-9.col-sm-9
             form.messages-form novalidate=true
               .form-group
-                textarea.form-control type="text" placeholder="Введите текст сообщения" style="max-width: 100%" ng-model="message_text"
-          .col-md-3.col-sm-3
+                textarea.form-control type="text" placeholder="Введите текст сообщения" style="max-width: 100%" ng-model="message_text" ng-click="getCursorPos($event)"
+          .col-md-3.col-sm-3 style="position: relative;"
+            div style="position: absolute; top: -100px"
+              div.smile_row
+                span.icon ng-repeat="(key, value) in smiles" class="smile_{{value}}" ng-click="addSmile(key)" ng-show="$index>=0 && $index<5"
+              div.smile_row
+                span.icon ng-repeat="(key, value) in smiles" class="smile_{{value}}" ng-click="addSmile(key)" ng-show="$index>=5 && $index<10"
+              div.smile_row
+                span.icon ng-repeat="(key, value) in smiles" class="smile_{{value}}" ng-click="addSmile(key)" ng-show="$index>=10"
             form
               .form-group
                 a.yellow-btn ng-click="send()"
