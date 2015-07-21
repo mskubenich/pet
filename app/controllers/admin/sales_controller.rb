@@ -12,7 +12,7 @@ class Admin::SalesController < AdminController
       end
       render json: {ok: true}
     else
-      render json: {errors: @sale.errors}
+      render json: {errors: @sale.errors}, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +26,7 @@ class Admin::SalesController < AdminController
       @sale.attachments.where(id: params[:sale][:removed_photos]).destroy_all
       render json: {ok: true}
     else
-      render json: {errors: @sale.errors}
+      render json: {errors: @sale.errors}, status: :unprocessable_entity
     end
   end
 

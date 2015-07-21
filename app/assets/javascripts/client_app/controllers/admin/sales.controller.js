@@ -126,9 +126,14 @@
                     if($state.current.name == 'edit_sale'){
                         sales.show($stateParams.id)
                             .success(function(data){
-                                $scope.announcement = data.sale;
-                                $('#redactor').redactor('code.set', $scope.announcement.description);
-                            })
+                                $timeout(function(){
+                                    $scope.announcement = data.sale;
+                                    $('#redactor').redactor('code.set', $scope.announcement.description);
+                                    $scope.bloodline_checked = $scope.announcement.bloodline_file_name != null;
+                                    $scope.prize_checked = $scope.announcement.prize_file_name != null;
+                                }, 0);
+                            }
+                        )
                     }
 
                     $scope.$watch('announcement.family', function(){
@@ -173,12 +178,8 @@
                                 });
                             })
                             .error(function(data){
-                                $scope.newsProcessing = false;
-                                ngDialog.open({
-                                    className: 'ngdialog-theme-default',
-                                    template: JSON.stringify(data.errors),
-                                    plain: true
-                                });
+                                $scope.validation_errors = data.errors;
+                                $scope.processing = false;
                             })
                     };
 
