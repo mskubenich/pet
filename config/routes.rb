@@ -146,6 +146,9 @@ Rails.application.routes.draw do
 
     resources :messages, only: [:index, :create, :show]
     resources :my_pets, only: [:index, :create, :update, :show, :destroy]
+
+    get '/auth/:service/callback' => 'services#create'
+    resources :services, :only => [:create]
   end
 
   get '/:locale' => 'pages#index'

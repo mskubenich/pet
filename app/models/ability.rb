@@ -31,6 +31,9 @@ class Ability
       can :manage, Post do |entity|
         entity.user_id == user.id || entity.new_record?
       end
+      can :manage, MyPet do |entity|
+        entity.user_id == user.id || entity.new_record?
+      end
     else
     end
     can :read, News
@@ -44,5 +47,6 @@ class Ability
     can :read, ShopSubcategory
     can :read, Product
     can :read, Post
+    can :read, MyPet
   end
 end

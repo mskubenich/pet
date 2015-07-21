@@ -1,13 +1,18 @@
 class User < ActiveRecord::Base
   validates :email, uniqueness: { case_sensitive: false, message: "has already been taken." },
             format: { with: /.*\@.*\..*/, message: "is incorrect"},
-            presence: true
+            presence: true, if: lambda{ service == nil }
 
   attr_accessor :password, :password_confirmation
-  validates :password, presence: true, confirmation: { message: "should match %{attribute}" }, length: { in: 6..20 }, if: lambda{ new_record? || !password.nil? }
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :login, presence: true
+  validates :password,
+            presence: true,
+            confirmation: { message: "should match %{attribute}" },
+            length: { in: 6..20 },
+            if: lambda{ service == nil ? (new_record? || password == nil) : false }
+
+  validates :first_name, presence: true, if: lambda{ service == nil }
+  validates :last_name, presence: true, if: lambda{ service == nil }
+  validates :login, presence: true, if: lambda{ service == nil }
 
   before_save :encrypt_password, :downcase_email
   after_create :set_default_role
@@ -33,6 +38,8 @@ class User < ActiveRecord::Base
   has_many :incoming_messages, class_name: Message, foreign_key: :user_id
   has_many :outcoming_messages, class_name: Message, foreign_key: :author_id
   has_many :pets, class_name: MyPet
+
+  has_one :service, dependent: :destroy
 
   def friendship_status(user)
     friendship = friendships.where(friend_id: user.id).try(:first)
