@@ -7,8 +7,10 @@ div ng-include="'client_app/templates/users/profile-header.html'"
     br
     .col-md-3.col-sm-3 ng-include="'client_app/templates/friends/short.html'"
     .col-md-9.col-sm-9 ng-controller="MyPetsController"
-      .pet-h2
+      .pet-h2 ng-show="$state.current.name == 'new_my_pet'"
         | Добавить питомца:
+      .pet-h2 ng-show="$state.current.name == 'edit_my_pet'"
+        | Редактировать питомца:
       form.registration-form ng-submit="submitPetData()" name="petForm" novalidate=true
 
         .form-group

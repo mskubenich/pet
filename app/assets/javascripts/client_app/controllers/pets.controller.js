@@ -3,21 +3,29 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('MyPetsController', ['$sce', '$scope', '$state', 'ngDialog', 'BreedsFactory', 'MyPetsFactory',
-            function ($sce, $scope, $state, ngDialog, breeds, pets) {
+        .controller('MyPetsController', ['$sce', '$scope', '$state', 'ngDialog', 'BreedsFactory', 'MyPetsFactory', '$stateParams',
+            function ($sce, $scope, $state, ngDialog, breeds, pets, $stateParams) {
 
-                if($state.current.name == 'new_my_pet'){
+                if($state.current.name == 'new_my_pet' || $state.current.name == 'edit_my_pet'){
 
                     $scope._ = _;
                     $scope.breeds = [];
                     $scope.petData = {};
+                    $scope.$state = $state;
+
+                    if($state.current.name == 'new_my_pet'){
+
+                    }else if($state.current.name == 'edit_my_pet'){
+                        pets.show($stateParams.id)
+                            .success(function(data){
+                                $scope.petData = data.pet;
+                            })
+                    }
 
                     $scope.updateBreeds = function(){
                         breeds.all({family: $scope.petData.family})
                             .success(function(data){
-                                console.log(data);
                                 $scope.breeds = data.breeds;
-
                                 if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.petData.breed_id)){
                                     $scope.petData.breed_id = null;
                                 }

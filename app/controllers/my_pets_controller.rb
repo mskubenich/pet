@@ -1,5 +1,7 @@
 class MyPetsController < ApplicationController
 
+  load_and_authorize_resource :my_pet
+
   def index
     @user = User.where(id: params[:user_id].to_i).first
     @user = current_user unless @user
@@ -15,27 +17,30 @@ class MyPetsController < ApplicationController
       end
       render json: {ok: true}
     else
-      render json: {errors: @pet.errors}
+      render json: {errors: @pet.errors}, status: :unprocessable_entity
     end
   end
 
   def update
-    attachments_params = params[:copulation][:photos] || []
-    if @copulation.update_attributes copulation_params
-      update_attachments
+    attachments_params = params[:pet][:photos] || []
+    if @my_pet.update_attributes pet_params
       attachments_params.each do |attachment|
-        Attachment.create entity_id: @copulation.id, entity_type: Copulation, file: attachment
+        Attachment.create entity_id: @my_pet.id, entity_type: MyPet, file: attachment
       end
-      @copulation.attachments.where(id: params[:copulation][:removed_photos]).destroy_all
+      @my_pet.attachments.where(id: params[:pet][:removed_photos]).destroy_all
       render json: {ok: true}
     else
-      render json: {errors: @copulation.errors}
+      render json: {errors: @my_pet.errors}, status: :unprocessable_entity
     end
   end
 
   def destroy
     MyPet.find(params[:id]).destroy
     render json: {ok: true}
+  end
+
+  def show
+
   end
 
   private
