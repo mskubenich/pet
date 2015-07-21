@@ -88,7 +88,7 @@
                 }
 
                 if($state.current.name == 'show_hand'){
-                    $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
+                    $scope.$parent.header_url = 'yellow';
 
                     //setTimeout(function(){
                     //    $scope.$watch('filters', function(){
@@ -305,12 +305,8 @@
                                 });
                             })
                             .error(function(data){
-                                $scope.newsProcessing = false;
-                                ngDialog.open({
-                                    className: 'ngdialog-theme-default',
-                                    template: JSON.stringify(data.errors),
-                                    plain: true
-                                });
+                                $scope.validation_errors = data.errors;
+                                $scope.processing = false;
                             })
                     };
                 }

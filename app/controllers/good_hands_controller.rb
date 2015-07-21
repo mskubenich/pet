@@ -13,7 +13,7 @@ class GoodHandsController < ApplicationController
       end
       render json: {ok: true}
     else
-      render json: {errors: @good_hand.errors}
+      render json: {errors: @good_hand.errors}, status: :unprocessable_entity
     end
   end
 

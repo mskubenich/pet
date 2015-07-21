@@ -99,6 +99,8 @@
           br
           span.gray
             | {{ I18n.t('bloodline_flag') }}
+          .error ng-repeat="error in validation_errors.bloodline"
+            | {{ error }}
         .form-group
           label
             table.vertical-align-table
@@ -125,6 +127,8 @@
           br
           span.gray
             | {{ I18n.t('prize_flag') }}
+          .error ng-repeat="error in validation_errors.prize"
+            | {{ error }}
         .form-group
           label
             table.vertical-align-table
@@ -139,6 +143,8 @@
                   span.selected-file-text ng-show="prize"
                     | {{ mothers_photo.name }} ({{ mothers_photo.size / 1000}}kb)
                   input type="file" file-model="mothers_photo" style="display: none"
+            .error ng-repeat="error in validation_errors.mothers_photo"
+              | {{ error }}
           label
             table.vertical-align-table
               tr
@@ -152,7 +158,8 @@
                   span.selected-file-text ng-show="prize"
                     | {{ fathers_photo.name }} ({{ fathers_photo.size / 1000}}kb)
                   input type="file" file-model="fathers_photo" style="display: none"
-
+            .error ng-repeat="error in validation_errors.fathers_photo"
+              | {{ error }}
         .form-group
           textarea#redactor.form-control placeholder="{{ I18n.t('description') }}"
 
