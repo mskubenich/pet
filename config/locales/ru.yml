@@ -219,7 +219,19 @@ ru:
       models:
         good_hand:
           attributes:
-            prize_file_size:
+            prize:
               less_than: "Максимальный размер файла - 10 мегабайт"
             prize_content_type:
               invalid: "Только картинки, .txt, .xls, .doc, .pdf файлы разрешены"
+            bloodline:
+              less_than: "Максимальный размер файла - 10 мегабайт"
+            bloodline_content_type:
+              invalid: "Только картинки, .txt, .xls, .doc, .pdf файлы разрешены"
+            mothers_photo:
+              less_than: "Максимальный размер файла - 10 мегабайт"
+            mothers_photo_content_type:
+              invalid: "Только картинки разрешены"
+            fathers_photo:
+              less_than: "Максимальный размер файла - 10 мегабайт"
+            fathers_photo_content_type:
+              invalid: "Только картинки разрешены"

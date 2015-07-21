@@ -105,6 +105,8 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
     br
     span.gray
       | {{ I18n.t('bloodline_flag') }}
+    .error ng-repeat="error in validation_errors.bloodline"
+      | {{ error }}
 
   .form-group
     label
@@ -153,6 +155,8 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
             span.selected-file-text ng-show="mothers_photo"
               | {{ mothers_photo.name }} ({{ mothers_photo.size / 1000}}kb)
             input type="file" file-model="mothers_photo" style="display: none"
+      .error ng-repeat="error in validation_errors.mothers_photo"
+        | {{ error }}
     label
       table.vertical-align-table
         tr
@@ -168,6 +172,8 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
             span.selected-file-text ng-show="fathers_photo"
               | {{ fathers_photo.name }} ({{ fathers_photo.size / 1000}}kb)
             input type="file" file-model="fathers_photo" style="display: none"
+      .error ng-repeat="error in validation_errors.fathers_photo"
+        | {{ error }}
 
   .form-group
     textarea#redactor.form-control placeholder="{{ I18n.t('description') }}"
