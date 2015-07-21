@@ -158,24 +158,6 @@
                             'caption': ''
                         });
                     }
-                    if($scope.copulation.prize_image_url){
-                        $scope.prize_image_i = i;
-                        $scope.images.push({
-                            'url': $scope.copulation.prize_image_url,
-                            'thumbUrl': $scope.copulation.prize_image_url,
-                            'caption': I18n.t('prize')
-                        });
-                        i++;
-                    }
-                    if($scope.copulation.bloodline_image_url){
-                        $scope.bloodline_image_i = i;
-                        $scope.images.push({
-                            'url': $scope.copulation.bloodline_image_url,
-                            'thumbUrl': $scope.copulation.bloodline_image_url,
-                            'caption': I18n.t('bloodline')
-                        });
-                        i++;
-                    }
                     if($scope.copulation.mother_image_url){
                         $scope.mothers_image_i = i;
                         $scope.images.push({
@@ -228,15 +210,18 @@
                         pagination.empty();
                         pagination.removeData('twbs-pagination');
                         pagination.unbind('page');
-                        pagination.twbsPagination({
-                            totalPages: Math.ceil($scope.count / 10),
-                            startPage: $scope.comments_page,
-                            visiblePages: 9,
-                            onPageClick: function (event, page) {
-                                $scope.comments_page = page;
-                                $scope.retrieveComments();
-                            }
-                        });
+
+                        if($scope.count > 0){
+                            pagination.twbsPagination({
+                                totalPages: Math.ceil($scope.count / 10),
+                                startPage: $scope.comments_page,
+                                visiblePages: 9,
+                                onPageClick: function (event, page) {
+                                    $scope.comments_page = page;
+                                    $scope.retrieveComments();
+                                }
+                            });
+                        }
                     }).error(function (data) {
 
                     });
