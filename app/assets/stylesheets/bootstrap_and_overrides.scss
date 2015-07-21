@@ -23,6 +23,12 @@
   font-size: 24px;
   font-family: PFCentroSerifBold;
   font-weight: 900;
+  color: #000000;
+  &:hover{
+    text-decoration: none;
+    color: #000000;
+    cursor: pointer;
+  }
 }
 
 .pet-h5{

@@ -149,24 +149,6 @@
                                 'caption': ''
                             });
                         }
-                        if($scope.announcement.prize_image_url){
-                            $scope.prize_image_i = i;
-                            $scope.images.push({
-                                'url': $scope.announcement.prize_image_url,
-                                'thumbUrl': $scope.announcement.prize_image_url,
-                                'caption': I18n.t('prize')
-                            });
-                            i++;
-                        }
-                        if($scope.announcement.bloodline_image_url){
-                            $scope.bloodline_image_i = i;
-                            $scope.images.push({
-                                'url': $scope.announcement.bloodline_image_url,
-                                'thumbUrl': $scope.announcement.bloodline_image_url,
-                                'caption': I18n.t('bloodline')
-                            });
-                            i++;
-                        }
                         if($scope.announcement.mother_image_url){
                             $scope.mothers_image_i = i;
                             $scope.images.push({
