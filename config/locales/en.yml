@@ -235,3 +235,21 @@ en:
               less_than: "Maximum file size is 10 megabytes"
             fathers_photo_content_type:
               invalid: "Only images is allowed"
+        copulation:
+          attributes:
+            prize:
+              less_than: "Maximum file size is 10 megabytes"
+            prize_content_type:
+              invalid: "Only images, .txt, .xls, .doc, .pdf files is allowed"
+            bloodline:
+              less_than: "Maximum file size is 10 megabytes"
+            bloodline_content_type:
+              invalid: "Only images, .txt, .xls, .doc, .pdf files is allowed"
+            mothers_photo:
+              less_than: "Maximum file size is 10 megabytes"
+            mothers_photo_content_type:
+              invalid: "Only images is allowed"
+            fathers_photo:
+              less_than: "Maximum file size is 10 megabytes"
+            fathers_photo_content_type:
+              invalid: "Only images is allowed"

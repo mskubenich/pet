@@ -78,48 +78,56 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
     br
     span.gray
       | {{ I18n.t('organization_flag') }}
+
   .form-group
     label
       table.vertical-align-table
         tr
           td
-            span.rounded-one class="{{ checked3 ? 'checked' : ''}}"
+            span.rounded-one class="{{ bloodline_checked ? 'checked' : ''}}"
               .rounded-two
-              input.form-control type="checkbox" ng-click="checked3 = !checked3"
+              input.form-control type="checkbox" ng-click="bloodline_checked = !bloodline_checked"
           td
             span.black-budget
               | {{ I18n.t('bloodline') }}
-    label ng-show="checked3"
+    label ng-show="bloodline_checked"
       table.vertical-align-table
         tr
           td
             span
               i.fa.fa-plus-circle.add-file-icon
           td
+            span.selected-file-text ng-hide="bloodline || !announcement.bloodline_file_name"
+              | {{ announcement.bloodline_file_name }} ({{ announcement.bloodline_file_size / 1000}}kb)
             span.selected-file-text ng-show="bloodline"
               | {{ bloodline.name }} ({{ bloodline.size / 1000}}kb)
             input type="file" file-model="bloodline" style="display: none"
     br
     span.gray
       | {{ I18n.t('bloodline_flag') }}
+    .error ng-repeat="error in validation_errors.bloodline"
+      | {{ error }}
+
   .form-group
     label
       table.vertical-align-table
         tr
           td
-            span.rounded-one class="{{ checked4 ? 'checked' : ''}}"
+            span.rounded-one class="{{ prize_checked ? 'checked' : ''}}"
               .rounded-two
-              input.form-control type="checkbox" ng-click="checked4 = !checked4"
+              input.form-control type="checkbox" ng-click="prize_checked = !prize_checked"
           td
             span.black-budget
               | {{ I18n.t('prize') }}
-    label ng-show="checked4"
+    label ng-show="prize_checked"
       table.vertical-align-table
         tr
           td
             span
               i.fa.fa-plus-circle.add-file-icon
           td
+            span.selected-file-text ng-hide="prize || !announcement.prize_file_name"
+              | {{ announcement.prize_file_name }} ({{ announcement.prize_file_size / 1000}}kb)
             span.selected-file-text ng-show="prize"
               | {{ prize.name }} ({{ prize.size / 1000}}kb)
             input type="file" file-model="prize" style="display: none"
@@ -128,33 +136,44 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
     br
     span.gray
       | {{ I18n.t('prize_flag') }}
-  .form-group
-    label
-      table.vertical-align-table
-        tr
-          td
-            span
-              i.fa.fa-plus-circle.add-file-icon
-          td
-            span.selected-file-text
-              | {{ I18n.t('mothers_photo') }}
-          td ng-show="mothers_photo"
-            span.selected-file-text ng-show="prize"
-              | {{ mothers_photo.name }} ({{ mothers_photo.size / 1000}}kb)
-            input type="file" file-model="mothers_photo" style="display: none"
-    label
-      table.vertical-align-table
-        tr
-          td
-            span
-              i.fa.fa-plus-circle.add-file-icon
-          td
-            span.selected-file-text
-              | {{ I18n.t('fathers_photo') }}
-          td ng-show="fathers_photo"
-            span.selected-file-text ng-show="prize"
-              | {{ fathers_photo.name }} ({{ fathers_photo.size / 1000}}kb)
-            input type="file" file-model="fathers_photo" style="display: none"
+    .error ng-repeat="error in validation_errors.prize"
+      | {{ error }}
+
+    .form-group
+      label
+        table.vertical-align-table
+          tr
+            td
+              span
+                i.fa.fa-plus-circle.add-file-icon
+            td
+              span.selected-file-text
+                | {{ I18n.t('mothers_photo') }}
+            td
+              span.selected-file-text ng-hide="mothers_photo || !announcement.mother_file_name"
+                | {{ announcement.mother_file_name }} ({{ announcement.mother_file_size / 1000}}kb)
+              span.selected-file-text ng-show="mothers_photo"
+                | {{ mothers_photo.name }} ({{ mothers_photo.size / 1000}}kb)
+              input type="file" file-model="mothers_photo" style="display: none"
+        .error ng-repeat="error in validation_errors.mothers_photo"
+          | {{ error }}
+      label
+        table.vertical-align-table
+          tr
+            td
+              span
+                i.fa.fa-plus-circle.add-file-icon
+            td
+              span.selected-file-text
+                | {{ I18n.t('fathers_photo') }}
+            td
+              span.selected-file-text ng-hide="fathers_photo || !announcement.father_file_name"
+                | {{ announcement.father_file_name }} ({{ announcement.father_file_size / 1000}}kb)
+              span.selected-file-text ng-show="fathers_photo"
+                | {{ fathers_photo.name }} ({{ fathers_photo.size / 1000}}kb)
+              input type="file" file-model="fathers_photo" style="display: none"
+        .error ng-repeat="error in validation_errors.fathers_photo"
+          | {{ error }}
 
   .form-group
     textarea#redactor.form-control placeholder="{{ I18n.t('description') }}"

@@ -12,7 +12,7 @@ class Admin::CopulationsController < AdminController
       end
       render json: {ok: true}
     else
-      render json: {errors: @copulation.errors}
+      render json: {errors: @copulation.errors}, status: :unprocessable_entity
     end
   end
 
@@ -26,7 +26,7 @@ class Admin::CopulationsController < AdminController
       @copulation.attachments.where(id: params[:copulation][:removed_photos]).destroy_all
       render json: {ok: true}
     else
-      render json: {errors: @copulation.errors}
+      render json: {errors: @copulation.errors}, status: :unprocessable_entity
     end
   end
 
