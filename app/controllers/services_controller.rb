@@ -45,4 +45,8 @@ class ServicesController < ApplicationController
     end
   end
 
+  def failure
+    render json: { auth: request.env['omniauth.auth'], params: params}
+  end
+
 end

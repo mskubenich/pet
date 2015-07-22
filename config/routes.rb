@@ -148,6 +148,7 @@ Rails.application.routes.draw do
     resources :my_pets, only: [:index, :create, :update, :show, :destroy]
 
     get '/auth/:service/callback' => 'services#create'
+    get '/auth/:service/failure' => 'services#failure'
     resources :services, :only => [:create]
   end
 
