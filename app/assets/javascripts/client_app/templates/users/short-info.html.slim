@@ -24,10 +24,10 @@
         | Отказаться от дружбы
       a.black-yellow-shop-button ng-show="profile.friendship_status == 'accepted'" ng-click="removeFromFriends(profile.id)"
         | Удалить из друзей
-      br
-      br
-      a.black-yellow-shop-button href="#messages/{{ profile.id }}"
-        | Написать
+      /br
+      /br
+      /a.black-yellow-shop-button href="#messages/{{ profile.id }}"
+      /  | Написать
   .col-md-6.col-sm-6
     .pet-h1
       | {{ profile.full_name }}
