@@ -46,7 +46,7 @@ class ServicesController < ApplicationController
   end
 
   def failure
-    render json: { auth: request.env, params: params}
+    render json: { auth: request.env.inspect, params: params}
   end
 
 end
