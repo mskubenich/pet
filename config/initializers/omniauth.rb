@@ -4,4 +4,9 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   # provider :vkontakte, '5004595', 'WEId2hiHYnug8t6FDIsN' #localhost
   provider :vkontakte, '5004777', 'X8FCUos9VhOSJCXlXrL8' #staging
   provider :odnoklassniki, '1147009024', '8E70F282B395F1653B0EFE90', :public_key => 'CBAJPOFFEBABABABA' #localhost
+
+  provider :mailru, '735849', '56b8dc57c225e595afbbb42c3232df63', {
+                      :callback_url => 'http://localhost:3000',
+                      public_key: '56b8dc57c225e595afbbb42c3232df63'
+                  }
 end
