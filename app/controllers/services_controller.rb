@@ -11,6 +11,12 @@ class ServicesController < ApplicationController
         @provider = omniauth['provider']      ? omniauth['provider']      : ''
         @image =    omniauth['info']['image'] ? omniauth['info']['image'] : ''
       end
+      if params[:service] == 'vkontakte'
+        @name =     omniauth['info']['name']  ? omniauth['info']['name']  : ''
+        @uid =      omniauth['uid']           ? omniauth['uid']           : ''
+        @provider = omniauth['provider']      ? omniauth['provider']      : ''
+        @image =    omniauth['info']['image'] ? omniauth['info']['image'] : ''
+      end
 
       if @uid != '' and @provider != ''
         @service = Service.where(uid: @uid).try(:first)
