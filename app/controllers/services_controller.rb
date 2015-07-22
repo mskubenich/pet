@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  skip_before_filter :authenticate_user, :only => [:create]
+  skip_before_filter :authenticate_user, :only => [:create, :failure]
 
   def create
     # render json: { auth: request.env['omniauth.auth'], params: params} and return
