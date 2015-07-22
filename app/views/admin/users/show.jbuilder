@@ -8,4 +8,6 @@ json.user do
   json.scorp                @user.scorp
   json.id                   @user.id
   json.avatar               @user.avatar.url
+  json.country              @user.country
+  json.city                 @user.city
 end

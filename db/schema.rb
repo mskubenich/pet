@@ -319,6 +319,8 @@ ActiveRecord::Schema.define(version: 20150720154646) do
     t.string   "phone",               limit: 255
     t.string   "salt",                limit: 255
     t.string   "encrypted_password",  limit: 255
+    t.string   "country",             limit: 255
+    t.string   "city",                limit: 255
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
     t.boolean  "rkf",                 limit: 1,   default: false

@@ -7,5 +7,7 @@ json.users @users.each do |user|
   json.created_at user.created_at
   json.avatar_url user.avatar.url(:thumb)
   json.banned     user.banned
+  json.country    user.country
+  json.city       user.city
 end
 json.count @count

@@ -1,7 +1,7 @@
 div ng-controller="MyPetsController"
   .pet-h2
     | {{ I18n.t('my_pets') }}:
-  table.table.vertical-align-table.profile-my-pets
+  table.table.vertical-align-table.profile-my-pets.responsive-stacked-table
     tr
       td style="width: 143px;" ng-repeat="pet in pets"
         div.pet-image style="background-image: url('{{ pet.image }}')"

@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :login, presence: true
+  validates :country, presence: true
+  validates :city, presence: true
 
   before_save :encrypt_password, :downcase_email
   after_create :set_default_role
