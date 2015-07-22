@@ -38,6 +38,13 @@ gem 'gon'
 gem "i18n-js", ">= 3.0.0.rc8"
 gem "selectize-rails"
 
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+gem 'omniauth-odnoklassniki'
+gem 'omniauth-mailru'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

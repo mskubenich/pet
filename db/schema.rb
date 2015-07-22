@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720154646) do
+ActiveRecord::Schema.define(version: 20150721135900) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150720154646) do
     t.integer "cart_id",    limit: 4
     t.integer "product_id", limit: 4
     t.integer "count",      limit: 4
+    t.integer "user_id",    limit: 4
   end
 
   create_table "carts", force: :cascade do |t|
@@ -282,6 +283,14 @@ ActiveRecord::Schema.define(version: 20150720154646) do
     t.integer  "views_count",                limit: 4,     default: 0
   end
 
+  create_table "services", force: :cascade do |t|
+    t.integer "user_id",  limit: 4
+    t.string  "provider", limit: 255
+    t.string  "uid",      limit: 255
+    t.string  "uname",    limit: 255
+    t.string  "uimage",   limit: 255
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string   "token",      limit: 255
     t.integer  "user_id",    limit: 4
@@ -292,6 +301,11 @@ ActiveRecord::Schema.define(version: 20150720154646) do
   create_table "shop_categories", force: :cascade do |t|
     t.string "title_ru", limit: 255
     t.string "title_en", limit: 255
+  end
+
+  create_table "shop_categories_news", force: :cascade do |t|
+    t.integer "product_id",       limit: 4
+    t.integer "shop_category_id", limit: 4
   end
 
   create_table "shop_subcategories", force: :cascade do |t|

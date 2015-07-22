@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
       render json: {
                  current_user: {
                      id: current_user.id,
-                     full_name: current_user.full_name,
+                     full_name: current_user.service.try(:uname) || current_user.full_name,
                      is_admin: current_user.admin?,
-                     avatar_url: current_user.avatar.url(:thumb),
+                     avatar_url: current_user.service.try(:uimage) || current_user.avatar.url(:thumb),
                      cart_items_count: current_user.cart.cart_items.count
                  }
              }

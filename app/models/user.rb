@@ -36,6 +36,8 @@ class User < ActiveRecord::Base
   has_many :outcoming_messages, class_name: Message, foreign_key: :author_id
   has_many :pets, class_name: MyPet
 
+  has_one :service, dependent: :destroy
+
   def friendship_status(user)
     friendship = friendships.where(friend_id: user.id).try(:first)
     if friendship
