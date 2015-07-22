@@ -41,12 +41,12 @@ class ServicesController < ApplicationController
         render text: 'Error while authenticating via ' + service_route.capitalize + '.'
       end
     else
-      render text: 'Error while authenticating via ' + service_route.capitalize + '.'
+        render text: 'Error while authenticating via ' + service_route.capitalize + '.'
     end
   end
 
   def failure
-    render json: { auth: request.env.inspect, params: params}
+    render json: { auth: request.inspect, params: params}
   end
 
 end
