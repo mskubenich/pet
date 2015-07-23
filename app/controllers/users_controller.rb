@@ -34,6 +34,19 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
+  def my_info
+    @user = current_user
+  end
+
+  def update_profile
+    @user = current_user
+    if @user.update_attributes user_params
+      render json: {ok: true}
+    else
+      render json: {errors: @user.errors}, status: :unprocessable_entity
+    end
+  end
+
   def show
     @user = User.find(params[:id])
   end

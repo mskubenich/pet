@@ -8,6 +8,83 @@ div ng-include="'client_app/templates/users/profile-header.html'"
     .col-md-3.col-sm-3 ng-include="'client_app/templates/friends/short.html'"
     .col-md-9.col-sm-9 ng-controller="SettingsController"
       .gray-block
-        h1
-          | Settings
-        | {{ where }}
+        form.registration-form ng-submit="updateProfile()" name="userForm" novalidate=true
+
+          .row
+            .col-md-6
+              .form-group
+                input.form-control type="text" placeholder="Имя" required=true class="{{ userForm.first_name.$invalid && submited ? 'validation-error' : ''}}" name="first_name" ng-model="my_info.first_name"
+                .error ng-show="userForm.first_name.$invalid && submited"
+                  | can't be blank
+            .col-md-6
+              .form-group
+                input.form-control type="text" placeholder="Фамилия" required=true class="{{ userForm.last_name.$invalid && submited ? 'validation-error' : ''}}" name="last_name" ng-model="my_info.last_name"
+                .error ng-show="userForm.last_name.$invalid && submited"
+                  | can't be blank
+
+          .form-group
+            | Email: {{ my_info.email }}
+
+          .form-group
+            input.form-control type="text" placeholder="Контактный телефон" name="phone" ng-model="my_info.phone"
+
+          .form-group
+            input.form-control type="text" placeholder="Ваш логин" required=true class="{{ userForm.login.$invalid && submited ? 'validation-error' : ''}}" name="login" ng-model="my_info.login"
+            .error ng-show="userForm.login.$invalid && submited"
+              | can't be blank
+
+          .form-group
+            input.form-control type="text" placeholder="Страна" required=true class="{{ userForm.country.$invalid && submited ? 'validation-error' : ''}}" name="country" ng-model="my_info.country"
+            .error ng-show="userForm.country.$invalid && submited"
+              | can't be blank
+          .form-group
+            input.form-control type="text" placeholder="Город" required=true class="{{ userForm.city.$invalid && submited ? 'validation-error' : ''}}" name="ciry" ng-model="my_info.city"
+            .error ng-show="userForm.city.$invalid && submited"
+              | can't be blank
+
+          br
+          .form-group
+            label
+              table.vertical-align-table
+                tr
+                  td
+                    .rounded-one class="{{ my_info.scorp ? 'checked' : ''}}"
+                      .rounded-two
+                      input.form-control type="checkbox" ng-model="my_info.scorp"
+                  td
+                    span.black-budget style="margin-top: 13px"
+                      | СКОРП
+
+          .form-group
+            label
+              table.vertical-align-table
+                tr
+                  td
+                    .rounded-one class="{{ my_info.rkf ? 'checked' : ''}}"
+                      .rounded-two
+                      input.form-control type="checkbox" ng-model="my_info.rkf"
+                  td
+                    span.black-budget
+                      | РКФ
+            br
+            br
+            span.gray
+              | {{ I18n.t('organization_flag')}}
+
+          .form-group
+            table.vertical-align-table
+              tr
+                td
+                  label
+                    input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');" file-model="user_avatar"
+                    .avatar-droppable#avatar-preview style="background-image: url({{ my_info.avatar_url }})"
+                      table
+                        tr
+                          td
+                            i.fa.fa-plus-circle
+                td
+                  span.gray
+                    | Ваше фото.
+
+          .text-center
+            input.yellow-btn type="submit" value="Сохранить изменения"

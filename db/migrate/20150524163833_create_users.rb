@@ -8,8 +8,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :phone
       t.string :salt
       t.string :encrypted_password
-      t.string :country
-      t.string :city
       t.timestamps null: false
 
     end
