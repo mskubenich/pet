@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20150721135900) do
     t.integer "cart_id",    limit: 4
     t.integer "product_id", limit: 4
     t.integer "count",      limit: 4
-    t.integer "user_id",    limit: 4
   end
 
   create_table "carts", force: :cascade do |t|
@@ -118,6 +117,11 @@ ActiveRecord::Schema.define(version: 20150721135900) do
     t.text     "description",                limit: 65535
     t.integer  "user_id",                    limit: 4
     t.boolean  "approved",                   limit: 1
+    t.string   "country",                    limit: 255
+    t.string   "city",                       limit: 255
+    t.string   "sex",                        limit: 255
+    t.string   "color",                      limit: 255
+    t.string   "weight",                     limit: 255
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
     t.string   "prize_file_name",            limit: 255
@@ -301,11 +305,6 @@ ActiveRecord::Schema.define(version: 20150721135900) do
   create_table "shop_categories", force: :cascade do |t|
     t.string "title_ru", limit: 255
     t.string "title_en", limit: 255
-  end
-
-  create_table "shop_categories_news", force: :cascade do |t|
-    t.integer "product_id",       limit: 4
-    t.integer "shop_category_id", limit: 4
   end
 
   create_table "shop_subcategories", force: :cascade do |t|

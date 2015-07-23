@@ -9,6 +9,11 @@ class CreateGoodHands < ActiveRecord::Migration
       t.text :description
       t.references :user
       t.boolean :approved
+      t.string :country
+      t.string :city
+      t.string :sex
+      t.string :color
+      t.string :weight
 
       t.timestamps null: false
     end

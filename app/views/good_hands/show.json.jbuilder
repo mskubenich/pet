@@ -16,4 +16,9 @@ json.good_hand do
   json.owner               @good_hand.owner.try(:full_name)
   json.owner_phone_hashed  @good_hand.owner.try(:phone).to_s[0..4] + '*****'
   json.reject_reason       @good_hand.reject_reason
+  json.color               @good_hand.color
+  json.weight              @good_hand.weight
+  json.country             @good_hand.country
+  json.city                @good_hand.city
+
 end

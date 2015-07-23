@@ -79,6 +79,11 @@ ru:
     edit: 'Редактировать Объявление'
     messages:
       success_upsert: "Объявление удачно сохранено."
+    country: 'Страна'
+    city: 'Город'
+    sex: 'Пол'
+    color: 'Цвет'
+    weightPets: 'Вес'
   shop_category:
     new: 'Новая категория товара'
     edit: 'Редактировать категорию товара'

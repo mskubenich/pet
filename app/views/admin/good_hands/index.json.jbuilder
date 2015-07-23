@@ -9,6 +9,11 @@ json.good_hands @good_hands.each do |hand|
   json.preview_image_url hand.preview_image_url
   json.has_prize         hand.prize.exists?
   json.approved          hand.approved
+  json.country           hand.country
+  json.city              hand.city
+  json.sex               hand.sex
+  json.color             hand.color
+  json.weight            hand.weight
   json.created_at "#{ time_ago_in_words(hand.created_at) } #{ t('datetime.ago')} #{ t 'datetime.at'} #{ hand.created_at.strftime "%H:%M"}"
 
 end

@@ -89,6 +89,11 @@ en:
     edit: 'Edit Announcement'
     messages:
       success_upsert: "Announcement successfully saved."
+    country: 'Country'
+    city: 'City'
+    sex: 'Sex'
+    color: 'Color'
+    weightPets: 'Weight'
   shop_category:
     new: 'New Shop Category'
     edit: 'Edit Shop Category'

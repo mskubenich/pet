@@ -97,7 +97,7 @@
           span.black-budget ng-show="announcement.rkf"
             | РКФ
           br
-          | Russian Federation, Moskow
+          | {{ announcement.country }}, {{ announcement.city }}
           | &nbsp;
           | &nbsp;
           img src="assets/ru.png" style="width: 20px"
@@ -116,14 +116,14 @@
                 | {{ announcement.age }}
             tr
               td
-                | Цвет >
+                | {{ I18n.t('good_hands.color') }} >
               td
-                | черный
+                | {{ announcement.color }}
             tr
               td
-                | Вес >
+                | {{ I18n.t('good_hands.weight') }} >
               td
-                | 320 г
+                | {{ announcement.weight }}
         .col-md-4.col-sm-4.text-right
           span.rating
             span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly"
