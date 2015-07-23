@@ -77,6 +77,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :index, :show] do
       collection do
         get :profile
+        get :my_info
+        put :update_profile
         post :email_available
         post :avatar
         get :friends

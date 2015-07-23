@@ -16,6 +16,28 @@
             profile: function(){
                 return $http.get('/users/profile');
             },
+            updateProfile: function(user, avatar){
+                var fd = new FormData();
+                fd.append('user[first_name]', user.first_name);
+                fd.append('user[last_name]', user.last_name);
+                fd.append('user[login]', user.login);
+                fd.append('user[rkf]', user.rkf);
+                fd.append('user[scorp]', user.scorp);
+                fd.append('user[phone]', user.phone);
+                fd.append('user[country]', user.country);
+                fd.append('user[city]', user.city);
+                if(avatar){
+                    fd.append('user[avatar]', avatar);
+                }
+
+                return $http.put('/users/update_profile', fd, {
+                    transformRequest: angular.identity,
+                    headers: {'Content-Type': undefined}
+                });
+            },
+            my_info: function(){
+                return $http.get('/users/my_info');
+            },
             all: function(options){
                 return $http.get(I18n.locale +   '/users?q=' + options.query + '&page=' + options.page);
             },
