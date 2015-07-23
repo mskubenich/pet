@@ -20,5 +20,6 @@ json.good_hand do
   json.weight              @good_hand.weight
   json.country             @good_hand.country
   json.city                @good_hand.city
+  json.sex                 @good_hand.sex
 
 end

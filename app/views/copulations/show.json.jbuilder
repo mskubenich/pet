@@ -18,4 +18,9 @@ json.copulation do
   json.owner               @copulation.owner.try(:full_name)
   json.owner_phone_hashed  @copulation.owner.try(:phone).to_s[0..4] + '*****'
   json.reject_reason       @copulation.reject_reason
+  json.color               @copulation.color
+  json.weight              @copulation.weight
+  json.country             @copulation.country
+  json.city                @copulation.city
+  json.sex                 @copulation.sex
 end

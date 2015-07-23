@@ -118,7 +118,7 @@
           span.black-budget ng-show="sale.rkf"
             | РКФ
           br
-          | Russian Federation, Moskow
+          | {{ sale.country }}, {{ sale.city }}
           | &nbsp;
           | &nbsp;
           img src="assets/ru.png" style="width: 20px"
@@ -137,14 +137,14 @@
                 | {{ sale.age }}
             tr
               td
-                | Цвет >
+                | {{ I18n.t('good_hands.color') }} >
               td
-                | черный
+                | {{ sale.color }}
             tr
               td
-                | Вес >
+                | {{ I18n.t('good_hands.weight') }} >
               td
-                | 320 г
+                | {{ sale.weight }}
           br
           br
           .price

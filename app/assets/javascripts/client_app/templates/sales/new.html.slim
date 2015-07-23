@@ -40,6 +40,26 @@
             | {{ I18n.t('validations.cant_be_blank')}}
         br
         .form-group
+          input.form-control type="text" placeholder="{{ I18n.t('good_hands.country') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="country" ng-model="announcement.country"
+          .error ng-show="announcementForm.name.$invalid && submitted"
+            | can't be blank
+        .form-group
+          input.form-control type="text" placeholder="{{ I18n.t('good_hands.city') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="city" ng-model="announcement.city"
+          .error ng-show="announcementForm.name.$invalid && submitted"
+            | can't be blank
+        .form-group
+          input.form-control type="text" placeholder="{{ I18n.t('good_hands.sex') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="sex" ng-model="announcement.sex"
+          .error ng-show="announcementForm.name.$invalid && submitted"
+            | can't be blank
+        .form-group
+          input.form-control type="text" placeholder="{{ I18n.t('good_hands.color') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="color" ng-model="announcement.color"
+          .error ng-show="announcementForm.name.$invalid && submitted"
+            | can't be blank
+        .form-group
+          input.form-control type="text" placeholder="{{ I18n.t('good_hands.weight') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="weight" ng-model="announcement.weight"
+          .error ng-show="announcementForm.name.$invalid && submitted"
+            | can't be blank
+        .form-group
           .file-select ng-repeat="i in _.range(0, attachments.length + 1)" ng-hide="attachments[i] == 'null'"
             .file-remove ng-click="removeAttachment(i, $event)" ng-show="attachments[{{ i }}]"
               i.fa.fa-close

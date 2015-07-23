@@ -88,7 +88,7 @@ en:
     new: 'New Announcement'
     edit: 'Edit Announcement'
     messages:
-      success_upsert: "Announcement successfully saved."
+      success_upsert: "Data successfully saved."
     country: 'Country'
     city: 'City'
     sex: 'Sex'

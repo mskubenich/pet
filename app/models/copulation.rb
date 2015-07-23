@@ -8,6 +8,11 @@ class Copulation < ActiveRecord::Base
   validates :age, presence: true
   validates :breed, presence: true
   validates :description, presence: true
+  validates :country, presence: true
+  validates :city, presence: true
+  validates :sex, presence: true
+  validates :color, presence: true
+  validates :weight, presence: true
 
   has_attached_file :prize, :default_url => "/assets/missing.png"
   validates_attachment_content_type :prize, content_type: [/\Aimage\/.*\Z/, 'application/pdf', /text\/*/, "application/vnd.ms-excel", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"]

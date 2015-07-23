@@ -12,6 +12,11 @@
                 fd.append('sale[rkf]', sale.rkf);
                 fd.append('sale[description]', sale.description);
                 fd.append('sale[price]', sale.price);
+                fd.append('sale[country]', sale.country);
+                fd.append('sale[city]', sale.city);
+                fd.append('sale[sex]', sale.sex);
+                fd.append('sale[color]', sale.color);
+                fd.append('sale[weight]', sale.weight);
                 var i = 0;
                 while(i < attachments.length){
                     if(attachments[i] != 'null'){

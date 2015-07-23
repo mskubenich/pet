@@ -17,4 +17,9 @@ json.sale do
   json.owner               @sale.owner.try(:full_name)
   json.owner_phone_hashed  @sale.owner.try(:phone).to_s[0..4] + '*****'
   json.reject_reason       @sale.reject_reason
+  json.color               @sale.color
+  json.weight              @sale.weight
+  json.country             @sale.country
+  json.city                @sale.city
+  json.sex                 @sale.sex
 end

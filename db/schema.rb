@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722183516) do
+ActiveRecord::Schema.define(version: 20150723135246) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -98,6 +98,11 @@ ActiveRecord::Schema.define(version: 20150722183516) do
     t.text     "reject_reason",              limit: 65535
     t.integer  "breed_id",                   limit: 4
     t.integer  "views_count",                limit: 4,     default: 0
+    t.string   "country",                    limit: 255
+    t.string   "city",                       limit: 255
+    t.string   "sex",                        limit: 255
+    t.string   "color",                      limit: 255
+    t.string   "weight",                     limit: 255
   end
 
   create_table "friendships", force: :cascade do |t|
@@ -117,11 +122,6 @@ ActiveRecord::Schema.define(version: 20150722183516) do
     t.text     "description",                limit: 65535
     t.integer  "user_id",                    limit: 4
     t.boolean  "approved",                   limit: 1
-    t.string   "country",                    limit: 255
-    t.string   "city",                       limit: 255
-    t.string   "sex",                        limit: 255
-    t.string   "color",                      limit: 255
-    t.string   "weight",                     limit: 255
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
     t.string   "prize_file_name",            limit: 255
@@ -143,6 +143,11 @@ ActiveRecord::Schema.define(version: 20150722183516) do
     t.text     "reject_reason",              limit: 65535
     t.integer  "breed_id",                   limit: 4
     t.integer  "views_count",                limit: 4,     default: 0
+    t.string   "country",                    limit: 255
+    t.string   "city",                       limit: 255
+    t.string   "sex",                        limit: 255
+    t.string   "color",                      limit: 255
+    t.string   "weight",                     limit: 255
   end
 
   create_table "main_slides", force: :cascade do |t|
@@ -285,6 +290,11 @@ ActiveRecord::Schema.define(version: 20150722183516) do
     t.text     "reject_reason",              limit: 65535
     t.integer  "breed_id",                   limit: 4
     t.integer  "views_count",                limit: 4,     default: 0
+    t.string   "country",                    limit: 255
+    t.string   "city",                       limit: 255
+    t.string   "sex",                        limit: 255
+    t.string   "color",                      limit: 255
+    t.string   "weight",                     limit: 255
   end
 
   create_table "services", force: :cascade do |t|
