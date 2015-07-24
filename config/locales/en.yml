@@ -119,6 +119,10 @@ en:
       name: 'Name'
       age: 'Age'
       breed: 'Breed'
+      country: 'Country'
+      city: 'City'
+      color: 'Color'
+      weight: 'Weight'
   sale:
     title: 'Sale'
     new: 'New Sale'

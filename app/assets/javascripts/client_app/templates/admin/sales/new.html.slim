@@ -14,7 +14,7 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
           input type="radio" name="family" value="dog" ng-model="announcement.family" required=true
       .error ng-show="announcementForm.family.$invalid && submitted"
         | {{ I18n.t('validations.cant_be_blank')}}
-    .col-md-6.col-sm-3
+    .col-md-6.col-sm-6
       .form-group
         input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.name') }}" required=true class="{{ announcementForm.name.$invalid && submited ? 'validation-error' : ''}}" name="name" ng-model="announcement.name"
         .error ng-show="announcementForm.name.$invalid && submitted"
@@ -189,6 +189,37 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
           span
             i.fa.fa-ruble
     .error ng-show="announcementForm.price.$invalid && submitted"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .form-group
+    label
+      i.fa.fa-mars style="font-size: 26px; color: {{ announcement.sex == 'male' ? 'black' : 'gray'}}"
+      input type="radio" name="sex" value="male" ng-model="announcement.sex" required=true style="display: none"
+    | &nbsp;&nbsp;&nbsp;
+    label
+      i.fa.fa-venus style="font-size: 26px; color: {{ announcement.sex == 'female' ? 'black' : 'gray'}}"
+      input type="radio" name="sex" value="female" ng-model="announcement.sex" required=true style="display: none"
+    .error ng-show="announcementForm.sex.$invalid && submitted"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .form-group
+    input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.country') }}" required=true class="{{ announcementForm.country.$invalid && submited ? 'validation-error' : ''}}" name="country" ng-model="announcement.country"
+    .error ng-show="announcementForm.country.$invalid && submitted"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .form-group
+    input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.city') }}" required=true class="{{ announcementForm.city.$invalid && submited ? 'validation-error' : ''}}" name="city" ng-model="announcement.city"
+    .error ng-show="announcementForm.city.$invalid && submitted"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .form-group
+    input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.color') }}" required=true class="{{ announcementForm.color.$invalid && submited ? 'validation-error' : ''}}" name="color" ng-model="announcement.color"
+    .error ng-show="announcementForm.color.$invalid && submitted"
+      | {{ I18n.t('validations.cant_be_blank')}}
+
+  .form-group
+    input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.weight') }}" required=true class="{{ announcementForm.weight.$invalid && submited ? 'validation-error' : ''}}" name="weight" ng-model="announcement.weight"
+    .error ng-show="announcementForm.weight.$invalid && submitted"
       | {{ I18n.t('validations.cant_be_blank')}}
 
   .text-center

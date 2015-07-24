@@ -109,6 +109,10 @@ ru:
       name: 'Кличка'
       age: 'Возраст'
       breed: 'Порода'
+      country: 'Страна'
+      city: 'Город'
+      color: 'Цвет'
+      weight: 'Вес'
   sale:
     title: 'Продажа'
     new: 'Добавить Продажу'
