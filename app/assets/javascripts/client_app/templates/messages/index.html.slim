@@ -28,4 +28,4 @@ div ng-include="'client_app/templates/users/profile-header.html'"
                     tr
                       td colspan="2"
                         br
-                        | {{ message.text }}
+                        span ng-bind-html="getHtml( message.text )"

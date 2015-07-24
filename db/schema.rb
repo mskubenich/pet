@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20150723135246) do
     t.integer "cart_id",    limit: 4
     t.integer "product_id", limit: 4
     t.integer "count",      limit: 4
+    t.integer "user_id",    limit: 4
   end
 
   create_table "carts", force: :cascade do |t|
@@ -315,6 +316,11 @@ ActiveRecord::Schema.define(version: 20150723135246) do
   create_table "shop_categories", force: :cascade do |t|
     t.string "title_ru", limit: 255
     t.string "title_en", limit: 255
+  end
+
+  create_table "shop_categories_news", force: :cascade do |t|
+    t.integer "product_id",       limit: 4
+    t.integer "shop_category_id", limit: 4
   end
 
   create_table "shop_subcategories", force: :cascade do |t|

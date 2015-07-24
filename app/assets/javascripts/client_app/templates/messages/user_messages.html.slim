@@ -31,7 +31,7 @@ div ng-include="'client_app/templates/users/profile-header.html'"
                         tr
                           td colspan="2"
                             br
-                            | {{ message.text }}
+                            span ng-bind-html="getHtml( message.text )"
               table.table.messages-table-right ng-show="message.user_id == current_user.id"
                 tr
                   td
@@ -47,7 +47,7 @@ div ng-include="'client_app/templates/users/profile-header.html'"
                         tr
                           td colspan="2"
                             br
-                            | {{ message.text }}
+                            span ng-bind-html="getHtml( message.text )"
                   td
                     .angle
                   td

@@ -6,6 +6,10 @@
         .controller('MessagesController', ['$sce', '$scope', '$state', 'ngDialog', '$stateParams', 'MessagesFactory', 'UsersFactory', '$interval',
             function ($sce, $scope, $state, ngDialog, $stateParams, messages, users, $interval) {
 
+                $scope.getHtml = function(html){
+                    return $sce.trustAsHtml(html);
+                };
+
                 function addSmileToText(key, position, text) {
                     if (position == 0 || position == text.length) {
                         return (text + key);
@@ -73,7 +77,7 @@
                         if ($state.current.name == 'user_messages') {
                             $scope.retrieveMessages();
                         }
-                    }, 4000);
+                    }, 8000);
                     $scope.$on('$destroy', function () {
                         $interval.cancel(intervalPromise);
                     });

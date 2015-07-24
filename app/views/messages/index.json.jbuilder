@@ -7,7 +7,7 @@ json.messages @conversations.each do |message|
   end
 
   json.created_at "#{ time_ago_in_words(message.created_at) } #{ t('datetime.ago')} #{ t 'datetime.at'} #{ message.created_at.strftime "%H:%M"}"
-  json.text message.text
+  json.text expand_smilies(message.text)
   json.author_name @user.full_name
   json.user_id @user.id
   json.author_avatar @user.avatar.url(:thumb)
