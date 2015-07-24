@@ -8,6 +8,7 @@ class UsersController < ApplicationController
         user_arel[:email].matches("%#{ params[:q] }%")
             .or(user_arel[:first_name].matches("%#{ params[:q] }%"))
             .or(user_arel[:last_name].matches("%#{ params[:q] }%"))
+            .and(user_arel[:id].not_eq(current_user.id))
     )
 
     count_query = query.clone.project('COUNT(*) as count')
