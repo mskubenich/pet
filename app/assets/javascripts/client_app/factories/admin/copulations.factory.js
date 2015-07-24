@@ -12,6 +12,11 @@
                 fd.append('copulation[rkf]', copulation.rkf);
                 fd.append('copulation[description]', copulation.description);
                 fd.append('copulation[price]', copulation.price);
+                fd.append('copulation[sex]', copulation.sex);
+                fd.append('copulation[country]', copulation.country);
+                fd.append('copulation[city]', copulation.city);
+                fd.append('copulation[color]', copulation.color);
+                fd.append('copulation[weight]', copulation.weight);
                 var i = 0;
                 while(i < removed_attachments_previews.length){
                     fd.append('copulation[removed_photos][]', removed_attachments_previews[i]);

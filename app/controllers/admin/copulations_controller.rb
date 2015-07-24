@@ -79,6 +79,6 @@ class Admin::CopulationsController < AdminController
   end
 
   def copulation_params
-    params.require(:copulation).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
+    params.require(:copulation).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo, :sex, :country, :city, :color, :weight)
   end
 end

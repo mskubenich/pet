@@ -11,6 +11,11 @@
                 fd.append('announcement[scorp]', announcement.scorp);
                 fd.append('announcement[rkf]', announcement.rkf);
                 fd.append('announcement[description]', announcement.description);
+                fd.append('announcement[sex]', announcement.sex);
+                fd.append('announcement[country]', announcement.country);
+                fd.append('announcement[city]', announcement.city);
+                fd.append('announcement[color]', announcement.color);
+                fd.append('announcement[weight]', announcement.weight);
                 var i = 0;
                 while(i < attachments.length){
                     if(attachments[i] != 'null'){

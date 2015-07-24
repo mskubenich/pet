@@ -78,6 +78,6 @@ class Admin::GoodHandsController < AdminController
   end
 
   def hand_params
-    params.require(:announcement).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo)
+    params.require(:announcement).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo, :sex, :country, :city, :color, :weight)
   end
 end
