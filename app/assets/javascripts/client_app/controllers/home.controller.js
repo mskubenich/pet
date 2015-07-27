@@ -111,5 +111,27 @@
                         })
                         .error();
                 };
+
+                $scope.selectizeCountry = function(){
+                    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('select-country'), {
+                        language: 'ru',
+                        componentRestrictions: {country: 'ua'}
+                    });
+
+                    $('#select-country').parents('.dropdown-menu').click(function(e) {
+                        e.stopPropagation();
+                    });
+                };
+
+                $scope.selectizeCity = function(){
+                    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('select-country'), {
+                        language: 'ru',
+                        componentRestrictions: {country: 'ua'}
+                    });
+
+                    $('#select-country').parents('.dropdown-menu').click(function(e) {
+                        e.stopPropagation();
+                    });
+                }
         }])
 }());

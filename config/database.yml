@@ -31,6 +31,3 @@ production:
   <<: *default
   database: pet_development
 
-
-
-

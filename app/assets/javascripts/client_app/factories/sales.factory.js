@@ -12,7 +12,7 @@
                 fd.append('sale[rkf]', sale.rkf);
                 fd.append('sale[description]', sale.description);
                 fd.append('sale[price]', sale.price);
-                fd.append('sale[country]', sale.country);
+                fd.append('sale[country_id]', sale.country_id);
                 fd.append('sale[city]', sale.city);
                 fd.append('sale[sex]', sale.sex);
                 fd.append('sale[color]', sale.color);

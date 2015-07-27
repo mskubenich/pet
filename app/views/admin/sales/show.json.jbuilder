@@ -25,7 +25,8 @@ json.sale do
   json.owner               @sale.owner.try(:full_name)
   json.owner_phone         @sale.owner.try(:phone)
   json.approved            @sale.approved
-  json.country             @sale.country
+  json.country             Country.find(@sale.country_id)
+  json.country_id          @sale.country_id
   json.city                @sale.city
   json.sex                 @sale.sex
   json.color               @sale.color

@@ -10,7 +10,7 @@ json.sales @sales.each do |sale|
   json.preview_image_url sale.preview_image_url
   json.has_prize         sale.prize.exists?
   json.approved          sale.approved
-  json.country           sale.country
+  json.country           Country.find(sale.country_id)
   json.city              sale.city
   json.sex               sale.sex
   json.color             sale.color

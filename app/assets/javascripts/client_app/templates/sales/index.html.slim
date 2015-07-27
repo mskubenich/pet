@@ -12,12 +12,8 @@
             button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
               | {{ I18n.t('sale.filters.choose_country') }}
               span.caret
-            ul.dropdown-menu role="menu"
-              li
-                a test
-                a test
-                a test
-                a test
+            .dropdown-menu style="width: 250px; padding: 10px 5px;"
+              input.form-control#select-country style="width: 100%"
         td style="width: 300px"
           .btn-group dropdown=true style="width: 100%"
             button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"

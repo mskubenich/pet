@@ -55,6 +55,8 @@ Rails.application.routes.draw do
       resources :slides, only: [:index, :show, :create, :destroy]
       resources :copulation_slides, only: [:index, :show, :create, :destroy]
       resources :orders, only: [:index, :show, :destroy]
+
+      resources :countries, only: [:index]
     end
 
     resources :pages, only: [:index] do

@@ -114,6 +114,7 @@ div
         th style="width: 150px"
         th
         th
+        th
           | {{ I18n.t('entities.title') }}
         th
         th
@@ -124,6 +125,8 @@ div
         td style="width: 150px"
           span.black-budget ng-hide="sale.approved"
             | {{ I18n.t('entities.on_moderation') }}
+        td
+          .span.flag class="{{ sale.country.code }}"
         td
           img ng-src="{{sale.preview_image_url}}" style="height: 30px"
         td

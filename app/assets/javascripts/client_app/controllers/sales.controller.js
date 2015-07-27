@@ -45,6 +45,8 @@
                     $scope.updateBreeds();
                 });
 
+                $scope.$parent.selectizeCountry();
+
                 if($state.current.name == 'sale'){
                     $scope.$parent.header_url = 'yellow';
                     $scope.sale = [];
