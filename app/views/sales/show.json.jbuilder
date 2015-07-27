@@ -19,7 +19,8 @@ json.sale do
   json.reject_reason       @sale.reject_reason
   json.color               @sale.color
   json.weight              @sale.weight
-  json.country             @sale.country
+  json.country             Country.find(@sale.country_id)
+  json.country_id          @sale.country_id
   json.city                @sale.city
   json.sex                 @sale.sex
 end

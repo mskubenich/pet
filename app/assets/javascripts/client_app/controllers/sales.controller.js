@@ -45,8 +45,6 @@
                     $scope.updateBreeds();
                 });
 
-                $scope.$parent.selectizeCountry();
-
                 if($state.current.name == 'sale'){
                     $scope.$parent.header_url = 'yellow';
                     $scope.sale = [];
@@ -92,6 +90,8 @@
                 }
                 if($state.current.name == 'show_sale'){
                     $scope.$parent.header_url = 'yellow';
+
+                    //$scope.$parent.selectizeCountry();
 
                     //setTimeout(function(){
                     //    $scope.$watch('filters', function(){
