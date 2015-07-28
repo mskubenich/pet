@@ -17,7 +17,8 @@
                     sex: 'all',
                     breed_id: '',
                     scorp: false,
-                    rkf: false
+                    rkf: false,
+                    country_id: ''
                 };
 
                 $scope.breeds = [];
@@ -61,6 +62,7 @@
 
                     $scope.page = 1;
                     $scope.retrieveAnnouncements = function(){
+                        console.log(JSON.stringify($scope.filters));
                         good_hands.all({page: $scope.page, query: $scope.filters}).success(function (data) {
                             $scope.announcements = data.good_hands;
                             $scope.count = data.count;
@@ -70,15 +72,17 @@
                             pagination.removeData('twbs-pagination');
                             pagination.unbind('page');
 
-                            pagination.twbsPagination({
-                                totalPages: Math.ceil($scope.count / 9),
-                                startPage: $scope.page,
-                                visiblePages: 9,
-                                onPageClick: function (event, page) {
-                                    $scope.page = page;
-                                    $scope.retrieveAnnouncements();
-                                }
-                            });
+                            if($scope.count > 0){
+                                pagination.twbsPagination({
+                                    totalPages: Math.ceil($scope.count / 9),
+                                    startPage: $scope.page,
+                                    visiblePages: 9,
+                                    onPageClick: function (event, page) {
+                                        $scope.page = page;
+                                        $scope.retrieveAnnouncements();
+                                    }
+                                });
+                            }
                         }).error(function (data) {
 
                         });
