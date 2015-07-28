@@ -7,7 +7,7 @@ module Smileize
   }
 
   def to_icon(key)
-    return "<img class='icon smile_#{ SMILES[key] }'/>"
+    return "<img class='icon_smile smile_#{ SMILES[key] }'/>"
   end
 
   module_function  :to_icon
