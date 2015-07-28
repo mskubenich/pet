@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$stateParams', 'FriendsFactory', 'PostsFactory',
-            function ($scope, $state, ngDialog, users, $stateParams, friends, posts) {
+        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$stateParams', 'FriendsFactory', 'PostsFactory', 'MyPetsFactory',
+            function ($scope, $state, ngDialog, users, $stateParams, friends, posts, pets) {
             $scope.userData = {};
             $scope.submited = false;
 
