@@ -50,6 +50,6 @@ class SalesController < ApplicationController
   end
 
   def sale_params
-    params.require(:sale).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo, :country, :city, :sex, :color, :weight)
+    params.require(:sale).permit(:family, :name, :age, :breed_id, :scorp, :rkf, :description, :price, :photos, :prize, :bloodline, :mothers_photo, :fathers_photo, :country_id, :city, :sex, :color, :weight)
   end
 end
