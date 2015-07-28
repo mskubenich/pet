@@ -58,6 +58,7 @@
                                             '&scorp=' + options.query.scorp +
                                             '&breed_id=' + options.query.breed_id +
                                             '&bloodline=' + options.query.bloodline +
+                                            '&country_id=' + options.query.country_id +
                                             '&rkf=' + options.query.rkf);
             },
             show: function(id){
