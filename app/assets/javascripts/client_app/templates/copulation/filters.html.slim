@@ -70,8 +70,8 @@
                   | РКФ
         br
       td.text-right rowspan=2 style="text-align: right"
-        a.yellow-black-btn ui-sref="new_sale" ng-show="current_user"
-          | {{ I18n.t('sale.new') }}
+        a.yellow-black-btn ui-sref="new_copulation" ng-show="current_user"
+          | {{ I18n.t('copulation.new') }}
     tr
       td style="width: 60px; text-align: center !important;"
         i.fa.fa-mars style="font-size: 26px; color: {{ filters.sex == 'male' ? 'white' : ''}}" ng-click="filters.sex = filters.sex == 'female' || filters.sex == 'all' ? 'male' : 'all'"
@@ -82,8 +82,12 @@
           button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
             | {{ I18n.t('sale.filters.choose_city') }}
             span.caret
-          .dropdown-menu style="width: 250px; padding: 10px 5px;"
-            input.form-control#select-country style="width: 100%"
+          ul.dropdown-menu role="menu"
+            li
+              a test
+              a test
+              a test
+              a test
       td
         table style="width: 100%"
           tr

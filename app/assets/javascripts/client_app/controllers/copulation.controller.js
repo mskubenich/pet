@@ -79,15 +79,17 @@
                         pagination.removeData('twbs-pagination');
                         pagination.unbind('page');
 
-                        pagination.twbsPagination({
-                            totalPages: Math.ceil($scope.count / 9),
-                            startPage: $scope.page,
-                            visiblePages: 9,
-                            onPageClick: function (event, page) {
-                                $scope.page = page;
-                                $scope.retrieveCopulations();
-                            }
-                        });
+                        if($scope.count > 0){
+                            pagination.twbsPagination({
+                                totalPages: Math.ceil($scope.count / 9),
+                                startPage: $scope.page,
+                                visiblePages: 9,
+                                onPageClick: function (event, page) {
+                                    $scope.page = page;
+                                    $scope.retrieveCopulations();
+                                }
+                            });
+                        }
                     }).error(function (data) {
 
                     });
@@ -210,16 +212,16 @@
                 $scope.retrieveComments = function(){
                     comments.all({page: $scope.comments_page, entity_type: 'Copulation', entity_id: $stateParams.id}).success(function (data) {
                         $scope.comments = data.comments;
-                        $scope.count = data.count;
+                        $scope.comments_count = data.count;
 
                         var pagination = $('#comments-pagination');
                         pagination.empty();
                         pagination.removeData('twbs-pagination');
                         pagination.unbind('page');
 
-                        if($scope.count > 0){
+                        if($scope.comments_count > 0){
                             pagination.twbsPagination({
-                                totalPages: Math.ceil($scope.count / 10),
+                                totalPages: Math.ceil($scope.comments_count / 10),
                                 startPage: $scope.comments_page,
                                 visiblePages: 9,
                                 onPageClick: function (event, page) {
