@@ -39,6 +39,8 @@ class Admin::CopulationsController < AdminController
     query = query.where("bloodline_file_size IS NOT NULL") if params[:bloodline] == 'true'
     query = query.where(scorp: true) if params[:scorp] == 'true'
     query = query.where(rkf: true) if params[:rkf] == 'true'
+    query = query.where(country_id: params[:country_id]) unless params[:country_id].blank?
+    query = query.where(sex: params[:sex]) if params[:sex] && params[:sex] != 'all'
 
     query = query.where(approved: true) if params[:status] == 'approved'
     query = query.where(approved: [false, nil]) if params[:status] == 'not_approved'
