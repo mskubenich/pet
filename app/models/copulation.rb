@@ -8,7 +8,7 @@ class Copulation < ActiveRecord::Base
   validates :age, presence: true
   validates :breed, presence: true
   validates :description, presence: true
-  validates :country, presence: true
+  validates :country_id, presence: true
   validates :city, presence: true
   validates :sex, presence: true
   validates :color, presence: true

@@ -25,7 +25,8 @@ json.copulation do
   json.owner               @copulation.owner.try(:full_name)
   json.owner_phone         @copulation.owner.try(:phone)
   json.approved            @copulation.approved
-  json.country             @copulation.country
+  json.country             Country.find(@copulation.country_id)
+  json.country_id          @copulation.country_id
   json.city                @copulation.city
   json.sex                 @copulation.sex
   json.color               @copulation.color

@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminCopulationsController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'BreedsFactory',
-            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, breeds) {
+        .controller('AdminCopulationsController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'BreedsFactory', 'CountriesFactory',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, breeds, countries) {
                 $scope.I18n = I18n;
                 $scope._ = _;
                 $scope.$state = $state;
@@ -44,6 +44,12 @@
                 $scope.$watch('filters.family', function(){
                     $scope.updateBreeds();
                 });
+
+                $scope.selected_country = {};
+                countries.all()
+                    .success(function(data){
+                        $scope.countries = data.countries;
+                    });
 
                 if($state.current.name == 'copulations'){
                     $scope.sale = [];

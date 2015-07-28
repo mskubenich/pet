@@ -202,10 +202,23 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
     .error ng-show="announcementForm.sex.$invalid && submitted"
       | {{ I18n.t('validations.cant_be_blank')}}
 
-  .form-group
-    input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.country') }}" required=true class="{{ announcementForm.country.$invalid && submited ? 'validation-error' : ''}}" name="country" ng-model="announcement.country"
-    .error ng-show="announcementForm.country.$invalid && submitted"
-      | {{ I18n.t('validations.cant_be_blank')}}
+    .form-group
+      .btn-group dropdown=true style="width: 100%"
+        button.btn.btn-default.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
+          span ng-show="announcement.country_id"
+            span.flag class="{{ announcement.country.code }}"
+            | {{ announcement.country['title_' + I18n.locale ] }}
+          span ng-hide="announcement.country_id"
+            | {{ I18n.t('sale.filters.choose_country') }}
+          span.caret
+        .dropdown-menu style="width: 250px; padding: 10px 5px;"
+          li ng-repeat="country in countries"
+            a ng-click="announcement.country_id = country.id; announcement.country = country" style="cursor: pointer"
+              span.flag class="{{ country.code }}"
+              | {{ country['title_' + I18n.locale ] }}
+      input.form-control type="text" required=true name="country_id" ng-model="announcement.country_id" style="display: none;"
+      .error ng-show="announcementForm.country_id.$invalid && submitted"
+        | {{ I18n.t('validations.cant_be_blank')}}
 
   .form-group
     input.form-control type="text" placeholder="{{ I18n.t('copulation.dog.city') }}" required=true class="{{ announcementForm.city.$invalid && submited ? 'validation-error' : ''}}" name="city" ng-model="announcement.city"

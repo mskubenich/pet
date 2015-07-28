@@ -10,7 +10,8 @@ json.copulations @copulations.each do |copulation|
   json.preview_image_url copulation.preview_image_url
   json.has_prize         copulation.prize.exists?
   json.approved          copulation.approved
-  json.country           copulation.country
+  json.country           Country.find(copulation.country_id)
+  json.country_id        copulation.country_id
   json.city              copulation.city
   json.sex               copulation.sex
   json.color             copulation.color
