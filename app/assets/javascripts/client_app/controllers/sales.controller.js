@@ -109,7 +109,6 @@
                             $timeout.cancel(timer)
                         }
                         timer= $timeout(function(){
-                            console.log('here');
                             if($scope.initializing){
                                 $scope.initializing = false;
                             }else{

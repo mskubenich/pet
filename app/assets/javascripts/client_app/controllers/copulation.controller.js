@@ -29,6 +29,11 @@
                 country_id: ''
             };
 
+            if(window.filters){
+                $scope.filters = window.filters;
+                window.filters = null;
+            }
+
             $scope.breeds = [];
             $scope.updateBreeds = function(){
                 breeds.all({family: $scope.filters.family})
@@ -100,11 +105,21 @@
             if($state.current.name == 'show_copulation'){
                 $scope.$parent.header_url = 'client_app/templates/layouts/yellow-header.html';
 
-                //setTimeout(function(){
-                //    $scope.$watch('filters', function(){
-                //        $state.go('copulation');
-                //    });
-                //}, 100);
+                var timer = false;
+                $scope.initializing = true;
+                $scope.$watch('filters', function(){
+                    if(timer){
+                        $timeout.cancel(timer)
+                    }
+                    timer= $timeout(function(){
+                        if($scope.initializing){
+                            $scope.initializing = false;
+                        }else{
+                            window.filters = $scope.filters;
+                            $state.go('copulation');
+                        }
+                    }, 500)
+                }, true);
 
                 $scope.copulation = {};
                 $scope.images = [];
