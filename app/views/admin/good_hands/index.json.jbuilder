@@ -9,7 +9,8 @@ json.good_hands @good_hands.each do |hand|
   json.preview_image_url hand.preview_image_url
   json.has_prize         hand.prize.exists?
   json.approved          hand.approved
-  json.country           hand.country
+  json.country_id        hand.country_id
+  json.country           Country.find(hand.country_id)
   json.city              hand.city
   json.sex               hand.sex
   json.color             hand.color

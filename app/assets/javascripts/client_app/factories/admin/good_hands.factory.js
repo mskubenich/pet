@@ -12,7 +12,7 @@
                 fd.append('announcement[rkf]', announcement.rkf);
                 fd.append('announcement[description]', announcement.description);
                 fd.append('announcement[sex]', announcement.sex);
-                fd.append('announcement[country]', announcement.country);
+                fd.append('announcement[country_id]', announcement.country_id);
                 fd.append('announcement[city]', announcement.city);
                 fd.append('announcement[color]', announcement.color);
                 fd.append('announcement[weight]', announcement.weight);
@@ -62,6 +62,7 @@
                                             '&scorp=' + options.query.scorp +
                                             '&breed_id=' + options.query.breed_id +
                                             '&status=' + options.query.status +
+                                            '&country_id=' + options.query.country_id +
                                             '&rkf=' + options.query.rkf);
             },
             show: function(id){

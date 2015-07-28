@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeAdminApp')
-        .controller('AdminGoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout', '$sce', 'BreedsFactory',
-            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce, breeds) {
+        .controller('AdminGoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout', '$sce', 'BreedsFactory', 'CountriesFactory',
+            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce, breeds, countries) {
                 $scope.I18n = I18n;
                 $scope._ = _;
                 $scope.$state = $state;
@@ -39,6 +39,11 @@
                     $scope.updateBreeds();
                 });
 
+                $scope.selected_country = {};
+                countries.all()
+                    .success(function(data){
+                        $scope.countries = data.countries;
+                    });
 
                 if($state.current.name == 'good_hands'){
 

@@ -24,7 +24,8 @@ json.good_hand do
   json.owner               @good_hand.owner.try(:full_name)
   json.owner_phone         @good_hand.owner.try(:phone)
   json.approved            @good_hand.approved
-  json.country             @good_hand.country
+  json.country_id          @good_hand.country_id
+  json.country             Country.find(@good_hand.country_id)
   json.city                @good_hand.city
   json.sex                 @good_hand.sex
   json.color               @good_hand.color

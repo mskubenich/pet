@@ -78,15 +78,17 @@
                             pagination.removeData('twbs-pagination');
                             pagination.unbind('page');
 
-                            pagination.twbsPagination({
-                                totalPages: Math.ceil($scope.count / 9),
-                                startPage: $scope.page,
-                                visiblePages: 9,
-                                onPageClick: function (event, page) {
-                                    $scope.page = page;
-                                    $scope.retrieveCopulations();
-                                }
-                            });
+                            if($scope.page > 0){
+                                pagination.twbsPagination({
+                                    totalPages: Math.ceil($scope.count / 9),
+                                    startPage: $scope.page,
+                                    visiblePages: 9,
+                                    onPageClick: function (event, page) {
+                                        $scope.page = page;
+                                        $scope.retrieveCopulations();
+                                    }
+                                });
+                            }
                         }).error(function (data) {
 
                         });
