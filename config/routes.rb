@@ -155,7 +155,9 @@ Rails.application.routes.draw do
     post '/auth/:service/callback' => 'services#create'
     get '/auth/failure' => 'services#failure'
     resources :services, :only => [:create]
+    resources :countries, only: [:index]
   end
 
   get '/:locale' => 'pages#index'
+
 end

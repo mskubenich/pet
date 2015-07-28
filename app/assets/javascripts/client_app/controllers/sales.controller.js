@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory',
-            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes) {
+        .controller('SalesController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory', 'CountriesFactory',
+            function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes, countries) {
                 $('body').css('background-color', 'white');
                 $scope.I18n = I18n;
                 $scope._ = _;
@@ -23,7 +23,8 @@
                     breed_id: '',
                     scorp: false,
                     rkf: false,
-                    bloodline: false
+                    bloodline: false,
+                    country_id: ''
                 };
 
                 $scope.breeds = [];
@@ -43,6 +44,10 @@
 
                 $scope.$watch('filters.family', function(){
                     $scope.updateBreeds();
+                });
+
+                countries.all().success(function(data){
+                    $scope.countries = data.countries;
                 });
 
                 if($state.current.name == 'sale'){

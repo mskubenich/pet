@@ -29,6 +29,7 @@ class SalesController < ApplicationController
     query = query.where("bloodline_file_size IS NOT NULL") if params[:bloodline] == 'true'
     query = query.where(scorp: true) if params[:scorp] == 'true'
     query = query.where(rkf: true) if params[:rkf] == 'true'
+    query = query.where(country_id: params[:country_id]) unless params[:country_id].blank?
 
     @sales = query.order('created_at DESC').paginate page: params[:page], per_page: 9
     @count = query.count
