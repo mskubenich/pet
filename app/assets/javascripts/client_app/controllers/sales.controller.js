@@ -27,6 +27,11 @@
                     country_id: ''
                 };
 
+                if(window.filters){
+                    $scope.filters = window.filters;
+                    window.filters = null;
+                }
+
                 $scope.breeds = [];
                 $scope.updateBreeds = function(){
                     breeds.all({family: $scope.filters.family})
@@ -96,13 +101,25 @@
                 if($state.current.name == 'show_sale'){
                     $scope.$parent.header_url = 'yellow';
 
-                    //$scope.$parent.selectizeCountry();
 
-                    //setTimeout(function(){
-                    //    $scope.$watch('filters', function(){
-                    //        $state.go('sale');
-                    //    });
-                    //}, 100);
+                    var timer = false;
+                    $scope.initializing = true;
+                    $scope.$watch('filters', function(){
+                        if(timer){
+                            $timeout.cancel(timer)
+                        }
+                        timer= $timeout(function(){
+                            console.log('here');
+                            if($scope.initializing){
+                                $scope.initializing = false;
+                            }else{
+                                window.filters = $scope.filters;
+                                $state.go('sale');
+                            }
+                        }, 500)
+                    }, true);
+
+                    //$scope.$parent.selectizeCountry();
 
                     $scope.sale = {};
                     $scope.images = [];
@@ -239,15 +256,18 @@
                             pagination.empty();
                             pagination.removeData('twbs-pagination');
                             pagination.unbind('page');
-                            pagination.twbsPagination({
-                                totalPages: Math.ceil($scope.count / 10),
-                                startPage: $scope.comments_page,
-                                visiblePages: 9,
-                                onPageClick: function (event, page) {
-                                    $scope.comments_page = page;
-                                    $scope.retrieveComments();
-                                }
-                            });
+
+                            if($scope.count > 0){
+                                pagination.twbsPagination({
+                                    totalPages: Math.ceil($scope.count / 10),
+                                    startPage: $scope.comments_page,
+                                    visiblePages: 9,
+                                    onPageClick: function (event, page) {
+                                        $scope.comments_page = page;
+                                        $scope.retrieveComments();
+                                    }
+                                });
+                            }
                         }).error(function (data) {
 
                         });
