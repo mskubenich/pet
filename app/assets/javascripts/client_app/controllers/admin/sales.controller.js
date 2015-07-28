@@ -23,7 +23,8 @@
                     breed_id: '',
                     scorp: false,
                     rkf: false,
-                    bloodline: false
+                    bloodline: false,
+                    country_id: ''
                 };
 
                 $scope.breeds = [];

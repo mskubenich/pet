@@ -16,6 +16,9 @@
               | {{ I18n.t('sale.filters.choose_country') }}
             span.caret
           .dropdown-menu style="width: 250px; padding: 10px 5px;"
+            li
+              a ng-click="filters.country_id = ''" style="cursor: pointer"
+                | All
             li ng-repeat="country in countries"
               a ng-click="filters.country_id = country.id; $parent.selected_country = country" style="cursor: pointer"
                 span.flag class="{{ country.code }}"

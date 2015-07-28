@@ -59,6 +59,7 @@
                                             '&breed_id=' + options.query.breed_id +
                                             '&bloodline=' + options.query.bloodline +
                                             '&status=' + options.query.status +
+                                            '&country_id=' + options.query.country_id +
                                             '&rkf=' + options.query.rkf);
             },
             show: function(id){
