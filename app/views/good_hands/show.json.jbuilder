@@ -18,7 +18,8 @@ json.good_hand do
   json.reject_reason       @good_hand.reject_reason
   json.color               @good_hand.color
   json.weight              @good_hand.weight
-  json.country             @good_hand.country
+  json.country_id          @good_hand.country_id
+  json.country             Country.find(@good_hand.country_id)
   json.city                @good_hand.city
   json.sex                 @good_hand.sex
 

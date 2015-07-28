@@ -97,10 +97,10 @@
           span.black-budget ng-show="announcement.rkf"
             | РКФ
           br
-          | {{ announcement.country }}, {{ announcement.city }}
+          | {{ announcement.country['title_' + I18n.locale ] }}, {{ announcement.city }}
           | &nbsp;
           | &nbsp;
-          img src="assets/ru.png" style="width: 20px"
+          span.flag class="{{ announcement.country.code }}" style="width: 20px"
           br
           br
           table.short-table
@@ -121,7 +121,7 @@
                 | {{ announcement.color }}
             tr
               td
-                | {{ I18n.t('good_hands.weight') }} >
+                | {{ I18n.t('copulation.dog.weight') }} >
               td
                 | {{ announcement.weight }}
         .col-md-4.col-sm-4.text-right

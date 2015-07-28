@@ -12,7 +12,7 @@
                 fd.append('announcement[rkf]', announcement.rkf);
                 fd.append('announcement[description]', announcement.description);
                 fd.append('announcement[price]', announcement.price);
-                fd.append('announcement[country]', announcement.country);
+                fd.append('announcement[country_id]', announcement.country_id);
                 fd.append('announcement[city]', announcement.city);
                 fd.append('announcement[sex]', announcement.sex);
                 fd.append('announcement[color]', announcement.color);

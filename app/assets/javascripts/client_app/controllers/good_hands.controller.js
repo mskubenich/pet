@@ -3,8 +3,9 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('GoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory',
-            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes) {
+        .controller('GoodHandsController', ['$scope', '$state', 'ngDialog', 'GoodHandsFactory', '$stateParams', '$timeout',
+            '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory', 'CountriesFactory',
+            function ($scope, $state, ngDialog, good_hands, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes, countries) {
                 $('body').css('background-color', 'white');
                 $scope.I18n = I18n;
                 $scope._ = _;
@@ -23,7 +24,8 @@
                     breed_id: '',
                     scorp: false,
                     rkf: false,
-                    bloodline: false
+                    bloodline: false,
+                    country_id: ''
                 };
 
                 $scope.breeds = [];
@@ -43,6 +45,10 @@
 
                 $scope.$watch('filters.family', function(){
                     $scope.updateBreeds();
+                });
+
+                countries.all().success(function(data){
+                    $scope.countries = data.countries;
                 });
 
                 if($state.current.name == 'good_hands'){
@@ -70,15 +76,17 @@
                             pagination.removeData('twbs-pagination');
                             pagination.unbind('page');
 
-                            pagination.twbsPagination({
-                                totalPages: Math.ceil($scope.count / 9),
-                                startPage: $scope.page,
-                                visiblePages: 9,
-                                onPageClick: function (event, page) {
-                                    $scope.page = page;
-                                    $scope.retrieveAnnouncements();
-                                }
-                            });
+                            if($scope.count > 0){
+                                pagination.twbsPagination({
+                                    totalPages: Math.ceil($scope.count / 9),
+                                    startPage: $scope.page,
+                                    visiblePages: 9,
+                                    onPageClick: function (event, page) {
+                                        $scope.page = page;
+                                        $scope.retrieveAnnouncements();
+                                    }
+                                })
+                            }
                         }).error(function (data) {
 
                         });
@@ -196,21 +204,23 @@
                     $scope.retrieveComments = function(){
                         comments.all({page: $scope.comments_page, entity_type: 'GoodHand', entity_id: $stateParams.id}).success(function (data) {
                             $scope.comments = data.comments;
-                            $scope.count = data.count;
+                            $scope.comments_count = data.count;
 
                             var pagination = $('#comments-pagination');
                             pagination.empty();
                             pagination.removeData('twbs-pagination');
                             pagination.unbind('page');
-                            pagination.twbsPagination({
-                                totalPages: Math.ceil($scope.count / 10),
-                                startPage: $scope.comments_page,
-                                visiblePages: 9,
-                                onPageClick: function (event, page) {
-                                    $scope.comments_page = page;
-                                    $scope.retrieveComments();
-                                }
-                            });
+                            if($scope.comments_count > 0){
+                                pagination.twbsPagination({
+                                    totalPages: Math.ceil($scope.comments_count / 10),
+                                    startPage: $scope.comments_page,
+                                    visiblePages: 9,
+                                    onPageClick: function (event, page) {
+                                        $scope.comments_page = page;
+                                        $scope.retrieveComments();
+                                    }
+                                });
+                            }
                         }).error(function (data) {
 
                         });
