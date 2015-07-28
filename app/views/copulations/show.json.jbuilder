@@ -20,7 +20,8 @@ json.copulation do
   json.reject_reason       @copulation.reject_reason
   json.color               @copulation.color
   json.weight              @copulation.weight
-  json.country             @copulation.country
+  json.country_id          @copulation.country_id
+  json.country             Country.find(@copulation.country_id)
   json.city                @copulation.city
   json.sex                 @copulation.sex
 end

@@ -12,7 +12,7 @@
                 fd.append('copulation[rkf]', copulation.rkf);
                 fd.append('copulation[description]', copulation.description);
                 fd.append('copulation[price]', copulation.price);
-                fd.append('copulation[country]', copulation.country);
+                fd.append('copulation[country_id]', copulation.country_id);
                 fd.append('copulation[city]', copulation.city);
                 fd.append('copulation[sex]', copulation.sex);
                 fd.append('copulation[color]', copulation.color);
@@ -58,6 +58,7 @@
                                             '&scorp=' + options.query.scorp +
                                             '&breed_id=' + options.query.breed_id +
                                             '&bloodline=' + options.query.bloodline +
+                                            '&country_id=' + options.query.country_id +
                                             '&rkf=' + options.query.rkf);
             },
             show: function(id){

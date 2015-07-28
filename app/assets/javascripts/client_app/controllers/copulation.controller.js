@@ -3,8 +3,9 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory',
-            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes) {
+        .controller('CopulationController', ['$scope', '$state', 'ngDialog', 'CopulationsFactory', '$stateParams', '$timeout', '$sce',
+            'Lightbox', 'BreedsFactory', 'CommentsFactory', 'NotesFactory', 'CountriesFactory',
+            function ($scope, $state, ngDialog, copulations, $stateParams, $timeout, $sce, Lightbox, breeds, comments, notes, countries) {
 
             $('body').css('background-color', 'white');
             $scope.getHtml = function(html){
@@ -24,27 +25,32 @@
                 breed_id: '',
                 scorp: false,
                 rkf: false,
-                bloodline: false
+                bloodline: false,
+                country_id: ''
             };
 
-                $scope.breeds = [];
-                $scope.updateBreeds = function(){
-                    breeds.all({family: $scope.filters.family})
-                        .success(function(data){
-                            $scope.breeds = data.breeds;
-                            if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.filters.breed_id)){
-                                $scope.filters.breed_id = '';
-                            }
-                        })
-                        .error(function(){
+            $scope.breeds = [];
+            $scope.updateBreeds = function(){
+                breeds.all({family: $scope.filters.family})
+                    .success(function(data){
+                        $scope.breeds = data.breeds;
+                        if(!_.contains(_.map($scope.breeds, function(breed){ return breed.id }), $scope.filters.breed_id)){
+                            $scope.filters.breed_id = '';
+                        }
+                    })
+                    .error(function(){
 
-                        })
-                };
+                    })
+            };
+            $scope.updateBreeds();
+
+            $scope.$watch('filters.family', function(){
                 $scope.updateBreeds();
+            });
 
-                $scope.$watch('filters.family', function(){
-                    $scope.updateBreeds();
-                });
+            countries.all().success(function(data){
+                $scope.countries = data.countries;
+            });
 
             if($state.current.name == 'copulation'){
                 $scope.$parent.header_url = 'yellow';
