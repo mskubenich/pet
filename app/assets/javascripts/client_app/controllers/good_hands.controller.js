@@ -28,6 +28,12 @@
                     country_id: ''
                 };
 
+                if(window.filters){
+                    $scope.filters = window.filters;
+                    window.filters = null;
+                }
+
+
                 $scope.breeds = [];
                 $scope.updateBreeds = function(){
                     breeds.all({family: $scope.filters.family})
@@ -98,11 +104,22 @@
                 if($state.current.name == 'show_hand'){
                     $scope.$parent.header_url = 'yellow';
 
-                    //setTimeout(function(){
-                    //    $scope.$watch('filters', function(){
-                    //        $state.go('sale');
-                    //    });
-                    //}, 100);
+                    var timer = false;
+                    $scope.initializing = true;
+                    $scope.$watch('filters', function(){
+                        if(timer){
+                            $timeout.cancel(timer)
+                        }
+                        timer= $timeout(function(){
+                            console.log('here');
+                            if($scope.initializing){
+                                $scope.initializing = false;
+                            }else{
+                                window.filters = $scope.filters;
+                                $state.go('good_hands');
+                            }
+                        }, 500)
+                    }, true);
 
                     $scope.announcement = {};
                     $scope.images = [];
@@ -239,6 +256,7 @@
                     }
                 }
                 if($state.current.name == 'new_hand'){
+
                     $scope.$parent.header_url = 'black';
 
                     $scope.announcement = {};
