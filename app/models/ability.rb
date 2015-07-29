@@ -48,5 +48,7 @@ class Ability
     can :read, Product
     can :read, Post
     can :read, MyPet
+    can :read, Competition
+    can :read, Exhibition
   end
 end
