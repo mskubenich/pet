@@ -1,20 +1,16 @@
 .wave
 .nav-menu
   .container
-    div.horizontal-list style="height: 80px"
-      ul
-        li ng-repeat="category in categories"
-          a.black-dashed-link class="{{ filters.categories[category.id] ? 'active' : '' }}" ng-click="filters.categories[category.id] = filters.categories[category.id] ? null: true"
-            | {{ category.title }}
+    br
 .container
   .row
     .col-md-9
-      #news-pagination ng-hide="news_count < 11"
-      .news ng-repeat="article in news"
+      #exhibitions-pagination ng-hide="count < 11"
+      .news ng-repeat="article in exhibitions"
         table.news-header
           tr
             td
-              a.news-title href="#news/{{article.id}}"
+              a.news-title href="#exhibitions/{{article.id}}"
                 | {{ article.title }}
               | &nbsp;
               span.black-budget ng-show="article.scorp"
@@ -51,7 +47,7 @@
                 i.fa.fa-eye
                 | &nbsp;{{ article.views_count }}
               span.comments-gray
-                a.dashed_text href="#news/{{article.id}}"
+                a.dashed_text href="#exhibitions/{{article.id}}"
                   | Оставить отзыв
                 | ({{ article.comments_count }})
     .col-md-3
@@ -59,4 +55,4 @@
         b
           | {{ I18n.t('news.popular') }}:
       br
-      div ng-include=true src="'client_app/templates/news/popular.html'"
+      div ng-include=true src="'client_app/templates/exhibitions/popular.html'"

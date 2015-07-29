@@ -123,6 +123,18 @@ en:
       city: 'City'
       color: 'Color'
       weight: 'Weight'
+  competition:
+    title: 'Competition'
+    new: 'New Competition'
+    edit: 'Edit Competition'
+    messages:
+      success_upsert: "Competition successfully saved."
+  exhibition:
+    title: 'Exhibition'
+    new: 'New Exhibition'
+    edit: 'Edit Exhibition'
+    messages:
+      success_upsert: "Exhibition successfully saved."
   sale:
     title: 'Sale'
     new: 'New Sale'

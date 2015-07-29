@@ -113,6 +113,18 @@ ru:
       city: 'Город'
       color: 'Цвет'
       weight: 'Вес'
+  competition:
+    title: 'Конкурсы'
+    new: 'Создать Конкурс'
+    edit: 'Редактировать конкурс'
+    messages:
+      success_upsert: "Конкурс успешно сохранен."
+  exhibition:
+    title: 'Выставки'
+    new: 'Создать выставку'
+    edit: 'Редактировать выставку'
+    messages:
+      success_upsert: "Выставка успешно сохранена."
   sale:
     title: 'Продажа'
     new: 'Добавить Продажу'

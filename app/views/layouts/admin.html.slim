@@ -68,6 +68,12 @@ html(lang="en")
                 li role="presentation" ng-class="{'active' : $state.current.name == 'copulation_slides' }"
                   a href="#copulation_slides"
                     | Питомцы на случку (галерея)
+                li role="presentation" ng-class="{'active' : $state.current.name == 'competitions' }"
+                  a href="#competitions"
+                    | {{I18n.t('menu.competitions')}}
+                li role="presentation" ng-class="{'active' : $state.current.name == 'exhibitions' }"
+                  a href="#exhibitions"
+                    | {{I18n.t('menu.exhibitions')}}
         .col-md-9
           div ui-view=true
 

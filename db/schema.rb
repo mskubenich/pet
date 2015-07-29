@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150728114855) do
+ActiveRecord::Schema.define(version: 20150729093536) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -60,6 +60,23 @@ ActiveRecord::Schema.define(version: 20150728114855) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "competitions", force: :cascade do |t|
+    t.boolean  "rkf",                        limit: 1
+    t.boolean  "scorp",                      limit: 1
+    t.integer  "user_id",                    limit: 4
+    t.text     "body_ru",                    limit: 65535
+    t.text     "body_en",                    limit: 65535
+    t.string   "title_ru",                   limit: 255
+    t.string   "title_en",                   limit: 255
+    t.integer  "views_count",                limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "preview_image_file_name",    limit: 255
+    t.string   "preview_image_content_type", limit: 255
+    t.integer  "preview_image_file_size",    limit: 4
+    t.datetime "preview_image_updated_at"
+  end
+
   create_table "copulation_slides", force: :cascade do |t|
     t.text     "description",        limit: 65535
     t.string   "image_file_name",    limit: 255
@@ -104,6 +121,23 @@ ActiveRecord::Schema.define(version: 20150728114855) do
     t.string   "color",                      limit: 255
     t.string   "weight",                     limit: 255
     t.integer  "country_id",                 limit: 4
+  end
+
+  create_table "exhibitions", force: :cascade do |t|
+    t.boolean  "rkf",                        limit: 1
+    t.boolean  "scorp",                      limit: 1
+    t.integer  "user_id",                    limit: 4
+    t.text     "body_ru",                    limit: 65535
+    t.text     "body_en",                    limit: 65535
+    t.string   "title_ru",                   limit: 255
+    t.string   "title_en",                   limit: 255
+    t.integer  "views_count",                limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "preview_image_file_name",    limit: 255
+    t.string   "preview_image_content_type", limit: 255
+    t.integer  "preview_image_file_size",    limit: 4
+    t.datetime "preview_image_updated_at"
   end
 
   create_table "friendships", force: :cascade do |t|

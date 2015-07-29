@@ -203,6 +203,36 @@
                 url: '/copulation_slides/new',
                 templateUrl: 'client_app/templates/admin/copulation_slides/new.html',
                 controller: 'AdminCopulationSlidesController'
+            })
+            .state('competitions',{
+                url: '/competitions',
+                templateUrl: 'client_app/templates/admin/competitions/index.html',
+                controller: 'AdminCompetitionsController'
+            })
+            .state('create_competition',{
+                url: '/create_competition',
+                templateUrl: 'client_app/templates/admin/competitions/new.html',
+                controller: 'AdminCompetitionsController'
+            })
+            .state('edit_competition',{
+                url: '/competitions/:id/edit',
+                templateUrl: 'client_app/templates/admin/competitions/new.html',
+                controller: 'AdminCompetitionsController'
+            })
+            .state('exhibitions',{
+                url: '/exhibitions',
+                templateUrl: 'client_app/templates/admin/exhibitions/index.html',
+                controller: 'AdminExhibitionsController'
+            })
+            .state('create_exhibition',{
+                url: '/create_exhibition',
+                templateUrl: 'client_app/templates/admin/exhibitions/new.html',
+                controller: 'AdminExhibitionsController'
+            })
+            .state('edit_exhibition',{
+                url: '/exhibitions/:id/edit',
+                templateUrl: 'client_app/templates/admin/exhibitions/new.html',
+                controller: 'AdminExhibitionsController'
             });
     }]);
 

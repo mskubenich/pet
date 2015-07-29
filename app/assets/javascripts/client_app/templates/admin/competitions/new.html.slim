@@ -1,0 +1,90 @@
+form ng-submit="upsertCompetition()" name="competitionForm" novalidate=true
+  h3 ng-show="$state.current.name == 'create_competition'"
+    | {{ I18n.t('competition.new') }}
+  h3 ng-show="$state.current.name == 'edit_competition'"
+    | {{ I18n.t('competition.edit') }}
+
+  .form-group
+    label
+      | {{ I18n.t('entities.title') }}
+    div role="tabpanel"
+      ul.nav.nav-tabs role="tablist"
+        li role="presentation" class="active"
+          a data-target="#ru-title" role="tab" data-toggle="tab"
+            | Ru
+        li role="presentation"
+          a data-target="#en-title" role="tab" data-toggle="tab"
+            | En
+      .tab-content
+        div role="tabpanel" class="tab-pane active" id="ru-title"
+          input.form-control name="title_en" ng-model="processedCompetition.title_ru" required=true
+        div role="tabpanel" class="tab-pane" id="en-title"
+          input.form-control name="title_ru" ng-model="processedCompetition.title_en" required=true
+    br
+    .error-container ng-show="submited && (competitionForm.title_ru.$invalid || competitionForm.title_en.$invalid)"
+      small.error
+        | {{ I18n.t('validations.cant_be_blank') }}
+
+  .form-group
+    label
+      | {{ I18n.t('entities.preview_image') }}
+    br
+    label
+      input type="file" style="display: none" onchange="previewAvatar(this, '#avatar-preview');"  file-model="preview_image"
+      .avatar-droppable#avatar-preview
+        table
+          tr
+            td
+              i.fa.fa-plus-circle
+
+  .form-group
+    label
+      | {{ I18n.t('entities.body') }}
+    div role="tabpanel"
+      ul.nav.nav-tabs role="tablist"
+        li role="presentation" class="active"
+          a data-target="#ru-body" role="tab" data-toggle="tab"
+            | Ru
+        li role="presentation"
+          a data-target="#en-body" role="tab" data-toggle="tab"
+            | En
+      .tab-content
+        div role="tabpanel" class="tab-pane active" id="ru-body"
+          textarea#redactor_ru redactor='' name="body" ng-model="processedCompetition.body_ru" required=true
+        div role="tabpanel" class="tab-pane" id="en-body"
+          textarea#redactor_en redactor='' name="body" ng-model="processedCompetition.body_en" required=true
+    br
+    .error-container ng-show="submited && competitionForm.body.$invalid"
+      small.error ng-show="competitionForm.body.$error.required" {{ I18n.t('validations.cant_be_blank') }}
+
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            .rounded-one class="{{ processedCompetition.scorp ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-model="processedCompetition.scorp"
+          td
+            span.black-budget style="margin-top: 13px"
+              | СКОРП
+
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            .rounded-one class="{{ processedCompetition.rkf ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-model="processedCompetition.rkf"
+          td
+            span.black-budget
+              | РКФ
+
+  div style="text-align: center"
+    button class="btn btn--primary btn--sm" ng-disabled="processing" type="submit"
+      i.fa.fa-spinner.fa-pulse ng-show="processing"
+      span ng-show="$state.current.name == 'create_competition'"
+      | {{ I18n.t('actions.create') }}
+      span ng-show="$state.current.name == 'edit_competition'"
+      | {{ I18n.t('actions.update') }}

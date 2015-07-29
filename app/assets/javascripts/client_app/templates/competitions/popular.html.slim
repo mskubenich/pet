@@ -1,0 +1,25 @@
+.small-content
+  b
+    .pet-h3
+      | {{ I18n.t('menu.competitions') }}
+  br
+  br
+  div ng-repeat="n in popular_competitions"
+    table.heading-table
+      tr
+        td.serif-font-bold
+          a href="#competitions/{{ n.id }}" style="color: black"
+            | {{ n.title }}
+        td
+          i.fa.fa-clock-o
+          | &nbsp;
+          | {{ n.created_at }}
+    br
+    span.small-text ng-bind-html="getHtml(n.body)"
+      | {{ n.body }}
+  br
+  a.white-btn-lg  href="#competitions" style="text-transform: uppercase; font-family: PFCentroSerifBold;"
+    | Все новости
+  br
+  br
+  br

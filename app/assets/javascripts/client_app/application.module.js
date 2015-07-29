@@ -177,6 +177,26 @@
                 url: '/friends',
                 templateUrl: 'client_app/templates/friends/index.html',
                 controller: 'ProfileController'
+            })
+            .state('competitions',{
+                url: '/competitions',
+                templateUrl: 'client_app/templates/competitions/index.html',
+                controller: 'CompetitionsController'
+            })
+            .state('show_competition',{
+                url: '/competitions/:id',
+                templateUrl: 'client_app/templates/competitions/show.html',
+                controller: 'CompetitionsController'
+            })
+            .state('exhibitions',{
+                url: '/exhibitions',
+                templateUrl: 'client_app/templates/exhibitions/index.html',
+                controller: 'ExhibitionsController'
+            })
+            .state('show_exhibition',{
+                url: '/exhibitions/:id',
+                templateUrl: 'client_app/templates/exhibitions/show.html',
+                controller: 'ExhibitionsController'
             });
     }]);
 

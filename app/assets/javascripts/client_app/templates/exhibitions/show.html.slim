@@ -1,0 +1,52 @@
+.wave
+.nav-menu
+  .container
+    br
+.container
+  .row
+    .col-md-9
+      .news
+        table.news-header
+          tr
+            td
+              span.news-title
+                | {{ exhibition.title }}
+              | &nbsp;
+              span.black-budget ng-show="exhibition.scorp"
+                | СКОРП
+              | &nbsp;
+              span.black-budget ng-show="exhibition.rkf"
+                | РКФ
+              |  &nbsp;
+            td style="text-align: right"
+              span.news-gray-text
+                | {{ exhibition.created_at }}
+                | &nbsp;
+                span
+                  = I18n.t 'users.created_by'
+              span.news-author-profile-link
+                | {{ exhibition.author }}
+              img.news-author-avatar ng-src="{{exhibition.author_avatar_url}}"
+        .news-preview
+          img.news-image-original ng-src="{{ exhibition.preview_image_url }}" style="max-width: 100%"
+        .news-meta
+          a
+            i.fa.fa-heart
+            | 255
+          a
+            i.fa.fa-repeat
+            | &nbsp;{{ exhibition.comments_count }}
+          a
+            i.fa.fa-eye
+            | &nbsp;{{ exhibition.views_count }}
+          a.dashed_text
+            | Оставить отзыв
+    .col-md-3
+      h3.serif-font
+        b
+          | {{ I18n.t('news.popular') }}:
+      br
+      div ng-include=true src="'client_app/templates/exhibitions/popular.html'"
+  .row
+    .col-md-9 ng-include=true src="'client_app/templates/comments/index.html'"
+    .col-md-3

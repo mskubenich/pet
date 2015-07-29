@@ -13,6 +13,8 @@ Rails.application.routes.draw do
         end
       end
       resources :news, only: [:index, :create, :update, :destroy, :show]
+      resources :competitions, only: [:index, :create, :update, :destroy, :show]
+      resources :exhibitions, only: [:index, :create, :update, :destroy, :show]
       get 'static_pages/:name', to: 'static_pages#show', constraints: { name: /#{ StaticPage::NAMES.join('|')}/ }
       put 'static_pages/:name', to: 'static_pages#update', constraints: { name: /#{ StaticPage::NAMES.join('|')}/ }
       resources :copulations, except: [:new, :edit] do
@@ -103,6 +105,19 @@ Rails.application.routes.draw do
         get :popular
       end
     end
+
+    resources :competitions, only: [:index, :show] do
+      collection do
+        get :popular
+      end
+    end
+
+    resources :exhibitions, only: [:index, :show] do
+      collection do
+        get :popular
+      end
+    end
+
     resources :copulations, only: [:index, :create, :update, :show] do
       member do
         get :show_phone

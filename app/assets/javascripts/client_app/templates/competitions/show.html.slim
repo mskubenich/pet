@@ -1,0 +1,52 @@
+.wave
+.nav-menu
+  .container
+    br
+.container
+  .row
+    .col-md-9
+      .news
+        table.news-header
+          tr
+            td
+              span.news-title
+                | {{ competition.title }}
+              | &nbsp;
+              span.black-budget ng-show="competition.scorp"
+                | СКОРП
+              | &nbsp;
+              span.black-budget ng-show="competition.rkf"
+                | РКФ
+              |  &nbsp;
+            td style="text-align: right"
+              span.news-gray-text
+                | {{ competition.created_at }}
+                | &nbsp;
+                span
+                  = I18n.t 'users.created_by'
+              span.news-author-profile-link
+                | {{ competition.author }}
+              img.news-author-avatar ng-src="{{competition.author_avatar_url}}"
+        .news-preview
+          img.news-image-original ng-src="{{ competition.preview_image_url }}" style="max-width: 100%"
+        .news-meta
+          a
+            i.fa.fa-heart
+            | 255
+          a
+            i.fa.fa-repeat
+            | &nbsp;{{ competition.comments_count }}
+          a
+            i.fa.fa-eye
+            | &nbsp;{{ competition.views_count }}
+          a.dashed_text
+            | Оставить отзыв
+    .col-md-3
+      h3.serif-font
+        b
+          | {{ I18n.t('news.popular') }}:
+      br
+      div ng-include=true src="'client_app/templates/competitions/popular.html'"
+  .row
+    .col-md-9 ng-include=true src="'client_app/templates/comments/index.html'"
+    .col-md-3
