@@ -8,8 +8,6 @@
 
             $scope.$parent.header_url = 'black';
 
-            $scope.$parent.initShopSlides();
-
             $scope.filters = {
                 family: 'all',
                 price: {

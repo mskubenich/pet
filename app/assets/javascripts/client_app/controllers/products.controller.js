@@ -112,7 +112,6 @@
                 $scope.retrieveProducts();
             }
             if($state.current.name == 'show_product'){
-                $scope.$parent.initShopSlides();
                 $('body').css('background-color', 'white');
                 //setTimeout(function(){
                 //    $scope.$watch('filters', function(){

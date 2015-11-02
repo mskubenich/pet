@@ -38,9 +38,6 @@
                     })
                     .error();
 
-                $scope.$parent.initShopSlides();
-
-
                 $scope.initTheCopulationSlider = function(){
                     pages.get_the_copulation_slides()
                         .success(function(data){
