@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729093536) do
+ActiveRecord::Schema.define(version: 20151102102514) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20150729093536) do
     t.integer "cart_id",    limit: 4
     t.integer "product_id", limit: 4
     t.integer "count",      limit: 4
-    t.integer "user_id",    limit: 4
   end
 
   create_table "carts", force: :cascade do |t|
@@ -352,11 +351,6 @@ ActiveRecord::Schema.define(version: 20150729093536) do
     t.string "title_en", limit: 255
   end
 
-  create_table "shop_categories_news", force: :cascade do |t|
-    t.integer "product_id",       limit: 4
-    t.integer "shop_category_id", limit: 4
-  end
-
   create_table "shop_subcategories", force: :cascade do |t|
     t.string  "title_ru",         limit: 255
     t.string  "title_en",         limit: 255
@@ -375,24 +369,29 @@ ActiveRecord::Schema.define(version: 20150729093536) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name",          limit: 255
-    t.string   "last_name",           limit: 255
-    t.string   "email",               limit: 255
-    t.string   "login",               limit: 255
-    t.string   "phone",               limit: 255
-    t.string   "salt",                limit: 255
-    t.string   "encrypted_password",  limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.boolean  "rkf",                 limit: 1,   default: false
-    t.boolean  "scorp",               limit: 1,   default: false
-    t.string   "avatar_file_name",    limit: 255
-    t.string   "avatar_content_type", limit: 255
-    t.integer  "avatar_file_size",    limit: 4
+    t.string   "first_name",               limit: 255
+    t.string   "last_name",                limit: 255
+    t.string   "email",                    limit: 255
+    t.string   "login",                    limit: 255
+    t.string   "phone",                    limit: 255
+    t.string   "salt",                     limit: 255
+    t.string   "encrypted_password",       limit: 255
+    t.datetime "created_at",                                           null: false
+    t.datetime "updated_at",                                           null: false
+    t.boolean  "rkf",                      limit: 1,   default: false
+    t.boolean  "scorp",                    limit: 1,   default: false
+    t.string   "avatar_file_name",         limit: 255
+    t.string   "avatar_content_type",      limit: 255
+    t.integer  "avatar_file_size",         limit: 4
     t.datetime "avatar_updated_at"
-    t.boolean  "banned",              limit: 1
-    t.string   "country",             limit: 255
-    t.string   "city",                limit: 255
+    t.boolean  "banned",                   limit: 1
+    t.string   "country",                  limit: 255
+    t.string   "city",                     limit: 255
+    t.boolean  "specialist",               limit: 1,   default: false
+    t.boolean  "specialist_approved",      limit: 1,   default: false
+    t.boolean  "specialist_requested",     limit: 1,   default: false
+    t.string   "specialist_type",          limit: 255
+    t.string   "specialist_reject_reason", limit: 255
   end
 
   create_table "views", force: :cascade do |t|

@@ -1,0 +1,45 @@
+.container
+  table.table.vertical-align-table.sale-filters-table
+    tr
+      td style="width: 200px"
+        br
+        .btn-group dropdown=true style="width: 100%"
+          button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
+            span ng-show="filters.country_id"
+              span.flag class="{{ selected_country.code }}"
+              | {{ selected_country['title_' + I18n.locale ] }}
+            span ng-hide="filters.country_id"
+              | {{ I18n.t('sale.filters.choose_country') }}
+            span.caret
+          .dropdown-menu style="width: 250px; padding: 10px 5px;"
+            li
+              a ng-click="filters.country_id = ''" style="cursor: pointer"
+                | All
+            li ng-repeat="country in countries"
+              a ng-click="filters.country_id = country.id; $parent.selected_country = country" style="cursor: pointer"
+                span.flag class="{{ country.code }}"
+                | {{ country['title_' + I18n.locale ] }}
+      td
+        br
+        .btn-group dropdown=true style="width: 100%"
+          button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
+            | {{ I18n.t('sale.filters.choose_city') }}
+            span.caret
+          ul.dropdown-menu role="menu"
+            li
+              a test
+              a test
+              a test
+              a test
+      td
+        br
+        .btn-group dropdown=true style="width: 100%"
+          button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
+            | Выберите специалиста
+            span.caret
+          ul.dropdown-menu role="menu"
+            li
+              a test
+              a test
+              a test
+              a test

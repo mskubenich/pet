@@ -1,4 +1,10 @@
 class User < ActiveRecord::Base
+
+  include Commentable
+  include Viewable
+  include Ratingable
+
+
   validates :email, uniqueness: { case_sensitive: false, message: "has already been taken." },
             format: { with: /.*\@.*\..*/, message: "is incorrect"},
             presence: true
@@ -60,7 +66,7 @@ class User < ActiveRecord::Base
   end
 
   def full_name
-    "#{ first_name } #{ last_name }"
+    "#{ first_name.capitalize } #{ last_name.capitalize }"
   end
 
   def cart

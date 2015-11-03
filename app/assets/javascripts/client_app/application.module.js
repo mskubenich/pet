@@ -48,6 +48,11 @@
                 templateUrl: 'client_app/templates/experts/index.html',
                 controller: 'ExpertsController'
             })
+            .state('show_expert',{
+                url: '/expert/:id',
+                templateUrl: 'client_app/templates/experts/show.html',
+                controller: 'ExpertsController'
+            })
             .state('news',{
                 url: '/news',
                 templateUrl: 'client_app/templates/news/index.html',

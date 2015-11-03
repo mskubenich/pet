@@ -1,0 +1,12 @@
+| {{ I18n.t('entities.reject_reason_message') }}:
+br
+form novalidate=true name="RejectForm" ng-submit="submit()"
+  textarea ng-model="reason" style="width: 100%" required=true
+  .error ng-show="submited && RejectForm.$invalid"
+    | Не может быть пустым.
+  br
+  br
+  input.btn.btn-danger type="submit" value="{{ I18n.t('actions.reject') }}"
+  | &nbsp;
+  a.btn.btn-success ng-click="closeThisDialog()"
+    | {{ I18n.t('actions.cancel') }}

@@ -28,6 +28,19 @@
       br
       a.black-yellow-shop-button href="#messages/{{ profile.id }}"
         | Написать
+    div ng-show="profile.id == current_user.id"
+      br
+      br
+      a.black-yellow-shop-button ng-click="become_specialist()" ng-hide="current_user.specialist_requested"
+        | Стать специалистом
+      span ng-show="current_user.specialist_requested && !current_user.specialist_approved"
+        | Ваше заявление на специалиста обрабатывается.
+      span.yellow-black-button ng-show="current_user.specialist"
+        | Вы являетесь специалистом ({{ current_user.specialist_type }})
+    .error ng-show="current_user.specialist_reject_reason"
+      br
+      br
+      | Ваш запрос на специалиста отклонен. Причина: {{ current_user.specialist_reject_reason }}
   .col-md-6.col-sm-6
     .pet-h1
       | {{ profile.full_name }}

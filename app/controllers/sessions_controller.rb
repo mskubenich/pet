@@ -11,7 +11,13 @@ class SessionsController < ApplicationController
                      full_name: current_user.service.try(:uname) || current_user.full_name,
                      is_admin: current_user.admin?,
                      avatar_url: current_user.service.try(:uimage) || current_user.avatar.url(:thumb),
-                     cart_items_count: current_user.cart.cart_items.count
+                     cart_items_count: current_user.cart.cart_items.count,
+
+                     specialist: current_user.specialist?,
+                     specialist_requested: current_user.specialist_requested,
+                     specialist_approved: current_user.specialist_approved,
+                     specialist_type: current_user.specialist_type,
+                     specialist_reject_reason: current_user.specialist_reject_reason
                  }
              }
     else

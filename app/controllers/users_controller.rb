@@ -83,6 +83,11 @@ class UsersController < ApplicationController
     @users = current_user.friends.sample(3)
   end
 
+  def become_specialist
+    current_user.update_attributes specialist_requested: true, specialist_type: params[:specialist][:profession], specialist_reject_reason: nil
+    render json: {ok: true}
+  end
+
   private
 
   def user_params

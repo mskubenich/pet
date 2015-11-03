@@ -1,0 +1,78 @@
+.wave
+.nav-menu ng-include=true src="'client_app/templates/experts/filters.html'"
+.container
+  div
+    .row
+      br
+      br
+      .col-md-3.col-sm-3
+        img.profile-avatar ng-src="{{expert.avatar_url }}"
+        .row
+          .col-xs-6.col-md-4 ng-repeat="image in expert.pets_images"
+            a class="thumbnail"
+              img ng-src="{{ image }}" ng-click="openLightboxModal($index)"
+        div ng-show="expert.id != current_user.id"
+          br
+          br
+          .description ng-show="expert.friendship_status == 'pending'"
+            | Пользователь еще не ответил на Ваше приглашение.
+          .description ng-show="expert.friendship_status == 'accepted'"
+            | Друг.
+          .description ng-show="expert.friendship_status == 'requested'"
+            | Пользователь хочет добавиться Вам в друзья.
+          br
+          br
+          a.black-yellow-shop-button ng-show="expert.friendship_status == 'none'" ng-click="addToFriends(expert.id)"
+            | Добавить в друзья
+          a.black-yellow-shop-button ng-show="expert.friendship_status == 'pending'" ng-click="declineInviteToFriends(expert.id)"
+            | Отменить приглашение
+          a.black-yellow-shop-button ng-show="expert.friendship_status == 'requested'" ng-click="acceptInviteToFriends(expert.id)"
+            | Подтвердить дружбу
+          a.black-yellow-shop-button ng-show="expert.friendship_status == 'requested'" ng-click="rejectInviteToFriends(expert.id)"
+            | Отказаться от дружбы
+          a.black-yellow-shop-button ng-show="expert.friendship_status == 'accepted'" ng-click="removeFromFriends(expert.id)"
+            | Удалить из друзей
+          br
+          br
+          a.black-yellow-shop-button href="#messages/{{ expert.id }}"
+            | Написать
+      .col-md-6.col-sm-6
+        .pet-h1
+          | {{ expert.full_name }}
+        br
+        | Russian Federation, Moskow
+        | &nbsp;
+        | &nbsp;
+        img src="assets/ru.png" style="width: 20px"
+        br
+        br
+        br
+        br
+        br
+        br
+        .pet-h2
+          | Описание:
+        .pt-sans-text
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+
+      .col-md-3.col-sm-3.text-right
+        span.rating
+          span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly"
+            | {{percent}}%
+          rating ng-model="rate" max="max" readonly="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null"
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        span style="color: red; font-size: 26px"
+          | {{ phone }}
+        br
+        span.black-budget.connect ng-click="showPhone()"
+          | {{ I18n.t('message') }}
+  hr
+  .row
+    .col-md-3
+    .col-md-9 ng-include=true src="'client_app/templates/comments/index.html'"

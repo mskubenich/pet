@@ -79,11 +79,14 @@
             }
 
             if($state.current.name == 'edit_user'){
-                users.show($stateParams.id).success(function(data){
-                    $scope.user = data.user;
-                }).error(function(){
+                $scope.reloadUser = function(){
+                    users.show($stateParams.id).success(function(data){
+                        $scope.user = data.user;
+                    }).error(function(){
 
-                });
+                    });
+                };
+                $scope.reloadUser();
 
 
                 $scope.submitUserData = function () {
@@ -109,6 +112,59 @@
                                     plain: true
                                 });
                             }
+                        });
+                };
+
+                $scope.approve_specialist = function(){
+                    users.approve_specialist($scope.user.id)
+                        .success(function(data, status, headers, config){
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: 'Специалист подтвержден',
+                                plain: true
+                            });
+                            $scope.reloadUser();
+                        })
+                        .error(function (data, status, headers, config) {
+
+                        });
+                };
+
+                $scope.reject_specialist = function(){
+                    var scope = $scope;
+                    var id = $stateParams.id;
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: 'client_app/templates/admin/users/reject_specialist.html',
+                        controller: ['$scope', function ($scope) {
+                            $scope.I18n = I18n;
+                            $scope.reason = '';
+                            $scope.submit = function () {
+                                $scope.submited = true;
+                                if($scope.RejectForm.$invalid){
+                                    return
+                                }
+                                users.reject_specialist(id, $scope.reason).success(function(){
+                                    $scope.closeThisDialog();
+                                    scope.reloadUser();
+                                });
+                            };
+                        }]
+                    });
+                };
+
+                $scope.remove_specialist = function(){
+                    users.remove_specialist($scope.user.id)
+                        .success(function(data, status, headers, config){
+                            ngDialog.open({
+                                className: 'ngdialog-theme-default',
+                                template: 'Специалист удален.',
+                                plain: true
+                            });
+                            $scope.reloadUser();
+                        })
+                        .error(function (data, status, headers, config) {
+
                         });
                 };
             }

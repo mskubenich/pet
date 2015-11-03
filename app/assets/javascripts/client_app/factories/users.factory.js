@@ -55,6 +55,13 @@
             },
             friends_preview: function(){
                 return $http.get(I18n.locale + '/users/friends_preview.json')
+            },
+            become_specialist: function(specialist){
+                return $http.post(I18n.locale + '/users/become_specialist.json', {
+                    specialist: {
+                        profession: specialist.profession
+                    }
+                })
             }
         };
     }])

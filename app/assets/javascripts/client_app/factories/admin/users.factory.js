@@ -35,6 +35,15 @@
                     transformRequest: angular.identity,
                     headers: {'Content-Type': undefined}
                 });
+            },
+            approve_specialist: function(user_id){
+                return $http.post('admin/users/' + user_id + '/approve_specialist.json');
+            },
+            reject_specialist: function(user_id, reason){
+                return $http.post('admin/users/' + user_id + '/reject_specialist.json', {reason: reason});
+            },
+            remove_specialist: function(user_id){
+                return $http.post('admin/users/' + user_id + '/remove_specialist.json');
             }
         };
     }])

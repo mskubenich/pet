@@ -1,0 +1,11 @@
+h3
+  | Стать специалистом
+form novalidate=true name="SpecialistForm" ng-submit="submit()"
+  label
+    | Профессия
+  br
+  input.form-control type="text" name="profession" required=true ng-model="specialist.profession"
+  .error ng-show="submited && SpecialistForm.$invalid"
+    | Не может быть пустым.
+  br
+  input.btn.btn-success type="submit" value="Подать заявку"

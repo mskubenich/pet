@@ -10,4 +10,7 @@ json.user do
   json.avatar               @user.avatar.url
   json.country              @user.country
   json.city                 @user.city
+  json.specialist           !!@user.specialist
+  json.specialist_requested !!@user.specialist_requested
+  json.specialist_type      @user.specialist_type
 end

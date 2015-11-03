@@ -9,4 +9,9 @@ json.user do
   json.scorp @user.scorp
   json.country @user.country
   json.city @user.city
+
+  json.specialist @user.specialist?
+  json.specialist_requested @user.specialist_requested
+  json.specialist_approved @user.specialist_approved
+  json.specialist_type @user.specialist_type
 end

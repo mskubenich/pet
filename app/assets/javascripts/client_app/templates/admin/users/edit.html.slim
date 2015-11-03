@@ -1,3 +1,27 @@
+div ng-show="!user.specialist && user.specialist_requested"
+  hr
+    | Пользователь хочет стать специалистом ({{ user.specialist_type }}).
+
+    table.table.vertical-align-table style="width: 100%"
+      tr
+        td
+          a.btn.btn-success ng-click="approve_specialist()"
+            | {{ I18n.t('actions.approve') }}
+          | &nbsp;
+          a.btn.btn-danger ng-click="reject_specialist()"
+            | {{ I18n.t('actions.reject') }}
+  hr
+div ng-show="user.specialist"
+  hr
+    | Пользователь является специалистом.
+
+    table.table.vertical-align-table style="width: 100%"
+      tr
+        td
+          a.btn.btn-danger ng-click="remove_specialist()"
+            | {{ I18n.t('actions.reject') }}
+  hr
+
 form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=true
 
   .form-group

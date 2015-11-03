@@ -10,6 +10,9 @@ Rails.application.routes.draw do
         member do
           post :ban
           post :unban
+          post :approve_specialist
+          post :reject_specialist
+          post :remove_specialist
         end
       end
       resources :news, only: [:index, :create, :update, :destroy, :show]
@@ -89,6 +92,7 @@ Rails.application.routes.draw do
         get :requested_friends
         get :pending_friends
         get :friends_preview
+        post :become_specialist
       end
     end
 
@@ -111,6 +115,8 @@ Rails.application.routes.draw do
         get :popular
       end
     end
+
+    resources :experts, only: [:index, :show]
 
     resources :exhibitions, only: [:index, :show] do
       collection do

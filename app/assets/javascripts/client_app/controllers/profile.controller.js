@@ -47,6 +47,35 @@
                     pets.destroy(id).success(function(){
                         $scope.retrievePets();
                     })
+                };
+
+                $scope.become_specialist = function(){
+                    var scope = $scope;
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: "client_app/templates/users/become_specialist.html",
+                        controller: ['$scope', function ($scope) {
+                            $scope.I18n = scope.I18n;
+
+                            $scope.specialist = {};
+
+                            $scope.submit = function(){
+                                $scope.submited = true;
+                                if($scope.SpecialistForm.$invalid){
+                                    return
+                                }
+                                users.become_specialist($scope.specialist).success(function(){
+                                    $scope.closeThisDialog();
+                                    scope.$parent.getCurrentUserInfo();
+                                    ngDialog.open({
+                                        className: 'ngdialog-theme-default',
+                                        template: 'Заявка на специалиста успешно подана.',
+                                        plain: true
+                                    });
+                                })
+                            };
+                        }]
+                    });
                 }
         }])
 }());

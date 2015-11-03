@@ -1,4 +1,5 @@
 json.profile do
+  json.id @user.id
   json.avatar_url @user.avatar.url
   json.full_name @user.full_name
   json.phone @user.phone

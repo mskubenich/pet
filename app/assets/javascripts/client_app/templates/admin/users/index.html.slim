@@ -14,7 +14,9 @@ div
         th
           | {{ I18n.t('entities.organizations') }}
         th
-          | {{ I18n.t('users.login') }}
+          | Специалист
+        th
+          | {{ I18n.t('entities.created_at') }}
         th
           | {{ I18n.t('entities.actions') }}
     tbody
@@ -32,6 +34,9 @@ div
             | СКОРП
           span.black-budget ng-show="user.rkf"
             | РКФ
+        td
+          i.fa.fa-check ng-show="user.specialist"
+          i.fa.fa-exclamation ng-show="!user.specialist && user.specialist_requested"
         td
           | {{ user.created_at }}
         td

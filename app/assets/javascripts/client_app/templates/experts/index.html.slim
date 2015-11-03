@@ -1,2 +1,35 @@
-h1
-  | Experts
+.wave
+.nav-menu ng-include=true src="'client_app/templates/experts/filters.html'"
+.container
+  #experts-pagination ng-hide="count < 10"
+  .col-group
+    div ng-repeat="expert in experts"
+      table.sale-item
+        tr
+          td
+            .img style="background-image: url({{ expert.preview_image_url }})"
+            .prize ng-show="copulation.has_prize"
+          td
+            div.cell-div
+              b
+                a href="#expert/{{expert.id}}" style="color: black"
+                  | {{ expert.full_name }}
+              br
+                div style="font-style: italic; margin-top: 10px; margin-bottom: 10px"
+                  | ({{ expert.city }})
+              div
+                | Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et.
+        tr
+          td
+            .yellow-btn style="width: 100%; text-align: center"
+              | {{ expert.profession }}
+          td.stat-meta style="vertical-align: middle"
+            a
+              i.fa.fa-heart
+              | 255
+            a
+              i.fa.fa-repeat
+              | {{ expert.comments_count }}
+            a
+              i.fa.fa-eye
+              | {{ expert.views_count }}
