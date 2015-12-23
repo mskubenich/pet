@@ -373,7 +373,8 @@ a.yellow-solid-link{
     -moz-border-radius: 100px;
     border: 1px solid white;
     width: 97%;
-    padding: 7px 20px;
+    height: 33px;
+    padding: 0px 20px;
     &::-webkit-input-placeholder {color: white;}
     &::-moz-placeholder          {color: white;}/* Firefox 19+ */
     &:-moz-placeholder           {color: white;}/* Firefox 18- */
@@ -384,8 +385,8 @@ a.yellow-solid-link{
     cursor: pointer;
   }
   &.right-addon i {
-    right: 18px;
-    top: 1px;
+    right: 1px;
+    top: 0px;
   }
 }
 
