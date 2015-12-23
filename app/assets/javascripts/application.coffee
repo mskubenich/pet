@@ -44,3 +44,6 @@ $ ->
   $(document).on 'mouseleave', "[dropdown-leave]", (e) ->
     $(e.target).find("[dropdown-for]").hide('fast')
     $(e.target).parent("[dropdown-leave]").find('[dropdown-for]').hide('fast')
+
+String.prototype.contains = (it) ->
+  return this.indexOf(it) != -1;

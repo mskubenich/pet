@@ -1,29 +1,29 @@
-div
-  h2
-    | {{ I18n.t('menu.breeds') }}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.breeds') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default ui-sref="create_breeds"
+      | {{ I18n.t('breed.new')}}
 
-  button type="submit" class="btn btn--primary btn--sm" ui-sref="create_breeds"
-    | {{ I18n.t('breed.new')}}
-
-  #breeds-pagination ng-hide="count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th
-        th
-          | {{ I18n.t('entities.title') }}
-        th
-          | {{ I18n.t('entities.actions') }}
-    tbody
-      tr ng-repeat="breed in breeds"
-        td
-          label.yellow-cat-radio ng-show="breed.family == 'cat'"
-          label.yellow-dog-radio ng-show="breed.family == 'dog'"
-        td
-          | {{ breed.title }}
-        td.text-right
-          a href="#breeds/{{breed.id}}/edit"
-            i.fa.fa-pencil
-          | &nbsp;
-          a
-            .i.fa.fa-close ng-click="$parent.destroy(breed.id)"
+#breeds-pagination ng-hide="count < 11"
+table.table.table-striped.table-responsive ng-show="breeds.length > 0"
+  thead
+    tr
+      th
+      th
+        | {{ I18n.t('entities.title') }}
+      th.text-right
+  tbody
+    tr ng-repeat="breed in breeds"
+      td
+        label.yellow-cat-radio ng-show="breed.family == 'cat'"
+        label.yellow-dog-radio ng-show="breed.family == 'dog'"
+      td
+        | {{ breed.title }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#breeds/{{breed.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        | &nbsp;
+        a.btn.btn-default.btn-xs ng-click="$parent.destroy(breed.id)"
+          | {{ I18n.t('actions.delete')}}

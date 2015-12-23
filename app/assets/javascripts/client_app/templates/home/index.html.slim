@@ -10,13 +10,13 @@
           | {{ slide.description }}
         rating.rating ng-model="slide.rate" max="4" readonly="true"
     .img style="background-image: url({{ slide.url }}); background-position: center; background-size:cover;"
-.nav-menu style="padding: 20px;"
+.nav-menu style="padding: 20px; height: 309px"
   .container
-    table.table.vertical-align-table
+    table style="width: 100%"
       tr
-        td style="width: 300px;"
-          .pet-h4
-            | Питомцы на продажу
+        td
+          .pet-h4 style="margin-top: 40px;"
+            | {{ I18n.t('sale.title2') }}
           br
           .pets-for-pay-description
             | Lorem ipsum dolor sit amet
@@ -24,10 +24,10 @@
             | consectetur aclipisicing elit, sed do
           br
           br
-          span.pets-for-pay-button ui-sref="new_sale" ng-enabled="current_user" style="cursor: pointer"
-            | Подать объявление
+          span.pets-for-pay-button ui-sref="new_sale" ng-enabled="current_user" style="cursor: pointer; background-color: #343434; text-transform: upcase"
+            | {{ I18n.t('announcements.place') }}
         td
-          table.sale-slider-table.table.vertical-align-table style="background-color: transparent"
+          table.sale-slider-table align="right"
             tr
               td ng-repeat="sale in sale_slides"
                 a href="#sale/{{sale.id}}" style="cursor: pointer"
@@ -35,11 +35,10 @@
                     .overlay
                       rating.rating ng-model="sale.rating" max="5" readonly="true"
             tr
-              td ng-repeat="sale in sale_slides"
-                span.sale-slider-name
+              td ng-repeat="sale in sale_slides" style="padding-top: 8px !important"
+                .sale-slider-name
                   | {{ sale.name }}
-                br
-                span.sale-slider-breed
+                .sale-slider-breed
                   | {{ sale.breed }}
 .wave-bottom
 br
@@ -60,10 +59,10 @@ br
                   rating.rating ng-model="sale.rating" max="5" readonly="true"
         tr
           td ng-repeat="sale in copulation_slides"
-            span.sale-slider-name
+            .sale-slider-name
               | {{ sale.name }}
             br
-            span.sale-slider-breed
+            .sale-slider-breed
               | {{ sale.breed }}
     .col-md-4.col-sm-4
       .the-copulation-slider

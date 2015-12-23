@@ -59,6 +59,7 @@ en:
       success_upsert: "Slide successfully saved."
       remove_confirm: "Are you sure you want to remove slide ?"
   announcements:
+    place: "Place an announcement"
     messages:
       success_upsert: "Announcement successfully saved."
   category:
@@ -137,6 +138,7 @@ en:
       success_upsert: "Exhibition successfully saved."
   sale:
     title: 'Sale'
+    title: 'Pets for sale'
     new: 'New Sale'
     edit: 'Edit Sale'
     dog:
@@ -208,6 +210,8 @@ en:
     cancel: 'Cancel'
     confirm: 'Confirm'
     you_must_enter_before: 'You should enter before.'
+    delete: 'Delete'
+    edit: 'Edit'
   sessions:
     success_login: "Registration successful. You can enter."
     logout: 'Exit'

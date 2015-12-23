@@ -19,7 +19,7 @@ ru:
     shop_categories: 'Категории товара'
     shop_subcategories: 'Субкатегории товара'
     products: 'Продукты'
-    slides: 'Галерея'
+    slides: 'Слайды на Главной'
   datetime:
     ago: 'назад'
     at: 'в'
@@ -57,6 +57,7 @@ ru:
       success_upsert: "Слайд удачно создан."
       remove_confirm: "Вы действительно хотите удалить слайд ?"
   announcements:
+    place: "Подать объявление"
     messages:
       success_upsert: "Объявление удачно создано."
   category:
@@ -69,7 +70,7 @@ ru:
     edit: 'Редактировать Породу'
     messages:
       success_upsert: "Порода удачно сохранена."
-  breed:
+  product:
     new: 'Новый Продукт'
     edit: 'Редактировать Продукт'
     messages:
@@ -127,6 +128,7 @@ ru:
       success_upsert: "Выставка успешно сохранена."
   sale:
     title: 'Продажа'
+    title2: 'Питомцы на продажу'
     new: 'Добавить Продажу'
     edit: 'Редактировать Продажу'
     dog:
@@ -208,6 +210,8 @@ ru:
     cancel: 'Отмена'
     confirm: 'Подтвердить'
     you_must_enter_before: 'Вы должны сначала войти.'
+    delete: 'Удалить'
+    edit: 'Редактировать'
   sessions:
     success_login: "Регистрация прошла успешно. Можете войти."
     logout: 'Выход'

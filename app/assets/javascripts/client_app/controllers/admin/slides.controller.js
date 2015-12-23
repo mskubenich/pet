@@ -5,6 +5,9 @@
     angular.module('petModeAdminApp')
         .controller('AdminSlidesController', ['$scope', '$state', 'ngDialog', 'SlidesFactory', '$stateParams', function ($scope, $state, ngDialog, slides, $stateParams) {
 
+            $scope.$state = $state;
+            $scope.$parent.$state = $state;
+
             if($state.current.name == 'slides'){
                 $scope.slides = [];
 

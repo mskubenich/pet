@@ -9,6 +9,9 @@
                 $scope.I18n = I18n;
                 $scope._ = _;
 
+                $scope.$state = $state;
+                $scope.$parent.$state = $state;
+
                 $scope.getHtml = function(html){
                     return $sce.trustAsHtml(html);
                 };
@@ -74,6 +77,10 @@
                         sales.all({page: $scope.page, query: $scope.filters}).success(function (data) {
                             $scope.sales = data.sales;
                             $scope.count = data.count;
+
+                            if($scope.count == 0){
+                                return
+                            }
 
                             var pagination = $('#sales-pagination');
                             pagination.empty();

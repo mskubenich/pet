@@ -38,6 +38,7 @@
                                 template: I18n.t('breed.messages.success_upsert'),
                                 plain: true
                             });
+                            $state.go('breeds');
                         })
                         .error(function(data){
                             $scope.processing = false;

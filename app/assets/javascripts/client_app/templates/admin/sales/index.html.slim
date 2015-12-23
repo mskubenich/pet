@@ -1,61 +1,61 @@
-div
-  h2
-    | {{ I18n.t('menu.sale') }}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.sale') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default href="#sales/new"
+      | {{ I18n.t('sale.new')}}
+br
 
-  a.yellow-black-btn ui-sref="new_sale"
-    | {{ I18n.t('sale.new') }}
-  br
-  br
+div style="background-color: lightgray"
+  .container
+    div ng-include=true src="'client_app/templates/sales/filters.html'"
 
-  div style="background-color: lightgray"
-    .container
-      div ng-include=true src="'client_app/templates/sales/filters.html'"
+    .btn-group data-toggle="buttons"
+      label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
+        | Все
+      label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
+        | Одобренные
+      label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
+        | Неодобренные
+    br
+    br
 
-      .btn-group data-toggle="buttons"
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
-          | Все
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
-          | Одобренные
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
-          | Неодобренные
-      br
-      br
-
-  #sales-pagination ng-hide="count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th style="width: 150px"
-        th
-        th
-        th
-          | {{ I18n.t('entities.title') }}
-        th
-        th
-          | {{ I18n.t('entities.created_at') }}
-        th
-    tbody
-      tr ng-repeat="sale in sales"
-        td style="width: 150px"
-          span.black-budget ng-hide="sale.approved"
-            | {{ I18n.t('entities.on_moderation') }}
-        td
-          .span.flag class="{{ sale.country.code }}"
-        td
-          img ng-src="{{sale.preview_image_url}}" style="height: 30px"
-        td
-          | {{ sale.name }}
-        td
-          span.black-budget ng-show="sale.scorp"
-            | СКОРП
-          | &nbsp;
-          span.black-budget ng-show="sale.rkf"
-            | РКФ
-        td
-          | {{ sale.created_at }}
-        td style="width: 50px"
-          a href="#sales/{{sale.id}}/edit"
-            i.fa.fa-pencil
-          | &nbsp;
-          a ng-click="destroy(sale.id)"
-            i.fa.fa-close
+#sales-pagination ng-hide="count < 11"
+table.table.table-striped.table-responsive ng-show="sales.length > 0"
+  thead
+    tr
+      th style="width: 150px"
+      th
+      th
+      th
+        | {{ I18n.t('entities.title') }}
+      th
+      th
+        | {{ I18n.t('entities.created_at') }}
+      th
+  tbody
+    tr ng-repeat="sale in sales"
+      td style="width: 150px"
+        span.black-budget ng-hide="sale.approved"
+          | {{ I18n.t('entities.on_moderation') }}
+      td
+        .span.flag class="{{ sale.country.code }}"
+      td
+        img ng-src="{{sale.preview_image_url}}" style="height: 30px"
+      td
+        | {{ sale.name }}
+      td
+        span.black-budget ng-show="sale.scorp"
+          | СКОРП
+        | &nbsp;
+        span.black-budget ng-show="sale.rkf"
+          | РКФ
+      td
+        | {{ sale.created_at }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#sales/{{sale.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        | &nbsp;
+        a.btn.btn-default.btn-xs ng-click="$parent.destroy(sale.id)"
+          | {{ I18n.t('actions.delete')}}
