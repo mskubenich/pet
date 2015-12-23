@@ -144,10 +144,6 @@
     }
     .header-text {
       /* bottom: 40px; */
-      border: 2px dashed white;
-      border-radius: 100px;
-      -webkit-border-radius: 100px;
-      -moz-border-radius: 100px;
       width: 902px;
       line-height: 21px;
       font-family: PTSansRegular;
@@ -160,6 +156,7 @@
       position: absolute;
       right: -354px;
       top: 241px;
+      background-image: url('yellow-header-dashed-block.svg');
     }
     .logo-text{
       line-height: 1.7em;
