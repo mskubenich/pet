@@ -25,55 +25,55 @@ html(lang="en")
               = link_to 'ru', '/ru/admin', class: "#{ 'active' if params[:locale] == :ru }"
     .container ng-controller="AdminHomeController"
       .row
-        .col-md-3
-          .well
-            ul.sidebar-nav style="padding: 0"
-              ul.nav.nav-pills.nav-stacked
-                li role="presentation" ng-class="{'active' : $state.current.name == 'users' }"
-                  a href="#users"
-                    | {{ I18n.t('menu.users') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'news' }"
-                  a href="#news"
-                    | {{ I18n.t('menu.news') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'news_categories' }"
-                  a href="#news_categories"
-                    | {{ I18n.t('menu.news_categories') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'breeds' }"
-                  a href="#breeds"
-                    | {{ I18n.t('menu.breeds') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
-                  a href="#static_pages"
-                    | {{ I18n.t('admin.static_pages.title') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'copulations' }"
-                  a href="#copulations"
-                    | {{ I18n.t('menu.copulation') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'sales' }"
-                  a href="#sales"
-                    | {{ I18n.t('menu.sale') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'good_hands' }"
-                  a href="#good_hands"
-                    | {{ I18n.t('menu.in_good_hands') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'shop_categories' }"
-                  a href="#shop_categories"
-                    | {{ I18n.t('menu.shop_categories') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'products' }"
-                  a href="#products"
-                    | {{ I18n.t('menu.products') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'orders' }"
-                  a href="#orders"
-                    | Заказы
-                li role="presentation" ng-class="{'active' : $state.current.name == 'slides' }"
-                  a href="#slides"
-                    | {{ I18n.t('menu.slides') }}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'copulation_slides' }"
-                  a href="#copulation_slides"
-                    | Питомцы на случку (галерея)
-                li role="presentation" ng-class="{'active' : $state.current.name == 'competitions' }"
-                  a href="#competitions"
-                    | {{I18n.t('menu.competitions')}}
-                li role="presentation" ng-class="{'active' : $state.current.name == 'exhibitions' }"
-                  a href="#exhibitions"
-                    | {{I18n.t('menu.exhibitions')}}
+        .col-md-3.col-lg-3.col-sm-4
+          ul.sidebar-nav style="padding: 0"
+            ul.nav.nav-stacked
+              li role="presentation" ng-class="{'active' : $state.current.name == 'slides' }"
+                a href="#slides"
+                  | {{ I18n.t('menu.slides') }}
+              li.nav-divider
+              li role="presentation" ng-class="{'active' : $state.current.name == 'users' }"
+                a href="#users"
+                  | {{ I18n.t('menu.users') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'news' }"
+                a href="#news"
+                  | {{ I18n.t('menu.news') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'news_categories' }"
+                a href="#news_categories"
+                  | {{ I18n.t('menu.news_categories') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'breeds' }"
+                a href="#breeds"
+                  | {{ I18n.t('menu.breeds') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
+                a href="#static_pages"
+                  | {{ I18n.t('admin.static_pages.title') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'copulations' }"
+                a href="#copulations"
+                  | {{ I18n.t('menu.copulation') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'sales' }"
+                a href="#sales"
+                  | {{ I18n.t('menu.sale') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'good_hands' }"
+                a href="#good_hands"
+                  | {{ I18n.t('menu.in_good_hands') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'shop_categories' }"
+                a href="#shop_categories"
+                  | {{ I18n.t('menu.shop_categories') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'products' }"
+                a href="#products"
+                  | {{ I18n.t('menu.products') }}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'orders' }"
+                a href="#orders"
+                  | Заказы
+              li role="presentation" ng-class="{'active' : $state.current.name == 'copulation_slides' }"
+                a href="#copulation_slides"
+                  | Питомцы на случку (галерея)
+              li role="presentation" ng-class="{'active' : $state.current.name == 'competitions' }"
+                a href="#competitions"
+                  | {{I18n.t('menu.competitions')}}
+              li role="presentation" ng-class="{'active' : $state.current.name == 'exhibitions' }"
+                a href="#exhibitions"
+                  | {{I18n.t('menu.exhibitions')}}
         .col-md-9
           div ui-view=true
 

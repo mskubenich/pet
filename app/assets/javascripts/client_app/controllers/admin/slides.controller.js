@@ -15,6 +15,10 @@
                             $scope.slides = data.main_slides;
                             $scope.count = data.count;
 
+                            if($scope.count == 0){
+                                return
+                            }
+
                             var pagination = $('#slides-pagination');
                             pagination.empty();
                             pagination.removeData('twbs-pagination');
@@ -72,6 +76,7 @@
                                 template: I18n.t('slides.messages.success_upsert'),
                                 plain: true
                             });
+                            $state.go('slides')
                         })
                         .error(function (data, status, headers, config) {
                             if(data.errors){

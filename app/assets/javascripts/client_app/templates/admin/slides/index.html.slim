@@ -1,10 +1,12 @@
-div
-  h2
-    | {{ I18n.t('menu.slides') }}
-  a.btn.btn-default href="#slides/new"
-    | {{ I18n.t('slides.new')}}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.slides') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default href="#slides/new"
+      | {{ I18n.t('slides.new')}}
   #users-pagination ng-hide="count < 11"
-  table.table.table-striped.table-responsive
+  table.table.table-striped.table-responsive ng-show="count > 0"
     thead
       tr
         th
@@ -13,7 +15,7 @@ div
     tbody
       tr ng-repeat="slide in slides"
         td
-          img ng-src="{{slide.image_url}}" style="width: 300px;"
+          img ng-src="{{slide.image_url}}" style="width: 250px;"
         td
           a
             .i.fa.fa-close ng-click="$parent.removeSlide(slide.id)"
