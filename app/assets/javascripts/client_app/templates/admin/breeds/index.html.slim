@@ -16,7 +16,7 @@ table.table.table-striped.table-responsive ng-show="breeds.length > 0"
       th.text-right
   tbody
     tr ng-repeat="breed in breeds"
-      td
+      td style="width: 60px"
         label.yellow-cat-radio ng-show="breed.family == 'cat'"
         label.yellow-dog-radio ng-show="breed.family == 'dog'"
       td

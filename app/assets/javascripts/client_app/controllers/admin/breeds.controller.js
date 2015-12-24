@@ -71,7 +71,7 @@
                             visiblePages: 9,
                             onPageClick: function (event, page) {
                                 $scope.page = page;
-                                $scope.retrieveCategories();
+                                $scope.retrieveBreeds();
                             }
                         });
                     }).error(function (data) {
