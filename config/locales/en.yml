@@ -113,6 +113,7 @@ en:
     popular: 'Popular for the day'
     messages:
       success_upsert: "News successfully saved."
+      remove_confirm: "Are you sure you want to remove news ?"
   copulation:
     title: 'Copulation'
     new: 'New Copulation'
