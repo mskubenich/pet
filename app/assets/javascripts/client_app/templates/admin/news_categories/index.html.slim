@@ -1,25 +1,26 @@
-div
-  h2
-    | {{ I18n.t('menu.news_categories') }}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.news_categories') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default ui-sref="create_category"
+      | {{ I18n.t('category.new') }}
 
-  button type="submit" class="btn btn--primary btn--sm" ui-sref="create_category"
-    | {{ I18n.t('category.new')}}
-
-  #categories-pagination ng-hide="count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th
-          | {{ I18n.t('entities.title') }}
-        th
-          | {{ I18n.t('entities.actions') }}
-    tbody
-      tr ng-repeat="category in categories"
-        td
-          | {{ category.title }}
-        td.text-right
-          a href="#categories/{{category.id}}/edit"
-            i.fa.fa-pencil
-          | &nbsp;
-          a
-            .i.fa.fa-close ng-click="$parent.destroy(category.id)"
+#categories-pagination ng-hide="count < 11"
+table.table.table-striped.table-responsive ng-show="count > 0"
+  thead
+    tr
+      th
+        | {{ I18n.t('entities.title') }}
+      th
+        | {{ I18n.t('entities.actions') }}
+  tbody
+    tr ng-repeat="category in categories"
+      td
+        | {{ category.title }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#categories/{{category.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        | &nbsp;
+        a.btn.btn-default.btn-xs ng-click="$parent.destroy(category.id)"
+          | {{ I18n.t('actions.delete')}}

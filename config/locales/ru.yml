@@ -70,6 +70,7 @@ ru:
     edit: 'Редактировать Породу'
     messages:
       success_upsert: "Порода удачно сохранена."
+      remove_confirm: "Вы действительно хотите удалить породу ?"
   product:
     new: 'Новый Продукт'
     edit: 'Редактировать Продукт'
@@ -140,6 +141,8 @@ ru:
       choose_city: 'Выберите Город'
       choose_breed: 'Выберите Породу'
       with_bloodline: 'с родословной'
+    messages:
+      remove_confirm: "Вы действительно хотите удалить продажу ?"
   product:
     new: 'Новый Товар'
     fields:

@@ -31,7 +31,7 @@ html(lang="en")
               li role="presentation" ng-class="{'active' : $state.current.name.contains('slide') }"
                 a href="#slides"
                   | {{ I18n.t('menu.slides') }}
-              li role="presentation" ng-class="{'active' : $state.current.name == 'breeds' }"
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('breed') }"
                 a href="#breeds"
                   | {{ I18n.t('menu.breeds') }}
               li.nav-divider
@@ -39,15 +39,16 @@ html(lang="en")
                 a href="#sales"
                   | {{ I18n.t('sale.title2') }}
               li.nav-divider
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('news_categor') }"
+                a href="#news_categories"
+                  | {{ I18n.t('menu.news_categories') }}
+              li role="presentation" ng-class="{'active' : $state.current.contains.name('news') }"
+                a href="#news"
+                  | {{ I18n.t('menu.news') }}
+              li.nav-divider
               li role="presentation" ng-class="{'active' : $state.current.name == 'users' }"
                 a href="#users"
                   | {{ I18n.t('menu.users') }}
-              li role="presentation" ng-class="{'active' : $state.current.name == 'news' }"
-                a href="#news"
-                  | {{ I18n.t('menu.news') }}
-              li role="presentation" ng-class="{'active' : $state.current.name == 'news_categories' }"
-                a href="#news_categories"
-                  | {{ I18n.t('menu.news_categories') }}
               li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
                 a href="#static_pages"
                   | {{ I18n.t('admin.static_pages.title') }}

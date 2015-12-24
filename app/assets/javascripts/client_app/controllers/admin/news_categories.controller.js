@@ -6,6 +6,8 @@
         .controller('AdminNewsCategoriesController', ['$sce', '$scope', '$state', 'ngDialog', 'CategoriesFactory', '$stateParams', '$rootScope',
             function ($sce, $scope, $state, ngDialog, categories, $stateParams, $rootScope) {
             $rootScope.$state = $state;
+            $scope.$state = $state;
+            $scope.$parent.$state = $state;
 
 
             if($state.current.name == 'create_category' || $state.current.name == 'edit_category'){
@@ -38,6 +40,7 @@
                                 template: I18n.t('category.messages.success_upsert'),
                                 plain: true
                             });
+                            $state.go('news_categories')
                         })
                         .error(function(data){
                             $scope.processing = false;
@@ -59,6 +62,9 @@
                         $scope.categories = data.categories;
                         $scope.count = data.count;
 
+                        if($scope.count == 0 ){
+                            return
+                        }
                         var pagination = $('#categories-pagination');
                         pagination.empty();
                         pagination.removeData('twbs-pagination');

@@ -72,6 +72,7 @@ en:
     edit: 'Edit Breed'
     messages:
       success_upsert: "Breed successfully saved."
+      remove_confirm: "Are you sure you want to remove breed ?"
   product:
     new: 'New Product'
     edit: 'Edit Product'
@@ -138,7 +139,7 @@ en:
       success_upsert: "Exhibition successfully saved."
   sale:
     title: 'Sale'
-    title: 'Pets for sale'
+    title2: 'Pets for sale'
     new: 'New Sale'
     edit: 'Edit Sale'
     dog:
@@ -150,6 +151,8 @@ en:
       choose_city: 'Choose City'
       choose_breed: 'Choose Breed'
       with_bloodline: 'with bloodline'
+    messages:
+      remove_confirm: "Are you sure you want to remove sale ?"
   choose_from_list: 'Choose from list'
   organization_flag: 'Check this box if you represent one of the organizations.'
   bloodline_flag: "Add your pet's pedigree."

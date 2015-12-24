@@ -98,9 +98,20 @@
                     $scope.retrievesales();
 
                     $scope.destroy = function(id){
-                        sales.destroy(id).success(function(){
-                            $scope.retrievesales();
-                        })
+                        var scope = $scope;
+                        ngDialog.open({
+                            className: 'ngdialog-theme-default',
+                            template: 'client_app/templates/admin/sales/confirm_removing.html',
+                            controller: ['$scope', function ($scope) {
+                                $scope.I18n = I18n;
+                                $scope.destroy = function () {
+                                    sales.destroy(id).success(function(){
+                                        $scope.closeThisDialog();
+                                        scope.retrievesales();
+                                    });
+                                };
+                            }]
+                        });
                     };
                 }
 
