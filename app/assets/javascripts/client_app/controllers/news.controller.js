@@ -22,6 +22,10 @@
                         $scope.comments = data.comments;
                         $scope.count = data.count;
 
+                        if($scope.count == 0){
+                            return
+                        }
+                        
                         var pagination = $('#comments-pagination');
                         pagination.empty();
                         pagination.removeData('twbs-pagination');
