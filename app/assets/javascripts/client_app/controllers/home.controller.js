@@ -62,9 +62,10 @@
                                 $('#shop-carousel').slick({
                                     dots: false,
                                     infinite: true,
-                                    speed: 300,
+                                    speed: 1000,
+                                    autoplaySpeed: 6000,
                                     slidesToShow: 6,
-                                    slidesToScroll: 5,
+                                    slidesToScroll: 1,
                                     autoplay: true,
                                     arrows: true,
                                     prevArrow: "<button class='gallery-prev'><i class='fa fa-caret-left'</button>",
