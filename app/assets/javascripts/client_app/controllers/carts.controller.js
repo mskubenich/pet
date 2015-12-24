@@ -55,6 +55,8 @@
                 cart.set_count(item.id, item.count - 1).success(function(){
                     $scope.retrieveItems();
                 })
-            }
+            };
+
+            $scope.$parent.initShopSlides();
         }])
 }());

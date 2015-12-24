@@ -209,7 +209,9 @@
                             $scope.retrieveComments();
                         })
                     }
-                }
+                };
+
+                $scope.$parent.initShopSlides();
             }
         }])
 }());

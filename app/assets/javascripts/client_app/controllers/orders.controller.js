@@ -69,6 +69,8 @@
                         plain: true
                     });
                 })
-            }
+            };
+
+            $scope.$parent.initShopSlides();
         }])
 }());

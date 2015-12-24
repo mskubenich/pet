@@ -112,10 +112,6 @@
                         .error();
                 };
 
-                $timeout(function(){
-                    $scope.initShopSlides();
-                }, 0);
-
                 $scope.selectizeCountry = function(){
                     var autocomplete = new google.maps.places.Autocomplete(document.getElementById('select-country'), {
                         language: 'ru',

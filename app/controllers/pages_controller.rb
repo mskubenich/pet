@@ -22,6 +22,7 @@ class PagesController < ApplicationController
 
   def shop_slides
     @products = Product.popular(10)
+    @products = 0.upto(9).map{|i| @products[i%@products.count] } if @products.count > 0
   end
 
   def main_slides

@@ -129,5 +129,7 @@
                     })
                     .error(function(){});
 
+                $scope.$parent.initShopSlides();
+
             }])
 }());
