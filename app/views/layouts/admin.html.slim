@@ -42,7 +42,7 @@ html(lang="en")
               li role="presentation" ng-class="{'active' : $state.current.name.contains('news_categor') }"
                 a href="#news_categories"
                   | {{ I18n.t('menu.news_categories') }}
-              li role="presentation" ng-class="{'active' : $state.current.contains.name('news') }"
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('news') }"
                 a href="#news"
                   | {{ I18n.t('menu.news') }}
               li.nav-divider

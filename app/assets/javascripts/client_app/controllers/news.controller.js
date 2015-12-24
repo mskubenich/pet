@@ -25,7 +25,7 @@
                         if($scope.count == 0){
                             return
                         }
-                        
+
                         var pagination = $('#comments-pagination');
                         pagination.empty();
                         pagination.removeData('twbs-pagination');

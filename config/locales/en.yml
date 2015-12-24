@@ -67,6 +67,7 @@ en:
     edit: 'Edit Category'
     messages:
       success_upsert: "Category successfully saved."
+      remove_confirm: "Are you sure you want to remove news category ?"
   breed:
     new: 'New Breed'
     edit: 'Edit Breed'

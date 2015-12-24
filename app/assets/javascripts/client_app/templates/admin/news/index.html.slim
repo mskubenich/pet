@@ -1,42 +1,43 @@
-div
-  h2
-    | {{ I18n.t('menu.news') }}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.news') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default ui-sref="create_news"
+      | {{ I18n.t('news.new') }}
 
-  button type="submit" class="btn btn--primary btn--sm" ui-sref="create_news"
-    | {{ I18n.t('news.new')}}
-
-  #news-pagination ng-hide="news_count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th
-        th
-          | {{ I18n.t('entities.title') }}
-        /th
-        /  | Body
-        th
-        th
-          | {{ I18n.t('entities.created_at') }}
-        th
-    tbody
-      tr ng-repeat="article in news"
-        td
-          img ng-src="{{article.preview_image_url}}" style="height: 30px"
-        td
-          | {{ article.title }}
-        /td
-        /  div ng-bind-html="getHtml(article.body)"
-        td
-          span.black-budget ng-show="article.scorp"
-            | СКОРП
-          | &nbsp;
-          span.black-budget ng-show="article.rkf"
-            | РКФ
-        td
-          | {{ article.created_at }}
-        td style="width: 50px"
-          a href="#news/{{article.id}}/edit"
-            i.fa.fa-pencil
-          | &nbsp;
-          a ng-click="destroyNews(article.id)"
-            i.fa.fa-close
+#news-pagination ng-hide="news_count < 11"
+table.table.table-striped.table-responsive ng-show="news_count > 0"
+  thead
+    tr
+      th
+      th
+        | {{ I18n.t('entities.title') }}
+      /th
+      /  | Body
+      th
+      th
+        | {{ I18n.t('entities.created_at') }}
+      th
+  tbody
+    tr ng-repeat="article in news"
+      td
+        img ng-src="{{article.preview_image_url}}" style="height: 30px"
+      td
+        | {{ article.title }}
+      /td
+      /  div ng-bind-html="getHtml(article.body)"
+      td
+        span.black-budget ng-show="article.scorp"
+          | СКОРП
+        | &nbsp;
+        span.black-budget ng-show="article.rkf"
+          | РКФ
+      td
+        | {{ article.created_at }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#news/{{article.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        | &nbsp;
+        a.btn.btn-default.btn-xs ng-click="destroyNews(article.id)"
+          | {{ I18n.t('actions.delete')}}

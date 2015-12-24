@@ -6,6 +6,7 @@
         .controller('AdminNewsController', ['$sce', '$scope', '$state', 'ngDialog', 'NewsFactory', '$stateParams', '$rootScope', 'CategoriesFactory',
             function ($sce, $scope, $state, ngDialog, news, $stateParams, $rootScope, categories) {
             $rootScope.$state = $state;
+            $scope.$state = $state;
 
             $scope.getHtml = function(html){
                 return $sce.trustAsHtml(html);
@@ -70,6 +71,7 @@
                                 template: I18n.t('news.messages.success_upsert'),
                                 plain: true
                             });
+                            $state.go('news')
                         })
                         .error(function(data){
                             $scope.newsProcessing = false;
@@ -91,6 +93,10 @@
                     news.all({page: $scope.page}).success(function (data) {
                         $scope.news = data.news;
                         $scope.news_count = data.news_count;
+
+                        if($scope.news_count == 0){
+                            return
+                        }
 
                         var pagination = $('#news-pagination');
                         pagination.empty();
