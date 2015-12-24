@@ -41,6 +41,30 @@
   font-family: 'PTSansRegular';
 }
 
+@media (min-width: 992px) and (max-width: 1150px){
+  .container {
+    width: 940px;
+  }
+}
+
+@media (min-width: 1150px) and (max-width: 1250px){
+  .container {
+    width: 1050px;
+  }
+}
+
+@media (min-width: 1250px) and (max-width: 1700px){
+  .container {
+    width: 1200px;
+  }
+}
+
+@media (max-width: 992px){
+  .container {
+    width: 90%;
+  }
+}
+
 @media (min-width: 1700px){
   .container {
     width: 1350px;

@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 
   def sale_slides
     @sales = Sale.all.sample(6)
+    @sales = 0.upto(5).map{|i| @sales[i%@sales.count] } if @sales.count > 0
   end
 
   def copulation_slides
