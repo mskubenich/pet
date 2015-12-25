@@ -3,7 +3,7 @@ class Admin::CopulationsController < AdminController
   load_and_authorize_resource :copulation
 
   def create
-    attachments_params = params[:copulation][:photos] || []
+    attachments_params = params[:copulation][:photos].delete_if{|i| !i.is_a?(ActionDispatch::Http::UploadedFile) } || []
     @copulation = Copulation.new copulation_params.merge({user_id: current_user.id})
     if @copulation.save
       update_attachments
@@ -17,7 +17,7 @@ class Admin::CopulationsController < AdminController
   end
 
   def update
-    attachments_params = params[:copulation][:photos] || []
+    attachments_params = params[:copulation][:photos].delete_if{|i| !i.is_a?(ActionDispatch::Http::UploadedFile) } || []
     if @copulation.update_attributes copulation_params
       update_attachments
       attachments_params.each do |attachment|

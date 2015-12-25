@@ -5,7 +5,7 @@ class CopulationsController < ApplicationController
   before_filter :calculate_view, only: [:show]
 
   def create
-    attachments_params = params[:copulation][:photos] || []
+    attachments_params = params[:copulation][:photos].delete_if{|i| !i.is_a?(ActionDispatch::Http::UploadedFile) } || []
     @copulation = Copulation.new copulation_params.merge({user_id: current_user.id})
     if @copulation.save
       update_attachments

@@ -24,6 +24,5 @@ table.table.table-striped.table-responsive ng-show="breeds.length > 0"
       td.text-right
         a.btn.btn-default.btn-xs href="#breeds/{{breed.id}}/edit"
           | {{ I18n.t('actions.edit')}}
-        | &nbsp;
         a.btn.btn-default.btn-xs ng-click="$parent.destroy(breed.id)"
           | {{ I18n.t('actions.delete')}}

@@ -1,59 +1,56 @@
-div
-  h2
-    | {{ I18n.t('menu.copulation') }}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.copulation') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default ui-sref="new_copulation"
+      | {{ I18n.t('copulation.new') }}
 
-  a.yellow-black-btn ui-sref="new_copulation"
-    | {{ I18n.t('copulation.new') }}
+.container ng-show="count > 0"
+  div ng-include=true src="'client_app/templates/copulation/filters.html'"
+  .btn-group data-toggle="buttons"
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
+      | Все
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
+      | Одобренные
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
+      | Неодобренные
   br
   br
-
-  div style="background-color: lightgray"
-    .container
-      div ng-include=true src="'client_app/templates/copulation/filters.html'"
-      .btn-group data-toggle="buttons"
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
-          | Все
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
-          | Одобренные
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
-          | Неодобренные
-      br
-      br
-  #copulations-pagination ng-hide="count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th style="width: 150px"
-        th
-        th
-        th
-          | {{ I18n.t('entities.name') }}
-        th
-        th
-          | {{ I18n.t('entities.created_at') }}
-        th
-    tbody
-      tr ng-repeat="copulation in copulations"
-        td style="width: 150px"
-          span.black-budget ng-hide="copulation.approved"
-            | {{ I18n.t('entities.on_moderation') }}
-        td
-          .span.flag class="{{ copulation.country.code }}"
-        td
-          img ng-src="{{copulation.preview_image_url}}" style="height: 30px"
-        td
-          | {{ copulation.name }}
-        td
-          span.black-budget ng-show="copulation.scorp"
-            | СКОРП
-          | &nbsp;
-          span.black-budget ng-show="copulation.rkf"
-            | РКФ
-        td
-          | {{ copulation.created_at }}
-        td style="width: 50px"
-          a href="#copulations/{{copulation.id}}/edit"
-            i.fa.fa-pencil
-          | &nbsp;
-          a ng-click="destroy(copulation.id)"
-            i.fa.fa-close
+#copulations-pagination ng-hide="count < 11"
+table.table.table-striped.table-responsive ng-show="count > 0"
+  thead
+    tr
+      th style="width: 150px"
+      th
+      th
+      th
+        | {{ I18n.t('entities.name') }}
+      th
+      th
+        | {{ I18n.t('entities.created_at') }}
+      th
+  tbody
+    tr ng-repeat="copulation in copulations"
+      td style="width: 150px"
+        span.black-budget ng-hide="copulation.approved"
+          | {{ I18n.t('entities.on_moderation') }}
+      td
+        .span.flag class="{{ copulation.country.code }}"
+      td
+        img ng-src="{{copulation.preview_image_url}}" style="height: 30px"
+      td
+        | {{ copulation.name }}
+      td
+        span.black-budget ng-show="copulation.scorp"
+          | СКОРП
+        | &nbsp;
+        span.black-budget ng-show="copulation.rkf"
+          | РКФ
+      td
+        | {{ copulation.created_at }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#copulations/{{copulation.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        a.btn.btn-default.btn-xs ng-click="destroy(copulation.id)"
+          | {{ I18n.t('actions.delete')}}

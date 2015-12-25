@@ -35,26 +35,35 @@ html(lang="en")
                 a href="#breeds"
                   | {{ I18n.t('menu.breeds') }}
               li.nav-divider
+
+
               li role="presentation" ng-class="{'active' : $state.current.name.contains('sale') }"
                 a href="#sales"
                   | {{ I18n.t('sale.title2') }}
               li.nav-divider
+
+
               li role="presentation" ng-class="{'active' : $state.current.name.contains('news_categor') }"
                 a href="#news_categories"
                   | {{ I18n.t('menu.news_categories') }}
-              li role="presentation" ng-class="{'active' : $state.current.name.contains('news') }"
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('news') && !$state.current.name.contains('news_ca') }"
                 a href="#news"
                   | {{ I18n.t('menu.news') }}
               li.nav-divider
+
+
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('copulation') }"
+                a href="#copulations"
+                  | {{ I18n.t('menu.copulation') }}
+              li.nav-divider
+
+
               li role="presentation" ng-class="{'active' : $state.current.name == 'users' }"
                 a href="#users"
                   | {{ I18n.t('menu.users') }}
               li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
                 a href="#static_pages"
                   | {{ I18n.t('admin.static_pages.title') }}
-              li role="presentation" ng-class="{'active' : $state.current.name == 'copulations' }"
-                a href="#copulations"
-                  | {{ I18n.t('menu.copulation') }}
               li role="presentation" ng-class="{'active' : $state.current.name == 'good_hands' }"
                 a href="#good_hands"
                   | {{ I18n.t('menu.in_good_hands') }}

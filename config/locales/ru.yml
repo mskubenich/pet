@@ -123,6 +123,8 @@ ru:
       city: 'Город'
       color: 'Цвет'
       weight: 'Вес'
+    messages:
+      remove_confirm: "Вы действительно хотите удалить случку ?"
   competition:
     title: 'Конкурсы'
     new: 'Создать Конкурс'

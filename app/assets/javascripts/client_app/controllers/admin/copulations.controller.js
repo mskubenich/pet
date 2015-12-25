@@ -73,6 +73,10 @@
                             $scope.copulations = data.copulations;
                             $scope.count = data.count;
 
+                            if($scope.count == 0){
+                                return
+                            }
+
                             var pagination = $('#copulations-pagination');
                             pagination.empty();
                             pagination.removeData('twbs-pagination');
@@ -97,9 +101,20 @@
                     $scope.retrieveCopulations();
 
                     $scope.destroy = function(id){
-                        copulations.destroy(id).success(function(){
-                            $scope.retrieveCopulations();
-                        })
+                        var scope = $scope;
+                        ngDialog.open({
+                            className: 'ngdialog-theme-default',
+                            template: 'client_app/templates/admin/copulations/confirm_removing.html',
+                            controller: ['$scope', function ($scope) {
+                                $scope.I18n = I18n;
+                                $scope.destroy = function () {
+                                    copulations.destroy(id).success(function(){
+                                        $scope.closeThisDialog();
+                                        scope.retrieveCopulations();
+                                    });
+                                };
+                            }]
+                        });
                     };
                 }
                 if($state.current.name == 'new_copulation' || $state.current.name == 'edit_copulation'){
@@ -186,6 +201,7 @@
                                     template: I18n.t('announcements.messages.success_upsert'),
                                     plain: true
                                 });
+                                $state.go('copulations')
                             })
                             .error(function(data){
                                 $scope.validation_errors = data.errors;

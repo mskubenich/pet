@@ -130,6 +130,8 @@ en:
       city: 'City'
       color: 'Color'
       weight: 'Weight'
+    messages:
+      remove_confirm: "Are you sure you want to remove copulation ?"
   competition:
     title: 'Competition'
     new: 'New Competition'

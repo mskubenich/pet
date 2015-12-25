@@ -38,6 +38,5 @@ table.table.table-striped.table-responsive ng-show="news_count > 0"
       td.text-right
         a.btn.btn-default.btn-xs href="#news/{{article.id}}/edit"
           | {{ I18n.t('actions.edit')}}
-        | &nbsp;
         a.btn.btn-default.btn-xs ng-click="destroyNews(article.id)"
           | {{ I18n.t('actions.delete')}}

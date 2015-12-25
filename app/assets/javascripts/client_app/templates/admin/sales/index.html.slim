@@ -56,6 +56,5 @@ table.table.table-striped.table-responsive ng-show="sales.length > 0"
       td.text-right
         a.btn.btn-default.btn-xs href="#sales/{{sale.id}}/edit"
           | {{ I18n.t('actions.edit')}}
-        | &nbsp;
         a.btn.btn-default.btn-xs ng-click="$parent.destroy(sale.id)"
           | {{ I18n.t('actions.delete')}}

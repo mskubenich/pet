@@ -188,7 +188,7 @@ form ng-submit="submitAnnouncement()" name="announcementForm" novalidate=true
         td
           span
             i.fa.fa-ruble
-    .error ng-show="announcementForm.age.$invalid && submitted"
+    .error ng-show="announcementForm.price.$invalid && submitted"
       | {{ I18n.t('validations.cant_be_blank')}}
 
   .form-group
