@@ -8,6 +8,7 @@ json.user do
   json.rkf @user.rkf
   json.scorp @user.scorp
   json.country @user.country
+  json.country_id @user.country_id
   json.city @user.city
 
   json.specialist @user.specialist?

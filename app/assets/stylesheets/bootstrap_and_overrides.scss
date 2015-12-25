@@ -85,3 +85,18 @@
     background-color: #e3e3e3;
   }
 }
+
+.dropdown-toggle{
+  width: 100%;
+  text-align: left;
+  position: relative;
+  .caret{
+    position: absolute;
+    right: 10px;
+    top: 15px
+  }
+}
+.dropdown-menu{
+  padding: 10px 5px;
+  min-width: 100%;
+}

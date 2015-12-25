@@ -24,7 +24,7 @@
                 fd.append('user[rkf]', user.rkf);
                 fd.append('user[scorp]', user.scorp);
                 fd.append('user[phone]', user.phone);
-                fd.append('user[country]', user.country);
+                fd.append('user[country_id]', user.country_id);
                 fd.append('user[city]', user.city);
                 if(avatar){
                     fd.append('user[avatar]', avatar);

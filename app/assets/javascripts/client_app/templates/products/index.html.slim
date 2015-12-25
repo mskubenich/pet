@@ -63,7 +63,7 @@
         td
           table.nav-dropdown-table
             tr
-              td ng-repeat="category in categories" dropdown-leave=true
+              td ng-repeat="category in categories" dropdown-leave=true style="height: 73px"
                 a.black-dashed-link style="margin-right: 20px;" dropdown-id="{{category.id}}"
                   | {{ category.title }}
                 .nav-dropdown dropdown-for="{{category.id}}"

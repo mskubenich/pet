@@ -3,8 +3,8 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$stateParams', 'FriendsFactory', 'PostsFactory', 'MyPetsFactory',
-            function ($scope, $state, ngDialog, users, $stateParams, friends, posts, pets) {
+        .controller('UsersController', ['$scope', '$state', 'ngDialog', 'UsersFactory', '$stateParams', 'FriendsFactory', 'PostsFactory', 'MyPetsFactory', 'CountriesFactory',
+            function ($scope, $state, ngDialog, users, $stateParams, friends, posts, pets, countries) {
             $scope.userData = {};
             $scope.submited = false;
 
@@ -12,6 +12,10 @@
 
             if($state.current.name == 'registration'){
                 $scope.$parent.header_url = 'yellow';
+
+                countries.all().success(function(data){
+                    $scope.countries = data.countries;
+                });
 
                 $scope.submitUserData = function () {
                     $scope.submited = true;

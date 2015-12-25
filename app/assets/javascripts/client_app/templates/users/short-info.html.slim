@@ -45,10 +45,10 @@
     .pet-h1
       | {{ profile.full_name }}
     br
-    | Russian Federation, Moskow
+    | {{ profile.country['title_' + I18n.locale]}}, {{ profile.city }}
     | &nbsp;
     | &nbsp;
-    img src="assets/ru.png" style="width: 20px"
+    span.flag class="{{ profile.country.code }}"
     br
     br
     br

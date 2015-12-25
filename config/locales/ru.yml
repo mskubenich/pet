@@ -51,9 +51,12 @@ ru:
     phone: 'Телефон'
     created_by: 'Дата регистрации'
     messages:
+      success_update_profile: "Ваш профиль успешно обновлен."
       success_upsert: "Пользователь удачно обновлен."
       ban_confirm: "Вы действительно хотите забанить пользователя ?"
       remove_confirm: "Вы действительно хотите удалить пользователя ?"
+    filters:
+      choose_country: 'Выберите Страну'
   slides:
     new: 'Новый слайд'
     messages:

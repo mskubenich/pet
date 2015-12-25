@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :login, presence: true
-  validates :country, presence: true
+  validates :country_id, presence: true
   validates :city, presence: true
 
   before_save :encrypt_password, :downcase_email
@@ -71,6 +71,10 @@ class User < ActiveRecord::Base
 
   def cart
     Cart.where(user_id: self.id).first_or_create
+  end
+
+  def country
+    Country.find self.country_id
   end
 
   private

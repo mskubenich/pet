@@ -50,9 +50,12 @@ en:
     phone: 'Phone'
     created_by: 'added by'
     messages:
+      success_update_profile: "Your profile has been successfully updated."
       success_upsert: "User successfully saved."
       ban_confirm: "Are you sure you want to ban user ?"
       remove_confirm: "Are you sure you want to remove user ?"
+    filters:
+      choose_country: 'Choose Country'
   slides:
     new: 'New Slide'
     messages:
