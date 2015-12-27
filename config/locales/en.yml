@@ -120,8 +120,11 @@ en:
       remove_confirm: "Are you sure you want to remove news ?"
   copulation:
     title: 'Copulation'
+    title2: 'Pets for copulation'
     new: 'New Copulation'
     edit: 'Edit Copulation'
+    slides:
+      title: 'Pets for copulation (slides)'
     dog:
       name: 'Name'
       age: 'Age'

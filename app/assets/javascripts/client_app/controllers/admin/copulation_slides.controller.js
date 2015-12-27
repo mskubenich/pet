@@ -74,6 +74,7 @@
                                 template: I18n.t('slides.messages.success_upsert'),
                                 plain: true
                             });
+                            $state.go('copulation_slides')
                         })
                         .error(function (data, status, headers, config) {
                             if(data.errors){

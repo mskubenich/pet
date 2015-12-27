@@ -28,18 +28,24 @@ html(lang="en")
         .col-md-3.col-lg-3.col-sm-4.col-xs-4
           ul.sidebar-nav style="padding: 0"
             ul.nav.nav-stacked
-              li role="presentation" ng-class="{'active' : $state.current.name.contains('slide') }"
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('slide') && !$state.current.name.contains('copulation_slide') }"
                 a href="#slides"
                   | {{ I18n.t('menu.slides') }}
               li role="presentation" ng-class="{'active' : $state.current.name.contains('breed') }"
                 a href="#breeds"
                   | {{ I18n.t('menu.breeds') }}
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('copulation_slide') }"
+                a href="#copulation_slides"
+                  | {{ I18n.t('copulation.slides.title') }}
               li.nav-divider
 
 
               li role="presentation" ng-class="{'active' : $state.current.name.contains('sale') }"
                 a href="#sales"
                   | {{ I18n.t('sale.title2') }}
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('copulation') && !$state.current.name.contains('copulation_slide')  }"
+                a href="#copulations"
+                  | {{ I18n.t('copulation.title2') }}
               li.nav-divider
 
 
@@ -50,13 +56,6 @@ html(lang="en")
                 a href="#news"
                   | {{ I18n.t('menu.news') }}
               li.nav-divider
-
-
-              li role="presentation" ng-class="{'active' : $state.current.name.contains('copulation') }"
-                a href="#copulations"
-                  | {{ I18n.t('menu.copulation') }}
-              li.nav-divider
-
 
               li role="presentation" ng-class="{'active' : $state.current.name == 'users' }"
                 a href="#users"
@@ -76,9 +75,6 @@ html(lang="en")
               li role="presentation" ng-class="{'active' : $state.current.name == 'orders' }"
                 a href="#orders"
                   | Заказы
-              li role="presentation" ng-class="{'active' : $state.current.name == 'copulation_slides' }"
-                a href="#copulation_slides"
-                  | Питомцы на случку (галерея)
               li role="presentation" ng-class="{'active' : $state.current.name == 'competitions' }"
                 a href="#competitions"
                   | {{I18n.t('menu.competitions')}}
