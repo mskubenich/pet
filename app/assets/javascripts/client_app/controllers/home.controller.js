@@ -68,8 +68,8 @@
                                     slidesToScroll: 1,
                                     autoplay: true,
                                     arrows: true,
-                                    prevArrow: "<button class='gallery-prev'><i class='fa fa-caret-left'</button>",
-                                    nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'</button>",
+                                    prevArrow: "<button class='gallery-prev'><i class='fa fa-caret-left'></i></button>",
+                                    nextArrow: "<button class='gallery-next'><i class='fa fa-caret-right'></i></button>",
                                     responsive: [
                                         {
                                             breakpoint: 2500,

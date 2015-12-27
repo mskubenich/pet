@@ -115,6 +115,10 @@
   &.gallery-next{
     border-radius: 29px 0 0 29px;
     right: 0;
+    i{
+      position: absolute;
+      margin-top: -11px;
+    }
   }
   &.gallery-prev{
     border-radius: 0 29px 29px 0;
