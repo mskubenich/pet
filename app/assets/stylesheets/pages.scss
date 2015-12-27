@@ -65,16 +65,15 @@
       }
       display: none;
       position: absolute;
-      width: 90%;
-      height: 95%;
-      left: 5%;
+      height: 203px;
+      margin: 0 25px 0px 25px;
       padding: 25px 40px 40px 40px;
-      border-bottom-left-radius: 100px;
-      -moz-border-bottom-left-radius: 100px;
-      -webkit-border-bottom-left-radius: 100px;
-      border-bottom-right-radius: 100px;
-      -moz-border-bottom-right-radius: 100px;
-      -webkit-border-bottom-right-radius: 100px;
+      border-bottom-left-radius: 600px;
+      -moz-border-bottom-left-radius: 600px;
+      -webkit-border-bottom-left-radius: 600px;
+      border-bottom-right-radius: 600px;
+      -moz-border-bottom-right-radius: 600px;
+      -webkit-border-bottom-right-radius: 600px;
       background-color: rgba(255, 255, 255, 0.90);
       .title{
         font-family: PTSansBold;

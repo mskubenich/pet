@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   end
 
   def slides
-    @copulations = Copulation.all.limit(30).order('id desc').sample(20)
+    @copulations = Copulation.order('id desc').sample(20)
+    @copulations = 0.upto(20).map{|i| @copulations[i%@copulations.count] } if @copulations.count > 0
   end
 
   def sale_slides
