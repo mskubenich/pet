@@ -1,0 +1,25 @@
+.product-drilldown{
+  margin-top: 50px;
+  .copulation-title{
+    font-size: 21px;
+    text-transform: uppercase;
+    color: #000000;
+  }
+  .copulation-preview-image{
+    width: 100%;
+  }
+  .short-table{
+    font-size: 13px;
+    color: gray;
+  }
+  .price{
+    font-size: 45px;
+    font-family: PTSansBold;
+    color: red;
+    font-weight: bolder;
+  }
+  .connect{
+    padding: 6px 25px;
+    cursor: pointer;
+  }
+}

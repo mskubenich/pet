@@ -1,53 +1,6 @@
-.nav-menu
-  .container
-    table.vertical-align-table
-      tr
-        td style="width: 50px; text-align: center !important;"
-          span
-            label.yellow-cat-radio class="{{ filters.family == 'cat' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'dog' || filters.family == 'all' ? 'cat' : 'all'"
-        td style="width: 50px; text-align: center !important;"
-          span
-            label.yellow-dog-radio class="{{ filters.family == 'dog' ? 'active' : ''}}" ng-click="filters.family = filters.family == 'cat' || filters.family == 'all' ? 'dog' : 'all'"
-        td
-          table.nav-dropdown-table
-            tr
-              td ng-repeat="category in categories" dropdown-leave=true
-                a.black-dashed-link style="margin-right: 20px;" dropdown-id="{{category.id}}"
-                  | {{ category.title }}
-                .nav-dropdown dropdown-for="{{category.id}}"
-                  .arrow
-                  ul
-                    li ng-repeat="subcategory in category.subcategories"
-                      a.black-dashed-link ng-click="filters.category = category; filters.subcategory = subcategory"
-                        | {{ subcategory.title }}
-        td style="width: 177px"
-          .btn-group dropdown=true style="width: 100%"
-            button.yellow-black-dropdown.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled"  style="width: 100%"
-              span ng-show="filters.size == ''"
-                | {{ I18n.t('product.filters.choose_size') }}
-              span ng-show="filters.size != ''"
-                | {{ filters.size }}
-              span.caret
-            ul.dropdown-menu role="menu"
-              li
-                a ng-repeat="size in sizes" ng-click="filters.size = size.title"
-                  | {{ size.title }}
-        td style="width: 320px;"
-          div style="margin-top: 20px; margin-bottom: 20px;"
-            table style="width: 100%"
-              tr
-                td style="text-align: left"
-                  | {{ I18n.t('price') }}:&nbsp;&nbsp;От:&nbsp;{{filters.price.min}}&nbsp;
-                  i.fa.fa-ruble
-                td style="text-align: right"
-                  | До:&nbsp;{{ filters.price.max }}&nbsp;
-                  i.fa.fa-ruble
-            div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
-        td style="width: 128px;"
-          .black-btn
-            | SALE
+.nav-menu ng-include=true src="'client_app/templates/products/filters.html'"
 .container
-  .row.copulation-drilldown
+  .row.product-drilldown
     .alert.alert-danger ng-show="sale.reject_reason"
       | {{ sale.reject_reason }}
     .col-md-5.col-sm-5
@@ -117,7 +70,7 @@
               | &nbsp;
               i.fa.fa-ruble
           td
-            table.card-section.vertical-align-table
+            table.vertical-align-table
               tr
                 td
                   a.black-btn-lg
@@ -126,7 +79,6 @@
                 td
                   a.to-card-link.black-dashed-link ng-click="addToCart(product.id)"
                     | {{ I18n.t('shop.to_card') }}
-                  | &nbsp;
                 td.card-icon-section
                   span.card-icon
   .row
