@@ -91,6 +91,7 @@ en:
     filters:
       choose_size: 'Chose Size'
   good_hands:
+    title2: 'Pets in good hands'
     new: 'New Announcement'
     edit: 'Edit Announcement'
     messages:

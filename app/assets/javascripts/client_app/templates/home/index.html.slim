@@ -41,16 +41,10 @@
                 .sale-slider-breed
                   | {{ sale.breed }}
 .wave-bottom
-br
-br
-br
 .container
   .row
-    .col-md-5.col-sm-5
-      br
-      br
-      br
-      table.copulation-slider-table.table.vertical-align-table style="background-color: transparent"
+    .col-md-4.col-sm-4.col-lg-4.col-xs-4.copulation-short-col-1
+      table.copulation-slider-table
         tr
           td ng-repeat="sale in copulation_slides"
             a href="#copulation/{{sale.id}}" style="cursor: pointer"
@@ -59,36 +53,36 @@ br
                   rating.rating ng-model="sale.rating" max="5" readonly="true"
         tr
           td ng-repeat="sale in copulation_slides"
-            .sale-slider-name
+            .copulation-slider-name
               | {{ sale.name }}
-            br
-            .sale-slider-breed
+            .copulation-slider-breed
               | {{ sale.breed }}
-    .col-md-4.col-sm-4
+    .col-md-5.col-sm-5.col-lg-5.col-xs-5.copulation-short-col-2
       .the-copulation-slider
         .the-copulation-slide ng-repeat="slide in the_copulation_slides" style="background-image: url({{slide.image_url}})"
-    .col-md-3.col-sm-3
-      b
-        .pet-h4
-          | Питомцы на случку
-      br
-      .pets-for-pay-description style="text-align: right; padding-right: 10px"
-        | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-      br
-      br
-      br
-      .text-right
-        a.white-btn-lg href="#copulation"
-          | Найти пару
+    .col-md-3.col-sm-3.col-lg-3.col-xs-3.copulation-short-col-3
+      .copulation-short-col-3-title
+        b
+          .pet-h4
+            | {{ I18n.t('copulation.title2') }}
+      .copulation-short-col-3-description
+        .pets-for-pay-description
+          | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      .copulation-short-col-3-button
+        .text-right
+          a.white-btn-lg href="#copulation"
+            | Найти пару
+
+.container
   .row.small-content
     .col-md-4.col-sm-4
       b
         .pet-h3
-          | Питомцы в добрые руки
+          | {{ I18n('good_hands.title2') }}
       br
       br
       a.black-btn-lg-lg href="#news"
-        | Подать объявление
+        | {{ I18n.t('announcements.place') }}
       br
       br
       br

@@ -84,6 +84,7 @@ ru:
     messages:
       success_upsert: "Продукт удачно сохранен."
   good_hands:
+    title2: 'Питомцы в добрые руки'
     new: 'Новое Объявление'
     edit: 'Редактировать Объявление'
     messages:
