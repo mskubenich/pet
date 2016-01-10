@@ -56,9 +56,8 @@
           br
           br
           .price
-            | {{ copulation.price }}
-            | &nbsp;
-            i.fa.fa-ruble
+            | {{ copulation.price }}&nbsp;
+            i.icon-ruble-bold style="font-size: 35px; vertical-align: 3px"
         .col-md-4.col-sm-4.text-right
           span.rating
             span class="label" ng-class="{'label-warning': percent<30, 'label-info': percent>=30 && percent<70, 'label-success': percent>=70}" ng-show="overStar && !isReadonly"

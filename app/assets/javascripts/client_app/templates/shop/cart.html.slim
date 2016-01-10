@@ -37,11 +37,9 @@
             table style="width: 100%"
               tr
                 td style="text-align: left"
-                  | {{ I18n.t('price') }}:&nbsp;&nbsp;От:&nbsp;{{filters.price.min}}&nbsp;
-                  i.fa.fa-ruble
-                td style="text-align: right"
-                  | До:&nbsp;{{ filters.price.max }}&nbsp;
-                  i.fa.fa-ruble
+                  | {{ I18n.t('price') }}:&nbsp;&nbsp;От:&nbsp;{{filters.price.min}}&nbsp;р.
+                td style="text-align: right; padding-right: 0"
+                  | До:&nbsp;{{ filters.price.max }}&nbsp;р.
             div range-slider=true min="0" max="1000000" model-min="filters.price.min" model-max="filters.price.max"
         td style="width: 128px;"
           .black-btn

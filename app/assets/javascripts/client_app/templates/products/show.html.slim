@@ -67,8 +67,7 @@
           td
             .price
               | {{ product.price }}
-              | &nbsp;
-              i.fa.fa-ruble
+              i.icon-ruble-bold style="font-size: 36px; vertical-align: 3px"
           td
             table.vertical-align-table
               tr
@@ -79,7 +78,7 @@
                 td
                   a.to-card-link.black-dashed-link ng-click="addToCart(product.id)"
                     | {{ I18n.t('shop.to_card') }}
-                td.card-icon-section
+                  | &nbsp;
                   span.card-icon
   .row
     .col-md-4

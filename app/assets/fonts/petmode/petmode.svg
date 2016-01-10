@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="petmode" horiz-adv-x="1000" >
+<font-face font-family="petmode" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="ruble" unicode="&#xe800;" d="m113 848l0-558-111 0 0-90 111 0 0-87-111 0 0-90 111 0 0-173 117 2 0 171 420 0-2 90-418 0 0 87 211 0 80 11 55 32 84 82 34 73 22 117-12 118-38 94-60 63-73 38-77 17-114 0z m117-98l151 2c124-14 157-57 197-109 0 0 22-75 19-125-2-36-25-111-25-111-30-55-55-88-102-106l-60-11-180 0z" horiz-adv-x="717" />
+<glyph glyph-name="ruble-bold" unicode="&#xe801;" d="m94 846l0-539-93 0 1-107 92 1 0-87-92-1 0-106 92 0 0-157 136 2-1 155 414 0 0 107-413-1 0 87 211 0 80 11 55 32 84 82 34 73 22 117-12 118-38 94-60 63-73 38-77 17-114 0z m136-96l151 2c124-14 157-57 197-109 0 0 22-75 19-125-2-36-25-111-25-111-30-55-53-76-101-94l-55-6-187 0z" horiz-adv-x="717" />
+</font>
+</defs>
+</svg>

@@ -72,7 +72,7 @@
               img ng-src="{{ new_product.preview_image_url }}"
         .product-price
           | {{ new_product.price }}&nbsp;
-          i.fa.fa-ruble
+          i.icon-ruble-bold style="font-size: 19px; vertical-align: 2px"
     div.shop-item ng-repeat="product in products"
       .visible-item
         .img style="background-image: url({{ product.preview_image_url }})"
@@ -86,8 +86,8 @@
           span.value
             | &nbsp;({{ product.rating.voices_count }})
         .price
-          | {{ product.price }}
-          i.fa.fa-ruble
+          | {{ product.price }}&nbsp;
+          i.icon-ruble-bold style="font-size: 15px; vertical-align: 2px"
       table.card-section.vertical-align-table
         tr
           td.card-icon-section

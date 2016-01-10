@@ -42,9 +42,10 @@
       }
     }
     .price{
+      font-family: PTSansBold;
       margin-top: -22px;
       color: red;
-      font-size: 17px;
+      font-size: 19px;
       text-align: right;
     }
   }
@@ -102,7 +103,7 @@
     }
   }
   .product-price{
-    font-family: PFCentroSerifBold;
+    font-family: PTSansBold;
     text-transform: uppercase;
     font-size: 25px;
     color: red;
@@ -120,14 +121,6 @@ table.card-section{
   margin-top: 28px;
   td.card-icon-section{
     width: 28px;
-    .card-icon{
-      display: inline-block;
-      background-image: url(card.png);
-      background-size: contain;
-      width: 24px;
-      height: 24px;
-      background-repeat: no-repeat;
-    }
   }
   .to-card-link{
     display: inline-block;
@@ -412,4 +405,13 @@ table.card-section{
   border-color: #aeaeae;
   margin-right: 30px;
   margin-left: 30px;
+}
+
+.card-icon{
+  display: inline-block;
+  background-image: url(card.png);
+  background-size: contain;
+  width: 24px;
+  height: 24px;
+  background-repeat: no-repeat;
 }
