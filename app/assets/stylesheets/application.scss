@@ -13,6 +13,13 @@
 //= require country_select/css/msdropdown/flags
 //= require_tree .
 
+body{
+  color: #343434;
+  a{
+    color: #343434;
+  }
+}
+
 .btn-group-active{
   background: #FFD800;
 }
