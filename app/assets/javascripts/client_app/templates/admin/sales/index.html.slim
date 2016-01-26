@@ -7,17 +7,16 @@
       | {{ I18n.t('sale.new')}}
 br
 
-div style="background-color: lightgray"
-  .container
-    div ng-include=true src="'client_app/templates/sales/filters.html'"
+.container
+  div ng-include=true src="'client_app/templates/sales/filters.html'"
 
-    .btn-group data-toggle="buttons"
-      label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
-        | Все
-      label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
-        | Одобренные
-      label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
-        | Неодобренные
+  .btn-group data-toggle="buttons"
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
+      | Все
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
+      | Одобренные
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
+      | Неодобренные
     br
     br
 

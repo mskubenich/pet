@@ -96,6 +96,7 @@ en:
     edit: 'Edit Announcement'
     messages:
       success_upsert: "Data successfully saved."
+      remove_confirm: "Are you sure you want to remove pet for good hand ?"
     country: 'Country'
     city: 'City'
     sex: 'Sex'

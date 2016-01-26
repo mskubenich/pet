@@ -91,9 +91,20 @@
                     $scope.retrieveAnnouncements();
 
                     $scope.destroy = function(id){
-                        good_hands.destroy(id).success(function(){
-                            $scope.retrieveAnnouncements();
-                        })
+                        var scope = $scope;
+                        ngDialog.open({
+                            className: 'ngdialog-theme-default',
+                            template: 'client_app/templates/admin/good_hands/confirm_removing.html',
+                            controller: ['$scope', function ($scope) {
+                                $scope.I18n = I18n;
+                                $scope.destroy = function () {
+                                    good_hands.destroy(id).success(function(){
+                                        $scope.closeThisDialog();
+                                        scope.retrieveAnnouncements();
+                                    });
+                                };
+                            }]
+                        });
                     };
                 }
 
@@ -181,6 +192,7 @@
                                     template: I18n.t('good_hands.messages.success_upsert'),
                                     plain: true
                                 });
+                                $state.go('good_hands')
                             })
                             .error(function(data){
                                 $scope.validation_errors = data.errors;

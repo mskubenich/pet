@@ -1,59 +1,51 @@
-div
-  h2
-    | {{ I18n.t('menu.in_good_hands') }}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.in_good_hands') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default ui-sref="new_hand"
+      | {{ I18n.t('good_hands.new')}}
+br
 
-  a.yellow-black-btn ui-sref="new_hand"
-    | {{ I18n.t('good_hands.new') }}
+.container
+  div ng-include=true src="'client_app/templates/good_hands/filters.html'"
+  .btn-group data-toggle="buttons"
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
+      | Все
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
+      | Одобренные
+    label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
+      | Неодобренные
   br
   br
 
-  div style="background-color: lightgray"
-    .container
-      div ng-include=true src="'client_app/templates/good_hands/filters.html'"
-      .btn-group data-toggle="buttons"
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'all'" class="{{ filters.status == 'all' ? 'active btn-group-active' : '' }}"
-          | Все
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'approved'" class="{{ filters.status == 'approved' ? 'active btn-group-active' : '' }}"
-          | Одобренные
-        label.btn.btn-default.btn-xs ng-click="filters.status = 'not_approved'" class="{{ filters.status == 'not_approved' ? 'active btn-group-active' : '' }}"
-          | Неодобренные
-      br
-      br
-  #announcements-pagination ng-hide="count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th style="width: 150px"
-        th
-        th
-        th
-          | {{ I18n.t('entities.title') }}
-        th
-        th
-          | {{ I18n.t('entities.created_at') }}
-        th
-    tbody
-      tr ng-repeat="announcement in announcements"
-        td style="width: 150px"
-          span.black-budget ng-hide="announcement.approved"
-            | {{ I18n.t('entities.on_moderation') }}
-        td
-          .span.flag class="{{ announcement.country.code }}"
-        td
-          img ng-src="{{announcement.preview_image_url}}" style="height: 30px"
-        td
-          | {{ announcement.name }}
-        td
-          span.black-budget ng-show="announcement.scorp"
-            | СКОРП
-          | &nbsp;
-          span.black-budget ng-show="announcement.rkf"
-            | РКФ
-        td
-          | {{ announcement.created_at }}
-        td style="width: 50px"
-          a href="#good_hands/{{announcement.id}}/edit"
-            i.fa.fa-pencil
-          | &nbsp;
-          a ng-click="destroy(announcement.id)"
-            i.fa.fa-close
+#announcements-pagination ng-hide="count < 11"
+table.table.table-striped.table-responsive
+  thead
+    tr
+      th style="width: 150px"
+      th
+      th
+      th
+        | {{ I18n.t('entities.title') }}
+      th
+        | {{ I18n.t('entities.created_at') }}
+      th
+  tbody
+    tr ng-repeat="announcement in announcements"
+      td style="width: 150px"
+        span.black-budget ng-hide="announcement.approved"
+          | {{ I18n.t('entities.on_moderation') }}
+      td
+        .span.flag class="{{ announcement.country.code }}"
+      td
+        img ng-src="{{announcement.preview_image_url}}" style="height: 30px"
+      td
+        | {{ announcement.name }}
+      td
+        | {{ announcement.created_at }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#good_hands/{{announcement.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        a.btn.btn-default.btn-xs ng-click="destroy(announcement.id)"
+          | {{ I18n.t('actions.delete')}}
