@@ -1,50 +1,45 @@
-div
-  h2 Users
-  #users-pagination ng-hide="news_count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th
-        th
-          | {{ I18n.t('users.email') }}
-        th
-          | {{ I18n.t('users.login') }}
-        th
-          | {{ I18n.t('users.phone') }}
-        th
-          | {{ I18n.t('entities.organizations') }}
-        th
-          | Специалист
-        th
-          | {{ I18n.t('entities.created_at') }}
-        th
-          | {{ I18n.t('entities.actions') }}
-    tbody
-      tr ng-repeat="user in users"
-        td
-          img ng-src="{{user.avatar_url}}" style="width: 50px;"
-        td
-          | {{ user.email }}
-        td
-          | {{ user.login }}
-        td
-          | {{ user.phone }}
-        td
-          span.black-budget ng-show="user.scorp"
-            | СКОРП
-          span.black-budget ng-show="user.rkf"
-            | РКФ
-        td
-          i.fa.fa-check ng-show="user.specialist"
-          i.fa.fa-exclamation ng-show="!user.specialist && user.specialist_requested"
-        td
-          | {{ user.created_at }}
-        td
-          a href="#user/{{ user.id }}/edit"
-            .i.fa.fa-pencil
-          a
-            .i.fa.fa-close ng-click="$parent.removeUser(user.id)"
-          a ng-hide="user.banned"
-            .i.fa.fa-lock ng-click="$parent.banUser(user)"
-          a ng-show="user.banned"
-            .i.fa.fa-unlock ng-click="$parent.unbanUser(user)"
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.users') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+
+#users-pagination ng-hide="count < 11"
+table.table.table-striped.table-responsive
+  thead
+    tr
+      th
+      th
+        | {{ I18n.t('users.email') }}
+      th
+        | {{ I18n.t('users.login') }}
+      th
+        | Специалист
+      th
+        | {{ I18n.t('entities.created_at') }}
+      th
+      th
+        | {{ I18n.t('entities.actions') }}
+  tbody
+    tr ng-repeat="user in users"
+      td
+        img ng-src="{{user.avatar_url}}" style="width: 50px;"
+      td
+        | {{ user.email }}
+      td
+        | {{ user.login }}
+      td
+        i.fa.fa-check ng-show="user.specialist"
+        i.fa.fa-exclamation ng-show="!user.specialist && user.specialist_requested"
+      td
+        | {{ user.created_at }}
+      td
+        a ng-hide="user.banned"
+          .i.fa.fa-lock ng-click="$parent.banUser(user)"
+        a ng-show="user.banned"
+          .i.fa.fa-unlock ng-click="$parent.unbanUser(user)"
+      td.text-right
+        a.btn.btn-default.btn-xs href="#user/{{user.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        a.btn.btn-default.btn-xs ng-click="$parent.removeUser(user.id)"
+          | {{ I18n.t('actions.delete')}}

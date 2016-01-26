@@ -3,7 +3,7 @@ br
 form novalidate=true name="RejectForm" ng-submit="submit()"
   textarea ng-model="reason" style="width: 100%" required=true
   .error ng-show="submited && RejectForm.$invalid"
-    | Не может быть пустым.
+    | {{ I18n.t('validations.cant_be_blank') }}
   br
   br
   input.btn.btn-danger type="submit" value="{{ I18n.t('actions.reject') }}"

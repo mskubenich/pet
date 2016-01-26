@@ -28,6 +28,12 @@ html(lang="en")
         .col-md-3.col-lg-3.col-sm-4.col-xs-4
           ul.sidebar-nav style="padding: 0"
             ul.nav.nav-stacked
+
+              li role="presentation" ng-class="{'active' : $state.current.contains('user') }"
+                a href="#users"
+                  | {{ I18n.t('menu.users') }}
+              li.nav-divider
+
               li role="presentation" ng-class="{'active' : $state.current.name.contains('slide') && !$state.current.name.contains('copulation_slide') }"
                 a href="#slides"
                   | {{ I18n.t('menu.slides') }}
@@ -57,9 +63,6 @@ html(lang="en")
                   | {{ I18n.t('menu.news') }}
               li.nav-divider
 
-              li role="presentation" ng-class="{'active' : $state.current.name == 'users' }"
-                a href="#users"
-                  | {{ I18n.t('menu.users') }}
               li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
                 a href="#static_pages"
                   | {{ I18n.t('admin.static_pages.title') }}
