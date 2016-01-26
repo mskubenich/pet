@@ -1,17 +1,19 @@
-div
-  h2
-    | {{ I18n.t('admin.static_pages.title') }}
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th
-          | {{ I18n.t('entities.name') }}
-        th
-          | {{ I18n.t('entities.actions') }}
-    tbody
-      tr ng-repeat="page in pages"
-        td
-          | {{ I18n.t('pages.' + page) }}
-        td
-          a href="#static_pages/{{ page }}/edit"
-            .i.fa.fa-pencil
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('admin.static_pages.title') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+
+table.table.table-striped.table-responsive
+  thead
+    tr
+      th
+        | {{ I18n.t('entities.name') }}
+      th
+  tbody
+    tr ng-repeat="page in pages"
+      td
+        | {{ I18n.t('pages.' + page) }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#static_pages/{{page}}/edit"
+          | {{ I18n.t('actions.edit')}}

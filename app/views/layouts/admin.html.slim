@@ -43,6 +43,9 @@ html(lang="en")
               li role="presentation" ng-class="{'active' : $state.current.name.contains('copulation_slide') }"
                 a href="#copulation_slides"
                   | {{ I18n.t('copulation.slides.title') }}
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('static_page') }"
+                a href="#static_pages"
+                  | {{ I18n.t('admin.static_pages.title') }}
               li.nav-divider
 
 
@@ -63,9 +66,6 @@ html(lang="en")
                   | {{ I18n.t('menu.news') }}
               li.nav-divider
 
-              li role="presentation" ng-class="{'active' : $state.current.name == 'static_pages' }"
-                a href="#static_pages"
-                  | {{ I18n.t('admin.static_pages.title') }}
               li role="presentation" ng-class="{'active' : $state.current.name == 'good_hands' }"
                 a href="#good_hands"
                   | {{ I18n.t('menu.in_good_hands') }}
