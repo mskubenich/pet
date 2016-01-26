@@ -69,6 +69,10 @@
                         pagination.removeData('twbs-pagination');
                         pagination.unbind('page');
 
+                        if($scope.count == 0){
+                            return
+                        }
+
                         pagination.twbsPagination({
                             totalPages: Math.ceil($scope.count / 10),
                             startPage: $scope.page,
@@ -87,6 +91,23 @@
                     subcategories.destroy($scope.shop_category.id, id).success(function(){
                         $scope.retrieveSubcategories();
                     })
+                };
+
+                $scope.destroy = function(id){
+                    var scope = $scope;
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: 'client_app/templates/admin/shop_subcategories/confirm_removing.html',
+                        controller: ['$scope', function ($scope) {
+                            $scope.I18n = I18n;
+                            $scope.destroy = function () {
+                                subcategories.destroy(scope.shop_category.id, id).success(function(){
+                                    $scope.closeThisDialog();
+                                    scope.retrieveSubcategories();
+                                });
+                            };
+                        }]
+                    });
                 };
 
                 $scope.retrieveSubcategories();

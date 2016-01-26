@@ -1,25 +1,28 @@
-div
-  h2
-    | {{ I18n.t('menu.shop_categories') }}
+.row
+  .col-md-6.col-sm-6.col-lg-6
+    h2
+      | {{ I18n.t('menu.shop_categories') }}
+  .col-md-6.col-sm-6.col-lg-6.text-right
+    a.btn.btn-default ui-sref="create_shop_category"
+      | {{ I18n.t('shop_category.new')}}
+br
 
-  button type="submit" class="btn btn--primary btn--sm" ui-sref="create_shop_category"
-    | {{ I18n.t('shop_category.new')}}
 
-  #categories-pagination ng-hide="count < 11"
-  table.table.table-striped.table-responsive
-    thead
-      tr
-        th
-          | {{ I18n.t('entities.title') }}
-        th
-          | {{ I18n.t('entities.actions') }}
-    tbody
-      tr ng-repeat="category in categories"
-        td
-          | {{ category.title }}
-        td.text-right
-          a href="#shop_categories/{{category.id}}/edit"
-            i.fa.fa-pencil
-          | &nbsp;
-          a
-            .i.fa.fa-close ng-click="$parent.destroy(category.id)"
+#categories-pagination ng-hide="count < 11"
+table.table.table-striped.table-responsive ng-hide="count == 0"
+  thead
+    tr
+      th
+        | {{ I18n.t('entities.title') }}
+      th
+  tbody
+    tr ng-repeat="category in categories"
+      td
+        | {{ category.title }}
+      td.text-right
+        a.btn.btn-default.btn-xs href="#shop_categories/{{category.id}}/edit"
+          | {{ I18n.t('actions.edit')}}
+        a.btn.btn-default.btn-xs href="#shop_categories/{{category.id}}/shop_subcategories"
+          | {{ I18n.t('menu.shop_subcategories')}}
+        a.btn.btn-default.btn-xs ng-click="$parent.destroy(category.id)"
+          | {{ I18n.t('actions.delete')}}

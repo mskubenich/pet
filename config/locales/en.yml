@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  for: 'for'
   logo:
     service: 'Service'
     home: 'of'
@@ -107,6 +108,7 @@ en:
     edit: 'Edit Shop Category'
     messages:
       success_upsert: "Shop Category successfully saved."
+      remove_confirm: "Are you sure you want to remove shop category ?"
   shop_subcategory:
     new: 'New Shop Subcategory'
     edit: 'Edit Shop Subcategory'
