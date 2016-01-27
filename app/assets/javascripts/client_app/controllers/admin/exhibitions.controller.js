@@ -63,6 +63,7 @@
                                 template: I18n.t('exhibition.messages.success_upsert'),
                                 plain: true
                             });
+                            $state.go('exhibitions');
                         })
                         .error(function(data){
                             $scope.processing = false;
@@ -90,6 +91,10 @@
                         pagination.removeData('twbs-pagination');
                         pagination.unbind('page');
 
+                        if($scope.count == 0){
+                            return
+                        }
+
                         if($scope.count > 0){
                             pagination.twbsPagination({
                                 totalPages: Math.ceil($scope.count / 10),
@@ -106,10 +111,21 @@
                     });
                 };
 
-                $scope.destroyExhibition = function(exhibition_id){
-                    exhibitions.destroy(exhibition_id).success(function(){
-                        $scope.retrieveExhibitions();
-                    })
+                $scope.destroyExhibition = function(id){
+                    var scope = $scope;
+                    ngDialog.open({
+                        className: 'ngdialog-theme-default',
+                        template: 'client_app/templates/admin/breeds/confirm_removing.html',
+                        controller: ['$scope', function ($scope) {
+                            $scope.I18n = I18n;
+                            $scope.destroy = function () {
+                                exhibitions.destroy(id).success(function(){
+                                    $scope.closeThisDialog();
+                                    scope.retrieveExhibitions();
+                                });
+                            };
+                        }]
+                    });
                 };
 
                 $scope.retrieveExhibitions();
