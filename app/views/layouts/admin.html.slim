@@ -60,6 +60,14 @@ html(lang="en")
                   | {{ I18n.t('menu.in_good_hands') }}
               li.nav-divider
 
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('competition') }"
+                a href="#competitions"
+                  | {{I18n.t('menu.competitions')}}
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('exhibition') }"
+                a href="#exhibitions"
+                  | {{I18n.t('menu.exhibitions')}}
+              li.nav-divider
+
 
               li role="presentation" ng-class="{'active' : $state.current.name.contains('news_categor') }"
                 a href="#news_categories"
@@ -77,15 +85,9 @@ html(lang="en")
                   | {{ I18n.t('menu.products') }}
               li.nav-divider
 
-              li role="presentation" ng-class="{'active' : $state.current.name == 'orders' }"
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('orders') }"
                 a href="#orders"
                   | Заказы
-              li role="presentation" ng-class="{'active' : $state.current.name == 'competitions' }"
-                a href="#competitions"
-                  | {{I18n.t('menu.competitions')}}
-              li role="presentation" ng-class="{'active' : $state.current.name == 'exhibitions' }"
-                a href="#exhibitions"
-                  | {{I18n.t('menu.exhibitions')}}
         .col-md-9.col-lg-9.col-sm-8.col-xs-8
           div ui-view=true
 

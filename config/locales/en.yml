@@ -146,6 +146,7 @@ en:
     edit: 'Edit Competition'
     messages:
       success_upsert: "Competition successfully saved."
+      remove_confirm: "Are you sure you want to remove competition ?"
   exhibition:
     title: 'Exhibition'
     new: 'New Exhibition'

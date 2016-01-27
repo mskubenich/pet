@@ -46,6 +46,10 @@ ru:
       about_x_hours:
         one: "около 1 часа"
         other: "около %{count} часов"
+      about_x_months:
+        one: "около 1 месяца"
+        other: "около %{count} месяцев"
+
   users:
     email: 'Електронный адрес'
     login: 'Логин'
@@ -133,6 +137,7 @@ ru:
     edit: 'Редактировать конкурс'
     messages:
       success_upsert: "Конкурс успешно сохранен."
+      remove_confirm: "Вы действительно хотите удалить конкурс ?"
   exhibition:
     title: 'Выставки'
     new: 'Создать выставку'
