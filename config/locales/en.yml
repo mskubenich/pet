@@ -89,6 +89,7 @@ en:
       country: 'Country'
     messages:
       success_upsert: "Product successfully saved."
+      remove_confirm: "Are you sure you want to remove product ?"
     filters:
       choose_size: 'Chose Size'
   good_hands:

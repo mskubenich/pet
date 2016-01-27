@@ -43,6 +43,10 @@
                             pagination.removeData('twbs-pagination');
                             pagination.unbind('page');
 
+                            if($scope.count == 0){
+                                return
+                            }
+
                             pagination.twbsPagination({
                                 totalPages: Math.ceil($scope.count / 9),
                                 startPage: $scope.page,
@@ -60,14 +64,24 @@
                     $scope.retrieveProducts();
 
                     $scope.destroy = function(id){
-                        products.destroy(id).success(function(){
-                            $scope.retrieveProducts();
-                        })
+                        var scope = $scope;
+                        ngDialog.open({
+                            className: 'ngdialog-theme-default',
+                            template: 'client_app/templates/admin/products/confirm_removing.html',
+                            controller: ['$scope', function ($scope) {
+                                $scope.I18n = I18n;
+                                $scope.destroy = function () {
+                                    products.destroy(id).success(function(){
+                                        $scope.closeThisDialog();
+                                        scope.retrieveProducts();
+                                    });
+                                };
+                            }]
+                        });
                     };
                 }
 
                 if($state.current.name == 'new_product' || $state.current.name == 'edit_product'){
-
 
                     $scope.categories = [];
                     $scope.subcategories = [];
@@ -77,13 +91,11 @@
                         });
 
                     $scope.$watch('product.category_id', function(){
-                        if($scope.product.category_id){
-                            if($scope.product){
-                                products.shop_subcategories($scope.product.category_id)
-                                    .success(function(data){
-                                        $scope.subcategories = data.shop_subcategories;
-                                    });
-                            }
+                        if($scope.product && $scope.product.category_id){
+                            products.shop_subcategories($scope.product.category_id)
+                                .success(function(data){
+                                    $scope.subcategories = data.shop_subcategories;
+                                });
                         }
                     });
 

@@ -69,14 +69,14 @@ html(lang="en")
                   | {{ I18n.t('menu.news') }}
               li.nav-divider
 
-              li role="presentation" ng-class="{'active' : $state.current.name.contains('shop_categories') }"
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('shop_categor') }"
                 a href="#shop_categories"
                   | {{ I18n.t('menu.shop_categories') }}
-              li.nav-divider
-
-              li role="presentation" ng-class="{'active' : $state.current.name == 'products' }"
+              li role="presentation" ng-class="{'active' : $state.current.name.contains('product') }"
                 a href="#products"
                   | {{ I18n.t('menu.products') }}
+              li.nav-divider
+
               li role="presentation" ng-class="{'active' : $state.current.name == 'orders' }"
                 a href="#orders"
                   | Заказы
