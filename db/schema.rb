@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151225150849) do
+ActiveRecord::Schema.define(version: 20160127210051) do
 
   create_table "attachments", force: :cascade do |t|
     t.integer  "entity_id",         limit: 4
@@ -378,8 +378,6 @@ ActiveRecord::Schema.define(version: 20151225150849) do
     t.string   "encrypted_password",       limit: 255
     t.datetime "created_at",                                           null: false
     t.datetime "updated_at",                                           null: false
-    t.boolean  "rkf",                      limit: 1,   default: false
-    t.boolean  "scorp",                    limit: 1,   default: false
     t.string   "avatar_file_name",         limit: 255
     t.string   "avatar_content_type",      limit: 255
     t.integer  "avatar_file_size",         limit: 4
@@ -392,6 +390,7 @@ ActiveRecord::Schema.define(version: 20151225150849) do
     t.string   "specialist_type",          limit: 255
     t.string   "specialist_reject_reason", limit: 255
     t.integer  "country_id",               limit: 4
+    t.string   "user_profession",          limit: 255
   end
 
   create_table "views", force: :cascade do |t|

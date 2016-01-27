@@ -23,7 +23,7 @@
                 | can't be blank
 
         .form-group
-          input.form-control type="text" placeholder="Адрес электронной почты" emailvalidate='' required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
+          input.form-control type="text" placeholder="Адрес электронной почты" required=true ng-model="userData.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email"
 
           .error ng-show="userForm.email.$error.required && submited"
             | can't be blank
@@ -67,11 +67,11 @@
                   span.flag class="{{ country.code }}"
                   | {{ country['title_' + I18n.locale ] }}
           input.form-control type="text" required=true name="country_id" ng-model="userData.country_id" style="display: none;"
-          .error ng-show="userForm.country_id.$invalid && submitted"
+          .error ng-show="userForm.country_id.$invalid && submited"
             | {{ I18n.t('validations.cant_be_blank')}}
 
         .form-group
-          input.form-control type="text" placeholder="Город" required=true class="{{ userForm.city.$invalid && submited ? 'validation-error' : ''}}" name="ciry" ng-model="userData.city"
+          input.form-control type="text" placeholder="Город" required=true class="{{ userForm.city.$invalid && submited ? 'validation-error' : ''}}" name="city" ng-model="userData.city"
           .error ng-show="userForm.city.$invalid && submited"
             | can't be blank
 
@@ -81,28 +81,52 @@
             table.vertical-align-table
               tr
                 td
-                  .rounded-one class="{{ checked1 ? 'checked' : ''}}"
+                  .rounded-one class="{{ userData.user_profession == 'Клуб' ? 'checked' : ''}}"
                     .rounded-two
-                    input.form-control type="checkbox" ng-click="checked1 = !checked1" ng-model="userData.scorp"
+                    input.form-control type="checkbox" ng-click="userData.user_profession = 'Клуб'"
                 td
                   span.black-budget style="margin-top: 13px"
-                    | СКОРП
-
+                    | Клуб
         .form-group
           label
             table.vertical-align-table
               tr
                 td
-                  .rounded-one class="{{ checked2 ? 'checked' : ''}}"
+                  .rounded-one class="{{ userData.user_profession == 'Частный заводчик' ? 'checked' : ''}}"
                     .rounded-two
-                    input.form-control type="checkbox" ng-click="checked2 = !checked2" ng-model="userData.rkf"
+                    input.form-control type="checkbox" ng-click="userData.user_profession = 'Частный заводчик'"
                 td
                   span.black-budget
-                    | РКФ
-          br
-          br
-          span.gray
-            | {{ I18n.t('organization_flag')}}
+                    | Частный заводчик
+        .form-group
+          label
+            table.vertical-align-table
+              tr
+                td
+                  .rounded-one class="{{ userData.user_profession == 'Питомник' ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="userData.user_profession = 'Питомник'"
+                td
+                  span.black-budget
+                    | Питомник
+        .form-group
+          label
+            table.vertical-align-table
+              tr
+                td
+                  .rounded-one class="{{ userData.user_profession == 'Специалист' ? 'checked' : ''}}"
+                    .rounded-two
+                    input.form-control type="checkbox" ng-click="userData.user_profession = 'Специалист'"
+                td
+                  span.black-budget
+                    | Специалист
+
+        .form-group ng-show="userData.user_profession == 'Специалист'"
+          input.form-control type="text" placeholder="Специалист" name="specialist_type" ng-model="userData.specialist_type"
+        br
+        br
+        span.gray
+          | {{ I18n.t('organization_flag')}}
 
         .form-group
           table.vertical-align-table

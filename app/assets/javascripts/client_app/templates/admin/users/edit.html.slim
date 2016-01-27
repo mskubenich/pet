@@ -35,7 +35,7 @@ form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=t
       | {{ I18n.t('validations.cant_be_blank')}}
 
   .form-group
-    input.form-control type="text" placeholder="Адрес электронной почты" emailvalidate='' required=true ng-model="user.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email" except="user.id"
+    input.form-control type="text" placeholder="Адрес электронной почты" required=true ng-model="user.email" class="{{ userForm.email.$invalid && submited ? 'validation-error' : ''}}" name="email" except="user.id"
 
     .error ng-show="userForm.email.$error.required && submited"
       | {{ I18n.t('validations.cant_be_blank')}}
@@ -58,28 +58,47 @@ form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=t
       table.vertical-align-table
         tr
           td
-            .rounded-one class="{{ user.scorp ? 'checked' : ''}}"
+            .rounded-one class="{{ user.user_profession == 'Клуб' ? 'checked' : ''}}"
               .rounded-two
-              input.form-control type="checkbox" ng-model="user.scorp"
+              input.form-control type="checkbox" ng-click="user.user_profession = 'Клуб'"
           td
             span.black-budget style="margin-top: 13px"
-              | СКОРП
-
+              | Клуб
   .form-group
     label
       table.vertical-align-table
         tr
           td
-            .rounded-one class="{{ user.rkf ? 'checked' : ''}}"
+            .rounded-one class="{{ user.user_profession == 'Частный заводчик' ? 'checked' : ''}}"
               .rounded-two
-              input.form-control type="checkbox" ng-model="user.rkf"
+              input.form-control type="checkbox" ng-click="user.user_profession = 'Частный заводчик'"
           td
             span.black-budget
-              | РКФ
-    br
-    br
-    span.gray
-      | {{ I18n.t('organization_flag')}}
+              | Частный заводчик
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            .rounded-one class="{{ user.user_profession == 'Питомник' ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-click="user.user_profession = 'Питомник'"
+          td
+            span.black-budget
+              | Питомник
+  .form-group
+    label
+      table.vertical-align-table
+        tr
+          td
+            .rounded-one class="{{ user.user_profession == 'Специалист' ? 'checked' : ''}}"
+              .rounded-two
+              input.form-control type="checkbox" ng-click="user.user_profession = 'Специалист'"
+          td
+            span.black-budget
+              | Специалист
+  .form-group ng-show="user.user_profession == 'Специалист'"
+    input.form-control type="text" placeholder="Специалист" name="specialist_type" ng-model="user.specialist_type"
 
   .form-group
     table.vertical-align-table

@@ -5,8 +5,7 @@ json.user do
   json.email @user.email
   json.login @user.login
   json.phone @user.phone
-  json.rkf @user.rkf
-  json.scorp @user.scorp
+  json.user_profession @user.user_profession
   json.country @user.country
   json.country_id @user.country_id
   json.city @user.city

@@ -7,4 +7,5 @@ json.profile do
   json.country @user.country
   json.country_id @user.country_id
   json.city @user.city.capitalize
+  json.user_profession @user.user_profession
 end

@@ -62,28 +62,51 @@ div ng-include="'client_app/templates/users/profile-header.html'"
               table.vertical-align-table
                 tr
                   td
-                    .rounded-one class="{{ my_info.scorp ? 'checked' : ''}}"
+                    .rounded-one class="{{ my_info.user_profession == 'Клуб' ? 'checked' : ''}}"
                       .rounded-two
-                      input.form-control type="checkbox" ng-model="my_info.scorp"
+                      input.form-control type="checkbox" ng-click="my_info.user_profession = 'Клуб'"
                   td
                     span.black-budget style="margin-top: 13px"
-                      | СКОРП
-
+                      | Клуб
           .form-group
             label
               table.vertical-align-table
                 tr
                   td
-                    .rounded-one class="{{ my_info.rkf ? 'checked' : ''}}"
+                    .rounded-one class="{{ my_info.user_profession == 'Частный заводчик' ? 'checked' : ''}}"
                       .rounded-two
-                      input.form-control type="checkbox" ng-model="my_info.rkf"
+                      input.form-control type="checkbox" ng-click="my_info.user_profession = 'Частный заводчик'"
                   td
                     span.black-budget
-                      | РКФ
-            br
-            br
-            span.gray
-              | {{ I18n.t('organization_flag')}}
+                      | Частный заводчик
+          .form-group
+            label
+              table.vertical-align-table
+                tr
+                  td
+                    .rounded-one class="{{ my_info.user_profession == 'Питомник' ? 'checked' : ''}}"
+                      .rounded-two
+                      input.form-control type="checkbox" ng-click="my_info.user_profession = 'Питомник'"
+                  td
+                    span.black-budget
+                      | Питомник
+          .form-group
+            label
+              table.vertical-align-table
+                tr
+                  td
+                    .rounded-one class="{{ my_info.user_profession == 'Специалист' ? 'checked' : ''}}"
+                      .rounded-two
+                      input.form-control type="checkbox" ng-click="my_info.user_profession = 'Специалист'"
+                  td
+                    span.black-budget
+                      | Специалист
+          .form-group ng-show="my_info.user_profession == 'Специалист'"
+            input.form-control type="text" placeholder="Специалист" required=true name="specialist_type" ng-model="my_info.specialist_type"
+          br
+          br
+          span.gray
+            | {{ I18n.t('organization_flag')}}
 
           .form-group
             table.vertical-align-table

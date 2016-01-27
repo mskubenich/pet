@@ -21,8 +21,8 @@
                 fd.append('user[first_name]', user.first_name);
                 fd.append('user[last_name]', user.last_name);
                 fd.append('user[login]', user.login);
-                fd.append('user[rkf]', user.rkf);
-                fd.append('user[scorp]', user.scorp);
+                fd.append('user[user_profession]', user.user_profession);
+                fd.append('user[specialist_type]', user.specialist_type);
                 fd.append('user[phone]', user.phone);
                 fd.append('user[country_id]', user.country_id);
                 fd.append('user[city]', user.city);

@@ -4,8 +4,8 @@ json.user do
   json.email                @user.email
   json.login                @user.login
   json.phone                @user.phone
-  json.rkf                  @user.rkf
-  json.scorp                @user.scorp
+  json.user_profession @user.user_profession
+  json.specialist_type @user.specialist_type
   json.id                   @user.id
   json.avatar               @user.avatar.url
   json.country              @user.country

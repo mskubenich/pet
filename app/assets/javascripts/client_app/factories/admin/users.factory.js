@@ -24,8 +24,8 @@
                 fd.append('user[email]', user.email);
                 fd.append('user[login]', user.login);
                 fd.append('user[phone]', user.phone);
-                fd.append('user[rkf]', user.rkf);
-                fd.append('user[scorp]', user.scorp);
+                fd.append('user[specialist_type]', user.specialist_type);
+                fd.append('user[user_profession]', user.user_profession);
 
                 if(avatar){
                     fd.append('user[avatar]', avatar);

@@ -6,13 +6,12 @@ angular.module('validation.email').directive('emailvalidate', match);
 
 function match ($http) {
     return {
-        require: '?ngModel',
+        require: 'ngModel',
         restrict: 'A',
         scope: {
-          except: '=except'
+            except: '=except'
         },
         link: function(scope, elem, attrs, ctrl) {
-
             if(!ctrl) {
                 if(console && console.warn){
                     console.warn('Match validation requires ngModel to be on the element');
@@ -20,8 +19,11 @@ function match ($http) {
                 return;
             }
 
-            ctrl.$validators.validateEmail = function(viewValue) {
-                if (viewValue && viewValue.match(/[a-z0-9\-_]+@[a-z0-9\-_]+\.[a-z0-9\-_]{2,}/)) {
+            var validator = function(viewValue) {
+                if (attrs.required && viewValue == ''){
+                    return undefined;
+                }
+                if (viewValue && viewValue.match(/[a-zA-Z0-9\-_]+@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_]{2,}/)) {
                     ctrl.$setValidity('emailValid', true);
                     $http.post('/users/email_available', {email: viewValue, except: scope.except})
                         .success(function (data, status, headers, config) {
@@ -40,6 +42,13 @@ function match ($http) {
 
                 return undefined;
             };
+
+
+            scope.$watch(attrs.ngModel, function(value) {
+                console.log('ss')
+                validator(value);
+            });
+            //ctrl.$validators.validateEmail = validator;
         }
     };
 }
