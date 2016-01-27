@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  skip_before_filter :authenticate_user, only: [:create]
+  skip_before_filter :authenticate_user, only: [:create, :current_session_info]
 
   include SessionsHelper
 
@@ -23,6 +23,15 @@ class SessionsController < ApplicationController
     else
       render json: {}, status: :unprocessable_entity
     end
+  end
+
+  def current_session_info
+    CartItem.where("updated_at < ?", 3.days.ago).destroy_all
+    render json: {
+               current_session: {
+                   cart_items_count: current_user ? current_user.cart.cart_items.map(&:count).sum : CartItem.where(session_id: session[:session_id]).map(&:count).sum
+               }
+           }
   end
 
   def create

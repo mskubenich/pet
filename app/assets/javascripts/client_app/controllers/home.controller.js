@@ -16,7 +16,13 @@
                         $scope.current_user = data.current_user;
                     })
                 };
+                $scope.getCurrentSessionInfo = function(){
+                    session.currentSession().success(function(data){
+                        $scope.current_session = data.current_session;
+                    })
+                };
                 $scope.getCurrentUserInfo();
+                $scope.getCurrentSessionInfo();
 
                 $scope.logout = function(){
                     session.destroy()

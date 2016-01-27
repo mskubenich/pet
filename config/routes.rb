@@ -99,6 +99,7 @@ Rails.application.routes.draw do
     resources :sessions, only: [:create] do
       collection do
         get :current_user_info
+        get :current_session_info
         delete :destroy
       end
     end

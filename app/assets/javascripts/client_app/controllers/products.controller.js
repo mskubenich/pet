@@ -35,7 +35,7 @@
 
             $scope.addToCart = function(product_id){
                 cart.add(product_id).success(function(){
-                    $scope.current_user.cart_items_count =  $scope.current_user.cart_items_count + 1;
+                    $scope.current_session.cart_items_count =  $scope.current_session.cart_items_count + 1;
                     ngDialog.open({
                         className: 'ngdialog-theme-default',
                         template: I18n.t('shop.messages.success_add_to_cart'),

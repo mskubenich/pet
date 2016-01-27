@@ -1,9 +1,18 @@
 class CartController < ApplicationController
 
+  skip_before_filter :authenticate_user
+
   def add
-    count = current_user.cart.cart_items.where(product_id: params[:product_id]).count
+
     product = Product.find params[:product_id]
-    current_user.cart.cart_items.create count: count + 1, product_id: product.id
+
+    if current_user
+      @cart_item = CartItem.where(cart_id: current_user.cart.id, product_id: product.id).first_or_create
+    else
+      @cart_item = CartItem.where(session_id: session[:session_id], product_id: product.id).first_or_create
+    end
+    @cart_item.update_attribute :count, @cart_item.count ? (@cart_item.count + 1) : 1
+
     render json: {ok: true}
   end
 
@@ -13,7 +22,7 @@ class CartController < ApplicationController
   end
 
   def index
-    @cart_items = current_user.cart.cart_items
+    @cart_items = current_user ? current_user.cart.cart_items : CartItem.where(session_id: session[:session_id])
 
     @total_price = @cart_items.map{|i| i.count * i.product.try(:price).to_i }.sum
   end

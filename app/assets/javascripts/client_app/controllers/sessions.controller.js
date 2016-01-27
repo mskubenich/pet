@@ -12,6 +12,7 @@
                     .success(function(){
                         $state.go('home');
                         $scope.getCurrentUserInfo();
+                        $scope.getCurrentSessionInfo();
                     })
                     .error(function(data){
                         $scope.error = data.error;

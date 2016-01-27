@@ -50,5 +50,6 @@ class Ability
     can :read, MyPet
     can :read, Competition
     can :read, Exhibition
+    can :read, User
   end
 end

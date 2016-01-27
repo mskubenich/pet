@@ -66,13 +66,6 @@
             | {{ I18n.t('sessions.logout') }}
           br
           br
-          table.vertical-align-table
-            tr
-              td.text-right style="width: 118px; padding: 0"
-                a.white-dashed-link href="#cart"
-                  | У Вас {{ current_user.cart_items_count }} товара
-              td style="width: 30px; padding: 0"
-                .white-cart-icon
         div ng-hide="current_user"
           br
           a.yellow-btn href="#login"
@@ -86,3 +79,11 @@
             | {{ I18n.t('sessions.signup') }}
           br
           br
+        div
+          table.vertical-align-table
+            tr
+              td.text-right style="width: 118px; padding: 0"
+                a.white-dashed-link href="#cart"
+                  | У Вас {{ current_session.cart_items_count }} товара
+              td style="width: 30px; padding: 0"
+                .white-cart-icon
