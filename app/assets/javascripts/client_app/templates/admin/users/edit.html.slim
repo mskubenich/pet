@@ -98,7 +98,9 @@ form.registration-form ng-submit="submitUserData()" name="userForm" novalidate=t
             span.black-budget
               | Специалист
   .form-group ng-show="user.user_profession == 'Специалист'"
-    input.form-control type="text" placeholder="Специалист" name="specialist_type" ng-model="user.specialist_type"
+    select.form-control name="specialist_type" ng-model="user.specialist_type" required=true ng-options="profession as profession for profession in ['Фотограф', 'Ветеринар(ветврач)', 'Дизайнер-модельер одежды для животных', 'Грумер', 'Кинолог', 'Дресировщик', 'Животновод', 'Хэндлер']"
+      option value='' disabled=true selected=true
+        | ({{ I18n.t('choose_from_list')}})
 
   .form-group
     table.vertical-align-table

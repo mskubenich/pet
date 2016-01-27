@@ -102,7 +102,10 @@ div ng-include="'client_app/templates/users/profile-header.html'"
                     span.black-budget
                       | Специалист
           .form-group ng-show="my_info.user_profession == 'Специалист'"
-            input.form-control type="text" placeholder="Специалист" required=true name="specialist_type" ng-model="my_info.specialist_type"
+            select.form-control name="specialist_type" ng-model="my_info.specialist_type" required=true ng-options="profession as profession for profession in ['Фотограф', 'Ветеринар(ветврач)', 'Дизайнер-модельер одежды для животных', 'Грумер', 'Кинолог', 'Дресировщик', 'Животновод', 'Хэндлер']"
+              option value='' disabled=true selected=true
+                | ({{ I18n.t('choose_from_list')}})
+
           br
           br
           span.gray
