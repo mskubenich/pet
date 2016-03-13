@@ -57,8 +57,7 @@
                                 autoplaySpeed: 10000
                             });
                         }, 0);
-                    })
-                    .error();
+                    });
 
                 $scope.initShopSlides = function(){
                     pages.get_shop_slides()
@@ -115,30 +114,8 @@
                                     ]
                                 });
                             }, 1000);
-                        })
-                        .error();
+                        });
                 };
 
-                $scope.selectizeCountry = function(){
-                    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('select-country'), {
-                        language: 'ru',
-                        componentRestrictions: {country: 'ua'}
-                    });
-
-                    $('#select-country').parents('.dropdown-menu').click(function(e) {
-                        e.stopPropagation();
-                    });
-                };
-
-                $scope.selectizeCity = function(){
-                    var autocomplete = new google.maps.places.Autocomplete(document.getElementById('select-country'), {
-                        language: 'ru',
-                        componentRestrictions: {country: 'ua'}
-                    });
-
-                    $('#select-country').parents('.dropdown-menu').click(function(e) {
-                        e.stopPropagation();
-                    });
-                }
         }])
 }());

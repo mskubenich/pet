@@ -21,6 +21,7 @@
                     $scope.submited = true;
 
                     if($scope.userForm.$invalid ){
+                        console.log($scope.userForm);
                         return false;
                     }
 

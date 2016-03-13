@@ -23,20 +23,17 @@
                 pages.get_sale_slides()
                     .success(function(data){
                         $scope.sale_slides = data.sale_slides;
-                    })
-                    .error();
+                    });
 
                 pages.get_copulation_slides()
                     .success(function(data){
                         $scope.copulation_slides = data.copulation_slides;
-                    })
-                    .error();
+                    });
 
                 pages.news()
                     .success(function(data){
                         $scope.popular_news = data.news;
-                    })
-                    .error();
+                    });
 
                 $scope.initTheCopulationSlider = function(){
                     pages.get_the_copulation_slides()
@@ -57,8 +54,7 @@
                                     autoplaySpeed: 10000
                                 });
                             }, 0);
-                        })
-                        .error();
+                        });
                 };
                 $scope.initTheCopulationSlider();
 

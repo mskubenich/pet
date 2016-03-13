@@ -44,6 +44,8 @@ class User < ActiveRecord::Base
 
   has_one :service, dependent: :destroy
 
+  after_create :send_welcome_email
+
   def friendship_status(user)
     friendship = friendships.where(friend_id: user.id).try(:first)
     if friendship
@@ -78,6 +80,10 @@ class User < ActiveRecord::Base
   end
 
   private
+
+  def send_welcome_email
+    WelcomeMailer.welcome_email(self).deliver_now
+  end
 
   def set_default_role
     self.roles << Role.user
