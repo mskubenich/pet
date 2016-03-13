@@ -28,6 +28,11 @@
                 templateUrl: 'client_app/templates/users/profile.html',
                 controller: 'ProfileController'
             })
+            .state('search',{
+                url: '/search',
+                templateUrl: 'client_app/templates/search/index.html',
+                controller: 'SearchController'
+            })
             .state('registration',{
                 url: '/registration',
                 templateUrl: 'client_app/templates/users/new.html',

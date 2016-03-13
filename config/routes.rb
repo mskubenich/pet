@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
     root to: 'pages#index'
 
+    resources :search, only: [:index]
     namespace :admin do
       get '/', to: 'pages#index'
       resources :users, only: [:index, :destroy, :update, :show] do

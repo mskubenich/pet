@@ -158,7 +158,7 @@
                             pagination.twbsPagination({
                                 totalPages: Math.ceil($scope.count / 10),
                                 startPage: $scope.comments_page,
-                                visiblePages: 9,
+                                visiblePages: 10,
                                 onPageClick: function (event, page) {
                                     $scope.comments_page = page;
                                     $scope.retrieveComments();

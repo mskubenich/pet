@@ -1,0 +1,37 @@
+.wave
+.nav-menu
+  .container
+    div.horizontal-list style="height: 80px"
+      ul
+        li
+          a.black-dashed-link
+            | Поиск
+.container
+  .row
+    .col-md-9 ng-hide="count > 0"
+      h3
+        | Нет результатов
+    .col-md-9 ng-show="count > 0"
+      #search-pagination ng-hide="count < 11"
+      .news ng-repeat="article in search_results"
+        table.news-header
+          tr
+            td
+              a.news-title href="{{ article.category }}"
+                | {{ article.category_title }}
+              | /
+              a.news-title href="{{ article.type }}/{{article.id}}"
+                | {{ article.title }}
+              | &nbsp;
+        table.news-preview
+          tr
+            td.news-image rowspan="2"
+              img ng-src="{{ article.preview_image_url }}"
+            td.news-text ng-bind-html="getHtml(article.body)"
+
+    .col-md-3
+      h3.serif-font
+        b
+          | {{ I18n.t('news.popular') }}:
+      br
+      div ng-include=true src="'client_app/templates/news/popular.html'"

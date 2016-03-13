@@ -49,8 +49,8 @@
               a.white-dashed-link href="#exhibitions"
                 | {{ I18n.t('menu.exhibitions') }}
         .inner-addon.right-addon.global-search2
-          input type="text" placeholder="Search"
-          i.fa.fa-search.global-search-icon
+          input#search-input type="text" placeholder="Search" ng-change="searchChange(query_word)" ng-model="query_word"
+          i.fa.fa-search.global-search-icon style="right: 19px"
         br
         br
         br

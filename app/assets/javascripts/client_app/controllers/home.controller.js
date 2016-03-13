@@ -11,6 +11,13 @@
                     ngDialog.close();
                 };
 
+                $scope.searchChange = function(query){
+                    $scope.query_word = query;
+                    if($state.current.name != 'search'){
+                        $state.go('search')
+                    }
+                };
+
                 $scope.getCurrentUserInfo = function(){
                     session.currentUser().success(function(data){
                         $scope.current_user = data.current_user;
