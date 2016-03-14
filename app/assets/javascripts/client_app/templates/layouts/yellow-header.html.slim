@@ -79,7 +79,7 @@
           br
           br
           .inner-addon.right-addon.global-search2
-            input
+            input ng-change="searchChange(query_word)" ng-model="query_word"
             i.fa.fa-search.global-search-icon
       .header-text
         | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris

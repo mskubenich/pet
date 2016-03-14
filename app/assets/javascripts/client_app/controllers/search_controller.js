@@ -5,7 +5,7 @@
     angular.module('petModeApp')
         .controller('SearchController', ['$scope', '$state', 'ngDialog', 'SalesFactory', '$stateParams', '$timeout', '$sce', 'Lightbox', 'SearchFactory',
             function ($scope, $state, ngDialog, sales, $stateParams, $timeout, $sce, Lightbox, search) {
-                $scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
+                //$scope.$parent.header_url = 'client_app/templates/layouts/black-header.html';
                 $('body').css('background-color', 'white');
                 $scope.I18n = I18n;
                 $scope._ = _;
