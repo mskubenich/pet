@@ -90,6 +90,10 @@
                             pagination.unbind('page');
 
                             pagination.twbsPagination({
+                                first: I18n.locale == 'ru' ? "Первая" : "First",
+                                prev: I18n.locale == 'ru' ? "Предыдущая" :"Previous",
+                                next: I18n.locale == 'ru' ? "Следующая" :"Next",
+                                last: I18n.locale == 'ru' ? "Последняя" :"Last",
                                 totalPages: Math.ceil($scope.count / 13),
                                 startPage: $scope.page,
                                 visiblePages: 13,

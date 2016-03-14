@@ -55,7 +55,7 @@
   br
   .pet-h4
     | {{ filters.category ? filters.category.title : I18n.t('menu.products') }}  {{ filters.subcategory.title }} {{ filters.family == 'cat' ? I18n.t('shop.for_cats') : '' }} {{ filters.family == 'dog' ? I18n.t('shop.for_dogs') : '' }}
-  #products-pagination
+
   .col-group-shop
     .shop-ad
       div
@@ -97,5 +97,6 @@
             a.to-card-link.black-dashed-link ng-click="addToCart(product.id)"
               | {{ I18n.t('shop.to_card') }}
           td.card-button-section.text-right
-            a.card-button
+            a.card-button  href="#products/{{ product.id }}"
               | {{ I18n.t('shop.buy') }}
+  #products-pagination

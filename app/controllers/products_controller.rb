@@ -13,6 +13,7 @@ class ProductsController < ApplicationController
     query = query.where(shop_subcategory_id: params[:shop_subcategory_id]) unless params[:shop_subcategory_id].blank?
 
     @products = query.order('id DESC').paginate page: params[:page], per_page: 13
+    @products = (@products * 13)[0..12] if @products.count < 13 && @products.count > 0
     @count = query.count
     @new_product = Product.order('created_at DESC').limit(5).sample
   end
