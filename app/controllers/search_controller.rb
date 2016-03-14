@@ -1,4 +1,5 @@
 class SearchController < ApplicationController
+  skip_before_filter :authenticate_user
   def index
     query = "
     (SELECT id, 'news' as type, 'news' as category, 'Новости' as category_title, title_#{ I18n.locale } as title, body_#{ I18n.locale } as body FROM news WHERE title_ru LIKE ? OR title_en LIKE ? OR body_en LIKE ? OR body_ru LIKE ?)

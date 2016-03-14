@@ -51,10 +51,10 @@ class ServicesController < ApplicationController
         sign_in @user
         redirect_to root_path
       else
-        render text: 'Error while authenticating via ' + service_route.capitalize + '.'
+        render text: 'Error while authenticating via ' + params[:service] + '.'
       end
     else
-        render text: 'Error while authenticating via ' + service_route.capitalize + '.'
+        render text: 'Error while authenticating via ' + params[:service] + '..'
     end
   end
 

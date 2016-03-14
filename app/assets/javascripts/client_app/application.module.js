@@ -16,8 +16,13 @@
 
         $httpProvider.defaults.headers.common['X-Requested-With'] = 'AngularXMLHttpRequest';
 
-        $urlRouterProvider.otherwise('home');
+        $urlRouterProvider.otherwise('/');
         $stateProvider
+            .state('home2',{
+                url: '/',
+                templateUrl: 'client_app/templates/home/index.html',
+                controller: 'TheHomeController'
+            })
             .state('home',{
                 url: '',
                 templateUrl: 'client_app/templates/home/index.html',

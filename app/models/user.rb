@@ -7,15 +7,15 @@ class User < ActiveRecord::Base
 
   validates :email, uniqueness: { case_sensitive: false, message: "has already been taken." },
             format: { with: /.*\@.*\..*/, message: "is incorrect"},
-            presence: true
+            presence: true, if: lambda{ !service }
 
   attr_accessor :password, :password_confirmation
-  validates :password, presence: true, confirmation: { message: "should match %{attribute}" }, length: { in: 6..20 }, if: lambda{ new_record? || !password.nil? }
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :login, presence: true
-  validates :country_id, presence: true
-  validates :city, presence: true
+  validates :password, presence: true, confirmation: { message: "should match %{attribute}" }, length: { in: 6..20 }, if: lambda{ (new_record? || !password.nil?) && !service }
+  validates :first_name, presence: true,                   if: lambda{ !service }
+  validates :last_name, presence: true,                    if: lambda{ !service }
+  validates :login, presence: true,                        if: lambda{ !service }
+  validates :country_id, presence: true,                   if: lambda{ !service }
+  validates :city, presence: true,                         if: lambda{ !service }
 
   before_save :encrypt_password, :downcase_email
   after_create :set_default_role
@@ -82,7 +82,7 @@ class User < ActiveRecord::Base
   private
 
   def send_welcome_email
-    WelcomeMailer.welcome_email(self).deliver_now
+    WelcomeMailer.welcome_email(self).deliver_now if self.email
   end
 
   def set_default_role
