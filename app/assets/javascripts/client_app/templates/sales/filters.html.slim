@@ -33,9 +33,10 @@
               | {{ current_breed_title }}
             span.caret
           ul.dropdown-menu role="menu"
-            li
-              a ng-repeat="breed in breeds" ng-click="filters.breed_id = breed.id; $parent.current_breed_title = breed.title"
-                | {{ breed.title }}
+            li ng-repeat="breed in breeds" style="display: block; margin: 4px 0px"
+              a ng-click="filters.breed_id = breed.id; $parent.current_breed_title = breed.title"
+                .black-dashed-link style="display: inline"
+                  | {{ breed.title }}
       td.text-right rowspan=2 style="text-align: left"
         label
           table.vertical-align-table
@@ -82,8 +83,19 @@
           button.yellow-black-btn.dropdown-toggle type="button" dropdown-toggle=true ng-disabled="disabled" style="width: 100%"
             | {{ I18n.t('sale.filters.choose_city') }}
             span.caret
-          .dropdown-menu style="width: 250px; padding: 10px 5px;"
-            input.form-control#select-country style="width: 100%"
+          ul.dropdown-menu role="menu"
+            li style="display: block; margin: 4px 0px"
+              a
+                .black-dashed-link style="display: inline"
+                  | Москва
+            li style="display: block; margin: 4px 0px"
+              a
+                .black-dashed-link style="display: inline"
+                  | Москва
+            li style="display: block; margin: 4px 0px"
+              a
+                .black-dashed-link style="display: inline"
+                  | Москва
       td
         table style="width: 100%"
           tr

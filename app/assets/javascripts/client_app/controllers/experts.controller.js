@@ -3,9 +3,13 @@
     "use strict";
 
     angular.module('petModeApp')
-        .controller('ExpertsController', ['$scope', '$state', 'ngDialog', 'ExpertsFactory', '$stateParams', 'CommentsFactory', 'Lightbox',
-            function ($scope, $state, ngDialog, experts, $stateParams, comments, Lightbox) {
+        .controller('ExpertsController', ['$scope', '$state', 'ngDialog', 'ExpertsFactory', '$stateParams', 'CommentsFactory', 'Lightbox', 'CountriesFactory',
+            function ($scope, $state, ngDialog, experts, $stateParams, comments, Lightbox, countries) {
             $('body').css('background-color', 'white');
+
+            countries.all().success(function(data){
+                $scope.countries = data.countries;
+            });
 
             if($state.current.name == 'experts'){
                 $scope.$parent.header_url = 'yellow';
