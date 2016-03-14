@@ -81,8 +81,7 @@
                         .success(function(data){
                             $scope.profile = data.profile;
                             $scope.phone = $scope.profile.phone_hashed;
-                        })
-                        .error();
+                        });
                 };
 
                 $scope.showPhone = function(){

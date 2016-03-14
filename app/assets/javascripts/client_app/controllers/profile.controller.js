@@ -23,8 +23,7 @@
                     .success(function(data){
                         $scope.profile = data.profile;
                         $scope.phone = $scope.profile.phone_hashed;
-                    })
-                    .error();
+                    });
 
                 $scope.showPhone = function(){
                     $scope.phone = $scope.profile.phone;
@@ -32,7 +31,7 @@
 
                 users.friends_preview().success(function(data){
                     $scope.preview_friends = data.friends;
-                }).error();
+                });
 
                 $scope.retrievePets = function(){
                     pets.all()
