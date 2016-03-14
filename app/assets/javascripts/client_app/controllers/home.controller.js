@@ -63,7 +63,7 @@
                                 fade: true,
                                 autoplaySpeed: 10000
                             });
-                        }, 0);
+                        }, 100);
                     });
 
                 $scope.initShopSlides = function(){
