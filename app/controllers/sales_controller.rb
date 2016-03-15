@@ -11,7 +11,7 @@ class SalesController < ApplicationController
       attachments_params.each do |attachment|
         Attachment.create entity_id: @sale.id, entity_type: Sale, file: attachment
       end
-      render json: {ok: true}
+      render json: {id: @sale.id, ok: true}
     else
       render json: {errors: @sale.errors}, status: :unprocessable_entity
     end

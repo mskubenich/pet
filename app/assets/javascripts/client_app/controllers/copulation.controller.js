@@ -312,13 +312,14 @@
 
                     $scope.processing = true;
                     copulations.upsert($scope.announcement, $scope.attachments, $scope.prize, $scope.bloodline, $scope.mothers_photo, $scope.fathers_photo)
-                        .success(function(){
+                        .success(function(data){
                             $scope.processing = false;
                             ngDialog.open({
                                 className: 'ngdialog-theme-default',
                                 template: "Announcement successfully saved.",
                                 plain: true
                             });
+                            $state.go('show_copulation', {id: data.id})
                         })
                         .error(function(data){
                             $scope.validation_errors = data.errors;

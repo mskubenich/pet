@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
             presence: true, if: lambda{ !service }
 
   attr_accessor :password, :password_confirmation
-  validates :password, presence: true, confirmation: { message: "should match %{attribute}" }, length: { in: 6..20 }, if: lambda{ (new_record? || !password.nil?) && !service }
+  validates :password, presence: true, confirmation: { message: "should match %{attribute}" }, length: { in: 3..20 }, if: lambda{ (new_record? || !password.nil?) && !service }
   validates :first_name, presence: true,                   if: lambda{ !service }
   validates :last_name, presence: true,                    if: lambda{ !service }
   validates :login, presence: true,                        if: lambda{ !service }

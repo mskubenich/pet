@@ -306,13 +306,14 @@
 
                         $scope.processing = true;
                         good_hands.upsert($scope.announcement, $scope.attachments, $scope.prize, $scope.bloodline, $scope.mothers_photo, $scope.fathers_photo)
-                            .success(function(){
+                            .success(function(data){
                                 $scope.processing = false;
                                 ngDialog.open({
                                     className: 'ngdialog-theme-default',
                                     template: I18n.t('announcements.messages.success_upsert'),
                                     plain: true
                                 });
+                                $state.go('show_hand', {id: data.id})
                             })
                             .error(function(data){
                                 $scope.validation_errors = data.errors;

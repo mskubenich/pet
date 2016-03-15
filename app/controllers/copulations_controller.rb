@@ -12,7 +12,7 @@ class CopulationsController < ApplicationController
       attachments_params.each do |attachment|
         Attachment.create entity_id: @copulation.id, entity_type: Copulation, file: attachment
       end
-      render json: {ok: true}
+      render json: {id: @copulation.id, ok: true}
     else
       render json: {errors: @copulation.errors}, status: :unprocessable_entity
     end

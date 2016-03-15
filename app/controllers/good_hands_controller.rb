@@ -11,7 +11,7 @@ class GoodHandsController < ApplicationController
       attachments_params.each do |attachment|
         Attachment.create entity_id: @good_hand.id, entity_type: GoodHand, file: attachment
       end
-      render json: {ok: true}
+      render json: {ok: true, id: @good_hand.id}
     else
       render json: {errors: @good_hand.errors}, status: :unprocessable_entity
     end
