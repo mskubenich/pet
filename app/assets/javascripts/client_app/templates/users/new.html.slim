@@ -146,4 +146,7 @@
                   | Ваше фото.
 
         .text-center
-          input.yellow-btn type="submit" value="РЕГИСТРАЦИЯ"
+          input.yellow-btn type="submit" value="РЕГИСТРАЦИЯ" ng-hide="running"
+          span.yellow-btn ng-show="running"
+            i.fa.fa-spinner.fa-spin>
+            | РЕГИСТРАЦИЯ

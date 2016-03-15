@@ -24,6 +24,7 @@
                         console.log($scope.userForm);
                         return false;
                     }
+                    $scope.running = true;
 
                     users.create($scope.userData)
                         .success(function(data, status, headers, config){
@@ -36,6 +37,7 @@
                                 template: I18n.t('sessions.success_login'),
                                 plain: true
                             });
+                            $scope.running = false;
                         })
                         .error(function (data, status, headers, config) {
                             if(data.errors){
@@ -45,6 +47,7 @@
                                     plain: true
                                 });
                             }
+                            $scope.running = false;
                         });
                 };
             }
