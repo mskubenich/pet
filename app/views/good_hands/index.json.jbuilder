@@ -11,5 +11,6 @@ json.announcements @good_hands.each do |hand|
   json.approved          hand.approved
   json.comments_count    hand.comments.count
   json.views_count       hand.views.count
+  json.city       hand.city
 end
 json.count @count
