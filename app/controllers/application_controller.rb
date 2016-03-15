@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user
     if current_session && current_user
-      if (Time.now - current_session.updated_at > 1.hour)
+      if (Time.now - current_session.updated_at > 10.hour)
         current_session.destroy
         bad_request ['Session invalid or expired!'], nil, 401
         return

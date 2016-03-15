@@ -1,7 +1,7 @@
 class GoodHandsController < ApplicationController
 
   load_and_authorize_resource :good_hand
-  skip_before_filter :authenticate_user, only: [:index, :show]
+  skip_before_filter :authenticate_user
   before_filter :calculate_view, only: [:show]
 
   def create
