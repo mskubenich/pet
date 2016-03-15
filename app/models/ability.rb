@@ -20,6 +20,9 @@ class Ability
         can :manage, Sale do |sale|
           sale.new_record? || sale.owner.id == user.id
         end
+        can :manage, GoodHand do |sale|
+          sale.new_record? || sale.owner.id == user.id
+        end
       end
       can :create, Comment
       can :manage, User do |entity|
